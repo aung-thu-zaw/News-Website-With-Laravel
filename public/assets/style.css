@@ -10,7 +10,6 @@ font-family: 'Vollkorn', serif; */
     font-family: "Crete Round", serif;
 }
 
-/* Login And Sign up  */
 .signup-input {
     position: relative;
 }
@@ -64,4 +63,124 @@ font-family: 'Vollkorn', serif; */
 .icon.github:hover {
     color: rgb(255, 255, 255);
     background-color: #000000;
+}
+
+.ticker-box {
+    border: 2px solid rgb(95, 95, 95);
+    display: flex;
+    align-items: center;
+    height: 3rem;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.ticker-label {
+    background-color: rgb(112, 112, 112);
+    color: white;
+    width: 15%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.news-ticker {
+    width: 85%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.card-img-overlay {
+    background-color: rgba(0, 0, 0, 0.4);
+    transition: all 0.5s ease-in-out;
+}
+
+.card-img-overlay:hover {
+    background-color: transparent;
+}
+.description {
+    font-size: 0.8rem;
+}
+
+.icon-box > span,
+.update-text {
+    font-size: 0.8rem;
+    margin-right: 1rem;
+}
+.icon-box-sm > span {
+    font-size: 0.7rem;
+    margin-right: 0.5rem;
+}
+
+.header-news-tag {
+    font-size: 0.8rem;
+    font-weight: 600;
+    background-color: rgba(178, 169, 0, 0.748);
+    border-radius: 3px;
+    width: 80px;
+    padding: 3px 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-news-tag-sm {
+    font-size: 0.7rem;
+    font-weight: 500;
+    background-color: rgba(178, 169, 0, 0.748);
+    border-radius: 3px;
+    width: 60px;
+    padding: 2px 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.news-tag-sm {
+    font-size: 0.6rem;
+    font-weight: 500;
+    background-color: rgba(178, 169, 0, 0.748);
+    border-radius: 3px;
+    width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.first-advertisement,
+.third-advertisement {
+    height: 150px;
+}
+.first-advertisement-img,
+.third-advertisement-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.second-advertisement {
+    width: 100%;
+    height: 260px;
+}
+.second-advertisement-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.fourth-advertisement,
+.fifth-advertisement {
+    height: 200px;
+}
+.fourth-advertisement-img,
+.fifth-advertisement-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+a {
+    text-decoration: none;
 }

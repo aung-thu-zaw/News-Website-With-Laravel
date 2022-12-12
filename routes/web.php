@@ -18,7 +18,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('news.index');
+});
+
+Route::get('/details', function () {
+    return view("news.show");
 });
 
 Route::get('/dashboard', function () {
