@@ -49,14 +49,20 @@
         <div class="text-center p-2 d-flex flex-column align-items-center">
             <p class="">Sign in with</p>
             <div class="w-50 d-flex align-items center justify-content-around">
-                <div class="icon facebook">
-                    <i class="fa-brands fa-facebook"></i>
+                <div>
+                    <a href="{{ route('facebook.redirect') }}" class="icon facebook text-decoration-none">
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
                 </div>
-                <div class="icon google">
-                    <i class="fa-brands fa-google"></i>
+                <div>
+                    <a href="{{ route('google.redirect') }}" class="icon google text-decoration-none">
+                        <i class="fa-brands fa-google"></i>
+                    </a>
                 </div>
-                <div class="icon twitter">
-                    <i class="fa-brands fa-twitter"></i>
+                <div>
+                    <a href="{{ route('github.redirect') }}" class="icon github text-decoration-none">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
                 </div>
             </div>
         </div>

@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Auth\SocialiteFacebookAuthController;
+use App\Http\Controllers\Auth\SocialiteGitHubAuthController;
+use App\Http\Controllers\Auth\SocialiteGoogleAuthController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,3 +32,15 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+Route::get('/auth/redirect/facebook', [SocialiteFacebookAuthController::class,"redirectToProvider"])->name("facebook.redirect");
+
+Route::get('/auth/callback/facebook', [SocialiteFacebookAuthController::class,"handelProviderCallback"]);
+
+Route::get('/auth/redirect/google', [SocialiteGoogleAuthController::class,"redirectToProvider"])->name("google.redirect");
+
+Route::get('/auth/callback/google', [SocialiteGoogleAuthController::class,"handelProviderCallback"]);
+
+Route::get('/auth/redirect/github', [SocialiteGitHubAuthController::class,"redirectToProvider"])->name("github.redirect");
+
+Route::get('/auth/callback/github', [SocialiteGitHubAuthController::class,"handelProviderCallback"]);

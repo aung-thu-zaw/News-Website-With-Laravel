@@ -4,64 +4,64 @@ font-family: 'Rubik', sans-serif;
 font-family: 'Vollkorn', serif; */
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Crete Round", serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Crete Round", serif;
 }
 
 /* Login And Sign up  */
 .signup-input {
-  position: relative;
+    position: relative;
 }
 
 .eye-icon1 {
-  color: rgba(0, 0, 0, 0.5);
-  position: absolute;
-  top: 23px;
-  right: 30px;
-  cursor: pointer;
+    color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 23px;
+    right: 30px;
+    cursor: pointer;
 }
 
 .eye-icon2 {
-  color: rgba(0, 0, 0, 0.5);
-  position: absolute;
-  top: 23px;
-  right: 30px;
-  cursor: pointer;
+    color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 23px;
+    right: 30px;
+    cursor: pointer;
 }
 
 .icon {
-  width: 40px;
-  height: 40px;
-  font-size: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 100%;
-  background-color: rgb(238, 238, 238);
-  transition: all 0.3s ease-in;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    background-color: rgb(238, 238, 238);
+    transition: all 0.3s ease-in;
 }
 
-.icon.icon.facebook {
-  color: #3b5998;
+.icon.facebook {
+    color: #3b5998;
 }
-.icon.icon.google {
-  color: #db4a39;
+.icon.google {
+    color: #db4a39;
 }
-.icon.icon.twitter {
-  color: #00acee;
+.icon.github {
+    color: #000000;
 }
 
 .icon.facebook:hover {
-  color: rgb(255, 255, 255);
-  background-color: #3b5998;
+    color: rgb(255, 255, 255);
+    background-color: #3b5998;
 }
 .icon.google:hover {
-  color: rgb(255, 255, 255);
-  background-color: #db4a39;
+    color: rgb(255, 255, 255);
+    background-color: #db4a39;
 }
-.icon.twitter:hover {
-  color: rgb(255, 255, 255);
-  background-color: #00acee;
+.icon.github:hover {
+    color: rgb(255, 255, 255);
+    background-color: #000000;
 }

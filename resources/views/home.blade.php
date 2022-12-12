@@ -11,9 +11,12 @@
 <body>
     lorem ispum bla bla
 
-
     <a href="{{ route('register') }}">Register</a>
     <a href="{{ route('login') }}">Login</a>
+
+    <p class="text-primary">
+        {{ session("error") }}
+    </p>
 </body>
 
 </html>
