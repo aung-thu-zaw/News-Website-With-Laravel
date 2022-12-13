@@ -45,8 +45,13 @@
                 <div class="dropdown ms-auto me-4">
                     <div class="d-flex align-items-center justify-content-center" href="#" role="button"
                         id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                        @if (!auth()->user()->avatar)
                         <img src="{{ asset('storage/avatars/avatar-'.auth()->user()->id.'.png') }}" alt="" width="40px"
                             height="40px" class="rounded-circle me-2" style="object-fit: cover" />
+                        @else
+                        <img src="{{ asset('/storage/avatars/'.auth()->user()->avatar) }}" alt="" width="40px"
+                            height="40px" class="rounded-circle me-2" style="object-fit: cover" />
+                        @endif
                         <p class="mb-0 text-white">{{ auth()->user()->name }}</p>
                     </div>
 

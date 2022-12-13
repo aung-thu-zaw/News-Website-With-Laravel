@@ -6,7 +6,7 @@
     <div class="row g-3 my-3">
 
         {{-- Loop This --}}
-        <div class="col-lg-4 col-md-6">
+        {{-- <div class="col-lg-4 col-md-6">
             <div class="video-box border" style="height: 300px;">
                 <iframe width="100%" height="100%" src="https://www.youtube.com/embed/bSpOU-5aq-8"
                     title="YouTube video player" frameborder="0"
@@ -53,8 +53,8 @@
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen></iframe>
             </div>
-        </div>
+        </div> --}}
+
 
     </div>
-
 </section>

@@ -39,39 +39,68 @@ class ProfileController extends Controller
         }
 
         if ($request->user()->isDirty('name')) {
+            // @dd($request->user());
             $userId=$request->user()->id;
 
-            unlink(storage_path("app/public/avatars/avatar-$userId.png"));
 
-            $colors=[
-                "#f44336",
-                "#E91E63",
-                "#9C27B0",
-                "#673AB7",
-                "#3F51B5",
-                "#2196F3",
-                "#03A9F4",
-                "#00BCD4",
-                "#009688",
-                "#4CAF50",
-                "#8BC34A",
-                "#CDDC39",
-                "#FFC107",
-                "#FF9800",
-                "#FF5722",
-            ];
 
-            $randomColor=array_rand($colors, 1);
+            if (empty($request->user()->avatar) && file_exists(storage_path("app/public/avatars/default-avatar-$userId.png"))) {
+                unlink(storage_path("app/public/avatars/default-avatar-$userId.png"));
+            }
 
-            $avatar=new Avatar();
-            $avatar->create($request->name)->setBackground($colors[$randomColor])->setBorder(0, "background")->save(storage_path("app/public/avatars/avatar-$userId.png"));
+            if (empty($request->user()->avatar) && !file_exists(storage_path("app/public/avatars/".$request->user()->avatar))) {
+                $colors=[
+                    "#f44336",
+                    "#E91E63",
+                    "#9C27B0",
+                    "#673AB7",
+                    "#3F51B5",
+                    "#2196F3",
+                    "#03A9F4",
+                    "#00BCD4",
+                    "#009688",
+                    "#4CAF50",
+                    "#8BC34A",
+                    "#CDDC39",
+                    "#FFC107",
+                    "#FF9800",
+                    "#FF5722",
+                ];
+
+                $randomColor=array_rand($colors, 1);
+
+                $avatar=new Avatar();
+                $avatar->create($request->name)->setBackground($colors[$randomColor])->setBorder(0, "background")->save(storage_path("app/public/avatars/default-avatar-$userId.png"));
+            }
         }
 
 
 
+        if ($request->hasFile("avatar")) {
+            $user=$request->user();
+
+            if (file_exists(storage_path("app/public/avatars/default-avatar-$user->id.png"))) {
+                unlink(storage_path("app/public/avatars/default-avatar-$user->id.png"));
+            }
+
+            if (!empty($request->user()->avatar) && file_exists(storage_path("app/public/avatars/$user->avatar"))) {
+                unlink(storage_path("app/public/avatars/$user->avatar"));
+            }
+
+            $extension=$request->file("avatar")->extension();
+
+            $finalName="avatar-$user->id.$extension";
+
+            $request->file("avatar")->storeAs("avatars", $finalName);
+
+
+            $request->user()->avatar=$finalName;
+        }
+
+
         $request->user()->save();
 
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+        return Redirect::route('profile.edit')->with('success', 'Profile is updated successfully');
     }
 
     /**
