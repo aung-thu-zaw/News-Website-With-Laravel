@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
+use Laravolt\Avatar\Avatar;
 
 class RegisteredUserController extends Controller
 {
@@ -45,10 +46,35 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
+        $colors=[
+            "#f44336",
+            "#E91E63",
+            "#9C27B0",
+            "#673AB7",
+            "#3F51B5",
+            "#2196F3",
+            "#03A9F4",
+            "#00BCD4",
+            "#009688",
+            "#4CAF50",
+            "#8BC34A",
+            "#CDDC39",
+            "#FFC107",
+            "#FF9800",
+            "#FF5722",
+        ];
+
+        $randomColor=array_rand($colors, 1);
+
+        $avatar=new Avatar();
+        $avatar->create($request->name)->setBackground($colors[$randomColor])->setBorder(0, "background")->save(storage_path("app/public/avatars/avatar-$user->id.png"));
+
         event(new Registered($user));
 
         Auth::login($user);
 
-        return redirect(RouteServiceProvider::HOME);
+        // session()->flash("success", "gfdgsgfdg");
+
+        return redirect(RouteServiceProvider::HOME)->with("success", "<strong>Account is created successfully.</strong> Check your email box, Please verify your email.");
     }
 }

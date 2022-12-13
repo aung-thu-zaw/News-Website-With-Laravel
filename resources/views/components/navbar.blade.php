@@ -1,7 +1,7 @@
 <!-- Navbar Start  -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-3">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">World News</a>
+        <a class="navbar-brand" href="{{ route('home') }}">World News</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <i class="fa-solid fa-bars"></i>
@@ -9,44 +9,23 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mb-2 w-auto mb-lg-0 d-flex mx-auto align-items-center justify-content-evenly">
                 <li class="nav-item mx-3">
-                    <a class="nav-link" aria-current="page" href="#">Home</a>
+                    <a href="{{ route('home') }}" class="nav-link" aria-current="page">Home</a>
                 </li>
                 <li class="nav-item mx-3">
-                    <a class="nav-link" aria-current="page" href="#">About Us</a>
+                    <a href="{{ route('about_us') }}" class="nav-link" aria-current="page">About Us</a>
                 </li>
                 <li class="nav-item mx-3">
-                    <a class="nav-link" aria-current="page" href="#">FAQ</a>
+                    <a href="{{ route('faq') }}" class="nav-link" aria-current="page">FAQ</a>
                 </li>
                 <li class="nav-item mx-3">
-                    <a class="nav-link" aria-current="page" href="#">
+                    <a href="{{ route('contact_us') }}" class="nav-link" aria-current="page">
                         Contact Us
                     </a>
                 </li>
             </ul>
 
-
-
-
-
-
-
             <div class="d-flex align-items-center justify-content-between w-auto">
 
-
-                <!-- <div>
-  <ul
-  class="navbar-nav mb-2 w-auto mb-lg-0 d-flex mx-auto align-items-center justify-content-evenly"
->
-<li class="nav-item mx-3">
-  <a class="nav-link text-decoration-underline text-primary" aria-current="page" href="#">Register</a>
-</li>
-
-|
-  <li class="nav-item mx-3">
-    <a class="nav-link text-decoration-underline text-primary" aria-current="page" href="#">Login</a>
-  </li>
-</ul>
-</div> -->
 
                 <!-- Choose Languages  -->
                 <div class="dropdown me-5">
@@ -60,13 +39,15 @@
 
                     </ul>
                 </div>
-                <!-- User Profile -->
+
+
+                @auth
                 <div class="dropdown ms-auto me-4">
                     <div class="d-flex align-items-center justify-content-center" href="#" role="button"
                         id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/640px-Image_created_with_a_mobile_phone.png"
-                            alt="" width="40px" height="40px" class="rounded-circle me-2" style="object-fit: cover" />
-                        <p class="mb-0 text-white">Aung Thu Zaw</p>
+                        <img src="{{ asset('storage/avatars/avatar-'.auth()->user()->id.'.png') }}" alt="" width="40px"
+                            height="40px" class="rounded-circle me-2" style="object-fit: cover" />
+                        <p class="mb-0 text-white">{{ auth()->user()->name }}</p>
                     </div>
 
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -85,20 +66,47 @@
                         <li>
                             <hr class="dropdown-divider" />
                         </li>
-                        <li>
-                            <a class="dropdown-item" href="#">
-                                Logout
+                        <li style="cursor: pointer;">
+                            <form action="{{ route('logout') }}" method="POST" class="d-flex align-items-center px-3">
+                                @csrf
+                                <input type="submit" value="Logout" class="border-0"
+                                    style="background-color: transparent;">
                                 <i class="fa-solid fa-arrow-right-from-bracket ms-3"></i>
-                            </a>
+                            </form>
                         </li>
                     </ul>
                 </div>
+                @else
+                <div>
+                    <ul class="navbar-nav mb-2 w-auto mb-lg-0 d-flex mx-auto align-items-center justify-content-evenly">
+                        <li class="nav-item mx-3">
+                            <a class="nav-link text-decoration-underline text-primary" aria-current="page"
+                                href="{{ route('register') }}">Register</a>
+                        </li>
+
+                        |
+                        <li class="nav-item mx-3">
+                            <a class="nav-link text-decoration-underline text-primary" aria-current="page"
+                                href="{{ route('login') }}">Login</a>
+                        </li>
+                    </ul>
+                </div>
+                @endauth
+
+
+
+
+
+
 
             </div>
-
-
         </div>
-    </div>
-    </div>
 </nav>
+
+@if (session("success"))
+<div class="alert alert-success alert-dismissible fade show text-center mt-3" role="alert">
+    {!! session("success") !!}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+@endif
 <!-- Navbar End  -->

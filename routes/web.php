@@ -3,6 +3,10 @@
 use App\Http\Controllers\Auth\SocialiteFacebookAuthController;
 use App\Http\Controllers\Auth\SocialiteGitHubAuthController;
 use App\Http\Controllers\Auth\SocialiteGoogleAuthController;
+use App\Http\Controllers\News\AboutUsController;
+use App\Http\Controllers\News\ContactUsController;
+use App\Http\Controllers\News\FaqController;
+use App\Http\Controllers\News\HomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,9 +21,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('news.index');
-});
+Route::get('/', [HomeController::class,"index"])->name("home");
+
+Route::get("/about_us", [AboutUsController::class,"index"])->name("about_us");
+
+Route::get("/faq", [FaqController::class,"index"])->name("faq");
+
+Route::get("/contact_us", [ContactUsController::class,"index"])->name("contact_us");
+
+
+
+
+
+
 
 Route::get('/details', function () {
     return view("news.show");

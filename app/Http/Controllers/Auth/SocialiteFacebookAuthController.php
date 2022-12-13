@@ -38,6 +38,6 @@ class SocialiteFacebookAuthController extends Controller
             Auth::login($existingUser);
         }
 
-        return to_route("dashboard");
+        return to_route('home');
     }
 }
