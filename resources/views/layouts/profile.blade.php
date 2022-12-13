@@ -7,8 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>World News</title>
 
-
-
     <link rel="shortcut icon"
         href="https://static.vecteezy.com/system/resources/thumbnails/007/925/780/small/tv-news-icon-isolated-on-white-background-free-vector.jpg"
         type="image/x-icon">
@@ -34,22 +32,27 @@
 
 <body>
 
-    <x-navbar />
+    <div class="container p-5">
+        <h1 class="py-3 border-5 border-bottom my-5">Edit Profile</h1>
 
-    <x-category_navbar />
-
-
-    {{ $slot }}
-
-    <x-footer />
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="border shadow-sm p-3 mb-4">
+                    {{ $slot }}
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="/dist/js/bootstrap.min.js" type="text/javascript"></script>
     <script src="/assets/js/typewritter.js"></script>
+    <script src="/assets/js/control_form_input.js"></script>
+
 
     @if (session()->get("success"))
     <script>
         iziToast.success({
-    title: 'Completed',
+    title: 'Updated',
     position:"topRight",
     message: '{{ session("success") }}',
 });
@@ -64,15 +67,37 @@
 });
     </script>
     @endif
-    @if (session()->get("info"))
-    <script>
-        iziToast.info({
-    title: 'Deleted',
-    position:"topRight",
-    message: '{{ session("info") }}',
-});
-    </script>
-    @endif
 </body>
 
 </html>
+
+
+{{-- <x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Profile') }}
+        </h2>
+    </x-slot>
+
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
+            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
+                <div class="max-w-xl">
+                    @include('profile.partials.update-profile-information-form')
+                </div>
+            </div>
+
+            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
+                <div class="max-w-xl">
+                    @include('profile.partials.update-password-form')
+                </div>
+            </div>
+
+            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
+                <div class="max-w-xl">
+                    @include('profile.partials.delete-user-form')
+                </div>
+            </div>
+        </div>
+    </div>
+</x-app-layout> --}}

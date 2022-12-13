@@ -67,7 +67,7 @@ class RegisteredUserController extends Controller
         $randomColor=array_rand($colors, 1);
 
         $avatar=new Avatar();
-        $avatar->create($request->name)->setBackground($colors[$randomColor])->setBorder(0, "background")->save(storage_path("app/public/avatars/avatar-$user->id.png"));
+        $avatar->create($request->name)->setBackground($colors[$randomColor])->setBorder(0, "background")->save(storage_path("app/public/avatars/default-avatar-$user->id.png"));
 
         event(new Registered($user));
 
@@ -75,6 +75,6 @@ class RegisteredUserController extends Controller
 
         // session()->flash("success", "gfdgsgfdg");
 
-        return redirect(RouteServiceProvider::HOME)->with("success", "<strong>Account is created successfully.</strong> Check your email box, Please verify your email.");
+        return redirect(RouteServiceProvider::HOME)->with("user-create", "<strong>Account is created successfully.</strong> Check your email box, Please verify your email.");
     }
 }

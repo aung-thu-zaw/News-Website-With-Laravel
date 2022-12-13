@@ -46,8 +46,8 @@
                     <div class="d-flex align-items-center justify-content-center" href="#" role="button"
                         id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                         @if (!auth()->user()->avatar)
-                        <img src="{{ asset('storage/avatars/avatar-'.auth()->user()->id.'.png') }}" alt="" width="40px"
-                            height="40px" class="rounded-circle me-2" style="object-fit: cover" />
+                        <img src="{{ asset('storage/avatars/default-avatar-'.auth()->user()->id.'.png') }}" alt=""
+                            width="40px" height="40px" class="rounded-circle me-2" style="object-fit: cover" />
                         @else
                         <img src="{{ asset('/storage/avatars/'.auth()->user()->avatar) }}" alt="" width="40px"
                             height="40px" class="rounded-circle me-2" style="object-fit: cover" />
@@ -108,9 +108,9 @@
         </div>
 </nav>
 
-@if (session("success"))
+@if (session("user-create"))
 <div class="alert alert-success alert-dismissible fade show text-center mt-3" role="alert">
-    {!! session("success") !!}
+    {!! session("user-create") !!}
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
 @endif

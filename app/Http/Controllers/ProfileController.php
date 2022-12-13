@@ -39,7 +39,6 @@ class ProfileController extends Controller
         }
 
         if ($request->user()->isDirty('name')) {
-            // @dd($request->user());
             $userId=$request->user()->id;
 
 
@@ -117,13 +116,23 @@ class ProfileController extends Controller
 
         $user = $request->user();
 
+
         Auth::logout();
+
+        if (file_exists(storage_path("app/public/avatars/default-avatar-$user->id.png"))) {
+            unlink(storage_path("app/public/avatars/default-avatar-$user->id.png"));
+        }
+
+        if (!empty($user->avatar) && file_exists(storage_path("app/public/avatars/$user->avatar"))) {
+            unlink(storage_path("app/public/avatars/$user->avatar"));
+        }
+
 
         $user->delete();
 
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return Redirect::to('/');
+        return Redirect::to('/')->with("info", "Your Account is deleted successfully");
     }
 }
