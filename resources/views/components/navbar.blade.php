@@ -52,7 +52,7 @@
 
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                         <li>
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="{{ route('profile.edit') }}">
                                 My Profile
                                 <i class="fa-solid fa-address-card ms-3"></i>
                             </a>

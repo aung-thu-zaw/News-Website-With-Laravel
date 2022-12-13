@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use Laravolt\Avatar\Avatar;
 
 class ProfileController extends Controller
 {
@@ -35,6 +37,37 @@ class ProfileController extends Controller
         if ($request->user()->isDirty('email')) {
             $request->user()->email_verified_at = null;
         }
+
+        if ($request->user()->isDirty('name')) {
+            $userId=$request->user()->id;
+
+            unlink(storage_path("app/public/avatars/avatar-$userId.png"));
+
+            $colors=[
+                "#f44336",
+                "#E91E63",
+                "#9C27B0",
+                "#673AB7",
+                "#3F51B5",
+                "#2196F3",
+                "#03A9F4",
+                "#00BCD4",
+                "#009688",
+                "#4CAF50",
+                "#8BC34A",
+                "#CDDC39",
+                "#FFC107",
+                "#FF9800",
+                "#FF5722",
+            ];
+
+            $randomColor=array_rand($colors, 1);
+
+            $avatar=new Avatar();
+            $avatar->create($request->name)->setBackground($colors[$randomColor])->setBorder(0, "background")->save(storage_path("app/public/avatars/avatar-$userId.png"));
+        }
+
+
 
         $request->user()->save();
 
