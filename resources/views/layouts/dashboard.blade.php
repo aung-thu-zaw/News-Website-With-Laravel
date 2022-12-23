@@ -13,7 +13,8 @@
 
     <link rel="stylesheet" href="{{ asset('dist/css/iziModal.min.css') }}">
     <link rel="stylesheet" href="{{ asset('dist/css/iziToast.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('dist/css/bootstrap.min.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link
         href="https://fonts.googleapis.com/css2?family=Crete+Round:ital@0;1&family=Roboto+Slab:wght@500&family=Rubik:wght@400;500&family=Vollkorn:wght@400;500;700&display=swap"
         rel="stylesheet" />
@@ -31,43 +32,28 @@
 </head>
 
 <body>
+    <x-dashboard-sidebar />
 
-    <div class="container p-5">
-        <h1 class="py-3 border-5 border-bottom my-5">Edit Profile</h1>
 
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="border shadow-sm p-3 mb-4">
-                    {{ $slot }}
+    <div id="main">
+        <div class="row p-4 bg-secondary">
+            <div class="col-12 d-flex align-items-center">
+                <div onclick="toggleNav()" class="me-5" style="cursor: pointer">
+                    <i class="fa-solid fa-bars fs-4"></i>
+                </div>
+                <div>
+                    <h2>Admin Dashboard</h2>
                 </div>
             </div>
         </div>
+        {{ $slot }}
     </div>
 
-    <script src="/dist/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
     <script src="/assets/js/typewritter.js"></script>
-    <script src="/assets/js/control_form_input.js"></script>
-    <script src="/assets/js/preview_upload_image.js"></script>
-
-
-    @if (session()->get("success"))
-    <script>
-        iziToast.success({
-    title: 'Updated',
-    position:"topRight",
-    message: '{{ session("success") }}',
-});
-    </script>
-    @endif
-    @if (session()->get("error"))
-    <script>
-        iziToast.error({
-    title: 'Error',
-    position:"topRight",
-    message: '{{ session("error") }}',
-});
-    </script>
-    @endif
+    <script src="/assets/js/script.js"></script>
 </body>
 
 </html>

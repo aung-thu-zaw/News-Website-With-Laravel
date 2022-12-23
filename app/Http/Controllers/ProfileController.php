@@ -97,6 +97,9 @@ class ProfileController extends Controller
         }
 
 
+        // @dd($request->user());
+
+
         $request->user()->save();
 
         return Redirect::route('profile.edit')->with('success', 'Profile is updated successfully');
@@ -110,9 +113,12 @@ class ProfileController extends Controller
      */
     public function destroy(Request $request)
     {
-        $request->validateWithBag('userDeletion', [
-            'password' => ['required', 'current-password'],
-        ]);
+        if (auth()->user() && !auth()->user()->google_id && !auth()->user()->facebook_id
+        && !auth()->user()->github_id) {
+            $request->validateWithBag('userDeletion', [
+                'password' => ['required', 'current-password'],
+            ]);
+        }
 
         $user = $request->user();
 

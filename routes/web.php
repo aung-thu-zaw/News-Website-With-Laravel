@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\Dashboard\Advertisements\HomeAdvertisementController;
+use App\Http\Controllers\Admin\Dashboard\Advertisements\SidebarAdvertisementController;
 use App\Http\Controllers\Auth\SocialiteFacebookAuthController;
 use App\Http\Controllers\Auth\SocialiteGitHubAuthController;
 use App\Http\Controllers\Auth\SocialiteGoogleAuthController;
@@ -31,6 +33,13 @@ Route::get("/contact_us", [ContactUsController::class,"index"])->name("contact_u
 
 
 
+Route::get("/home_advertisement", [HomeAdvertisementController::class,"index"])->name("admin.home.advertisement");
+Route::get("/sidebar_advertisement", [SidebarAdvertisementController::class,"index"])->name("admin.sidebar.advertisement");
+Route::get("/home_advertisement/edit", [HomeAdvertisementController::class,"edit"])->name("admin.home.advertisement.edit");
+Route::get("/sidebar_advertisement/edit", [SidebarAdvertisementController::class,"edit"])->name("admin.sidebar.advertisement.edit");
+
+
+
 
 
 
@@ -40,7 +49,7 @@ Route::get('/details', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('dashboard.index');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {

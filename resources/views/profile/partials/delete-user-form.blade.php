@@ -32,6 +32,8 @@
 
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
+                    @if (auth()->user() && !auth()->user()->google_id && !auth()->user()->facebook_id
+                    && !auth()->user()->github_id)
                     <div class="modal-body">
                         <div class="form-floating mb-3">
                             <input type="password" name="password" class="form-control control-password-input1"
@@ -49,6 +51,7 @@
 
                         </div>
                     </div>
+                    @endif
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                         <button type="submit" class="btn btn-danger">Delete</button>
