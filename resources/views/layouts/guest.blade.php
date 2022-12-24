@@ -13,6 +13,12 @@
         rel="stylesheet" />
     <script src="https://kit.fontawesome.com/18c274e5f3.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/assets/css/style.css" />
+
+
+
+
+    <link rel="stylesheet" href="{{ asset('dist/css/iziToast.min.css') }}">
+    <script src="{{ asset('dist/js/iziToast.min.js') }}" type="text/javascript"></script>
 </head>
 
 <body>
@@ -30,6 +36,29 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
     <script src="/assets/js/control_form_input.js"></script>
+
+
+
+
+
+    @if (session()->get("success"))
+    <script>
+        iziToast.success({
+    title: 'Updated',
+    position:"topRight",
+    message: '{{ session("success") }}',
+});
+    </script>
+    @endif
+    @if (session()->get("error"))
+    <script>
+        iziToast.error({
+    title: 'Error',
+    position:"topRight",
+    message: '{{ session("error") }}',
+});
+    </script>
+    @endif
 </body>
 
 </html>

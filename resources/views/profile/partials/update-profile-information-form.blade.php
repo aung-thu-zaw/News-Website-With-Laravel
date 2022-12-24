@@ -3,8 +3,8 @@
         <div class="col-lg-4 d-flex align-items-center justify-content-center">
             @if (!auth()->user()->avatar)
             <img src="https://t4.ftcdn.net/jpg/04/73/25/49/360_F_473254957_bxG9yf4ly7OBO5I0O5KABlN930GwaMQz.jpg" alt=""
-                style="width: 350px; height: 350px; object-fit: cover;object-position: center"
-                class="border border-5" />
+                style="width: 350px; height: 350px; object-fit: cover;object-position: center" class="border border-5"
+                id="previewPhoto" />
             @elseif (auth()->user()->avatar && auth()->user()->google_id &&
             str_starts_with(auth()->user()->avatar, "http"))
             <img src="{{ auth()->user()->avatar }}" alt="" id="previewPhoto"

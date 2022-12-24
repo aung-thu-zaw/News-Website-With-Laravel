@@ -24,6 +24,8 @@ class ProfileUpdateRequest extends FormRequest
             $rules["avatar"]=["required","image","mimes:png,jpg,gif,jpeg"];
         }
 
+
+
         return $rules;
     }
 }

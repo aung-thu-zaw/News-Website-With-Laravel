@@ -13,12 +13,15 @@
                 Change Password
             </button>
         </li>
+
+        @if (!auth()->user()->facebook_id && !auth()->user()->google_id && !auth()->user()->github_id)
         <li class="nav-item" role="presentation">
             <button class="nav-link" id="account-security-tab" data-bs-toggle="tab" data-bs-target="#account-security"
                 type="button" role="tab" aria-controls="account-security" aria-selected="false">
                 Account Security
             </button>
         </li>
+        @endif
         <li class="nav-item" role="presentation">
             <button class="nav-link" id="delete-account-tab" data-bs-toggle="tab" data-bs-target="#delete-account"
                 type="button" role="tab" aria-controls="delete-account" aria-selected="false">
@@ -33,8 +36,9 @@
 
         @include('profile.partials.update-password-form')
 
-        <div class="tab-pane fade" id="account-security" role="tabpanel" aria-labelledby="account-security-tab">
-        </div>
+        @if (!auth()->user()->facebook_id && !auth()->user()->google_id && !auth()->user()->github_id)
+        @include("profile.partials.user-account-two-factor")
+        @endif
 
         @include('profile.partials.delete-user-form')
 

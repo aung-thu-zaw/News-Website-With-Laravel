@@ -1,5 +1,10 @@
 <x-guest-layout>
     <h1 class="text-center text-primary mb-5">Login Here</h1>
+    @if (session("expire"))
+    <p class="text-danger text-center">
+        {{ session("expire") }}
+    </p>
+    @endif
     <form action="{{ url('/login') }}" method="POST">
         @csrf
         @if (session()->has("status"))
