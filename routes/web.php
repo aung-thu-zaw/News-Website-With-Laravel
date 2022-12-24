@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\Dashboard\Advertisements\HomeAdvertisementController;
 use App\Http\Controllers\Admin\Dashboard\Advertisements\SidebarAdvertisementController;
+use App\Http\Controllers\Admin\Dashboard\DashboardController;
 use App\Http\Controllers\Auth\SocialiteFacebookAuthController;
 use App\Http\Controllers\Auth\SocialiteGitHubAuthController;
 use App\Http\Controllers\Auth\SocialiteGoogleAuthController;
@@ -13,17 +14,35 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\TwoFactorController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+# ============== User Authentication ==============
+Route::prefix("/auth/redirect")->name("redirect.")->group(function () {
+    Route::get('/facebook', [SocialiteFacebookAuthController::class,"redirectToProvider"])->name("facebook");
+    Route::get('/google', [SocialiteGoogleAuthController::class,"redirectToProvider"])->name("google");
+    Route::get('/github', [SocialiteGitHubAuthController::class,"redirectToProvider"])->name("github");
+});
 
+Route::prefix("/auth/callback")->group(function () {
+    Route::get('/facebook', [SocialiteFacebookAuthController::class,"handelProviderCallback"]);
+    Route::get('/google', [SocialiteGoogleAuthController::class,"handelProviderCallback"]);
+    Route::get('/github', [SocialiteGitHubAuthController::class,"handelProviderCallback"]);
+});
+
+Route::get('verify/resend', [TwoFactorController::class,"resend"])->name('verify.resend');
+
+Route::resource("verify", TwoFactorController::class)->only(["index","store"]);
+
+require __DIR__.'/auth.php';
+
+
+# ============== User Profile ==============
+Route::middleware(['auth'])->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+
+# ============== News Index Page ==============
 Route::get('/', [HomeController::class,"index"])->middleware(["twofactor"])->name("home");
 
 Route::get("/about_us", [AboutUsController::class,"index"])->name("about_us");
@@ -33,48 +52,19 @@ Route::get("/faq", [FaqController::class,"index"])->name("faq");
 Route::get("/contact_us", [ContactUsController::class,"index"])->name("contact_us");
 
 
-
-Route::get("/home_advertisement", [HomeAdvertisementController::class,"index"])->name("admin.home.advertisement");
-Route::get("/sidebar_advertisement", [SidebarAdvertisementController::class,"index"])->name("admin.sidebar.advertisement");
-Route::get("/home_advertisement/edit", [HomeAdvertisementController::class,"edit"])->name("admin.home.advertisement.edit");
-Route::get("/sidebar_advertisement/edit", [SidebarAdvertisementController::class,"edit"])->name("admin.sidebar.advertisement.edit");
-
-Route::get('verify/resend', [TwoFactorController::class,"resend"])->name('verify.resend');
-
-Route::resource("verify", TwoFactorController::class)->only(["index","store"]);
-
-
-
-
-
+# ============== News Details Page ==============
 Route::get('/details', function () {
     return view("news.show");
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard.index');
-})->middleware(['auth'])->name('dashboard');
 
-Route::middleware(['auth'])->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+# ============== Admin Dashboard ==============
+Route::get('/dashboard', [DashboardController::class,"index"])->middleware(['auth'])->name('dashboard');
 
+Route::get("/home_advertisement", [HomeAdvertisementController::class,"show"])->name("admin.home-advertisement");
 
+Route::get("/sidebar_advertisement", [SidebarAdvertisementController::class,"show"])->name("admin.sidebar-advertisement");
 
-require __DIR__.'/auth.php';
+Route::put("/home_advertisement/update", [HomeAdvertisementController::class,"update"])->name("admin.home-advertisement.update");
 
-
-
-Route::get('/auth/redirect/facebook', [SocialiteFacebookAuthController::class,"redirectToProvider"])->name("facebook.redirect");
-
-Route::get('/auth/callback/facebook', [SocialiteFacebookAuthController::class,"handelProviderCallback"]);
-
-Route::get('/auth/redirect/google', [SocialiteGoogleAuthController::class,"redirectToProvider"])->name("google.redirect");
-
-Route::get('/auth/callback/google', [SocialiteGoogleAuthController::class,"handelProviderCallback"]);
-
-Route::get('/auth/redirect/github', [SocialiteGitHubAuthController::class,"redirectToProvider"])->name("github.redirect");
-
-Route::get('/auth/callback/github', [SocialiteGitHubAuthController::class,"handelProviderCallback"]);
+Route::put("/sidebar_advertisement/update", [SidebarAdvertisementController::class,"update"])->name("admin.sidebar-advertisement.update");

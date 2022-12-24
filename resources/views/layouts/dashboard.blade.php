@@ -42,7 +42,7 @@
                     <i class="fa-solid fa-bars fs-4"></i>
                 </div>
                 <div>
-                    <h2>Admin Dashboard</h2>
+                    <h2>@yield("title")</h2>
                 </div>
             </div>
         </div>
@@ -54,6 +54,36 @@
     </script>
     <script src="/assets/js/typewritter.js"></script>
     <script src="/assets/js/script.js"></script>
+    <script src="/assets/js/preview_upload_image.js"></script>
+
+    @if (session()->get("success"))
+    <script>
+        iziToast.success({
+    title: 'Completed',
+    position:"topRight",
+    message: '{{ session("success") }}',
+});
+    </script>
+    @endif
+    @if (session()->get("error"))
+    <script>
+        iziToast.error({
+    title: 'Error',
+    position:"topRight",
+    message: '{{ session("error") }}',
+});
+    </script>
+    @endif
+    @if (session()->get("info"))
+    <script>
+        iziToast.info({
+    title: 'Deleted',
+    position:"topRight",
+    message: '{{ session("info") }}',
+});
+    </script>
+    @endif
+
 </body>
 
 </html>

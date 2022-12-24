@@ -55,17 +55,17 @@
             <p class="">Sign in with</p>
             <div class="w-50 d-flex align-items center justify-content-around">
                 <div>
-                    <a href="{{ route('facebook.redirect') }}" class="icon facebook text-decoration-none">
+                    <a href="{{ route('redirect.facebook') }}" class="icon facebook text-decoration-none">
                         <i class="fa-brands fa-facebook"></i>
                     </a>
                 </div>
                 <div>
-                    <a href="{{ route('google.redirect') }}" class="icon google text-decoration-none">
+                    <a href="{{ route('redirect.google') }}" class="icon google text-decoration-none">
                         <i class="fa-brands fa-google"></i>
                     </a>
                 </div>
                 <div>
-                    <a href="{{ route('github.redirect') }}" class="icon github text-decoration-none">
+                    <a href="{{ route('redirect.github') }}" class="icon github text-decoration-none">
                         <i class="fa-brands fa-github"></i>
                     </a>
                 </div>

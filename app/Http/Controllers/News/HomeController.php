@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\News;
 
 use App\Http\Controllers\Controller;
+use App\Models\HomeAdvertisement;
+use App\Models\SidebarAdvertisement;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -14,7 +16,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('news.index');
+        return view('news.index', [
+            "homeAdvertisement"=>HomeAdvertisement::first(),
+            "sidebarAdvertisement"=>SidebarAdvertisement::first(),
+        ]);
     }
 
     /**

@@ -154,35 +154,10 @@ font-family: 'Vollkorn', serif; */
     align-items: center;
     justify-content: center;
 }
-.first-advertisement,
-.third-advertisement {
-    height: 150px;
-}
-.first-advertisement-img,
-.third-advertisement-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-}
-
-.second-advertisement {
-    width: 100%;
-    height: 260px;
-}
-.second-advertisement-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-}
-
-.fourth-advertisement,
-.fifth-advertisement {
+.home-advertisement {
     height: 200px;
 }
-.fourth-advertisement-img,
-.fifth-advertisement-img {
+.home-advertisement-img {
     width: 100%;
     height: 100%;
     object-fit: cover;

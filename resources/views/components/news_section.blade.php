@@ -710,7 +710,7 @@
             <x-tags />
 
 
-            <x-second_advertisement_top />
+            <x-sidebar_top_advertisement :ad="$ad" />
 
 
             <!-- Popular News  -->
@@ -966,7 +966,8 @@
             </div>
 
 
-            <x-second_advertisement_bottom />
+
+            <x-sidebar_bottom_advertisement :ad="$ad" />
 
         </div>
 

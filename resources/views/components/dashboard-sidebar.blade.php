@@ -6,7 +6,7 @@
     </div>
     <div class="h-100">
         <div class="my-2">
-            <a href="#">
+            <a href="/dashboard">
                 <i class="fa-solid fa-gauge-high me-2"></i>
                 <span class="dashboard-nav-item">
                     Dashboard
@@ -29,10 +29,10 @@
                 </a>
             </div>
             <div class="collapse bg-secondary" id="collapseExample">
-                <a href="{{ route('admin.home.advertisement') }}" class="border-bottom border-2">
+                <a href="{{ route('admin.home-advertisement') }}" class="border-bottom border-2">
                     <span class="me-5 dashboard-nav-item">Home Advertisement</span>
                 </a>
-                <a href="{{ route('admin.sidebar.advertisement') }}" class="border-bottom border-2">
+                <a href="{{ route('admin.sidebar-advertisement') }}" class="border-bottom border-2">
                     <span class="me-5 dashboard-nav-item">Sidebar Advertisement</span>
                 </a>
             </div>

@@ -1,26 +1,29 @@
 <x-app-layout>
 
+    {{-- @dd($homeAdvertisement,$sidebarAdvertisement) --}}
     <x-header_section />
 
 
-    <x-first_advertisement />
+    <x-home_top_advertisement :ad="$homeAdvertisement" />
 
 
     <x-search_news_section />
 
 
-    <x-news_section />
+    <x-news_section :ad="$sidebarAdvertisement" />
 
 
-    <x-third_advertisement />
+
+    <x-home_middle_advertisement :ad="$homeAdvertisement" />
 
 
     <x-your_choice_news_section />
 
 
-    <x-fourth_advertisement />
+    <x-home_bottom_advertisement :ad="$homeAdvertisement" />
 
 
     <x-trending_videos_section />
+
 
 </x-app-layout>
