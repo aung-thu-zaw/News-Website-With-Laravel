@@ -6,7 +6,7 @@
     </div>
     <div class="h-100">
         <div class="my-2">
-            <a href="/dashboard">
+            <a href="{{ route('admin.dashboard') }}">
                 <i class="fa-solid fa-gauge-high me-2"></i>
                 <span class="dashboard-nav-item">
                     Dashboard
@@ -16,8 +16,8 @@
 
         <div class="my-2">
             <div class="">
-                <a data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
-                    aria-controls="collapseExample" onclick="toggleDownArrow()"
+                <a data-bs-toggle="collapse" data-bs-target=".collapseOne" href="#collapseExample" role="button"
+                    aria-expanded="false" aria-controls="collapseExample" onclick="toggleDownArrow()"
                     class="d-flex align-items-center justify-content-between">
                     <div>
                         <i class="fa-solid fa-rectangle-ad me-2"></i>
@@ -28,7 +28,7 @@
                     </div>
                 </a>
             </div>
-            <div class="collapse bg-secondary" id="collapseExample">
+            <div class="collapse collapseOne bg-secondary" id="collapseExample">
                 <a href="{{ route('admin.home-advertisement') }}" class="border-bottom border-2">
                     <span class="me-5 dashboard-nav-item">Home Advertisement</span>
                 </a>
@@ -37,6 +37,36 @@
                 </a>
             </div>
         </div>
+
+
+        <div class="my-2">
+            <div class="">
+                <a data-bs-toggle="collapse" data-bs-target=".collapseTwo" href="#collapseExample" role="button"
+                    aria-expanded="false" aria-controls="collapseExample" onclick="toggleDownArrow()"
+                    class="d-flex align-items-center justify-content-between">
+                    <div>
+                        <i class="fa-solid fa-laptop"></i>
+                        <span class="me-5 dashboard-nav-item">Categories</span>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-caret-down left-icon" id="down-icon"></i>
+                    </div>
+                </a>
+            </div>
+            <div class="collapse collapseTwo bg-secondary" id="collapseExample">
+                <a href="{{ route('admin.category') }}" class="border-bottom border-2">
+                    <span class="me-5 dashboard-nav-item">Category</span>
+                </a>
+                <a href="{{ route('admin.sub-category') }}" class="border-bottom border-2">
+                    <span class="me-5 dashboard-nav-item">SubCategory</span>
+                </a>
+            </div>
+        </div>
+
+
+
+
+
     </div>
 
 
@@ -53,7 +83,7 @@
                 </span>
             </div>
             <ul class="dropdown-menu bg-dark text-white-50">
-                <li><a class="dropdown-item" href="{{ route('home') }}">Home</a></li>
+                <li><a class="dropdown-item" href="{{ route('news.home') }}">Home</a></li>
                 <li>
                     <hr class="dropdown-divider text-white">
                 </li>
@@ -66,8 +96,6 @@
                         @csrf
 
                         <button type="submit" class="btn text-white">Logout</button>
-                        {{-- <input type="submit" value="Logout" class="border-0"
-                            style="background-color: transparent;"> --}}
                     </form>
                 </li>
             </ul>

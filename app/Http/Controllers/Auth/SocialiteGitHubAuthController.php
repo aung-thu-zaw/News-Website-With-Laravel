@@ -38,7 +38,6 @@ class SocialiteGitHubAuthController extends Controller
             Auth::login($existingUser);
         }
 
-        return to_route('home');
-
+        return to_route('news.home');
     }
 }

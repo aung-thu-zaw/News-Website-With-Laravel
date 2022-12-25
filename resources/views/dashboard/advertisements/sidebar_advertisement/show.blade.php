@@ -6,7 +6,7 @@
             <form action="{{ route('admin.sidebar-advertisement.update') }}" method="POST" enctype="multipart/form-data"
                 class="border p-3 shadow-sm">
                 @csrf
-                @method("PUT")
+                @method("PATCH")
                 <div class="row">
                     <div class="col-12 p-3 my-3">
                         <div class="">

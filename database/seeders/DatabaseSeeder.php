@@ -18,6 +18,8 @@ class DatabaseSeeder extends Seeder
             HomeAdvertisementSeeder::class,
             SidebarAdvertisementSeeder::class,
             NewsPostSeeder::class,
+            CategorySeeder::class,
+            SubCategorySeeder::class,
         ]);
     }
 }
