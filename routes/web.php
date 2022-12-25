@@ -9,7 +9,7 @@ use App\Http\Controllers\Auth\SocialiteGoogleAuthController;
 use App\Http\Controllers\News\AboutUsController;
 use App\Http\Controllers\News\ContactUsController;
 use App\Http\Controllers\News\FaqController;
-use App\Http\Controllers\News\HomeController;
+use App\Http\Controllers\News\HomeNewsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\TwoFactorController;
 use Illuminate\Support\Facades\Route;
@@ -43,7 +43,9 @@ Route::middleware(['auth'])->group(function () {
 
 
 # ============== News Index Page ==============
-Route::get('/', [HomeController::class,"index"])->middleware(["twofactor"])->name("home");
+Route::get('/', [HomeNewsController::class,"index"])->middleware(["twofactor"])->name("news.home");
+
+Route::get('/news/{news_post:slug}', [HomeNewsController::class,"show"])->name("news.show");
 
 Route::get("/about_us", [AboutUsController::class,"index"])->name("about_us");
 
@@ -53,9 +55,6 @@ Route::get("/contact_us", [ContactUsController::class,"index"])->name("contact_u
 
 
 # ============== News Details Page ==============
-Route::get('/details', function () {
-    return view("news.show");
-});
 
 
 # ============== Admin Dashboard ==============

@@ -1,10 +1,12 @@
 <x-app-layout>
+
+    {{-- @dd($newsPost) --}}
     <section class="container mt-3 py-3">
         <div class="row g-3">
             <div class="col-lg-8 col-md-6">
-                <x-breadcrumbs />
+                <x-breadcrumbs :post="$newsPost" />
 
-                <x-single_news_details />
+                <x-single_news_details :post="$newsPost" />
 
                 <x-related_tags />
 
@@ -16,11 +18,12 @@
                 <div>
                     <x-related_news_box />
 
-                    <x-archive/>
+                    <x-archive />
 
                     <x-tags />
 
-                    <x-second_advertisement_top />
+                    {{--
+                    <x-sidebar_top_advertisement :ad="$sidebarAdvertisement" /> --}}
 
                 </div>
             </div>

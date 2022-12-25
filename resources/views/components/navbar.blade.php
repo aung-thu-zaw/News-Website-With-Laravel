@@ -1,7 +1,7 @@
 <!-- Navbar Start  -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-3">
     <div class="container-fluid">
-        <a class="navbar-brand" href="{{ route('home') }}">World News</a>
+        <a class="navbar-brand" href="{{ route('news.home') }}">World News</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <i class="fa-solid fa-bars"></i>
@@ -9,7 +9,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mb-2 w-auto mb-lg-0 d-flex mx-auto align-items-center justify-content-evenly">
                 <li class="nav-item mx-3">
-                    <a href="{{ route('home') }}" class="nav-link" aria-current="page">Home</a>
+                    <a href="{{ route('news.home') }}" class="nav-link" aria-current="page">Home</a>
                 </li>
                 <li class="nav-item mx-3">
                     <a href="{{ route('about_us') }}" class="nav-link" aria-current="page">About Us</a>

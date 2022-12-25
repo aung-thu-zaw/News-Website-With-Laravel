@@ -4,10 +4,11 @@ namespace App\Http\Controllers\News;
 
 use App\Http\Controllers\Controller;
 use App\Models\HomeAdvertisement;
+use App\Models\NewsPost;
 use App\Models\SidebarAdvertisement;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class HomeNewsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,6 +20,7 @@ class HomeController extends Controller
         return view('news.index', [
             "homeAdvertisement"=>HomeAdvertisement::first(),
             "sidebarAdvertisement"=>SidebarAdvertisement::first(),
+            "latestNewsPosts"=>NewsPost::orderBy("id", "desc")->take(5)->get()
         ]);
     }
 
@@ -49,9 +51,11 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(NewsPost $newsPost)
     {
-        //
+        return view("news.show", [
+            "newsPost"=>$newsPost
+        ]);
     }
 
     /**

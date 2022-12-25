@@ -53,11 +53,23 @@
                 </span>
             </div>
             <ul class="dropdown-menu bg-dark text-white-50">
-                <li><a class="dropdown-item" href="#">Profile</a></li>
+                <li><a class="dropdown-item" href="{{ route('home') }}">Home</a></li>
                 <li>
                     <hr class="dropdown-divider text-white">
                 </li>
-                <li><a class="dropdown-item" href="#">Logout</a></li>
+                <li><a class="dropdown-item" href="{{ route('profile.edit') }}">Profile</a></li>
+                <li>
+                    <hr class="dropdown-divider text-white">
+                </li>
+                <li style="cursor: pointer;">
+                    <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+
+                        <button type="submit" class="btn text-white">Logout</button>
+                        {{-- <input type="submit" value="Logout" class="border-0"
+                            style="background-color: transparent;"> --}}
+                    </form>
+                </li>
             </ul>
         </div>
     </div>

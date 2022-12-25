@@ -2,10 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\SidebarAdvertisement;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class AdvertisementSeeder extends Seeder
+class SidebarAdvertisementSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +15,6 @@ class AdvertisementSeeder extends Seeder
      */
     public function run()
     {
-        //
+        SidebarAdvertisement::factory()->create();
     }
 }

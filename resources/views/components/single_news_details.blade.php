@@ -1,5 +1,7 @@
+@props(["post"])
+
 <div>
-    <h2 class="text-center my-3">This is a Title</h2>
+    <h2 class="text-center my-3">{{ $post->title }}</h2>
 </div>
 <div>
     <div class="text-secondary" style="font-size: .8rem;">
@@ -13,8 +15,7 @@
 
 
 <div class="my-3 w-100">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/640px-Image_created_with_a_mobile_phone.png"
-        alt="" style="width: 100%; height: 500px; object-fit: cover;">
+    <img src="{{ $post->photo }}" alt="" style="width: 100%; height: 500px; object-fit: cover;">
 </div>
 
 
@@ -40,52 +41,7 @@
 
 
 <div>
-    <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit ratione est consectetur
-        voluptatem. Architecto aspernatur corporis consequuntur soluta culpa a eaque id placeat. Sit
-        nemo,
-        vero eaque, culpa vel, vitae magni exercitationem maxime voluptatem iure eligendi quod veniam
-        minus
-        praesentium numquam odio quas. Rerum atque unde ullam animi at beatae maxime, repellendus magni
-        aliquam deleniti consequuntur exercitationem, fugiat, asperiores aperiam. Quo nisi voluptatem
-        tenetur repudiandae libero minus odio tempora sint vel perferendis molestias provident magni
-        quasi,
-        ipsam quaerat voluptate quia voluptas rerum consectetur facere, adipisci mollitia. Distinctio
-        molestias error expedita voluptatem iusto nam asperiores sint accusantium harum dolores
-        quibusdam
-        deleniti, odio et, quis laudantium natus excepturi quam incidunt rerum voluptate placeat dolorum
-        repudiandae nesciunt aspernatur. Ab quaerat delectus
-    </p>
-    <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit ratione est consectetur
-        voluptatem. Architecto aspernatur corporis consequuntur soluta culpa a eaque id placeat. Sit
-        nemo,
-        vero eaque, culpa vel, vitae magni exercitationem maxime voluptatem iure eligendi quod veniam
-        minus
-        praesentium numquam odio quas. Rerum atque unde ullam animi at beatae maxime, repellendus magni
-        aliquam deleniti consequuntur exercitationem, fugiat, asperiores aperiam. Quo nisi voluptatem
-        tenetur repudiandae libero minus odio tempora sint vel perferendis molestias provident magni
-        quasi,
-        ipsam quaerat voluptate quia voluptas rerum consectetur facere, adipisci mollitia. Distinctio
-        molestias error expedita voluptatem iusto nam asperiores sint accusantium harum dolores
-        quibusdam
-        deleniti, odio et, quis laudantium natus excepturi quam incidunt rerum voluptate placeat dolorum
-        repudiandae nesciunt aspernatur. Ab quaerat delectus
-    </p>
-    <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit ratione est consectetur
-        voluptatem. Architecto aspernatur corporis consequuntur soluta culpa a eaque id placeat. Sit
-        nemo,
-        vero eaque, culpa vel, vitae magni exercitationem maxime voluptatem iure eligendi quod veniam
-        minus
-        praesentium numquam odio quas. Rerum atque unde ullam animi at beatae maxime, repellendus magni
-        aliquam deleniti consequuntur exercitationem, fugiat, asperiores aperiam. Quo nisi voluptatem
-        tenetur repudiandae libero minus odio tempora sint vel perferendis molestias provident magni
-        quasi,
-        ipsam quaerat voluptate quia voluptas rerum consectetur facere, adipisci mollitia. Distinctio
-        molestias error expedita voluptatem iusto nam asperiores sint accusantium harum dolores
-        quibusdam
-        deleniti, odio et, quis laudantium natus excepturi quam incidunt rerum voluptate placeat dolorum
-        repudiandae nesciunt aspernatur. Ab quaerat delectus
-    </p>
+    <span>
+        {{ $post->body }}
+    </span>
 </div>

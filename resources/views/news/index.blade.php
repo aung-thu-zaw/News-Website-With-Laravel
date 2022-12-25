@@ -1,7 +1,6 @@
 <x-app-layout>
 
-    {{-- @dd($homeAdvertisement,$sidebarAdvertisement) --}}
-    <x-header_section />
+    <x-header_section :posts="$latestNewsPosts" />
 
 
     <x-home_top_advertisement :ad="$homeAdvertisement" />
@@ -11,7 +10,6 @@
 
 
     <x-news_section :ad="$sidebarAdvertisement" />
-
 
 
     <x-home_middle_advertisement :ad="$homeAdvertisement" />
