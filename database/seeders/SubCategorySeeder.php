@@ -81,263 +81,301 @@ class SubCategorySeeder extends Seeder
 
 
 
-        // SubCategory::create([
-        //     "category_id"=>2,
-        //     "name"=>"2020 Ele232ction",
-        //     "slug"=>"2020-elect22rion",
-        //     "status"=>"show"
-        // ]);
-        // SubCategory::create([
-        //     "category_id"=>2,
-        //     "name"=>"Eurofepe",
-        //     "slug"=>"eurffope",
-        //     "status"=>"show"
-        // ]);
-        // SubCategory::create([
-        //     "category_id"=>2,
-        //     "name"=>"Indfaia",
-        //     "slug"=>"indfdia",
-        //     "status"=>"show"
-        // ]);
-        // SubCategory::create([
-        //     "category_id"=>2,
-        //     "name"=>"Mid23fdle East",
-        //     "slug"=>"midderfle-east",
-        //     "status"=>"sheow"
-        // ]);
+        SubCategory::create([
+            "category_id"=>2,
+            "name"=>"Spring Revolution",
+            "slug"=>"spring-revolution",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"show"
+        ]);
+        SubCategory::create([
+            "category_id"=>2,
+            "name"=>"Military Coup",
+            "slug"=>"military-coup",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"show"
+        ]);
+        SubCategory::create([
+            "category_id"=>2,
+            "name"=>"What happening",
+            "slug"=>"what-happening",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"show"
+        ]);
+        SubCategory::create([
+            "category_id"=>2,
+            "name"=>"Civil Wars",
+            "slug"=>"civil-wars",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"show"
+        ]);
 
 
-        // SubCategory::create([
-        //     "category_id"=>3,
-        //     "name"=>"2020 El23ection",
-        //     "slug"=>"2020-elewfction",
-        //     "status"=>"show"
-        // ]);
-        // SubCategory::create([
-        //     "category_id"=>3,
-        //     "name"=>"Eur32ope",
-        //     "slug"=>"eurfeope",
-        //     "status"=>"show"
-        // ]);
-        // SubCategory::create([
-        //     "category_id"=>3,
-        //     "name"=>"Ind3rfia",
-        //     "slug"=>"in32dia",
-        //     "status"=>"show"
-        // ]);
-        // SubCategory::create([
-        //     "category_id"=>3,
-        //     "name"=>"Mi23rddle East",
-        //     "slug"=>"middw23le-east",
-        //     "status"=>"show"
-        // ]);
+        SubCategory::create([
+            "category_id"=>3,
+            "name"=>"Markets",
+            "slug"=>"markets",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"show"
+        ]);
+        SubCategory::create([
+            "category_id"=>3,
+            "name"=>"Tech",
+            "slug"=>"tech",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"show"
+        ]);
+        SubCategory::create([
+            "category_id"=>3,
+            "name"=>"Media",
+            "slug"=>"media",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"show"
+        ]);
+        SubCategory::create([
+            "category_id"=>3,
+            "name"=>"Success",
+            "slug"=>"success",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"show"
+        ]);
+        SubCategory::create([
+            "category_id"=>3,
+            "name"=>"Perspectives",
+            "slug"=>"perspectives",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"show"
+        ]);
 
 
-        // SubCategory::create([
-        //     "category_id"=>4,
-        //     "name"=>"2020 Elec3wtion",
-        //     "slug"=>"2020-elect2rion",
-        //     "status"=>"show"
-        // ]);
-        // SubCategory::create([
-        //     "category_id"=>4,
-        //     "name"=>"Esfurope",
-        //     "slug"=>"eurovsdpe",
-        //     "status"=>"show"
-        // ]);
-        // SubCategory::create([
-        //     "category_id"=>4,
-        //     "name"=>"Indvsia",
-        //     "slug"=>"infddia",
-        //     "status"=>"vshow"
-        // ]);
-        // SubCategory::create([
-        //     "category_id"=>4,
-        //     "name"=>"Mideewdle East",
-        //     "slug"=>"middl2ee-east",
-        //     "status"=>"show"
-        // ]);
+        SubCategory::create([
+            "category_id"=>4,
+            "name"=>"Life",
+            "slug"=>"life",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"show"
+        ]);
+        SubCategory::create([
+            "category_id"=>4,
+            "name"=>"Fitness",
+            "slug"=>"fitness",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"show"
+        ]);
+        SubCategory::create([
+            "category_id"=>4,
+            "name"=>"Food",
+            "slug"=>"food",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"show"
+        ]);
+        SubCategory::create([
+            "category_id"=>4,
+            "name"=>"Sleep",
+            "slug"=>"sleep",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"show"
+        ]);
+        SubCategory::create([
+            "category_id"=>4,
+            "name"=>"Mediation",
+            "slug"=>"mediation",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"show"
+        ]);
 
 
-        // SubCategory::create([
-        //     "category_id"=>5,
-        //     "name"=>"2020 Eleeection",
-        //     "slug"=>"2020-elecdfdtion",
-        //     "status"=>"show"
-        // ]);
-        // SubCategory::create([
-        //     "category_id"=>5,
-        //     "name"=>"Eurefeope",
-        //     "slug"=>"eurerwwope",
-        //     "status"=>"show"
-        // ]);
-        // SubCategory::create([
-        //     "category_id"=>5,
-        //     "name"=>"Indeeeia",
-        //     "slug"=>"indffedia",
-        //     "status"=>"show"
-        // ]);
-        // SubCategory::create([
-        //     "category_id"=>5,
-        //     "name"=>"Midweedle East",
-        //     "slug"=>"mdfwwiddle-east",
-        //     "status"=>"show"
-        // ]);
+        SubCategory::create([
+            "category_id"=>5,
+            "name"=>"Celebrity",
+            "slug"=>"celebrity",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"show"
+        ]);
+        SubCategory::create([
+            "category_id"=>5,
+            "name"=>"Movies",
+            "slug"=>"movies",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"show"
+        ]);
+        SubCategory::create([
+            "category_id"=>5,
+            "name"=>"Television",
+            "slug"=>"television",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"show"
+        ]);
 
 
-        // SubCategory::create([
-        //     "category_id"=>6,
-        //     "name"=>"2020 Eldff3ection",
-        //     "slug"=>"2020-elecdftion",
-        //     "status"=>"show"
-        // ]);
-        // SubCategory::create([
-        //     "category_id"=>6,
-        //     "name"=>"Eudsfrope",
-        //     "slug"=>"euffrope",
-        //     "status"=>"show"
-        // ]);
-        // SubCategory::create([
-        //     "category_id"=>6,
-        //     "name"=>"Indfdia",
-        //     "slug"=>"indfia",
-        //     "status"=>"show"
-        // ]);
-        // SubCategory::create([
-        //     "category_id"=>6,
-        //     "name"=>"Msadfiddle East",
-        //     "slug"=>"midfddle-east",
-        //     "status"=>"show"
-        // ]);
+        SubCategory::create([
+            "category_id"=>6,
+            "name"=>"Computer",
+            "slug"=>"computer",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"show"
+        ]);
+        SubCategory::create([
+            "category_id"=>6,
+            "name"=>"Block Chain And Cryptocurrency",
+            "slug"=>"block-chain-and-cryptocurrency",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"show"
+        ]);
+        SubCategory::create([
+            "category_id"=>6,
+            "name"=>"Networking",
+            "slug"=>"networking",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"show"
+        ]);
+        SubCategory::create([
+            "category_id"=>6,
+            "name"=>"Developement",
+            "slug"=>"developement",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"show"
+        ]);
 
 
-        // SubCategory::create([
-        //     "category_id"=>7,
-        //     "name"=>"2020 Electdsfion",
-        //     "slug"=>"2020-elecdsftion",
-        //     "status"=>"show"
-        // ]);
-        // SubCategory::create([
-        //     "category_id"=>7,
-        //     "name"=>"Eusdfrope",
-        //     "slug"=>"eusdfrope",
-        //     "status"=>"show"
-        // ]);
-        // SubCategory::create([
-        //     "category_id"=>7,
-        //     "name"=>"Indfdia",
-        //     "slug"=>"inddffia",
-        //     "status"=>"show"
-        // ]);
-        // SubCategory::create([
-        //     "category_id"=>7,
-        //     "name"=>"Misdaddle East",
-        //     "slug"=>"midddle-east",
-        //     "status"=>"show"
-        // ]);
+        SubCategory::create([
+            "category_id"=>7,
+            "name"=>"Arts",
+            "slug"=>"arts",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"show"
+        ]);
+        SubCategory::create([
+            "category_id"=>7,
+            "name"=>"Design",
+            "slug"=>"design",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"show"
+        ]);
+        SubCategory::create([
+            "category_id"=>7,
+            "name"=>"Fashion",
+            "slug"=>"fashion",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"show"
+        ]);
+        SubCategory::create([
+            "category_id"=>7,
+            "name"=>"Architecture",
+            "slug"=>"architecture",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"show"
+        ]);
+        SubCategory::create([
+            "category_id"=>7,
+            "name"=>"Luxury",
+            "slug"=>"luxury",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"show"
+        ]);
+        SubCategory::create([
+            "category_id"=>7,
+            "name"=>"Beauty",
+            "slug"=>"beauty",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"show"
+        ]);
 
 
-        // SubCategory::create([
-        //     "category_id"=>8,
-        //     "name"=>"2020 Elecdsastion",
-        //     "slug"=>"2020-elecdfdtion",
-        //     "status"=>"show"
-        // ]);
-        // SubCategory::create([
-        //     "category_id"=>8,
-        //     "name"=>"Eusarope",
-        //     "slug"=>"euroedfepe",
-        //     "status"=>"show"
-        // ]);
-        // SubCategory::create([
-        //     "category_id"=>8,
-        //     "name"=>"Insafdia",
-        //     "slug"=>"indasdfia",
-        //     "status"=>"show"
-        // ]);
-        // SubCategory::create([
-        //     "category_id"=>8,
-        //     "name"=>"Middle Esfast",
-        //     "slug"=>"middle-esdfast",
-        //     "status"=>"show"
-        // ]);
+        SubCategory::create([
+            "category_id"=>8,
+            "name"=>"Food and Drink",
+            "slug"=>"food-and-drink",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"show"
+        ]);
+        SubCategory::create([
+            "category_id"=>8,
+            "name"=>"Stay",
+            "slug"=>"stay",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"show"
+        ]);
+        SubCategory::create([
+            "category_id"=>8,
+            "name"=>"News",
+            "slug"=>"news",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"show"
+        ]);
+        SubCategory::create([
+            "category_id"=>8,
+            "name"=>"Destinations",
+            "slug"=>"destinations",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"show"
+        ]);
 
 
-        // SubCategory::create([
-        //     "category_id"=>9,
-        //     "name"=>"202sd0 Elesafction",
-        //     "slug"=>"20sf20-election",
-        //     "status"=>"show"
-        // ]);
-        // SubCategory::create([
-        //     "category_id"=>9,
-        //     "name"=>"Eurasfope",
-        //     "slug"=>"eurasfope",
-        //     "status"=>"show"
-        // ]);
-        // SubCategory::create([
-        //     "category_id"=>9,
-        //     "name"=>"Indsfia",
-        //     "slug"=>"inasdia",
-        //     "status"=>"show"
-        // ]);
-        // SubCategory::create([
-        //     "category_id"=>9,
-        //     "name"=>"Middle Easfeast",
-        //     "slug"=>"middle-eassafv",
-        //     "status"=>"show"
-        // ]);
+        SubCategory::create([
+            "category_id"=>9,
+            "name"=>"World Cup",
+            "slug"=>"world-cup",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"show"
+        ]);
+        SubCategory::create([
+            "category_id"=>9,
+            "name"=>"Tennis",
+            "slug"=>"tennis",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"show"
+        ]);
+        SubCategory::create([
+            "category_id"=>9,
+            "name"=>"Golf",
+            "slug"=>"golf",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"show"
+        ]);
+        SubCategory::create([
+            "category_id"=>9,
+            "name"=>"Football",
+            "slug"=>"football",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"show"
+        ]);
+        SubCategory::create([
+            "category_id"=>9,
+            "name"=>"Esports",
+            "slug"=>"esports",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"show"
+        ]);
+        SubCategory::create([
+            "category_id"=>9,
+            "name"=>"Climbing",
+            "slug"=>"climbing",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"show"
+        ]);
+        SubCategory::create([
+            "category_id"=>9,
+            "name"=>"Olympics",
+            "slug"=>"olympics",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"show"
+        ]);
 
 
-        // SubCategory::create([
-        //     "category_id"=>10,
-        //     "name"=>"2020 Elecretion",
-        //     "slug"=>"2020-electsfion",
-        //     "status"=>"show"
-        // ]);
-        // SubCategory::create([
-        //     "category_id"=>10,
-        //     "name"=>"Eufdrope",
-        //     "slug"=>"eudfdrope",
-        //     "status"=>"show"
-        // ]);
-        // SubCategory::create([
-        //     "category_id"=>10,
-        //     "name"=>"Indidfdfa",
-        //     "slug"=>"indfdfia",
-        //     "status"=>"show"
-        // ]);
-        // SubCategory::create([
-        //     "category_id"=>10,
-        //     "name"=>"Mifdfddle East",
-        //     "slug"=>"midfddle-east",
-        //     "status"=>"show"
-        // ]);
-
-
-        // SubCategory::create([
-        //     "category_id"=>11,
-        //     "name"=>"2020 Eldfection",
-        //     "slug"=>"2020-elefdfction",
-        //     "status"=>"show"
-        // ]);
-        // SubCategory::create([
-        //     "category_id"=>11,
-        //     "name"=>"Eudfdfrope",
-        //     "slug"=>"eufdfrope",
-        //     "status"=>"show"
-        // ]);
-        // SubCategory::create([
-        //     "category_id"=>11,
-        //     "name"=>"Infddia",
-        //     "slug"=>"indfddia",
-        //     "status"=>"show"
-        // ]);
-        // SubCategory::create([
-        //     "category_id"=>11,
-        //     "name"=>"Midddfdle East",
-        //     "slug"=>"midddle-efast",
-        //     "status"=>"fshow"
-        // ]);
+        SubCategory::create([
+            "category_id"=>10,
+            "name"=>"Photos",
+            "slug"=>"photos",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"show"
+        ]);
+        SubCategory::create([
+            "category_id"=>10,
+            "name"=>"Videos",
+            "slug"=>"videos",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"show"
+        ]);
     }
 }

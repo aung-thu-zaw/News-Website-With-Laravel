@@ -63,13 +63,8 @@ class CategorySeeder extends Seeder
             "status"=>"show"
         ]);
         Category::create([
-            "name"=>"Photos",
-            "slug"=>"photos",
-            "status"=>"show"
-        ]);
-        Category::create([
-            "name"=>"Videos",
-            "slug"=>"videos",
+            "name"=>"Gallery",
+            "slug"=>"gallery",
             "status"=>"show"
         ]);
     }
