@@ -4,7 +4,6 @@
         link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.
     </p>
 
-
     @if (session('status') == 'verification-link-sent')
     <div class="mb-4 text-success">
         A new verification link has been sent to the email address you provided during registration.
@@ -13,15 +12,15 @@
 
     <form action="{{ route('verification.send') }}" method="POST">
         @csrf
-        <div class="mb-3">
-            <button type="submit" class="btn btn-outline-primary">Resend Verification Email</button>
-        </div>
+
+        <x-form.input-button name="Resend Verification Email" />
+
     </form>
 
     <form action="{{ route('logout') }}" method="POST">
         @csrf
-        <div class="mb-3">
-            <button type="submit" class="btn btn-primary">Logout</button>
-        </div>
+
+        <x-form.input-button name="Logout" />
+
     </form>
 </x-guest-layout>

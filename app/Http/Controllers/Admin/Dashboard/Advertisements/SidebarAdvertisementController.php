@@ -10,7 +10,7 @@ class SidebarAdvertisementController extends Controller
 {
     public function show()
     {
-        return view('dashboard.advertisements.sidebar_advertisement.show', [
+        return view('admin.dashboard.advertisements.sidebar-advertisement.show', [
             "sidebarAdvertisement" => SidebarAdvertisement::first()
         ]);
     }

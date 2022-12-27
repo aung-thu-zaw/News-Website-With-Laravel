@@ -1,27 +1,25 @@
 <x-app-layout>
-
-    <x-header_section :posts="$latestNewsPosts" />
-
-
-    <x-home_top_advertisement :ad="$homeAdvertisement" />
+    <x-header-section :posts="$latestNewsPosts" />
 
 
-    <x-search_news_section />
+    <x-home-top-advertisement :ad="$homeAdvertisement" />
 
 
-    <x-news_section :ad="$sidebarAdvertisement" />
+    <x-search-news-section />
 
 
-    <x-home_middle_advertisement :ad="$homeAdvertisement" />
+    <x-news-section />
 
 
-    <x-your_choice_news_section />
+    <x-home-middle-advertisement :ad="$homeAdvertisement" />
 
 
-    <x-home_bottom_advertisement :ad="$homeAdvertisement" />
+    <x-your-choice-news-section />
 
 
-    <x-trending_videos_section />
+    <x-home-bottom-advertisement :ad="$homeAdvertisement" />
 
+
+    <x-trending-videos-section />
 
 </x-app-layout>

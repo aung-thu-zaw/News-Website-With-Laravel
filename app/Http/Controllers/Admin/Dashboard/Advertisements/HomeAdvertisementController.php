@@ -10,7 +10,7 @@ class HomeAdvertisementController extends Controller
 {
     public function show()
     {
-        return view('dashboard.advertisements.home_advertisement.show', [
+        return view('admin.dashboard.advertisements.home-advertisement.show', [
             "homeAdvertisement" => HomeAdvertisement::first()
         ]);
     }

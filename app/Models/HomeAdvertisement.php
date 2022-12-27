@@ -9,5 +9,4 @@ class HomeAdvertisement extends Model
 {
     use HasFactory;
 
-    protected $guarded=[];
 }

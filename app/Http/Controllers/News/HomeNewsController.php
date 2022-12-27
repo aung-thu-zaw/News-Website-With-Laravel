@@ -5,7 +5,6 @@ namespace App\Http\Controllers\News;
 use App\Http\Controllers\Controller;
 use App\Models\HomeAdvertisement;
 use App\Models\NewsPost;
-use App\Models\SidebarAdvertisement;
 use Illuminate\Http\Request;
 
 class HomeNewsController extends Controller
@@ -18,8 +17,7 @@ class HomeNewsController extends Controller
     public function index()
     {
         return view('news.index', [
-            "homeAdvertisement"=>HomeAdvertisement::first(),
-            "sidebarAdvertisement"=>SidebarAdvertisement::first(),
+            "homeAdvertisement"=>HomeAdvertisement::where("id", 1)->first(),
             "latestNewsPosts"=>NewsPost::orderBy("id", "desc")->take(5)->get()
         ]);
     }

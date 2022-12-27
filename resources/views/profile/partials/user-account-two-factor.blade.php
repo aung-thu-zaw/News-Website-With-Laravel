@@ -2,6 +2,7 @@
     <form action="{{ route('security.update') }}" method="POST">
         @csrf
         @method("PUT")
+
         <div class="form-check mb-3">
             <input class="form-check-input" name="enable_two_factor" type="checkbox" value="enable"
                 {{auth()->user()->enable_two_factor==="enable"? "checked":"" }}>
@@ -9,6 +10,8 @@
                 Enable Two Factor Authentication
             </label>
         </div>
+
+
         <div class="mb-3">
             <button type="submit" class="btn btn-primary">Save</button>
         </div>

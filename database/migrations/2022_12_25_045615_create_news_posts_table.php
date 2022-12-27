@@ -15,7 +15,7 @@ return new class () extends Migration {
         Schema::create('news_posts', function (Blueprint $table) {
             $table->id();
             $table->string("title");
-            $table->string("slug");
+            $table->string("slug")->unique();
             $table->string("photo");
             $table->text("body");
             $table->timestamps();

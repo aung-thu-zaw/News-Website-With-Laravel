@@ -1,7 +1,7 @@
-document.getElementById("file").addEventListener("change", (e) => {
-    const file = e.target.files[0];
+document.getElementById("file1").addEventListener("change", (e) => {
+    const file1 = e.target.files[0];
     // console.log(document.getElementById("previewPhoto").src);
-    document.getElementById("previewPhoto").src = URL.createObjectURL(file);
+    document.getElementById("previewPhoto1").src = URL.createObjectURL(file1);
 });
 document.getElementById("file2").addEventListener("change", (e) => {
     const file2 = e.target.files[0];

@@ -9,28 +9,17 @@
         <input type="hidden" name="token" value="{{ $request->route('token') }}">
         <input type="hidden" name="email" value="{{ $request->email }}">
 
-        <div class="form-floating mb-3 signup-input">
-            <input type="password" name="password" class="form-control control-password-input1" id="floatingPassword1"
-                placeholder="Password" required/>
-            <i class="fa-solid fa-eye eye-icon1"></i>
-            <label for="floatingPassword">Password</label>
-            @error("password")
-            <p class="text-center text-danger">{{ $message }}</p>
-            @enderror
-        </div>
+        <x-form.floating-input-password class="control-password-input1" name="password">
+            <x-form.eye-icon class="eye-icon1" />
+            <x-form.label name="password" />
+        </x-form.floating-input-password>
 
-        <div class="form-floating mb-3">
-            <input type="password" name="password_confirmation" class="form-control control-password-input2"
-                id="floatingPassword2" placeholder="Password" required/>
-            <i class="fa-solid fa-eye eye-icon2"></i>
-            <label for="floatingPassword">Confirm Password</label>
-            @error("password_confirmation")
-            <p class="text-center text-danger">{{ $message }}</p>
-            @enderror
-        </div>
+        <x-form.floating-input-password class="control-password-input2" name="password_confirmation">
+            <x-form.eye-icon class="eye-icon2" />
+            <x-form.label name="Confirm Password" />
+        </x-form.floating-input-password>
 
-        <div class="mb-3 d-grid">
-            <button type="submit" class="btn btn-primary">Reset Password</button>
-        </div>
+        <x-form.input-button name="Reset Password" />
+
     </form>
 </x-guest-layout>

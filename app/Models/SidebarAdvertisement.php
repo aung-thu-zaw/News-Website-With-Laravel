@@ -9,5 +9,4 @@ class SidebarAdvertisement extends Model
 {
     use HasFactory;
 
-    protected $guarded=[];
 }

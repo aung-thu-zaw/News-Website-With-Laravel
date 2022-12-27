@@ -37,10 +37,10 @@ require __DIR__.'/auth.php';
 
 
 # ============== User Profile ==============
-Route::middleware(['auth'])->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+Route::controller(ProfileController::class)->middleware(['auth'])->name("profile.")->group(function () {
+    Route::get('/profile', 'edit')->name('edit');
+    Route::patch('/profile', 'update')->name('update');
+    Route::delete('/profile', 'destroy')->name('destroy');
 });
 
 
@@ -49,52 +49,50 @@ Route::get('/', [HomeNewsController::class,"index"])->middleware(["twofactor"])-
 
 Route::get('/news/{news_post:slug}', [HomeNewsController::class,"show"])->name("news.show");
 
-Route::get("/about_us", [AboutUsController::class,"index"])->name("about_us");
+Route::get("/about_us", [AboutUsController::class,"index"])->name("about-us");
 
 Route::get("/faq", [FaqController::class,"index"])->name("faq");
 
-Route::get("/contact_us", [ContactUsController::class,"index"])->name("contact_us");
-
-
-# ============== News Details Page ==============
+Route::get("/contact_us", [ContactUsController::class,"index"])->name("contact-us");
 
 
 # ============== Admin Dashboard ==============
-Route::get('admin/dashboard', [DashboardController::class,"index"])->middleware(['auth'])->name('admin.dashboard');
+Route::middleware(["auth","admin"])->prefix("admin")->name("admin.")->group(function () {
+    Route::get('/dashboard', [DashboardController::class,"index"])->name('dashboard');
 
-Route::get("admin/home_advertisement", [HomeAdvertisementController::class,"show"])->name("admin.home-advertisement");
+    Route::get("/home_advertisement", [HomeAdvertisementController::class,"show"])->name("home-advertisement");
 
-Route::get("admin/sidebar_advertisement", [SidebarAdvertisementController::class,"show"])->name("admin.sidebar-advertisement");
+    Route::get("/sidebar_advertisement", [SidebarAdvertisementController::class,"show"])->name("sidebar-advertisement");
 
-Route::patch("admin/home_advertisement/update", [HomeAdvertisementController::class,"update"])->name("admin.home-advertisement.update");
+    Route::patch("/home_advertisement/update", [HomeAdvertisementController::class,"update"])->name("home-advertisement.update");
 
-Route::patch("admin/sidebar_advertisement/update", [SidebarAdvertisementController::class,"update"])->name("admin.sidebar-advertisement.update");
+    Route::patch("/sidebar_advertisement/update", [SidebarAdvertisementController::class,"update"])->name("sidebar-advertisement.update");
+});
 
+Route::controller(CategoryController::class)->middleware(["auth","admin"])->prefix("admin/categories")->name("admin.category.")->group(function () {
+    Route::get("/", "index")->name("index");
 
+    Route::get("/create", "create")->name("create");
 
-Route::get("admin/categories", [CategoryController::class,"index"])->name("admin.category");
+    Route::post("/store", "store")->name("store");
 
-Route::get("admin/categories/create", [CategoryController::class,"create"])->name("admin.category.create");
+    Route::get("/{category:slug}/edit", "edit")->name("edit");
 
-Route::post("admin/categories/store", [CategoryController::class,"store"])->name("admin.category.store");
+    Route::patch("/{category:slug}/update", "update")->name("update");
 
-Route::get("admin/categories/{category:slug}/edit", [CategoryController::class,"edit"])->name("admin.category.edit");
+    Route::delete("/{category:slug}/delete", "destroy")->name("destroy");
+});
 
-Route::patch("admin/categories/{category:slug}/update", [CategoryController::class,"update"])->name("admin.category.update");
+Route::controller(SubCategoryController::class)->middleware(["auth","admin"])->prefix("admin/sub_categories")->name("admin.sub-category.")->group(function () {
+    Route::get("/", "index")->name("index");
 
-Route::delete("admin/categories/{category:slug}/delete", [CategoryController::class,"destroy"])->name("admin.category.destroy");
+    Route::get("/create", "create")->name("create");
 
+    Route::post("/store", "store")->name("store");
 
+    Route::get("/{sub_category:slug}/edit", "edit")->name("edit");
 
+    Route::patch("/{sub_category:slug}/update", "update")->name("update");
 
-Route::get("admin/sub_categories", [SubCategoryController::class,"index"])->name("admin.sub-category");
-
-Route::get("admin/sub_categories/create", [SubCategoryController::class,"create"])->name("admin.sub-category.create");
-
-Route::post("admin/sub_categories/store", [SubCategoryController::class,"store"])->name("admin.sub-category.store");
-
-Route::get("admin/sub_categories/{sub_category:slug}/edit", [SubCategoryController::class,"edit"])->name("admin.sub-category.edit");
-
-Route::patch("admin/sub_categories/{sub_category:slug}/update", [SubCategoryController::class,"update"])->name("admin.sub-category.update");
-
-Route::delete("admin/sub_categories/{sub_category:slug}/delete", [SubCategoryController::class,"destroy"])->name("admin.sub-category.destroy");
+    Route::delete("/{sub_category:slug}/delete", "destroy")->name("destroy");
+});

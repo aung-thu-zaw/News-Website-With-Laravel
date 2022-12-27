@@ -7,69 +7,38 @@
     @endif
     <form action="{{ url('/login') }}" method="POST">
         @csrf
+
         @if (session()->has("status"))
-        <div class="alert alert-success">
-            <p class="text-center mb-0">{{ session("status") }}</p>
-        </div>
+        <x-form.session-status name="{{ session('status') }}" />
         @endif
-        <div class="form-floating mb-3">
-            <input type="email" name="email" value="{{ old('email') }}" class="form-control" id="floatingEmail"
-                placeholder="name@example.com" required />
-            <label for="floatingEmail">Email address</label>
 
-            @error("email")
-            <p class="text-center text-danger">{{ $message }}</p>
-            @enderror
-        </div>
+        <x-form.floating-input type="email" name="email" >
+        <x-form.label name="Email Address" />
+        </x-form.floating-input>
 
-        <div class="form-floating mb-3">
-            <input type="password" name="password" class="form-control control-password-input1" id="floatingPassword"
-                placeholder="Password" required />
-            <i class="fa-solid fa-eye eye-icon1"></i>
-            <label for="floatingPassword">Password</label>
+        <x-form.floating-input-password class="control-password-input1" name="password">
+            <x-form.eye-icon class="eye-icon1" />
+            <x-form.label name="password" />
+        </x-form.floating-input-password>
 
-            @error("email")
-            <p class="text-center text-danger">{{ $message }}</p>
-            @enderror
-        </div>
-        <div class="mb-3">
+        <x-form.input-wrapper>
             <input type="checkbox" name="remember" class="form-check-input me-2" />
             <label for="remember">Remember me</label>
-        </div>
-        <div class="mb-3 d-grid">
-            <button type="submit" class="btn btn-primary btn-lg">Login</button>
-        </div>
-        <div class="mb-3">
+        </x-form.input-wrapper>
+
+        <x-form.input-button name="Login" />
+
+        <x-form.input-wrapper>
             <a href="{{ route('password.request') }}" class="text-primary">Forgot Password?</a>
-        </div>
-        <div class="mb-3">
+        </x-form.input-wrapper>
+
+        <x-form.input-wrapper>
             <p class="text-center">
                 You don't have an account! Please
                 <a href="{{ route('register') }}">Register Here</a>
             </p>
-        </div>
-        <div class="text-center p-1 border border-0 border-top border-bottom">
-            <span class="text-secondary rounded-circle"> Or: </span>
-        </div>
-        <div class="text-center p-2 d-flex flex-column align-items-center">
-            <p class="">Sign in with</p>
-            <div class="w-50 d-flex align-items center justify-content-around">
-                <div>
-                    <a href="{{ route('redirect.facebook') }}" class="icon facebook text-decoration-none">
-                        <i class="fa-brands fa-facebook"></i>
-                    </a>
-                </div>
-                <div>
-                    <a href="{{ route('redirect.google') }}" class="icon google text-decoration-none">
-                        <i class="fa-brands fa-google"></i>
-                    </a>
-                </div>
-                <div>
-                    <a href="{{ route('redirect.github') }}" class="icon github text-decoration-none">
-                        <i class="fa-brands fa-github"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
+        </x-form.input-wrapper>
+
+        <x-form.socialite-auth />
     </form>
 </x-guest-layout>

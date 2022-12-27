@@ -227,14 +227,32 @@ span{
     transition: margin-left 0.5s;
 }
 
-#down-icon {
+#down-icon-1,
+#down-icon-2,
+#down-icon-3,
+#down-icon-4,
+#down-icon-5,
+#down-icon-6,
+#down-icon-7 {
     transition: all 0.4s;
 }
 
-.left-icon {
+.left-icon-1,
+.left-icon-2,
+.left-icon-3,
+.left-icon-4,
+.left-icon-5,
+.left-icon-6,
+.left-icon-7 {
     transform: rotateZ(-90deg);
 }
-.down-icon {
+.down-icon-1,
+.down-icon-2,
+.down-icon-3,
+.down-icon-4,
+.down-icon-5,
+.down-icon-6,
+.down-icon-7 {
     transform: rotateZ(0);
 }
 

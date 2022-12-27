@@ -17,14 +17,14 @@
         <div class="my-2">
             <div class="">
                 <a data-bs-toggle="collapse" data-bs-target=".collapseOne" href="#collapseExample" role="button"
-                    aria-expanded="false" aria-controls="collapseExample" onclick="toggleDownArrow()"
+                    aria-expanded="false" aria-controls="collapseExample" onclick="toggleDownArrowOne()"
                     class="d-flex align-items-center justify-content-between">
                     <div>
                         <i class="fa-solid fa-rectangle-ad me-2"></i>
                         <span class="me-5 dashboard-nav-item">Advertisements</span>
                     </div>
                     <div>
-                        <i class="fa-solid fa-caret-down left-icon" id="down-icon"></i>
+                        <i class="fa-solid fa-caret-down left-icon-1" id="down-icon-1"></i>
                     </div>
                 </a>
             </div>
@@ -42,22 +42,22 @@
         <div class="my-2">
             <div class="">
                 <a data-bs-toggle="collapse" data-bs-target=".collapseTwo" href="#collapseExample" role="button"
-                    aria-expanded="false" aria-controls="collapseExample" onclick="toggleDownArrow()"
+                    aria-expanded="false" aria-controls="collapseExample" onclick="toggleDownArrowTwo()"
                     class="d-flex align-items-center justify-content-between">
                     <div>
                         <i class="fa-solid fa-laptop"></i>
                         <span class="me-5 dashboard-nav-item">Categories</span>
                     </div>
                     <div>
-                        <i class="fa-solid fa-caret-down left-icon" id="down-icon"></i>
+                        <i class="fa-solid fa-caret-down left-icon-2" id="down-icon-2"></i>
                     </div>
                 </a>
             </div>
             <div class="collapse collapseTwo bg-secondary" id="collapseExample">
-                <a href="{{ route('admin.category') }}" class="border-bottom border-2">
+                <a href="{{ route('admin.category.index') }}" class="border-bottom border-2">
                     <span class="me-5 dashboard-nav-item">Category</span>
                 </a>
-                <a href="{{ route('admin.sub-category') }}" class="border-bottom border-2">
+                <a href="{{ route('admin.sub-category.index') }}" class="border-bottom border-2">
                     <span class="me-5 dashboard-nav-item">SubCategory</span>
                 </a>
             </div>

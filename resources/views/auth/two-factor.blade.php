@@ -7,26 +7,23 @@
     </p>
 
 
-    @if (session("resend_code"))
-    <p class="alert alert-success text-success text-center">
-        {{ session("resend_code") }}
-    </p>
+    @if (session()->has("resend_code"))
+    <x-form.session-status name="{{ session('resend_code') }}" />
     @endif
+
 
     <form action="{{ route('verify.store') }}" method="POST">
         @csrf
-        <div class="form-floating mb-3">
+
+        <x-form.floating-input-wrapper>
             <input type="text" name="two_factor_code" class="form-control" id="floatingName"
                 placeholder="Enter your verification code" required />
-            <label for="floatingName">Enter your verification code</label>
-            @error("two_factor_code")
-            <p class="text-center text-danger">{{ $message }}</p>
-            @enderror
-        </div>
+            <x-form.label name="Enter your verification code" />
+            <x-form.error name="two_factor_code" />
+        </x-form.floating-input-wrapper>
 
-        <div class="mb-3 d-grid">
-            <button type="submit" class="btn btn-primary btn-lg fw-bold">Submit</button>
-        </div>
+        <x-form.input-button name="Submit" />
+
     </form>
 
 </x-guest-layout>

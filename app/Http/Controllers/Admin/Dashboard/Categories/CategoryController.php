@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\Dashboard\Categories;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Dashboard\StoreCategoryRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -11,14 +12,14 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        return view("dashboard.categories.category.index", [
+        return view("admin.dashboard.categories.category.index", [
             "categories"=>Category::orderBy("id", "desc")->paginate(10)
         ]);
     }
 
     public function create()
     {
-        return view("dashboard.categories.category.create");
+        return view("admin.dashboard.categories.category.create");
     }
 
     public function store(Request $request)
@@ -29,15 +30,15 @@ class CategoryController extends Controller
             "status"=>["required"],
         ]);
 
-
         Category::create($categoryFormData);
 
-        return to_route("admin.category")->with("success", "Category is added successfully");
+        return to_route("admin.category.index")->with("success", "Category is added successfully");
     }
+
 
     public function edit(Category $category)
     {
-        return view("dashboard.categories.category.edit", [
+        return view("admin.dashboard.categories.category.edit", [
             "category"=>$category
         ]);
     }
@@ -50,15 +51,14 @@ class CategoryController extends Controller
             "status"=>["required"],
         ]);
 
-
         $category->update($categoryFormData);
 
-        return to_route("admin.category")->with("success", "Category is updated successfully");
+        return to_route("admin.category.index")->with("success", "Category is updated successfully");
     }
 
     public function destroy(Category $category)
     {
         $category->delete();
-        return to_route("admin.category")->with("success", "Category is deleted successfully");
+        return to_route("admin.category.index")->with("success", "Category is deleted successfully");
     }
 }

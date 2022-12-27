@@ -12,13 +12,13 @@
                     <a href="{{ route('news.home') }}" class="nav-link" aria-current="page">Home</a>
                 </li>
                 <li class="nav-item mx-3">
-                    <a href="{{ route('about_us') }}" class="nav-link" aria-current="page">About Us</a>
+                    <a href="{{ route('about-us') }}" class="nav-link" aria-current="page">About Us</a>
                 </li>
                 <li class="nav-item mx-3">
                     <a href="{{ route('faq') }}" class="nav-link" aria-current="page">FAQ</a>
                 </li>
                 <li class="nav-item mx-3">
-                    <a href="{{ route('contact_us') }}" class="nav-link" aria-current="page">
+                    <a href="{{ route('contact-us') }}" class="nav-link" aria-current="page">
                         Contact Us
                     </a>
                 </li>
@@ -74,6 +74,15 @@
                     </div>
 
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+
+                        @if (auth()->check() && auth()->user()->is_admin)
+                        <li>
+                            <a class="dropdown-item" href="{{ route('admin.dashboard') }}">
+                                Dashboard
+                                <i class="fa-solid fa-gauge-high ms-3"></i>
+                            </a>
+                        </li>
+                        @endif
                         <li>
                             <a class="dropdown-item" href="{{ route('profile.edit') }}">
                                 My Profile
@@ -115,12 +124,6 @@
                     </ul>
                 </div>
                 @endauth
-
-
-
-
-
-
 
             </div>
         </div>

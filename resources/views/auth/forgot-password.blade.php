@@ -7,22 +7,15 @@
         @csrf
 
         @if (session()->has("status"))
-        <div class="alert alert-success">
-            <p class="text-center mb-0">{{ session("status") }}</p>
-        </div>
+        <x-form.session-status name="{{ session('status') }}" />
         @endif
 
-        <div class="form-floating mb-3">
-            <input type="email" name="email" value="{{ old(" email") }}" class="form-control" id="floatingEmail"
-                placeholder="name@example.com" required />
-            <label for="floatingEmail">Enter Your Email</label>
-            @error("email")
-            <p class="text-center text-danger">{{ $message }}</p>
-            @enderror
-        </div>
+        <x-form.floating-input type="email" name="email">
+            <x-form.label name="Email Address" />
+        </x-form.floating-input>
 
-        <div class="mb-3 d-grid">
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </div>
+
+        <x-form.input-button name="Submit" />
+
     </form>
 </x-guest-layout>

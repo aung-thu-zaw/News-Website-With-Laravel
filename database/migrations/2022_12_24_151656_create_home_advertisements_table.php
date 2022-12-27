@@ -14,15 +14,15 @@ return new class () extends Migration {
     {
         Schema::create('home_advertisements', function (Blueprint $table) {
             $table->id();
-            $table->string("top_advertisement_photo")->default("");
+            $table->string("top_advertisement_photo");
             $table->string("top_advertisement_url")->nullable();
-            $table->string("top_advertisement_status")->default("show");
-            $table->string("middle_advertisement_photo")->default("");
+            $table->string("top_advertisement_status");
+            $table->string("middle_advertisement_photo");
             $table->string("middle_advertisement_url")->nullable();
-            $table->string("middle_advertisement_status")->default("");
-            $table->string("bottom_advertisement_photo")->default("");
+            $table->string("middle_advertisement_status");
+            $table->string("bottom_advertisement_photo");
             $table->string("bottom_advertisement_url")->nullable();
-            $table->string("bottom_advertisement_status")->default("show");
+            $table->string("bottom_advertisement_status");
             $table->timestamps();
         });
     }
