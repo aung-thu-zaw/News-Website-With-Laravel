@@ -14,6 +14,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\TwoFactorController;
 use App\Http\Controllers\Admin\Dashboard\Categories\CategoryController;
 use App\Http\Controllers\Admin\Dashboard\Categories\SubCategoryController;
+use App\Http\Controllers\Admin\Dashboard\Posts\NewsPostController;
+use App\Http\Controllers\Admin\Dashboard\TagController;
 use Illuminate\Support\Facades\Route;
 
 # ============== User Authentication ==============
@@ -44,7 +46,7 @@ Route::controller(ProfileController::class)->middleware(['auth'])->name("profile
 });
 
 
-# ============== News Index Page ==============
+# ============== News Home Page ==============
 Route::get('/', [HomeNewsController::class,"index"])->middleware(["twofactor"])->name("news.home");
 
 Route::get('/news/{news_post:slug}', [HomeNewsController::class,"show"])->name("news.show");
@@ -96,3 +98,19 @@ Route::controller(SubCategoryController::class)->middleware(["auth","admin"])->p
 
     Route::delete("/{sub_category:slug}/delete", "destroy")->name("destroy");
 });
+
+Route::controller(NewsPostController::class)->middleware(["auth","admin"])->prefix("admin/posts")->name("admin.post.")->group(function () {
+    Route::get("/", "index")->name("index");
+
+    Route::get("/create", "create")->name("create");
+
+    Route::post("/store", "store")->name("store");
+
+    Route::get("/{news_post:slug}/edit", "edit")->name("edit");
+
+    Route::patch("/{news_post:slug}/update", "update")->name("update");
+
+    Route::delete("/{news_post:slug}/delete", "destroy")->name("destroy");
+});
+
+Route::delete('/admin/tags/{tag:id}', [TagController::class,"destroy"])->name("tag.destroy");

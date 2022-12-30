@@ -1,4 +1,4 @@
-@props(["name","categories"=>"","id"=>""])
+@props(["name","categories"=>"","id"=>"","subcategories"=>""])
 <x-form.input-wrapper>
     {{ $slot }}
     @if ($categories && $id && $name)
@@ -23,10 +23,19 @@
         </option>
         @endforeach
     </select>
+
+    @elseif($subcategories && $name)
+
+    <select class="form-select" name="{{ $name }}" id="" required>
+        <option value="" selected disabled>Select Category</option>
+
+        @foreach ($subcategories as $subcategory)
+        <option value="{{ $subcategory->id }}" {{ $subcategory->id==$id ? "selected":"" }}>
+            {{$subcategory->name}} ({{ $subcategory->category->name }})
+        </option>
+        @endforeach
+    </select>
     @endif
     <x-form.error :name="$name" />
-
-
-
 
 </x-form.input-wrapper>

@@ -48,9 +48,14 @@
     <script src="/assets/js/preview_upload_image.js"></script>
     <script src="/assets/js/sidebar.js"></script>
     <script src="/assets/js/typewritter.js"></script>
-
+    <script src="/assets/js/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+    <script src="{{ asset('js/share.js') }}"></script>
 
     <x-toasts />
+
+
 </body>
 
 </html>

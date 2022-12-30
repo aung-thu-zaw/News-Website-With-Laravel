@@ -40,17 +40,22 @@
                         </td>
                         <td>
                             <div class="d-flex align-items-center">
-                                <a href="{{ route('admin.sub-category.edit',$subCategory->slug) }}"
-                                    class="btn btn-info me-3">
-                                    Edit
-                                </a>
+
+                                <form action="{{ route('admin.sub-category.edit',$subCategory->slug) }}" method="GET">
+                                    @csrf
+                                    <input type="hidden" name="page" value="{{ $subCategories->currentPage() }}">
+                                    <button type="submit" class="btn btn-info me-3">
+                                        Edit
+                                    </button>
+                                </form>
 
                                 <form action="{{ route('admin.sub-category.destroy',$subCategory->slug) }}"
                                     method="POST">
                                     @csrf
                                     @method("DELETE")
+                                    <input type="hidden" name="page" value="{{ $subCategories->currentPage() }}">
                                     <button type="submit" class="btn btn-danger me-3"
-                                        onClick="return confirm('Are you sure want to delete?');">
+                                        onclick="return confirm('Are you sure want to delete?');">
                                         Delete
                                     </button>
                                 </form>

@@ -28,12 +28,12 @@
                     </div>
                 </a>
             </div>
-            <div class="collapse collapseOne bg-secondary" id="collapseExample">
-                <a href="{{ route('admin.home-advertisement') }}" class="border-bottom border-2">
-                    <span class="me-5 dashboard-nav-item">Home Advertisement</span>
+            <div class="collapse collapseOne" id="collapseExample" style="background: rgb(32, 33, 33)">
+                <a href="{{ route('admin.home-advertisement') }}" class="">
+                    <span class="ms-5 dashboard-nav-item">Home Advertisement</span>
                 </a>
-                <a href="{{ route('admin.sidebar-advertisement') }}" class="border-bottom border-2">
-                    <span class="me-5 dashboard-nav-item">Sidebar Advertisement</span>
+                <a href="{{ route('admin.sidebar-advertisement') }}" class="">
+                    <span class="ms-5 dashboard-nav-item">Sidebar Advertisement</span>
                 </a>
             </div>
         </div>
@@ -45,7 +45,7 @@
                     aria-expanded="false" aria-controls="collapseExample" onclick="toggleDownArrowTwo()"
                     class="d-flex align-items-center justify-content-between">
                     <div>
-                        <i class="fa-solid fa-laptop"></i>
+                        <i class="fa-solid fa-laptop me-2"></i>
                         <span class="me-5 dashboard-nav-item">Categories</span>
                     </div>
                     <div>
@@ -53,20 +53,26 @@
                     </div>
                 </a>
             </div>
-            <div class="collapse collapseTwo bg-secondary" id="collapseExample">
-                <a href="{{ route('admin.category.index') }}" class="border-bottom border-2">
-                    <span class="me-5 dashboard-nav-item">Category</span>
+            <div class="collapse collapseTwo" id="collapseExample" style="background: rgb(32, 33, 33)">
+                <a href="{{ route('admin.category.index') }}" class="">
+                    <span class="ms-5 dashboard-nav-item">Category</span>
                 </a>
-                <a href="{{ route('admin.sub-category.index') }}" class="border-bottom border-2">
-                    <span class="me-5 dashboard-nav-item">SubCategory</span>
+                <a href="{{ route('admin.sub-category.index') }}" class="">
+                    <span class="ms-5 dashboard-nav-item">SubCategory</span>
                 </a>
             </div>
         </div>
 
 
 
-
-
+        <div class="my-2">
+            <a href="{{ route('admin.post.index') }}">
+                <i class="fa-solid fa-newspaper me-2"></i>
+                <span class="dashboard-nav-item">
+                    Posts
+                </span>
+            </a>
+        </div>
     </div>
 
 

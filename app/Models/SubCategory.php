@@ -13,4 +13,8 @@ class SubCategory extends Model
     {
         return $this->belongsTo(Category::class);
     }
+    public function newsPosts()
+    {
+        return $this->hasMany(NewsPost::class);
+    }
 }

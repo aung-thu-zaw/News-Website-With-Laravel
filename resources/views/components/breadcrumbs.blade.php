@@ -4,7 +4,8 @@
         aria-label="breadcrumb" class="mt-3">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Category</li>
+            <li class="breadcrumb-item active" aria-current="page">{{ $post->subCategory->category->name }}</li>
+            <li class="breadcrumb-item active" aria-current="page">{{ $post->subCategory->name }}</li>
             <li class="breadcrumb-item active" aria-current="page">{{ $post->title }}</li>
         </ol>
     </nav>

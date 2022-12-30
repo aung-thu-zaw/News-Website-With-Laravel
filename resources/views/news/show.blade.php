@@ -4,9 +4,9 @@
             <div class="col-lg-8 col-md-6">
                 <x-breadcrumbs :post="$newsPost" />
 
-                <x-single-news-details :post="$newsPost" />
+                <x-single-news-details :post="$newsPost" :socialshare="$socialShare" />
 
-                <x-related-tags />
+                <x-related-tags :tags="$tags" />
 
                 <x-comments-box />
 
@@ -20,7 +20,7 @@
 
                     <x-tags />
 
-                    <x-sidebar-top-advertisement/>
+                    <x-sidebar-top-advertisement />
 
                 </div>
             </div>

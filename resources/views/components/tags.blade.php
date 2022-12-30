@@ -5,20 +5,8 @@
         </h5>
     </div>
     <div class="mb-2 d-flex align-items-center flex-wrap">
-        <a href="#" class="header-news-tag-sm text-white my-1 mx-1">Life</a>
-        <a href="#" class="header-news-tag-sm text-white my-1 mx-1">Life</a>
-        <a href="#" class="header-news-tag-sm text-white my-1 mx-1">Life</a>
-        <a href="#" class="header-news-tag-sm text-white my-1 mx-1">Life</a>
-        <a href="#" class="header-news-tag-sm text-white my-1 mx-1">Life</a>
-        <a href="#" class="header-news-tag-sm text-white my-1 mx-1">Life</a>
-        <a href="#" class="header-news-tag-sm text-white my-1 mx-1">Life</a>
-        <a href="#" class="header-news-tag-sm text-white my-1 mx-1">Life</a>
-        <a href="#" class="header-news-tag-sm text-white my-1 mx-1">Life</a>
-        <a href="#" class="header-news-tag-sm text-white my-1 mx-1">Life</a>
-        <a href="#" class="header-news-tag-sm text-white my-1 mx-1">Life</a>
-        <a href="#" class="header-news-tag-sm text-white my-1 mx-1">Life</a>
-        <a href="#" class="header-news-tag-sm text-white my-1 mx-1">Life</a>
-        <a href="#" class="header-news-tag-sm text-white my-1 mx-1">Life</a>
-        <a href="#" class="header-news-tag-sm text-white my-1 mx-1">Life</a>
+        @foreach ($tags as $tag)
+        <a href="#" class="header-news-tag-sm text-white my-1 mx-1">{{ $tag->name }}</a>
+        @endforeach
     </div>
 </div>

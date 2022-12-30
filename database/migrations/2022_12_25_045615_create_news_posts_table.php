@@ -14,10 +14,14 @@ return new class () extends Migration {
     {
         Schema::create('news_posts', function (Blueprint $table) {
             $table->id();
+            $table->foreignId("user_id")->constrained()->cascadeOnDelete();
+            $table->foreignId("sub_category_id");
             $table->string("title");
             $table->string("slug")->unique();
-            $table->string("photo");
             $table->text("body");
+            $table->string("thumbnail")->nullable();
+            $table->integer("visitors")->default(0);
+            // $table->text("share_link");
             $table->timestamps();
         });
     }

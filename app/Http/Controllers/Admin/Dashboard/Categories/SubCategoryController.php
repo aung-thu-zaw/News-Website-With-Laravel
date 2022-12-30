@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin\Dashboard\Categories;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Dashboard\StoreSubCategoryRequest;
 use App\Models\Category;
 use App\Models\SubCategory;
 use Illuminate\Http\Request;
@@ -25,7 +24,7 @@ class SubCategoryController extends Controller
         ]);
     }
 
-    public function store(StoreSubCategoryRequest $request)
+    public function store(Request $request)
     {
         $subCategoryFormData=$request->validate([
             "category_id"=>["required"],
@@ -44,6 +43,7 @@ class SubCategoryController extends Controller
     {
         return view("admin.dashboard.categories.sub-category.edit", [
             "subCategory"=>$subCategory,
+            "page"=>request('page'),
             "categories"=>Category::all()
         ]);
     }
@@ -59,12 +59,12 @@ class SubCategoryController extends Controller
         ]);
         $subCategory->update($subCategoryFormData);
 
-        return to_route("admin.sub-category.index")->with("success", "SubCategory is updated successfully");
+        return to_route("admin.sub-category.index", "page=".request("page"))->with("success", "SubCategory is updated successfully");
     }
 
     public function destroy(SubCategory $subCategory)
     {
         $subCategory->delete();
-        return to_route("admin.sub-category.index")->with("success", "SubCategory is deleted successfully");
+        return to_route("admin.sub-category.index", "page=".request("page"))->with("success", "SubCategory is deleted successfully");
     }
 }

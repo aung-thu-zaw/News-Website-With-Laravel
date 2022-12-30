@@ -186,7 +186,7 @@ return [
          * Package Service Providers...
          */
         Laravolt\Avatar\ServiceProvider::class,
-
+        Jorenvh\Share\Providers\ShareServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -213,6 +213,7 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
             'Avatar'    => Laravolt\Avatar\Facade::class,
+            'Share' => Jorenvh\Share\ShareFacade::class,
 
     ])->toArray(),
 

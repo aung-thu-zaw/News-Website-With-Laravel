@@ -17,9 +17,9 @@
                     <x-form.label name="Slug" />
                 </x-form.input>
 
-                <x-form.show-hide-select name="status">
+                <x-form.create-show-hide-select name="status">
                     <x-form.label name="Status" />
-                </x-form.show-hide-select>
+                </x-form.create-show-hide-select>
 
                 <x-form.input-button name="Create" />
 

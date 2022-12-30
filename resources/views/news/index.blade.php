@@ -1,4 +1,5 @@
 <x-app-layout>
+
     <x-header-section :posts="$latestNewsPosts" />
 
 
@@ -8,7 +9,7 @@
     <x-search-news-section />
 
 
-    <x-news-section />
+    <x-news-section :subcategories="$subCategories" />
 
 
     <x-home-middle-advertisement :ad="$homeAdvertisement" />

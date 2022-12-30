@@ -12,15 +12,18 @@
             @endif
             <div class="col-lg-6 col-md-12">
                 <div class="card bg-dark text-white overflow-hidden h-100">
-                    <img src="{{ $post->photo }}" alt="" style="height: 100%; object-fit: cover">
+                    <img src="{{ asset('storage/thumbnails/'.$post->thumbnail) }}" alt=""
+                        style="height: 100%; object-fit: cover">
                     <div class="card-img-overlay d-flex flex-column justify-content-end">
                         <h3 class="card-title">
                             <a href="{{ route('news.show',$post->slug) }}" class="text-white text-decoration-none">
                                 {{ $post->title }}
                             </a>
                         </h3>
-                        <p class="card-text">{{$post->body}}</p>
-                        <a href="#" class="header-news-tag text-white my-1">Life</a>
+                        <p class="card-text">
+                            {!! StringHelper::description($post->body) !!}
+                        </p>
+                        <a href="#" class="header-news-tag text-white my-1">{{ $post->subCategory->name }}</a>
                         <div class="d-flex align-items-center justify-content-between">
                             <div class="icon-box">
                                 <span>
@@ -57,7 +60,8 @@
                     @endif
                     <div class="col-12" style="height: 240px">
                         <div class="card bg-dark overflow-hidden text-white h-100">
-                            <img src="{{ $post->photo }}" alt="" style="height: 100%; object-fit: cover">
+                            <img src="{{ asset('storage/thumbnails/'.$post->thumbnail) }}" alt=""
+                                style="height: 100%; object-fit: cover">
                             <div class="card-img-overlay d-flex flex-column justify-content-end">
                                 <h5 class="card-title">
                                     <a href="{{ route('news.show',$post->slug) }}"
@@ -66,9 +70,9 @@
                                     </a>
                                 </h5>
                                 <p class="card-text description d-lg-none d-xl-block">
-                                    {{ StringHelper::description($post->body) }}
+                                    {!! StringHelper::description($post->body) !!}
                                 </p>
-                                <a href="#" class="header-news-tag-sm text-white my-1">Life</a>
+                                <a href="#" class="header-news-tag-sm text-white my-1">{{ $post->subCategory->name }}</a>
                                 <div class="icon-box-sm">
                                     <span>
                                         <i class="fa-solid fa-user me-1"></i>
@@ -93,7 +97,8 @@
                     @foreach ($posts as $post)
                     @if ($loop->iteration < 4) @continue @endif <div class="col-12" style="height: 240px">
                         <div class="card bg-dark overflow-hidden text-white h-100">
-                            <img src="{{ $post->photo }}" alt="" style="height: 100%; object-fit: cover">
+                            <img src="{{ asset('storage/thumbnails/'.$post->thumbnail) }}" alt=""
+                                style="height: 100%; object-fit: cover">
                             <div class="card-img-overlay d-flex flex-column justify-content-end">
                                 <h5 class="card-title">
                                     <a href="{{ route('news.show',$post->slug) }}"
@@ -104,7 +109,7 @@
                                 <p class="card-text description d-lg-none d-xl-block">
                                     {{ StringHelper::description($post->body) }}
                                 </p>
-                                <a href="#" class="header-news-tag-sm text-white my-1">Life</a>
+                                <a href="#" class="header-news-tag-sm text-white my-1">{{ $post->subCategory->name }}</a>
                                 <div class="icon-box-sm">
                                     <span>
                                         <i class="fa-solid fa-user me-1"></i>

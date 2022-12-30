@@ -39,7 +39,8 @@ class CategoryController extends Controller
     public function edit(Category $category)
     {
         return view("admin.dashboard.categories.category.edit", [
-            "category"=>$category
+            "category"=>$category,
+            "page"=>request('page'),
         ]);
     }
 
@@ -52,13 +53,14 @@ class CategoryController extends Controller
         ]);
 
         $category->update($categoryFormData);
+        return to_route("admin.category.index", "page=".request("page"))->with("success", "Category is updated successfully");
 
-        return to_route("admin.category.index")->with("success", "Category is updated successfully");
     }
 
     public function destroy(Category $category)
     {
         $category->delete();
-        return to_route("admin.category.index")->with("success", "Category is deleted successfully");
+        return to_route("admin.category.index", "page=".request("page"))->with("success", "Category is deleted successfully");
+
     }
 }

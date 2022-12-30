@@ -9,7 +9,6 @@ font-family: 'Vollkorn', serif; */
     box-sizing: border-box;
     font-family: "Crete Round", serif;
 }
-
 .signup-input {
     position: relative;
 }
@@ -138,7 +137,7 @@ font-family: 'Vollkorn', serif; */
     font-weight: 500;
     background-color: rgba(178, 169, 0, 0.748);
     border-radius: 3px;
-    width: 60px;
+    width: 80px;
     padding: 2px 3px;
     display: flex;
     align-items: center;
@@ -197,7 +196,7 @@ span{
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: rgb(70, 86, 102);
+    background-color: rgb(25, 26, 27);
     overflow-x: hidden;
     transition: 0.5s;
 }
@@ -271,4 +270,21 @@ span{
 
 .dashboard-nav-item {
     font-size: 1rem;
+}
+
+.fa-facebook {
+    color: #3b5998;
+}
+.fa-twitter {
+    color: #00acee;
+}
+.fa-whatsapp {
+    color: #25d366;
+}
+.fa-linkedIn {
+    color: #0072b1;
+}
+
+.ck-editor__editable {
+    min-height: 250px;
 }

@@ -361,21 +361,5 @@ class SubCategorySeeder extends Seeder
             "status_on_navbar"=>"show",
             "status_on_home"=>"show"
         ]);
-
-
-        SubCategory::create([
-            "category_id"=>10,
-            "name"=>"Photos",
-            "slug"=>"photos",
-            "status_on_navbar"=>"show",
-            "status_on_home"=>"show"
-        ]);
-        SubCategory::create([
-            "category_id"=>10,
-            "name"=>"Videos",
-            "slug"=>"videos",
-            "status_on_navbar"=>"show",
-            "status_on_home"=>"show"
-        ]);
     }
 }

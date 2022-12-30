@@ -13,7 +13,8 @@
                             <x-form.input-wrapper>
                                 <span class="mb-2">Advertisement Photo</span>
                                 <img src='{{ asset("storage/advertisements/$homeAdvertisement->top_advertisement_photo") }}'
-                                    alt="" style="height:150px; width:100%; object-fit:cover" id="previewPhoto1">
+                                    class="img-fluid" alt="" style="height:150px; width:100%; object-fit:cover"
+                                    id="previewPhoto1">
                             </x-form.input-wrapper>
 
                             <x-form.input type="file" name="top_advertisement_photo" id="file1">
@@ -40,7 +41,8 @@
                             <x-form.input-wrapper>
                                 <span class="mb-2">Advertisement Photo</span>
                                 <img src='{{ asset("storage/advertisements/$homeAdvertisement->middle_advertisement_photo") }}'
-                                    alt="" style="height:150px; width:100%; object-fit:cover" id="previewPhoto2">
+                                    class="img-fluid" alt="" style="height:150px; width:100%; object-fit:cover"
+                                    id="previewPhoto2">
                             </x-form.input-wrapper>
 
                             <x-form.input type="file" name="middle_advertisement_photo" id="file2">
@@ -53,7 +55,7 @@
                             </x-form.input>
 
 
-                            <x-form.show-hide-select name="top_advertisement_status"
+                            <x-form.show-hide-select name="middle_advertisement_status"
                                 :advertisement="$homeAdvertisement->middle_advertisement_status">
                                 <x-form.label name="Status" />
                             </x-form.show-hide-select>
@@ -68,7 +70,8 @@
                             <x-form.input-wrapper>
                                 <span class="mb-2">Advertisement Photo</span>
                                 <img src='{{ asset("storage/advertisements/$homeAdvertisement->bottom_advertisement_photo") }}'
-                                    alt="" style="height:150px; width:100%; object-fit:cover" id="previewPhoto3">
+                                    class="img-fluid" alt="" style="height:150px; width:100%; object-fit:cover"
+                                    id="previewPhoto3">
                             </x-form.input-wrapper>
 
                             <x-form.input type="file" name="bottom_advertisement_photo" id="file3">

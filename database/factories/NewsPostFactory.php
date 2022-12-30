@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\SubCategory;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,10 +18,14 @@ class NewsPostFactory extends Factory
     public function definition()
     {
         return [
-            "title"=>$this->faker->title(),
+            "sub_category_id"=>$this->faker->numberBetween(1, 49),
+            "user_id"=>$this->faker->numberBetween(1, 10),
+            "title"=>$this->faker->sentence(),
             "slug"=>$this->faker->slug(),
-            "photo"=>"https://www.vuelio.com/uk/wp-content/uploads/2019/02/Breaking-News.jpg",
-            "body"=>$this->faker->paragraph(5),
+            "body"=>$this->faker->paragraph(50),
+            "thumbnail"=>"https://www.vuelio.com/uk/wp-content/uploads/2019/02/Breaking-News.jpg",
+            "visitors"=>0,
+            "share_link"=>"loaclhost:89000"
         ];
     }
 }

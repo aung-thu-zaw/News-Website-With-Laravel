@@ -65,4 +65,8 @@ class User extends Authenticatable implements MustVerifyEmail
         $this->two_factor_expires_at=null;
         $this->save();
     }
+
+    public function newsPosts(){
+        return $this->hasMany(NewsPost::class);
+    }
 }

@@ -5,88 +5,39 @@ namespace App\Http\Controllers\News;
 use App\Http\Controllers\Controller;
 use App\Models\HomeAdvertisement;
 use App\Models\NewsPost;
+use App\Models\PostReact;
+use App\Models\SubCategory;
+use App\Models\Tag;
 use Illuminate\Http\Request;
+use Share;
 
 class HomeNewsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         return view('news.index', [
             "homeAdvertisement"=>HomeAdvertisement::where("id", 1)->first(),
-            "latestNewsPosts"=>NewsPost::orderBy("id", "desc")->take(5)->get()
+            "latestNewsPosts"=>NewsPost::with("subCategory")->orderBy("id", "desc")->take(5)->get(),
+            "subCategories"=>SubCategory::with("newsPosts.author", "newsPosts.subCategory")->orderBy("id", "desc")->get()
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show(NewsPost $newsPost)
     {
+        $socialShare=Share::currentPage()
+            ->facebook()
+            ->twitter()
+            ->whatsApp()
+            ->linkedIn()
+            ->getRawLinks();
+
+        $newsPost->visitors=$newsPost->visitors+1;
+        $newsPost->update();
+
         return view("news.show", [
-            "newsPost"=>$newsPost
+            "newsPost"=>$newsPost,
+            "socialShare"=>$socialShare,
+            "tags"=>Tag::where("news_post_id", $newsPost->id)->get(),
         ]);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 }

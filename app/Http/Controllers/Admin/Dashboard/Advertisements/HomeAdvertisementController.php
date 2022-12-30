@@ -21,13 +21,14 @@ class HomeAdvertisementController extends Controller
 
 
         $homeAdvertisementFormData=$request->validate([
-            "top_advertisement_url"=>[],
+            "top_advertisement_url"=>["nullable"],
             "top_advertisement_status"=>["required"],
-            "middle_advertisement_url"=>[],
+            "middle_advertisement_url"=>["nullable"],
             "middle_advertisement_status"=>["required"],
-            "bottom_advertisement_url"=>[],
+            "bottom_advertisement_url"=>["nullable"],
             "bottom_advertisement_status"=>["required"]
         ]);
+
 
 
         if ($request->hasFile("top_advertisement_photo")) {
@@ -85,6 +86,7 @@ class HomeAdvertisementController extends Controller
         }
 
         $homeAdvertisement->update($homeAdvertisementFormData);
+
 
         return redirect()->back()->with("success", "Home advertisements is updated successfully");
     }
