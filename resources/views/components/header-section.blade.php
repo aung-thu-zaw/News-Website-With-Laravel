@@ -11,7 +11,7 @@
             @break
             @endif
             <div class="col-lg-6 col-md-12">
-                <div class="card bg-dark text-white overflow-hidden h-100">
+                <div class="card bg-dark text-white overflow-hidden" style="height:550px ">
                     <img src="{{ asset('storage/thumbnails/'.$post->thumbnail) }}" alt=""
                         style="height: 100%; object-fit: cover">
                     <div class="card-img-overlay d-flex flex-column justify-content-end">
@@ -28,7 +28,7 @@
                             <div class="icon-box">
                                 <span>
                                     <i class="fa-solid fa-user me-1"></i>
-                                    <a href="#" class="text-white">Aung Thu Zaw</a>
+                                    <a href="#" class="text-white">{{ $post->author->name }}</a>
                                 </span>
                                 <span>
                                     <i class="fa-solid fa-calendar-days me-1"></i>
@@ -58,7 +58,7 @@
                     @if ($loop->iteration >3)
                     @break
                     @endif
-                    <div class="col-12" style="height: 240px">
+                    <div class="col-12" style="height: 270px">
                         <div class="card bg-dark overflow-hidden text-white h-100">
                             <img src="{{ asset('storage/thumbnails/'.$post->thumbnail) }}" alt=""
                                 style="height: 100%; object-fit: cover">
@@ -70,13 +70,16 @@
                                     </a>
                                 </h5>
                                 <p class="card-text description d-lg-none d-xl-block">
-                                    {!! StringHelper::description($post->body) !!}
+                                    {!! StringHelper::description($post->body,100) !!}
                                 </p>
-                                <a href="#" class="header-news-tag-sm text-white my-1">{{ $post->subCategory->name }}</a>
+                                <a href="#" class="header-news-tag-sm text-white my-1">{{ $post->subCategory->name
+                                    }}</a>
                                 <div class="icon-box-sm">
                                     <span>
                                         <i class="fa-solid fa-user me-1"></i>
-                                        <a href="#" class="text-white">Aung Thu Zaw</a>
+                                        <a href="#" class="text-white">
+                                            {{ $post->author->name }}
+                                        </a>
                                     </span>
                                     <span>
                                         <i class="fa-solid fa-calendar-days me-1"></i>
@@ -95,7 +98,7 @@
             <div class="col-lg-3 col-md-12">
                 <div class="row g-2">
                     @foreach ($posts as $post)
-                    @if ($loop->iteration < 4) @continue @endif <div class="col-12" style="height: 240px">
+                    @if ($loop->iteration < 4) @continue @endif <div class="col-12" style="height: 270px">
                         <div class="card bg-dark overflow-hidden text-white h-100">
                             <img src="{{ asset('storage/thumbnails/'.$post->thumbnail) }}" alt=""
                                 style="height: 100%; object-fit: cover">
@@ -107,13 +110,16 @@
                                     </a>
                                 </h5>
                                 <p class="card-text description d-lg-none d-xl-block">
-                                    {{ StringHelper::description($post->body) }}
+                                    {{ StringHelper::description($post->body,100) }}
                                 </p>
-                                <a href="#" class="header-news-tag-sm text-white my-1">{{ $post->subCategory->name }}</a>
+                                <a href="#" class="header-news-tag-sm text-white my-1">{{ $post->subCategory->name
+                                    }}</a>
                                 <div class="icon-box-sm">
                                     <span>
                                         <i class="fa-solid fa-user me-1"></i>
-                                        <a href="#" class="text-white">Aung Thu Zaw</a>
+                                        <a href="#" class="text-white">
+                                            {{ $post->author->name }}
+                                        </a>
                                     </span>
                                     <span>
                                         <i class="fa-solid fa-calendar-days me-1"></i>

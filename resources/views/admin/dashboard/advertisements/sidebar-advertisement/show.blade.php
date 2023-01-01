@@ -27,11 +27,10 @@
                                 <x-form.label name="Url" />
                             </x-form.input>
 
-
-                            <x-form.show-hide-select name="top_advertisement_status"
+                            <x-form.edit-show-hide-select name="top_advertisement_status"
                                 :advertisement="$sidebarAdvertisement->top_advertisement_status">
                                 <x-form.label name="Status" />
-                            </x-form.show-hide-select>
+                            </x-form.edit-show-hide-select>
 
                         </div>
                     </div>
@@ -56,10 +55,10 @@
                             </x-form.input>
 
 
-                            <x-form.show-hide-select name="bottom_advertisement_status"
+                            <x-form.edit-show-hide-select name="bottom_advertisement_status"
                                 :advertisement="$sidebarAdvertisement->bottom_advertisement_status">
                                 <x-form.label name="Status" />
-                            </x-form.show-hide-select>
+                            </x-form.edit-show-hide-select>
                         </div>
                     </div>
                 </div>

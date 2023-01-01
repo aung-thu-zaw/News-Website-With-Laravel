@@ -3,17 +3,17 @@
 namespace App\Http\Controllers\Admin\Dashboard\Categories;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\SubCategory;
-use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
-class SubCategoryController extends Controller
+class AdminSubCategoryController extends Controller
 {
     public function index()
     {
         return view("admin.dashboard.categories.sub-category.index", [
-            "subCategories"=>SubCategory::with("category")->orderBy("id", "desc")->paginate(5)
+            "subCategories"=>SubCategory::with("category:id,name")->orderBy("id", "desc")->paginate(5)
         ]);
     }
 
@@ -42,9 +42,9 @@ class SubCategoryController extends Controller
     public function edit(SubCategory $subCategory)
     {
         return view("admin.dashboard.categories.sub-category.edit", [
-            "subCategory"=>$subCategory,
+            "subCategory"=>$subCategory->load("category"),
             "page"=>request('page'),
-            "categories"=>Category::all()
+            "categories"=>Category::select("id", "name")->get()
         ]);
     }
 

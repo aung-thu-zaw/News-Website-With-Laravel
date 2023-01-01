@@ -20,63 +20,63 @@ class SubCategorySeeder extends Seeder
             "name"=>"Africa",
             "slug"=>"africa",
             "status_on_navbar"=>"show",
-            "status_on_home"=>"show"
+            "status_on_home"=>"hide"
         ]);
         SubCategory::create([
             "category_id"=>1,
             "name"=>"America",
             "slug"=>"america",
             "status_on_navbar"=>"show",
-            "status_on_home"=>"show"
+            "status_on_home"=>"hide"
         ]);
         SubCategory::create([
             "category_id"=>1,
             "name"=>"Asia",
             "slug"=>"asia",
             "status_on_navbar"=>"show",
-            "status_on_home"=>"show"
+            "status_on_home"=>"hide"
         ]);
         SubCategory::create([
             "category_id"=>1,
             "name"=>"Australia",
             "slug"=>"australia",
             "status_on_navbar"=>"show",
-            "status_on_home"=>"show"
+            "status_on_home"=>"hide"
         ]);
         SubCategory::create([
             "category_id"=>1,
             "name"=>"China",
             "slug"=>"china",
             "status_on_navbar"=>"show",
-            "status_on_home"=>"show"
+            "status_on_home"=>"hide"
         ]);
         SubCategory::create([
             "category_id"=>1,
             "name"=>"Europe",
             "slug"=>"europe",
             "status_on_navbar"=>"show",
-            "status_on_home"=>"show"
+            "status_on_home"=>"hide"
         ]);
         SubCategory::create([
             "category_id"=>1,
             "name"=>"India",
             "slug"=>"india",
             "status_on_navbar"=>"show",
-            "status_on_home"=>"show"
+            "status_on_home"=>"hide"
         ]);
         SubCategory::create([
             "category_id"=>1,
             "name"=>"Middle East",
             "slug"=>"middle-east",
             "status_on_navbar"=>"show",
-            "status_on_home"=>"show"
+            "status_on_home"=>"hide"
         ]);
         SubCategory::create([
             "category_id"=>1,
             "name"=>"United Kingdom",
             "slug"=>"united-kingdom",
             "status_on_navbar"=>"show",
-            "status_on_home"=>"show"
+            "status_on_home"=>"hide"
         ]);
 
 
@@ -86,28 +86,28 @@ class SubCategorySeeder extends Seeder
             "name"=>"Spring Revolution",
             "slug"=>"spring-revolution",
             "status_on_navbar"=>"show",
-            "status_on_home"=>"show"
+            "status_on_home"=>"hide"
         ]);
         SubCategory::create([
             "category_id"=>2,
             "name"=>"Military Coup",
             "slug"=>"military-coup",
             "status_on_navbar"=>"show",
-            "status_on_home"=>"show"
+            "status_on_home"=>"hide"
         ]);
         SubCategory::create([
             "category_id"=>2,
             "name"=>"What happening",
             "slug"=>"what-happening",
             "status_on_navbar"=>"show",
-            "status_on_home"=>"show"
+            "status_on_home"=>"hide"
         ]);
         SubCategory::create([
             "category_id"=>2,
             "name"=>"Civil Wars",
             "slug"=>"civil-wars",
             "status_on_navbar"=>"show",
-            "status_on_home"=>"show"
+            "status_on_home"=>"hide"
         ]);
 
 
@@ -116,35 +116,35 @@ class SubCategorySeeder extends Seeder
             "name"=>"Markets",
             "slug"=>"markets",
             "status_on_navbar"=>"show",
-            "status_on_home"=>"show"
+            "status_on_home"=>"hide"
         ]);
         SubCategory::create([
             "category_id"=>3,
             "name"=>"Tech",
             "slug"=>"tech",
             "status_on_navbar"=>"show",
-            "status_on_home"=>"show"
+            "status_on_home"=>"hide"
         ]);
         SubCategory::create([
             "category_id"=>3,
             "name"=>"Media",
             "slug"=>"media",
             "status_on_navbar"=>"show",
-            "status_on_home"=>"show"
+            "status_on_home"=>"hide"
         ]);
         SubCategory::create([
             "category_id"=>3,
             "name"=>"Success",
             "slug"=>"success",
             "status_on_navbar"=>"show",
-            "status_on_home"=>"show"
+            "status_on_home"=>"hide"
         ]);
         SubCategory::create([
             "category_id"=>3,
             "name"=>"Perspectives",
             "slug"=>"perspectives",
             "status_on_navbar"=>"show",
-            "status_on_home"=>"show"
+            "status_on_home"=>"hide"
         ]);
 
 
@@ -153,35 +153,35 @@ class SubCategorySeeder extends Seeder
             "name"=>"Life",
             "slug"=>"life",
             "status_on_navbar"=>"show",
-            "status_on_home"=>"show"
+            "status_on_home"=>"hide"
         ]);
         SubCategory::create([
             "category_id"=>4,
             "name"=>"Fitness",
             "slug"=>"fitness",
             "status_on_navbar"=>"show",
-            "status_on_home"=>"show"
+            "status_on_home"=>"hide"
         ]);
         SubCategory::create([
             "category_id"=>4,
             "name"=>"Food",
             "slug"=>"food",
             "status_on_navbar"=>"show",
-            "status_on_home"=>"show"
+            "status_on_home"=>"hide"
         ]);
         SubCategory::create([
             "category_id"=>4,
             "name"=>"Sleep",
             "slug"=>"sleep",
             "status_on_navbar"=>"show",
-            "status_on_home"=>"show"
+            "status_on_home"=>"hide"
         ]);
         SubCategory::create([
             "category_id"=>4,
             "name"=>"Mediation",
             "slug"=>"mediation",
             "status_on_navbar"=>"show",
-            "status_on_home"=>"show"
+            "status_on_home"=>"hide"
         ]);
 
 
@@ -190,21 +190,21 @@ class SubCategorySeeder extends Seeder
             "name"=>"Celebrity",
             "slug"=>"celebrity",
             "status_on_navbar"=>"show",
-            "status_on_home"=>"show"
+            "status_on_home"=>"hide"
         ]);
         SubCategory::create([
             "category_id"=>5,
             "name"=>"Movies",
             "slug"=>"movies",
             "status_on_navbar"=>"show",
-            "status_on_home"=>"show"
+            "status_on_home"=>"hide"
         ]);
         SubCategory::create([
             "category_id"=>5,
             "name"=>"Television",
             "slug"=>"television",
             "status_on_navbar"=>"show",
-            "status_on_home"=>"show"
+            "status_on_home"=>"hide"
         ]);
 
 
@@ -213,28 +213,28 @@ class SubCategorySeeder extends Seeder
             "name"=>"Computer",
             "slug"=>"computer",
             "status_on_navbar"=>"show",
-            "status_on_home"=>"show"
+            "status_on_home"=>"hide"
         ]);
         SubCategory::create([
             "category_id"=>6,
             "name"=>"Block Chain And Cryptocurrency",
             "slug"=>"block-chain-and-cryptocurrency",
             "status_on_navbar"=>"show",
-            "status_on_home"=>"show"
+            "status_on_home"=>"hide"
         ]);
         SubCategory::create([
             "category_id"=>6,
             "name"=>"Networking",
             "slug"=>"networking",
             "status_on_navbar"=>"show",
-            "status_on_home"=>"show"
+            "status_on_home"=>"hide"
         ]);
         SubCategory::create([
             "category_id"=>6,
             "name"=>"Developement",
             "slug"=>"developement",
             "status_on_navbar"=>"show",
-            "status_on_home"=>"show"
+            "status_on_home"=>"hide"
         ]);
 
 
@@ -243,42 +243,42 @@ class SubCategorySeeder extends Seeder
             "name"=>"Arts",
             "slug"=>"arts",
             "status_on_navbar"=>"show",
-            "status_on_home"=>"show"
+            "status_on_home"=>"hide"
         ]);
         SubCategory::create([
             "category_id"=>7,
             "name"=>"Design",
             "slug"=>"design",
             "status_on_navbar"=>"show",
-            "status_on_home"=>"show"
+            "status_on_home"=>"hide"
         ]);
         SubCategory::create([
             "category_id"=>7,
             "name"=>"Fashion",
             "slug"=>"fashion",
             "status_on_navbar"=>"show",
-            "status_on_home"=>"show"
+            "status_on_home"=>"hide"
         ]);
         SubCategory::create([
             "category_id"=>7,
             "name"=>"Architecture",
             "slug"=>"architecture",
             "status_on_navbar"=>"show",
-            "status_on_home"=>"show"
+            "status_on_home"=>"hide"
         ]);
         SubCategory::create([
             "category_id"=>7,
             "name"=>"Luxury",
             "slug"=>"luxury",
             "status_on_navbar"=>"show",
-            "status_on_home"=>"show"
+            "status_on_home"=>"hide"
         ]);
         SubCategory::create([
             "category_id"=>7,
             "name"=>"Beauty",
             "slug"=>"beauty",
             "status_on_navbar"=>"show",
-            "status_on_home"=>"show"
+            "status_on_home"=>"hide"
         ]);
 
 
@@ -287,28 +287,28 @@ class SubCategorySeeder extends Seeder
             "name"=>"Food and Drink",
             "slug"=>"food-and-drink",
             "status_on_navbar"=>"show",
-            "status_on_home"=>"show"
+            "status_on_home"=>"hide"
         ]);
         SubCategory::create([
             "category_id"=>8,
             "name"=>"Stay",
             "slug"=>"stay",
             "status_on_navbar"=>"show",
-            "status_on_home"=>"show"
+            "status_on_home"=>"hide"
         ]);
         SubCategory::create([
             "category_id"=>8,
             "name"=>"News",
             "slug"=>"news",
             "status_on_navbar"=>"show",
-            "status_on_home"=>"show"
+            "status_on_home"=>"hide"
         ]);
         SubCategory::create([
             "category_id"=>8,
             "name"=>"Destinations",
             "slug"=>"destinations",
             "status_on_navbar"=>"show",
-            "status_on_home"=>"show"
+            "status_on_home"=>"hide"
         ]);
 
 
@@ -317,49 +317,64 @@ class SubCategorySeeder extends Seeder
             "name"=>"World Cup",
             "slug"=>"world-cup",
             "status_on_navbar"=>"show",
-            "status_on_home"=>"show"
+            "status_on_home"=>"hide"
         ]);
         SubCategory::create([
             "category_id"=>9,
             "name"=>"Tennis",
             "slug"=>"tennis",
             "status_on_navbar"=>"show",
-            "status_on_home"=>"show"
+            "status_on_home"=>"hide"
         ]);
         SubCategory::create([
             "category_id"=>9,
             "name"=>"Golf",
             "slug"=>"golf",
             "status_on_navbar"=>"show",
-            "status_on_home"=>"show"
+            "status_on_home"=>"hide"
         ]);
         SubCategory::create([
             "category_id"=>9,
             "name"=>"Football",
             "slug"=>"football",
             "status_on_navbar"=>"show",
-            "status_on_home"=>"show"
+            "status_on_home"=>"hide"
         ]);
         SubCategory::create([
             "category_id"=>9,
             "name"=>"Esports",
             "slug"=>"esports",
             "status_on_navbar"=>"show",
-            "status_on_home"=>"show"
+            "status_on_home"=>"hide"
         ]);
         SubCategory::create([
             "category_id"=>9,
             "name"=>"Climbing",
             "slug"=>"climbing",
             "status_on_navbar"=>"show",
-            "status_on_home"=>"show"
+            "status_on_home"=>"hide"
         ]);
         SubCategory::create([
             "category_id"=>9,
             "name"=>"Olympics",
             "slug"=>"olympics",
             "status_on_navbar"=>"show",
-            "status_on_home"=>"show"
+            "status_on_home"=>"hide"
+        ]);
+
+        SubCategory::create([
+            "category_id"=>10,
+            "name"=>"Photos",
+            "slug"=>"photos",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"hide"
+        ]);
+        SubCategory::create([
+            "category_id"=>10,
+            "name"=>"Videos",
+            "slug"=>"videos",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"hide"
         ]);
     }
 }

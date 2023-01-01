@@ -10,10 +10,11 @@
 
     <x-sidebar-top-advertisement />
 
-    <x-popular-news-and-latest-news />
+    <x-popular-news-and-recent-news />
 
     <x-random-news-for-you />
 
     <x-sidebar-bottom-advertisement />
+
 
 </div>

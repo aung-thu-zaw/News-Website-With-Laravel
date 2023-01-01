@@ -3,12 +3,9 @@
 namespace App\Http\Controllers\News;
 
 use App\Http\Controllers\Controller;
-use App\Models\HomeAdvertisement;
 use App\Models\NewsPost;
-use App\Models\PostReact;
 use App\Models\SubCategory;
 use App\Models\Tag;
-use Illuminate\Http\Request;
 use Share;
 
 class HomeNewsController extends Controller
@@ -16,9 +13,8 @@ class HomeNewsController extends Controller
     public function index()
     {
         return view('news.index', [
-            "homeAdvertisement"=>HomeAdvertisement::where("id", 1)->first(),
-            "latestNewsPosts"=>NewsPost::with("subCategory")->orderBy("id", "desc")->take(5)->get(),
-            "subCategories"=>SubCategory::with("newsPosts.author", "newsPosts.subCategory")->orderBy("id", "desc")->get()
+            "latestNewsPosts"=>NewsPost::with("subCategory", "author")->orderBy("id", "desc")->take(5)->get(),
+            "subCategories"=>SubCategory::with("newsPosts.subCategory", "newsPosts.author")->orderBy("id", "desc")->get()
         ]);
     }
 
@@ -37,7 +33,7 @@ class HomeNewsController extends Controller
         return view("news.show", [
             "newsPost"=>$newsPost,
             "socialShare"=>$socialShare,
-            "tags"=>Tag::where("news_post_id", $newsPost->id)->get(),
+            "tags"=>Tag::select("name", "slug")->where("news_post_id", $newsPost->id)->get(),
         ]);
     }
 }

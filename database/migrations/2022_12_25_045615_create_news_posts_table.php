@@ -21,7 +21,6 @@ return new class () extends Migration {
             $table->text("body");
             $table->string("thumbnail")->nullable();
             $table->integer("visitors")->default(0);
-            // $table->text("share_link");
             $table->timestamps();
         });
     }

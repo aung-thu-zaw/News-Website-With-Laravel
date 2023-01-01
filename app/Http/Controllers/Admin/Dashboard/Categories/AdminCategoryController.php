@@ -3,12 +3,11 @@
 namespace App\Http\Controllers\Admin\Dashboard\Categories;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Dashboard\StoreCategoryRequest;
-use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Models\Category;
 use Illuminate\Validation\Rule;
 
-class CategoryController extends Controller
+class AdminCategoryController extends Controller
 {
     public function index()
     {
@@ -54,13 +53,11 @@ class CategoryController extends Controller
 
         $category->update($categoryFormData);
         return to_route("admin.category.index", "page=".request("page"))->with("success", "Category is updated successfully");
-
     }
 
     public function destroy(Category $category)
     {
         $category->delete();
         return to_route("admin.category.index", "page=".request("page"))->with("success", "Category is deleted successfully");
-
     }
 }

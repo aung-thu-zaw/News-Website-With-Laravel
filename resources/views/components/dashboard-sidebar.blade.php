@@ -73,6 +73,33 @@
                 </span>
             </a>
         </div>
+
+
+        <div class="my-2">
+            <div class="">
+                <a data-bs-toggle="collapse" data-bs-target=".collapseThree" href="#collapseExample" role="button"
+                    aria-expanded="false" aria-controls="collapseExample" onclick="toggleDownArrowThree()"
+                    class="d-flex align-items-center justify-content-between">
+                    <div>
+                        <i class="fa-solid fa-photo-film me-2"></i>
+                        <span class="me-5 dashboard-nav-item">Gallery</span>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-caret-down left-icon-3" id="down-icon-3"></i>
+                    </div>
+                </a>
+            </div>
+            <div class="collapse collapseThree" id="collapseExample" style="background: rgb(32, 33, 33)">
+                <a href="{{ route('admin.photo-gallery.index') }}" class="">
+                    <span class="ms-5 dashboard-nav-item">Photo Gallery</span>
+                </a>
+                <a href="{{ route('admin.video-gallery.index') }}" class="">
+                    <span class="ms-5 dashboard-nav-item">Video Gallery</span>
+                </a>
+            </div>
+        </div>
+
+
     </div>
 
 

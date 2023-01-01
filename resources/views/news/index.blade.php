@@ -3,7 +3,7 @@
     <x-header-section :posts="$latestNewsPosts" />
 
 
-    <x-home-top-advertisement :ad="$homeAdvertisement" />
+    <x-home-top-advertisement />
 
 
     <x-search-news-section />
@@ -12,13 +12,10 @@
     <x-news-section :subcategories="$subCategories" />
 
 
-    <x-home-middle-advertisement :ad="$homeAdvertisement" />
+    <x-home-middle-advertisement />
 
 
-    <x-your-choice-news-section />
-
-
-    <x-home-bottom-advertisement :ad="$homeAdvertisement" />
+    <x-home-bottom-advertisement />
 
 
     <x-trending-videos-section />

@@ -16,20 +16,22 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // User::factory()->create([
-        //     "name"=>"Aung Thu Zaw",
-        //     "email"=>"aungthuzaw@gmail.com",
-        //     "password"=>bcrypt("1111111111"),
-        //     "is_admin"=>true
-        // ]);
+        User::factory()->create([
+            "name"=>"Aung Thu Zaw",
+            "email"=>"aungthuzaw@gmail.com",
+            "password"=>bcrypt("1111111111"),
+            "is_admin"=>true
+        ]);
         // User::factory(9)->create();
 
         $this->call([
             HomeAdvertisementSeeder::class,
             SidebarAdvertisementSeeder::class,
-            // NewsPostSeeder::class,
+            NewsPostSeeder::class,
             CategorySeeder::class,
             SubCategorySeeder::class,
+            PhotoSeeder::class,
+            VideoSeeder::class,
         ]);
     }
 }

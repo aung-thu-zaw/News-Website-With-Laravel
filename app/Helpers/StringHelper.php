@@ -6,8 +6,8 @@ class StringHelper
     {
         return Illuminate\Support\Str::limit($data, 50);
     }
-    public static function description($data)
+    public static function description($data, $limit=200)
     {
-        return Illuminate\Support\Str::limit($data, 200);
+        return Illuminate\Support\Str::limit($data, $limit);
     }
 }

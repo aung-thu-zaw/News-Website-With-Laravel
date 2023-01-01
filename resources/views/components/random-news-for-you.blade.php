@@ -2,44 +2,75 @@
     <h5 class="text-center">Random News For You</h5>
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0"
-                class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
                 aria-label="Slide 2"></button>
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
                 aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3"
+                aria-label="Slide 4"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4"
+                aria-label="Slide 5"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="5"
+                aria-label="Slide 6"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="6"
+                aria-label="Slide 7"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="7"
+                aria-label="Slide 8"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="8"
+                aria-label="Slide 9"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="9"
+                aria-label="Slide 10"></button>
         </div>
         <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/640px-Image_created_with_a_mobile_phone.png"
-                    class="second-advertisement-img" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>
-                        <a href="#" class="text-white">Title</a>
-                    </h5>
-                    <p>Some representative placeholder content for the first slide.</p>
+
+            @foreach ($randomNews as $randomPost)
+            @if ($loop->iteration > 1)
+            @break
+            @endif
+            <div class="carousel-item active" style="height: 300px">
+                <div class="card bg-dark overflow-hidden text-white h-100">
+                    <img src="{{ asset('storage/thumbnails/'.$randomPost->thumbnail) }}"
+                        class="second-advertisement-img img-fluid" class="d-block w-100" alt="..."
+                        style="width:100%; height: 100%; object-fit: cover; object-position: center">
+                    <div class="card-img-overlay d-flex flex-column justify-content-end">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5 class="text-warning">
+                                <a href="#" class="text-white">{{ $randomPost->title }}</a>
+                            </h5>
+                            <small class="text-warning">
+                                {!! StringHelper::description($randomPost->body) !!}
+                            </small>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="carousel-item">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/640px-Image_created_with_a_mobile_phone.png"
-                    class="second-advertisement-img" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>
-                        <a href="#" class="text-white">Title</a>
-                    </h5>
-                    <p>Some representative placeholder content for the second slide.</p>
+            @endforeach
+
+            @foreach ($randomNews as $randomPost)
+            @if ($loop->iteration == 1)
+            @continue
+            @endif
+            <div class="carousel-item" style="height: 300px">
+                <div class="card bg-dark overflow-hidden text-white h-100">
+                    <img src="{{ asset('storage/thumbnails/'.$randomPost->thumbnail) }}"
+                        class="second-advertisement-img img-fluid" class="d-block w-100" alt="..."
+                        style="width:100%; height: 100%; object-fit: cover; object-position: center">
+                    <div class="card-img-overlay d-flex flex-column justify-content-end">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5 class="text-warning">
+                                <a href="#" class="text-white">{{ $randomPost->title }}</a>
+                            </h5>
+                            <small class="text-warning">
+                                {!! StringHelper::description($randomPost->body) !!}
+                            </small>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="carousel-item">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/640px-Image_created_with_a_mobile_phone.png"
-                    class="second-advertisement-img" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>
-                        <a href="#" class="text-white">Title</a>
-                    </h5>
-                    <p>Some representative placeholder content for the third slide.</p>
-                </div>
-            </div>
+            @endforeach
+
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
             data-bs-slide="prev">

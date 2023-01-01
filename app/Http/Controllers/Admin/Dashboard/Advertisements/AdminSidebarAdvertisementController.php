@@ -3,10 +3,11 @@
 namespace App\Http\Controllers\Admin\Dashboard\Advertisements;
 
 use App\Http\Controllers\Controller;
-use App\Models\SidebarAdvertisement;
 use Illuminate\Http\Request;
+use App\Models\SidebarAdvertisement;
 
-class SidebarAdvertisementController extends Controller
+
+class AdminSidebarAdvertisementController extends Controller
 {
     public function show()
     {

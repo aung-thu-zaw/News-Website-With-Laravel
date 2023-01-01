@@ -116,6 +116,7 @@
                 @endforeach
             </div>
         </div>
+
         <x-home-sidebar-section />
 
     </div>

@@ -2,10 +2,10 @@
 
 namespace App\View\Components;
 
-use App\Models\SidebarAdvertisement;
+use App\Models\NewsPost;
 use Illuminate\View\Component;
 
-class SidebarBottomAdvertisement extends Component
+class RandomNewsForYou extends Component
 {
     /**
      * Create a new component instance.
@@ -24,8 +24,8 @@ class SidebarBottomAdvertisement extends Component
      */
     public function render()
     {
-        return view('components.sidebar-bottom-advertisement', [
-            "sidebarAdvertisement"=>SidebarAdvertisement::where("id", 1)->first()
+        return view('components.random-news-for-you', [
+            "randomNews"=>NewsPost::inRandomOrder()->orderBy("id", "desc")->take(10)->get()
         ]);
     }
 }

@@ -24,7 +24,7 @@ class Tags extends Component
      */
     public function render()
     {
-        $tags=Tag::all();
+        $tags=Tag::select("name", "slug")->get();
         return view('components.tags', compact("tags"));
     }
 }

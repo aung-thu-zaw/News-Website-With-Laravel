@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Admin\Dashboard\Advertisements;
 
 use App\Http\Controllers\Controller;
-use App\Models\HomeAdvertisement;
 use Illuminate\Http\Request;
+use App\Models\HomeAdvertisement;
 
-class HomeAdvertisementController extends Controller
+class AdminHomeAdvertisementController extends Controller
 {
     public function show()
     {

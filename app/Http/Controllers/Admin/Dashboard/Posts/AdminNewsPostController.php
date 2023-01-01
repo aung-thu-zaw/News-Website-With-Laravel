@@ -3,13 +3,13 @@
 namespace App\Http\Controllers\Admin\Dashboard\Posts;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use App\Models\NewsPost;
 use App\Models\SubCategory;
 use App\Models\Tag;
-use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
-class NewsPostController extends Controller
+class AdminNewsPostController extends Controller
 {
     public function index()
     {
@@ -36,7 +36,7 @@ class NewsPostController extends Controller
 
         if ($request->hasFile("thumbnail")) {
             $request->validate([
-                "thumbnail"=>["required","mimes:png,jpg,jpeg,gif"],
+                "thumbnail"=>["required","mimes:png,jpg,jpeg,gif,webp"],
             ]);
 
             $extension=$request->file("thumbnail")->extension();
@@ -100,7 +100,7 @@ class NewsPostController extends Controller
 
         if ($request->hasFile("thumbnail")) {
             $request->validate([
-                "thumbnail"=>["required","mimes:png,jpg,jpeg,gif"],
+                "thumbnail"=>["required","mimes:png,jpg,jpeg,gif,webp"],
             ]);
 
             if (!empty($newsPost->thumbnail) && file_exists(public_path("storage/thumbnails/$newsPost->thumbnail"))) {
@@ -153,6 +153,10 @@ class NewsPostController extends Controller
 
     public function destroy(NewsPost $newsPost)
     {
+        if (!empty($newsPost->thumbnail) && file_exists(public_path("storage/thumbnails/$newsPost->thumbnail"))) {
+            unlink(public_path("storage/thumbnails/$newsPost->thumbnail"));
+        }
+
         $newsPost->delete();
         return to_route("admin.post.index")->with("success", "Post is deleted successfully");
     }
