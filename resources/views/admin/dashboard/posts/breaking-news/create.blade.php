@@ -1,12 +1,12 @@
 <x-dashboard-layout>
-    @section("title", "Post Create")
+    @section("title", "Breaking News Create")
     <div class="row">
         <div class="col-12 p-5">
             <div class="mb-3 d-flex align-items-center justify-content-end">
-                <a href="{{ route('admin.post.index') }}" class="btn btn-primary">View <i
+                <a href="{{ route('admin.post.breaking-news.index') }}" class="btn btn-primary">View <i
                         class="fa-solid fa-eye"></i></a>
             </div>
-            <form action="{{ route('admin.post.store') }}" method="POST" enctype="multipart/form-data"
+            <form action="{{ route('admin.post.breaking-news.store') }}" method="POST" enctype="multipart/form-data"
                 class="border p-5">
                 @csrf
 

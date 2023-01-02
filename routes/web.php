@@ -16,7 +16,9 @@ use App\Http\Controllers\Admin\Dashboard\Categories\AdminCategoryController;
 use App\Http\Controllers\Admin\Dashboard\Categories\AdminSubCategoryController;
 use App\Http\Controllers\Admin\Dashboard\Galleries\AdminPhotoGalleryController;
 use App\Http\Controllers\Admin\Dashboard\Galleries\AdminVideoGalleryController;
+use App\Http\Controllers\Admin\Dashboard\Posts\AdminBreakingNewsController;
 use App\Http\Controllers\Admin\Dashboard\Posts\AdminNewsPostController;
+use App\Http\Controllers\Admin\Dashboard\Posts\AdminTrendingVideosController;
 use App\Http\Controllers\Admin\Dashboard\TagController;
 use App\Http\Controllers\Categories\CategoryController;
 use App\Http\Controllers\Categories\SubCategoryController;
@@ -114,6 +116,39 @@ Route::controller(AdminSubCategoryController::class)->middleware(["auth","admin"
 });
 
 Route::controller(AdminNewsPostController::class)->middleware(["auth","admin"])->prefix("admin/posts")->name("admin.post.")->group(function () {
+    Route::get("/", "index")->name("index");
+
+    Route::get("/create", "create")->name("create");
+
+    Route::post("/store", "store")->name("store");
+
+    Route::get("/{news_post:slug}/edit", "edit")->name("edit");
+
+    Route::patch("/{news_post:slug}/update", "update")->name("update");
+
+    Route::delete("/{news_post:slug}/delete", "destroy")->name("destroy");
+});
+
+Route::controller(AdminBreakingNewsController::class)->middleware(["auth","admin"])->prefix("admin/posts/breaking_news")->name("admin.post.breaking-news.")->group(function () {
+    Route::get("/", "index")->name("index");
+
+    Route::get("/create", "create")->name("create");
+
+    Route::post("/store", "store")->name("store");
+
+    Route::get("/{breaking_news:slug}/edit", "edit")->name("edit");
+
+    Route::patch("/{breaking_news:slug}/update", "update")->name("update");
+
+    Route::delete("/{breaking_news:slug}/delete", "destroy")->name("destroy");
+});
+
+
+
+
+
+
+Route::controller(AdminTrendingVideosController::class)->middleware(["auth","admin"])->prefix("admin/posts/trending_videos")->name("admin.post.trending-video.")->group(function () {
     Route::get("/", "index")->name("index");
 
     Route::get("/create", "create")->name("create");

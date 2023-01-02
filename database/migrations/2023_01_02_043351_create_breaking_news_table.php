@@ -12,11 +12,15 @@ return new class () extends Migration {
      */
     public function up()
     {
-        Schema::create('tags', function (Blueprint $table) {
+        Schema::create('breaking_news', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("news_post_id")->nullable()->constrained()->cascadeOnDelete();
-            $table->string("name")->unique();
+            $table->foreignId("user_id")->constrained()->cascadeOnDelete();
+            $table->foreignId("sub_category_id");
+            $table->string("title");
             $table->string("slug")->unique();
+            $table->text("body");
+            $table->string("thumbnail")->nullable();
+            $table->integer("visitors")->default(0);
             $table->timestamps();
         });
     }
@@ -28,6 +32,6 @@ return new class () extends Migration {
      */
     public function down()
     {
-        Schema::dropIfExists('tags');
+        Schema::dropIfExists('breaking_news');
     }
 };

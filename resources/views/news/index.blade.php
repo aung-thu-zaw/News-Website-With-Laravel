@@ -1,6 +1,6 @@
 <x-app-layout>
 
-    <x-header-section :posts="$latestNewsPosts" />
+    <x-header-section :posts="$breakingNewsPosts" />
 
 
     <x-home-top-advertisement />
@@ -18,6 +18,6 @@
     <x-home-bottom-advertisement />
 
 
-    <x-trending-videos-section />
+    <x-trending-videos-section :trendingvideos="$trendingVideos" />
 
 </x-app-layout>

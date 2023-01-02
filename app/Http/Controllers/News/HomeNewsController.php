@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\News;
 
 use App\Http\Controllers\Controller;
+use App\Models\BreakingNews;
 use App\Models\NewsPost;
 use App\Models\SubCategory;
 use App\Models\Tag;
+use App\Models\TrendingVideo;
 use Share;
 
 class HomeNewsController extends Controller
@@ -13,7 +15,8 @@ class HomeNewsController extends Controller
     public function index()
     {
         return view('news.index', [
-            "latestNewsPosts"=>NewsPost::with("subCategory", "author")->orderBy("id", "desc")->take(5)->get(),
+            "breakingNewsPosts"=>BreakingNews::with("subCategory", "author")->orderBy("id", "desc")->take(5)->get(),
+            "trendingVideos"=>TrendingVideo::orderBy("id", "desc")->get(),
             "subCategories"=>SubCategory::with("newsPosts.subCategory", "newsPosts.author")->orderBy("id", "desc")->get()
         ]);
     }

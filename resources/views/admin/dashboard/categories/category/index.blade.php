@@ -1,5 +1,5 @@
 <x-dashboard-layout>
-    @section("title", "Category")
+    @section("title", "Categories")
     <div class="row">
         <div class="col-12 px-5 pt-5 pb-3">
             <div class="mb-3 d-flex align-items-center justify-content-end">

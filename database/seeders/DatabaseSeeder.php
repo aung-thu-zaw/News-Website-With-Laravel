@@ -27,11 +27,13 @@ class DatabaseSeeder extends Seeder
         $this->call([
             HomeAdvertisementSeeder::class,
             SidebarAdvertisementSeeder::class,
-            NewsPostSeeder::class,
             CategorySeeder::class,
             SubCategorySeeder::class,
+            NewsPostSeeder::class,
             PhotoSeeder::class,
             VideoSeeder::class,
+            BreakingNewsSeeder::class,
+            TrendingVideoSeeder::class,
         ]);
     }
 }

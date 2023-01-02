@@ -4,23 +4,23 @@ namespace App\Http\Controllers\Admin\Dashboard\Posts;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\NewsPost;
+use App\Models\BreakingNews;
 use App\Models\SubCategory;
 use App\Models\Tag;
 use Illuminate\Validation\Rule;
 
-class AdminNewsPostController extends Controller
+class AdminBreakingNewsController extends Controller
 {
     public function index()
     {
-        return view("admin.dashboard.posts.news-posts.index", [
-            "newsPosts"=>NewsPost::with("subCategory.category", "author")->where("user_id", 1)->orderBy("id", "desc")->paginate(10)
+        return view("admin.dashboard.posts.breaking-news.index", [
+            "breakingNewsPosts"=>BreakingNews::with("subCategory.category", "author")->where("user_id", 1)->orderBy("id", "desc")->paginate(10)
         ]);
     }
 
     public function create()
     {
-        return view("admin.dashboard.posts.news-posts.create", [
+        return view("admin.dashboard.posts.breaking-news.create", [
             "subCategories"=>SubCategory::with("category")->get()
         ]);
     }
@@ -51,7 +51,7 @@ class AdminNewsPostController extends Controller
         }
         $postFormData["user_id"]=auth()->user()->id;
 
-        $post= NewsPost::create($postFormData);
+        $post= BreakingNews::create($postFormData);
 
         if ($request->input("tags")) {
             $request->validate([
@@ -69,26 +69,27 @@ class AdminNewsPostController extends Controller
 
             foreach ($tagsNewArray as $tag) {
                 $tagModel=new Tag();
-                $tagModel->news_post_id=$post->id;
+                $tagModel->breaking_news_id=$post->id;
                 $tagModel->name=$tag;
                 $tagModel->slug=strtolower(str_replace(" ", "-", $tag));
                 $tagModel->save();
             }
         }
 
-        return to_route("admin.post.index")->with("success", "Post is created successfully");
+        return to_route("admin.post.breaking-news.index")->with("success", "Post is created successfully");
     }
 
 
-    public function edit(NewsPost $newsPost)
+    public function edit(BreakingNews $breakingNews)
     {
-        return view("admin.dashboard.posts.news-posts.edit", [
-            "newsPost"=>$newsPost,
+        return view("admin.dashboard.posts.breaking-news.edit", [
+            "breakingNews"=>$breakingNews,
+            "page"=>request('page'),
             "subCategories"=>SubCategory::with("category")->get(),
         ]);
     }
 
-    public function update(Request $request, NewsPost $newsPost)
+    public function update(Request $request, BreakingNews $breakingNews)
     {
         $postFormData=$request->validate([
             "sub_category_id"=>["required",Rule::exists("sub_categories", "id")],
@@ -103,8 +104,8 @@ class AdminNewsPostController extends Controller
                 "thumbnail"=>["required","mimes:png,jpg,jpeg,gif,webp"],
             ]);
 
-            if (!empty($newsPost->thumbnail) && file_exists(public_path("storage/thumbnails/$newsPost->thumbnail"))) {
-                unlink(public_path("storage/thumbnails/$newsPost->thumbnail"));
+            if (!empty($breakingNews->thumbnail) && file_exists(public_path("storage/thumbnails/$breakingNews->thumbnail"))) {
+                unlink(public_path("storage/thumbnails/$breakingNews->thumbnail"));
             }
 
             $extension=$request->file("thumbnail")->extension();
@@ -120,7 +121,7 @@ class AdminNewsPostController extends Controller
 
         $postFormData["user_id"]=auth()->user()->id;
 
-        $newsPost->update($postFormData);
+        $breakingNews->update($postFormData);
 
         if ($request->input("tags")) {
             $request->validate([
@@ -137,10 +138,10 @@ class AdminNewsPostController extends Controller
             $tagsNewArray=array_values(array_unique($tagsNewArray));
 
             foreach ($tagsNewArray as $tag) {
-                $exisitngTag=Tag::where("news_post_id", $newsPost->id)->where("name", $tag)->count();
+                $exisitngTag=Tag::where("breaking_news_id", $breakingNews->id)->where("name", $tag)->count();
                 if (!$exisitngTag) {
                     $tagModel=new Tag();
-                    $tagModel->news_post_id=$newsPost->id;
+                    $tagModel->breaking_news_id=$breakingNews->id;
                     $tagModel->name=$tag;
                     $tagModel->slug=strtolower(str_replace(" ", "-", $tag));
                     $tagModel->save();
@@ -148,16 +149,16 @@ class AdminNewsPostController extends Controller
             }
         }
 
-        return to_route("admin.post.index")->with("success", "Post is updated successfully");
+        return to_route("admin.post.breaking-news.index", "page=".request("page"))->with("success", "Post is updated successfully");
     }
 
-    public function destroy(NewsPost $newsPost)
+    public function destroy(BreakingNews $breakingNews)
     {
-        if (!empty($newsPost->thumbnail) && file_exists(public_path("storage/thumbnails/$newsPost->thumbnail"))) {
-            unlink(public_path("storage/thumbnails/$newsPost->thumbnail"));
+        if (!empty($breakingNews->thumbnail) && file_exists(public_path("storage/thumbnails/$breakingNews->thumbnail"))) {
+            unlink(public_path("storage/thumbnails/$breakingNews->thumbnail"));
         }
 
-        $newsPost->delete();
-        return to_route("admin.post.index")->with("success", "Post is deleted successfully");
+        $breakingNews->delete();
+        return to_route("admin.post.breaking-news.index", "page=".request("page"))->with("success", "Post is deleted successfully");
     }
 }

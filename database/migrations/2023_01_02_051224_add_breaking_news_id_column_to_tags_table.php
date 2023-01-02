@@ -12,12 +12,8 @@ return new class () extends Migration {
      */
     public function up()
     {
-        Schema::create('tags', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId("news_post_id")->nullable()->constrained()->cascadeOnDelete();
-            $table->string("name")->unique();
-            $table->string("slug")->unique();
-            $table->timestamps();
+        Schema::table('tags', function (Blueprint $table) {
+            $table->foreignId("breaking_news_id")->after("news_post_id")->nullable()->constrained()->cascadeOnDelete();
         });
     }
 
@@ -28,6 +24,8 @@ return new class () extends Migration {
      */
     public function down()
     {
-        Schema::dropIfExists('tags');
+        Schema::table('tags', function (Blueprint $table) {
+            $table->dropConstrainedForeignId("breaking_news_id");
+        });
     }
 };

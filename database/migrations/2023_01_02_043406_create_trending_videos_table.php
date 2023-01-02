@@ -12,11 +12,11 @@ return new class () extends Migration {
      */
     public function up()
     {
-        Schema::create('tags', function (Blueprint $table) {
+        Schema::create('trending_videos', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("news_post_id")->nullable()->constrained()->cascadeOnDelete();
-            $table->string("name")->unique();
-            $table->string("slug")->unique();
+            $table->string("video_id");
+            $table->string("owner");
+            $table->string("caption");
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ return new class () extends Migration {
      */
     public function down()
     {
-        Schema::dropIfExists('tags');
+        Schema::dropIfExists('trending_videos');
     }
 };

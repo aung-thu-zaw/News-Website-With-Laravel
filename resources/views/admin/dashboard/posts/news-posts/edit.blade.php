@@ -1,5 +1,5 @@
 <x-dashboard-layout>
-    @section("title", "Post Edit")
+    @section("title", "News Post Edit")
     <div class="row">
 
         <div class="col-12 p-5">

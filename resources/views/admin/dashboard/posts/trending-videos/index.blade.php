@@ -1,5 +1,5 @@
 <x-dashboard-layout>
-    @section("title", "Video Gallery")
+    @section("title", "Trending Videos")
     <div class="row">
         <div class="col-12 px-5 pt-5 pb-3">
             <div class="mb-3 d-flex align-items-center justify-content-end">
@@ -18,11 +18,12 @@
                 </thead>
                 <tbody>
 
-                    @foreach ($videos as $video)
+                    @foreach ($trendingVideos as $video)
                     <tr>
 
                         <th scope="row">{{ $video->id }}</th>
                         <th scope="row">
+
                             <div class="card text-bg-dark" style="width: 200px;">
                                 <img src="http://img.youtube.com/vi/{{ $video->video_id }}/mqdefault.jpg"
                                     class="card-img img-fluid" alt="..."
@@ -48,7 +49,7 @@
 
                                 <form action="{{ route('admin.video-gallery.edit',$video->id) }}" method="GET">
                                     @csrf
-                                    <input type="hidden" name="page" value="{{ $videos->currentPage() }}">
+                                    <input type="hidden" name="page" value="{{ $trendingVideos->currentPage() }}">
                                     <button type="submit" class="btn btn-info me-3">
                                         Edit
                                     </button>
@@ -57,7 +58,7 @@
                                 <form action="{{ route('admin.video-gallery.destroy',$video->id) }}" method="POST">
                                     @csrf
                                     @method("DELETE")
-                                    <input type="hidden" name="page" value="{{ $videos->currentPage() }}">
+                                    <input type="hidden" name="page" value="{{ $trendingVideos->currentPage() }}">
                                     <button type="submit" class="btn btn-danger me-3"
                                         onclick="return confirm('Are you sure want to delete?');">
                                         Delete
@@ -70,6 +71,6 @@
                 </tbody>
             </table>
         </div>
-        {{ $videos->links() }}
+        {{ $trendingVideos->links() }}
     </div>
 </x-dashboard-layout>

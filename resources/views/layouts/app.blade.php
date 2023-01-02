@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>World News</title>
 
+
+
+
     <link rel="shortcut icon"
         href="https://static.vecteezy.com/system/resources/thumbnails/007/925/780/small/tv-news-icon-isolated-on-white-background-free-vector.jpg"
         type="image/x-icon">
@@ -40,7 +43,6 @@
     {{ $slot }}
 
     <x-footer />
-
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
@@ -91,6 +93,8 @@ $(document).ready(function () {
         fixedContentPos: false,
     });
 });
+
+
     </script>
 
     <x-toasts />

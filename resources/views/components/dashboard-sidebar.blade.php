@@ -63,26 +63,14 @@
             </div>
         </div>
 
-
-
-        <div class="my-2">
-            <a href="{{ route('admin.post.index') }}">
-                <i class="fa-solid fa-newspaper me-2"></i>
-                <span class="dashboard-nav-item">
-                    Posts
-                </span>
-            </a>
-        </div>
-
-
         <div class="my-2">
             <div class="">
                 <a data-bs-toggle="collapse" data-bs-target=".collapseThree" href="#collapseExample" role="button"
                     aria-expanded="false" aria-controls="collapseExample" onclick="toggleDownArrowThree()"
                     class="d-flex align-items-center justify-content-between">
                     <div>
-                        <i class="fa-solid fa-photo-film me-2"></i>
-                        <span class="me-5 dashboard-nav-item">Gallery</span>
+                        <i class="fa-solid fa-newspaper me-2"></i>
+                        <span class="me-5 dashboard-nav-item">Posts</span>
                     </div>
                     <div>
                         <i class="fa-solid fa-caret-down left-icon-3" id="down-icon-3"></i>
@@ -90,6 +78,33 @@
                 </a>
             </div>
             <div class="collapse collapseThree" id="collapseExample" style="background: rgb(32, 33, 33)">
+                <a href="{{ route('admin.post.index') }}" class="">
+                    <span class="ms-5 dashboard-nav-item">News Posts</span>
+                </a>
+                <a href="{{ route('admin.post.breaking-news.index') }}" class="">
+                    <span class="ms-5 dashboard-nav-item">Breaking News</span>
+                </a>
+                <a href="{{ route('admin.post.trending-video.index') }}" class="">
+                    <span class="ms-5 dashboard-nav-item">Trending Videos</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="my-2">
+            <div class="">
+                <a data-bs-toggle="collapse" data-bs-target=".collapseFour" href="#collapseExample" role="button"
+                    aria-expanded="false" aria-controls="collapseExample" onclick="toggleDownArrowFour()"
+                    class="d-flex align-items-center justify-content-between">
+                    <div>
+                        <i class="fa-solid fa-photo-film me-2"></i>
+                        <span class="me-5 dashboard-nav-item">Gallery</span>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-caret-down left-icon-4" id="down-icon-4"></i>
+                    </div>
+                </a>
+            </div>
+            <div class="collapse collapseFour" id="collapseExample" style="background: rgb(32, 33, 33)">
                 <a href="{{ route('admin.photo-gallery.index') }}" class="">
                     <span class="ms-5 dashboard-nav-item">Photo Gallery</span>
                 </a>
