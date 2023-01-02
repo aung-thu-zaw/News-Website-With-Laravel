@@ -59,11 +59,11 @@ Route::get('/', [HomeNewsController::class,"index"])->middleware(["twofactor"])-
 
 Route::get('/news/{news_post:slug}', [HomeNewsController::class,"show"])->name("news.show");
 
-Route::get("/about_us", [AboutUsController::class,"index"])->name("about-us");
+Route::get("/about-us", [AboutUsController::class,"index"])->name("about-us");
 
 Route::get("/faq", [FaqController::class,"index"])->name("faq");
 
-Route::get("/contact_us", [ContactUsController::class,"index"])->name("contact-us");
+Route::get("/contact-us", [ContactUsController::class,"index"])->name("contact-us");
 
 Route::get("/news/{category:slug}/{sub_category:slug}", [SubCategoryController::class,"show"])->name("sub-category.show");
 
@@ -73,123 +73,128 @@ Route::get("/gallery/photos", [PhotoGalleryController::class,"index"])->name("ph
 
 Route::get("/gallery/videos", [VideoGalleryController::class,"index"])->name("video-gallery.index");
 
-
 # ============== Admin Dashboard ==============
-Route::middleware(["auth","admin"])->prefix("admin")->name("admin.")->group(function () {
-    Route::get('/dashboard', [AdminDashboardController::class,"index"])->name('dashboard');
+Route::middleware(["auth","admin"])
+        ->prefix("admin")
+        ->name("admin.")
+        ->group(function () {
+            Route::get('/dashboard', [AdminDashboardController::class,"index"])->name('dashboard');
 
-    Route::get("/home_advertisement", [AdminHomeAdvertisementController::class,"show"])->name("home-advertisement");
+            Route::get("/home-advertisement", [AdminHomeAdvertisementController::class,"show"])->name("home-advertisement");
 
-    Route::get("/sidebar_advertisement", [AdminSidebarAdvertisementController::class,"show"])->name("sidebar-advertisement");
+            Route::get("/sidebar-advertisement", [AdminSidebarAdvertisementController::class,"show"])->name("sidebar-advertisement");
 
-    Route::patch("/home_advertisement/update", [AdminHomeAdvertisementController::class,"update"])->name("home-advertisement.update");
+            Route::patch("/home-advertisement/update", [AdminHomeAdvertisementController::class,"update"])->name("home-advertisement.update");
 
-    Route::patch("/sidebar_advertisement/update", [AdminSidebarAdvertisementController::class,"update"])->name("sidebar-advertisement.update");
-});
+            Route::patch("/sidebar-advertisement/update", [AdminSidebarAdvertisementController::class,"update"])->name("sidebar-advertisement.update");
+        });
 
-Route::controller(AdminCategoryController::class)->middleware(["auth","admin"])->prefix("admin/categories")->name("admin.category.")->group(function () {
-    Route::get("/", "index")->name("index");
+Route::controller(AdminCategoryController::class)
+        ->middleware(["auth","admin"])
+        ->prefix("admin/categories")
+        ->name("admin.category.")
+        ->group(function () {
+            Route::get("/", "index")->name("index");
 
-    Route::get("/create", "create")->name("create");
+            Route::get("/create", "create")->name("create");
 
-    Route::post("/store", "store")->name("store");
+            Route::post("/store", "store")->name("store");
 
-    Route::get("/{category:slug}/edit", "edit")->name("edit");
+            Route::get("/{category:slug}/edit", "edit")->name("edit");
 
-    Route::patch("/{category:slug}/update", "update")->name("update");
+            Route::patch("/{category:slug}/update", "update")->name("update");
 
-    Route::delete("/{category:slug}/delete", "destroy")->name("destroy");
-});
+            Route::delete("/{category:slug}/delete", "destroy")->name("destroy");
+        });
 
-Route::controller(AdminSubCategoryController::class)->middleware(["auth","admin"])->prefix("admin/sub_categories")->name("admin.sub-category.")->group(function () {
-    Route::get("/", "index")->name("index");
+Route::controller(AdminSubCategoryController::class)
+        ->middleware(["auth","admin"])
+        ->prefix("admin/sub-categories")
+        ->name("admin.sub-category.")
+        ->group(function () {
+            Route::get("/", "index")->name("index");
 
-    Route::get("/create", "create")->name("create");
+            Route::get("/create", "create")->name("create");
 
-    Route::post("/store", "store")->name("store");
+            Route::post("/store", "store")->name("store");
 
-    Route::get("/{sub_category:slug}/edit", "edit")->name("edit");
+            Route::get("/{sub_category:slug}/edit", "edit")->name("edit");
 
-    Route::patch("/{sub_category:slug}/update", "update")->name("update");
+            Route::patch("/{sub_category:slug}/update", "update")->name("update");
 
-    Route::delete("/{sub_category:slug}/delete", "destroy")->name("destroy");
-});
+            Route::delete("/{sub_category:slug}/delete", "destroy")->name("destroy");
+        });
 
-Route::controller(AdminNewsPostController::class)->middleware(["auth","admin"])->prefix("admin/posts")->name("admin.post.")->group(function () {
-    Route::get("/", "index")->name("index");
+Route::controller(AdminNewsPostController::class)
+        ->middleware(["auth","admin"])
+        ->prefix("admin/posts")
+        ->name("admin.post.")
+        ->group(function () {
+            Route::get("/", "index")->name("index");
 
-    Route::get("/create", "create")->name("create");
+            Route::get("/create", "create")->name("create");
 
-    Route::post("/store", "store")->name("store");
+            Route::post("/store", "store")->name("store");
 
-    Route::get("/{news_post:slug}/edit", "edit")->name("edit");
+            Route::get("/{news_post:slug}/edit", "edit")->name("edit");
 
-    Route::patch("/{news_post:slug}/update", "update")->name("update");
+            Route::patch("/{news_post:slug}/update", "update")->name("update");
 
-    Route::delete("/{news_post:slug}/delete", "destroy")->name("destroy");
-});
+            Route::delete("/{news-post:slug}/delete", "destroy")->name("destroy");
+        });
 
-Route::controller(AdminBreakingNewsController::class)->middleware(["auth","admin"])->prefix("admin/posts/breaking_news")->name("admin.post.breaking-news.")->group(function () {
-    Route::get("/", "index")->name("index");
+Route::controller(AdminTrendingVideosController::class)
+        ->middleware(["auth","admin"])
+        ->prefix("admin/posts/trending-videos")
+        ->name("admin.post.trending-video.")
+        ->group(function () {
+            Route::get("/", "index")->name("index");
 
-    Route::get("/create", "create")->name("create");
+            Route::get("/create", "create")->name("create");
 
-    Route::post("/store", "store")->name("store");
+            Route::post("/store", "store")->name("store");
 
-    Route::get("/{breaking_news:slug}/edit", "edit")->name("edit");
+            Route::get("/{news_post:slug}/edit", "edit")->name("edit");
 
-    Route::patch("/{breaking_news:slug}/update", "update")->name("update");
+            Route::patch("/{news_post:slug}/update", "update")->name("update");
 
-    Route::delete("/{breaking_news:slug}/delete", "destroy")->name("destroy");
-});
-
-
-
-
-
-
-Route::controller(AdminTrendingVideosController::class)->middleware(["auth","admin"])->prefix("admin/posts/trending_videos")->name("admin.post.trending-video.")->group(function () {
-    Route::get("/", "index")->name("index");
-
-    Route::get("/create", "create")->name("create");
-
-    Route::post("/store", "store")->name("store");
-
-    Route::get("/{news_post:slug}/edit", "edit")->name("edit");
-
-    Route::patch("/{news_post:slug}/update", "update")->name("update");
-
-    Route::delete("/{news_post:slug}/delete", "destroy")->name("destroy");
-});
+            Route::delete("/{news_post:slug}/delete", "destroy")->name("destroy");
+        });
 
 Route::delete('/admin/tags/{tag:id}', [TagController::class,"destroy"])->name("tag.destroy");
 
-Route::controller(AdminPhotoGalleryController::class)->middleware(["auth","admin"])->prefix("admin/photos")->name("admin.photo-gallery.")->group(function () {
-    Route::get("/", "index")->name("index");
+Route::controller(AdminPhotoGalleryController::class)
+        ->middleware(["auth","admin"])
+        ->prefix("admin/photos")
+        ->name("admin.photo-gallery.")
+        ->group(function () {
+            Route::get("/", "index")->name("index");
 
-    Route::get("/create", "create")->name("create");
+            Route::get("/create", "create")->name("create");
 
-    Route::post("/store", "store")->name("store");
+            Route::post("/store", "store")->name("store");
 
-    Route::get("/{photo:id}/edit", "edit")->name("edit");
+            Route::get("/{photo:id}/edit", "edit")->name("edit");
 
-    Route::patch("/{photo:id}/update", "update")->name("update");
+            Route::patch("/{photo:id}/update", "update")->name("update");
 
-    Route::delete("/{photo:id}/delete", "destroy")->name("destroy");
-});
+            Route::delete("/{photo:id}/delete", "destroy")->name("destroy");
+        });
 
-Route::controller(AdminVideoGalleryController::class)->middleware(["auth","admin"])->prefix("admin/videos")->name("admin.video-gallery.")->group(function () {
-    Route::get("/", "index")->name("index");
+Route::controller(AdminVideoGalleryController::class)
+        ->middleware(["auth","admin"])
+        ->prefix("admin/videos")
+        ->name("admin.video-gallery.")
+        ->group(function () {
+            Route::get("/", "index")->name("index");
 
-    Route::get("/create", "create")->name("create");
+            Route::get("/create", "create")->name("create");
 
-    Route::post("/store", "store")->name("store");
+            Route::post("/store", "store")->name("store");
 
-    Route::get("/{video:id}/edit", "edit")->name("edit");
+            Route::get("/{video:id}/edit", "edit")->name("edit");
 
-    Route::patch("/{video:id}/update", "update")->name("update");
+            Route::patch("/{video:id}/update", "update")->name("update");
 
-    Route::delete("/{video:id}/delete", "destroy")->name("destroy");
-});
-
-// Route::view('/photo-gallery', 'galleries.photo');
+            Route::delete("/{video:id}/delete", "destroy")->name("destroy");
+        });

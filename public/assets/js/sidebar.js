@@ -16,7 +16,7 @@ function toggleNav() {
     nav ? openNav() : closeNav();
 }
 
-window.onload(openNav());
+window.addEventListener("load", openNav);
 
 function toggleDownArrowOne() {
     if (

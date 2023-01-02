@@ -1,6 +1,6 @@
 <x-app-layout>
 
-    <x-header-section :posts="$breakingNewsPosts" />
+    <x-header-section :posts="$latestNewsPosts" />
 
 
     <x-home-top-advertisement />

@@ -32,7 +32,6 @@ class DatabaseSeeder extends Seeder
             NewsPostSeeder::class,
             PhotoSeeder::class,
             VideoSeeder::class,
-            BreakingNewsSeeder::class,
             TrendingVideoSeeder::class,
         ]);
     }

@@ -81,9 +81,6 @@
                 <a href="{{ route('admin.post.index') }}" class="">
                     <span class="ms-5 dashboard-nav-item">News Posts</span>
                 </a>
-                <a href="{{ route('admin.post.breaking-news.index') }}" class="">
-                    <span class="ms-5 dashboard-nav-item">Breaking News</span>
-                </a>
                 <a href="{{ route('admin.post.trending-video.index') }}" class="">
                     <span class="ms-5 dashboard-nav-item">Trending Videos</span>
                 </a>

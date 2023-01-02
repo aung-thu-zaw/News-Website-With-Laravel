@@ -15,7 +15,7 @@ class HomeNewsController extends Controller
     public function index()
     {
         return view('news.index', [
-            "breakingNewsPosts"=>BreakingNews::with("subCategory", "author")->orderBy("id", "desc")->take(5)->get(),
+            "latestNewsPosts"=>NewsPost::with("subCategory", "author")->orderBy("id", "desc")->take(5)->get(),
             "trendingVideos"=>TrendingVideo::orderBy("id", "desc")->get(),
             "subCategories"=>SubCategory::with("newsPosts.subCategory", "newsPosts.author")->orderBy("id", "desc")->get()
         ]);
