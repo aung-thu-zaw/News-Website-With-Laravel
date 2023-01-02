@@ -10,7 +10,7 @@
                     <div class="col-lg-3 col-md-4">
                         <div class="card">
                             <div class="card-body text-center">
-                                <a href="/{{ $subCategory->category->slug }}/{{ $subCategory->slug }}">
+                                <a href="/news/{{ $subCategory->category->slug }}/{{ $subCategory->slug }}">
                                     {{ $subCategory->name }}
                                 </a>
                             </div>

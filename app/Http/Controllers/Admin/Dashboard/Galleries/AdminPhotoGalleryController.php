@@ -5,13 +5,13 @@ namespace App\Http\Controllers\Admin\Dashboard\Galleries;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Photo;
-
+use Butschster\Head\Facades\Meta;
 
 class AdminPhotoGalleryController extends Controller
 {
-
     public function index()
     {
+        Meta::prependTitle("Photo Gallery");
         return view("admin.dashboard.galleries.photo-gallery.index", [
             "photos"=>Photo::orderBy("id", "desc")->paginate(10)
         ]);
@@ -84,7 +84,7 @@ class AdminPhotoGalleryController extends Controller
 
         $photo->update($photoFormData);
 
-        return to_route("admin.photo-gallery.index","page=".request("page"))->with("success", "Photo is updated successfully");
+        return to_route("admin.photo-gallery.index", "page=".request("page"))->with("success", "Photo is updated successfully");
     }
 
 

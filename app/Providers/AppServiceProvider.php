@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\Category;
 use App\Models\HomeAdvertisement;
+use App\Models\Setting;
 use App\Models\SidebarAdvertisement;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Pagination\Paginator;
@@ -36,5 +37,6 @@ class AppServiceProvider extends ServiceProvider
 
         View::share("homeAdvertisement", HomeAdvertisement::where("id", 1)->first());
         View::share("sidebarAdvertisement", SidebarAdvertisement::where("id", 1)->first());
+        View::share("setting", Setting::where("id", 1)->first());
     }
 }

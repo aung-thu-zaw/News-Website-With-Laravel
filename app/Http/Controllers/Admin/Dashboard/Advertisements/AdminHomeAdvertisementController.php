@@ -5,11 +5,13 @@ namespace App\Http\Controllers\Admin\Dashboard\Advertisements;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\HomeAdvertisement;
+use Butschster\Head\Facades\Meta;
 
 class AdminHomeAdvertisementController extends Controller
 {
     public function show()
     {
+        Meta::prependTitle("Home Advertisement");
         return view('admin.dashboard.advertisements.home-advertisement.show', [
             "homeAdvertisement" => HomeAdvertisement::first()
         ]);

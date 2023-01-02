@@ -9,11 +9,14 @@ use App\Models\SubCategory;
 use App\Models\Tag;
 use App\Models\TrendingVideo;
 use Share;
+use Butschster\Head\Facades\Meta;
 
 class HomeNewsController extends Controller
 {
     public function index()
     {
+        Meta::prependTitle('Home');
+
         return view('news.index', [
             "latestNewsPosts"=>NewsPost::with("subCategory", "author")->orderBy("id", "desc")->take(5)->get(),
             "trendingVideos"=>TrendingVideo::orderBy("id", "desc")->get(),
@@ -23,6 +26,7 @@ class HomeNewsController extends Controller
 
     public function show(NewsPost $newsPost)
     {
+        Meta::setTitle("$newsPost->title");
         $socialShare=Share::currentPage()
             ->facebook()
             ->twitter()

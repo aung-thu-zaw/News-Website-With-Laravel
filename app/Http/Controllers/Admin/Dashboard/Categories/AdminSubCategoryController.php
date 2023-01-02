@@ -7,11 +7,13 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\SubCategory;
 use Illuminate\Validation\Rule;
+use Butschster\Head\Facades\Meta;
 
 class AdminSubCategoryController extends Controller
 {
     public function index()
     {
+        Meta::prependTitle("SubCategory");
         return view("admin.dashboard.categories.sub-category.index", [
             "subCategories"=>SubCategory::with("category:id,name")->orderBy("id", "desc")->paginate(5)
         ]);

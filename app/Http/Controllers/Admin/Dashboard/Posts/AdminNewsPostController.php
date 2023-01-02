@@ -8,11 +8,13 @@ use App\Models\NewsPost;
 use App\Models\SubCategory;
 use App\Models\Tag;
 use Illuminate\Validation\Rule;
+use Butschster\Head\Facades\Meta;
 
 class AdminNewsPostController extends Controller
 {
     public function index()
     {
+        Meta::prependTitle("News Post");
         return view("admin.dashboard.posts.news-posts.index", [
             "newsPosts"=>NewsPost::with("subCategory.category", "author")->where("user_id", 1)->orderBy("id", "desc")->paginate(10)
         ]);

@@ -1,7 +1,7 @@
 <div id="mySidenav" class="sidenav d-flex flex-column justify-content-between">
     <div class="border-3 border-bottom py-3 px-3">
         <h5 class="text-center text-white">
-            World News
+            News Website
             </h4>
     </div>
     <div class="h-100">
@@ -110,6 +110,17 @@
                 </a>
             </div>
         </div>
+
+
+        <div class="my-2">
+            <a href="{{ route('admin.setting') }}">
+                <i class="fa-solid fa-gear me-2"></i>
+                <span class="dashboard-nav-item">
+                    Setting
+                </span>
+            </a>
+        </div>
+
 
 
     </div>

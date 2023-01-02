@@ -9,6 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
+        "butschster/meta-tags": "^2.2",
         "guzzlehttp/guzzle": "^7.2",
         "jorenvanhocht/laravel-share": "^4.2",
         "laravel/breeze": "^1.15",

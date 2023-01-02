@@ -5,11 +5,13 @@ namespace App\Http\Controllers\Admin\Dashboard\Posts;
 use App\Http\Controllers\Controller;
 use App\Models\TrendingVideo;
 use Illuminate\Http\Request;
+use Butschster\Head\Facades\Meta;
 
 class AdminTrendingVideosController extends Controller
 {
     public function index()
     {
+        Meta::prependTitle("Trending Video");
         return view("admin.dashboard.posts.trending-videos.index", [
             "trendingVideos"=>TrendingVideo::orderBy("id", "desc")->paginate(10)
         ]);

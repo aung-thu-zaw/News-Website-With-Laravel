@@ -5,13 +5,14 @@ namespace App\Http\Controllers\Admin\Dashboard\Galleries;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Video;
-
+use Butschster\Head\Facades\Meta;
 
 class AdminVideoGalleryController extends Controller
 {
 
     public function index()
     {
+        Meta::prependTitle("Video Gallery");
         return view("admin.dashboard.galleries.video-gallery.index", [
             "videos"=>Video::orderBy("id", "desc")->paginate(10)
         ]);

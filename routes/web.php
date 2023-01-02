@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminSettingController;
 use App\Http\Controllers\Admin\Dashboard\AdminDashboardController;
 use App\Http\Controllers\Admin\Dashboard\Advertisements\AdminHomeAdvertisementController;
 use App\Http\Controllers\Admin\Dashboard\Advertisements\AdminSidebarAdvertisementController;
@@ -87,6 +88,9 @@ Route::middleware(["auth","admin"])
             Route::patch("/home-advertisement/update", [AdminHomeAdvertisementController::class,"update"])->name("home-advertisement.update");
 
             Route::patch("/sidebar-advertisement/update", [AdminSidebarAdvertisementController::class,"update"])->name("sidebar-advertisement.update");
+
+            Route::get('/setting', [AdminSettingController::class,"show"])->name('setting');
+            Route::patch('/setting/update', [AdminSettingController::class,"update"])->name('setting.update');
         });
 
 Route::controller(AdminCategoryController::class)

@@ -6,11 +6,12 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use Illuminate\Validation\Rule;
-
+use Butschster\Head\Facades\Meta;
 class AdminCategoryController extends Controller
 {
     public function index()
     {
+        Meta::prependTitle("Category");
         return view("admin.dashboard.categories.category.index", [
             "categories"=>Category::orderBy("id", "desc")->paginate(10)
         ]);
