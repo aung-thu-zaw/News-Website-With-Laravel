@@ -1,20 +1,18 @@
 <x-dashboard-layout>
-    @section("title", "News Posts")
+    @section("title", "Video News Posts")
     <div class="row">
         <div class="col-12 px-5 pt-5 pb-3">
             <div class="mb-3 d-flex align-items-center justify-content-end">
-                <a href="{{ route('admin.post.create') }}" class="btn btn-primary">Create
+                <a href="{{ route('admin.post.video.create') }}" class="btn btn-primary">Create
                     <i class="fa-solid fa-plus"></i></a>
             </div>
             <table class="table table-bordered">
                 <thead>
                     <tr>
                         <th scope="col">No</th>
-                        <th scope="col">Thumbnail</th>
+                        <th scope="col">Video</th>
                         <th scope="col">Title</th>
                         <th scope="col">slug</th>
-                        <th scope="col">Category</th>
-                        <th scope="col">SubCategory</th>
                         <th scope="col">Visitors</th>
                         <th scope="col">Author</th>
                         <th scope="col">Action</th>
@@ -22,25 +20,29 @@
                 </thead>
                 <tbody>
 
-                    @foreach ($newsPosts as $post)
+                    @foreach ($videoNewsPosts as $post)
                     <tr>
                         <th scope="row">{{ $post->id }}</th>
                         <td>
-                            <img src="{{ asset('storage/thumbnails/'.$post->thumbnail) }}" alt="" class="img-fluid"
-                                style="width: 200px;">
+                            <div class="card text-bg-dark" style="width: 200px;">
+                                <img src="http://img.youtube.com/vi/{{ $post->video_id }}/mqdefault.jpg"
+                                    class="card-img img-fluid" alt="..."
+                                    style="width: 100%; height: 100%; object-fit: cover">
+                                <div class="card-img-overlay d-flex align-items-center justify-content-center">
+                                    <span class="fs-1" style="cursor: pointer">
+                                        <a class="popup-youtube text-white"
+                                            href="http://www.youtube.com/watch?v={{ $post->video_id }}">
+                                            <i class="fa-regular fa-circle-play"></i>
+                                        </a>
+                                    </span>
+                                </div>
+                            </div>
                         </td>
                         <td>
                             {{ $post->title }}
                         </td>
                         <td>
                             {{ $post->slug }}
-                        </td>
-
-                        <td>
-                            {{ $post->subCategory->category->name }}
-                        </td>
-                        <td>
-                            {{ $post->subCategory->name }}
                         </td>
                         <td>
                             {{ $post->visitors }}
@@ -51,19 +53,18 @@
                         <td>
                             <div class=" d-flex align-items-center">
 
-                                <form action="{{ route('admin.post.edit',$post->slug) }}" method="GET">
+                                <form action="{{ route('admin.post.video.edit',$post->slug) }}" method="GET">
                                     @csrf
-                                    <input type="hidden" name="page" value="{{ $newsPosts->currentPage() }}">
+                                    <input type="hidden" name="page" value="{{ $videoNewsPosts->currentPage() }}">
                                     <button type="submit" class="btn btn-info me-3">
                                         Edit
                                     </button>
                                 </form>
 
-                                <form action="{{ route('admin.post.destroy',$post->slug) }}" method="POST">
+                                <form action="{{ route('admin.post.video.destroy',$post->slug) }}" method="POST">
                                     @csrf
                                     @method("DELETE")
-
-                                    <input type="hidden" name="page" value="{{ $newsPosts->currentPage() }}">
+                                    <input type="hidden" name="page" value="{{ $videoNewsPosts->currentPage() }}">
                                     <button type="submit" class="btn btn-danger me-3"
                                         onClick="return confirm('Are you sure want to delete?');">
                                         Delete
@@ -76,6 +77,6 @@
                 </tbody>
             </table>
         </div>
-        {{ $newsPosts->links() }}
+        {{ $videoNewsPosts->links() }}
     </div>
 </x-dashboard-layout>

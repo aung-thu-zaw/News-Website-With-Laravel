@@ -87,6 +87,7 @@ class AdminNewsPostController extends Controller
         return view("admin.dashboard.posts.news-posts.edit", [
             "newsPost"=>$newsPost,
             "subCategories"=>SubCategory::with("category")->get(),
+            "page"=>request('page'),
         ]);
     }
 
@@ -150,7 +151,7 @@ class AdminNewsPostController extends Controller
             }
         }
 
-        return to_route("admin.post.index")->with("success", "Post is updated successfully");
+        return to_route("admin.post.index", "page=".request("page"))->with("success", "Post is updated successfully");
     }
 
     public function destroy(NewsPost $newsPost)
@@ -160,6 +161,6 @@ class AdminNewsPostController extends Controller
         }
 
         $newsPost->delete();
-        return to_route("admin.post.index")->with("success", "Post is deleted successfully");
+        return to_route("admin.post.index", "page=".request("page"))->with("success", "Post is deleted successfully");
     }
 }

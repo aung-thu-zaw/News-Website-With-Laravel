@@ -17,6 +17,9 @@
 
     <x-home-bottom-advertisement />
 
+    
+    <x-video-news-section :posts="$newsVideoPosts" />
+
 
     <x-trending-videos-section :trendingvideos="$trendingVideos" />
 

@@ -2,9 +2,9 @@
     <section class="container mt-3 py-3">
         <div class="row g-3">
             <div class="col-lg-8 col-md-6">
-                <x-breadcrumbs :post="$newsPost" />
+                <x-breadcrumbs />
 
-                <x-single-news-details :post="$newsPost" :socialshare="$socialShare" />
+                <x-single-news-details :post="$videoNewsPost" :socialshare="$socialShare" />
 
                 <x-related-tags :tags="$tags" />
 

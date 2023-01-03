@@ -1,5 +1,5 @@
 <x-dashboard-layout>
-    @section("title", "News Post Edit")
+    @section("title", "News Video Post Edit")
     <div class="row">
 
         <div class="col-12 p-5">
@@ -8,30 +8,28 @@
                         class="fa-solid fa-eye"></i></a>
             </div>
             <div class="border p-5">
-                <form action="{{ route('admin.post.update',$newsPost->slug) }}" method="POST"
+                <form action="{{ route('admin.post.video.update',$newsVideoPost->slug) }}" method="POST"
                     enctype="multipart/form-data">
                     @csrf
                     @method("PATCH")
 
                     <input type="hidden" name="page" value="{{$page}}">
 
-                    <x-form.input type="text" name="title" value="{{ $newsPost->title }}">
+                    <x-form.input type="text" name="video_id" value="{{ $newsVideoPost->video_id }}">
+                        <x-form.label name="Video Id*" />
+                    </x-form.input>
+
+                    <x-form.input type="text" name="title" value="{{ $newsVideoPost->title }}">
                         <x-form.label name="Title *" />
                     </x-form.input>
 
-                    <x-form.input type="text" name="slug" value="{{ $newsPost->slug }}">
+                    <x-form.input type="text" name="slug" value="{{ $newsVideoPost->slug }}">
                         <x-form.label name="Slug *" />
                     </x-form.input>
 
-                    <x-form.textarea name="body" value="{{ $newsPost->body }}">
+                    <x-form.textarea name="body" value="{{ $newsVideoPost->body }}">
                         <x-form.label name="Detail *" />
                     </x-form.textarea>
-
-                    <x-form.select name="sub_category_id" :subcategories="$subCategories"
-                        :id="$newsPost->sub_category_id">
-                        <x-form.label name="SubCategory *" />
-                    </x-form.select>
-
 
                     <x-form.input-wrapper>
                         <x-form.label name="Tags" />
@@ -40,23 +38,14 @@
                     </x-form.input-wrapper>
 
 
-                    <x-form.input type="file" name="thumbnail" id="file1">
-                        <x-form.label name="Choose Photo" />
-                    </x-form.input>
-
-                    <div class="mb-3">
-                        <img src="{{ asset('storage/thumbnails/'.$newsPost->thumbnail) }}" alt="" id="previewPhoto1"
-                            style="width: 400px">
-                    </div>
-
                     <x-form.input-button name="Update" />
                 </form>
 
-                @if(count($newsPost->tags))
+                @if(count($newsVideoPost->tags))
                 <div class="mb-3">
                     <span class="mb-5">Exisiting Tags</span>
                     <div class="d-flex align-items-center">
-                        @foreach ($newsPost->tags as $tag)
+                        @foreach ($newsVideoPost->tags as $tag)
                         <form action="{{ route('tag.destroy',$tag->id) }}" method="POST">
                             @csrf
                             @method("DELETE")

@@ -17,18 +17,18 @@ use App\Http\Controllers\Admin\Dashboard\Categories\AdminCategoryController;
 use App\Http\Controllers\Admin\Dashboard\Categories\AdminSubCategoryController;
 use App\Http\Controllers\Admin\Dashboard\Galleries\AdminPhotoGalleryController;
 use App\Http\Controllers\Admin\Dashboard\Galleries\AdminVideoGalleryController;
-use App\Http\Controllers\Admin\Dashboard\Posts\AdminBreakingNewsController;
 use App\Http\Controllers\Admin\Dashboard\Posts\AdminNewsPostController;
+use App\Http\Controllers\Admin\Dashboard\Posts\AdminNewsVideoPostController;
 use App\Http\Controllers\Admin\Dashboard\Posts\AdminTrendingVideosController;
 use App\Http\Controllers\Admin\Dashboard\TagController;
-use App\Http\Controllers\ArchiveController;
 use App\Http\Controllers\Categories\CategoryController;
 use App\Http\Controllers\Categories\SubCategoryController;
-use App\Http\Controllers\DateNewsController;
+use App\Http\Controllers\News\DateNewsController;
 use App\Http\Controllers\Galleries\PhotoGalleryController;
 use App\Http\Controllers\Galleries\VideoGalleryController;
-use App\Http\Controllers\PopularNewsController;
-use App\Http\Controllers\RecentNewsController;
+use App\Http\Controllers\News\PopularNewsController;
+use App\Http\Controllers\News\RecentNewsController;
+use App\Http\Controllers\News\VideoNewsController;
 use Illuminate\Support\Facades\Route;
 
 # ============== User Authentication ==============
@@ -61,8 +61,12 @@ Route::controller(ProfileController::class)->middleware(['auth'])->name("profile
 
 # ============== News Home Page ==============
 Route::get('/', [HomeNewsController::class,"index"])->middleware(["twofactor"])->name("news.home");
-
 Route::get('/news/{news_post:slug}', [HomeNewsController::class,"show"])->name("news.show");
+
+Route::get('/video-news', [VideoNewsController::class,"index"])->name("video-news.index");
+Route::get('/video-news/{video_news_post:slug}', [VideoNewsController::class,"show"])->name("video-news.show");
+
+// Route::get('/news/video-news/{news_video_post:slug}', [HomeNewsController::class,"show"])->name("news.show");
 
 Route::get("/about-us", [AboutUsController::class,"index"])->name("about-us");
 
@@ -155,7 +159,25 @@ Route::controller(AdminNewsPostController::class)
 
             Route::patch("/{news_post:slug}/update", "update")->name("update");
 
-            Route::delete("/{news-post:slug}/delete", "destroy")->name("destroy");
+            Route::delete("/{news_post:slug}/delete", "destroy")->name("destroy");
+        });
+
+Route::controller(AdminNewsVideoPostController::class)
+        ->middleware(["auth","admin"])
+        ->prefix("admin/posts/videos/")
+        ->name("admin.post.video.")
+        ->group(function () {
+            Route::get("/", "index")->name("index");
+
+            Route::get("/create", "create")->name("create");
+
+            Route::post("/store", "store")->name("store");
+
+            Route::get("/{news_video_post:slug}/edit", "edit")->name("edit");
+
+            Route::patch("/{news_video_post:slug}/update", "update")->name("update");
+
+            Route::delete("/{news_video_post:slug}/delete", "destroy")->name("destroy");
         });
 
 Route::controller(AdminTrendingVideosController::class)
@@ -213,3 +235,9 @@ Route::controller(AdminVideoGalleryController::class)
 
             Route::delete("/{video:id}/delete", "destroy")->name("destroy");
         });
+
+
+
+
+
+// Route::resource('admin/videos', AdminVideoGalleryController::class);
