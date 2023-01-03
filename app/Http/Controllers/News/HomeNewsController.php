@@ -20,7 +20,7 @@ class HomeNewsController extends Controller
         return view('news.index', [
             "latestNewsPosts"=>NewsPost::with("subCategory", "author")->orderBy("id", "desc")->take(5)->get(),
             "trendingVideos"=>TrendingVideo::orderBy("id", "desc")->get(),
-            "subCategories"=>SubCategory::with("newsPosts.subCategory", "newsPosts.author")->orderBy("id", "desc")->get()
+            "subCategories"=>SubCategory::with("newsPosts.subCategory", "newsPosts.author", "category.subCategories")->orderBy("id", "desc")->get()
         ]);
     }
 

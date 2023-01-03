@@ -61,11 +61,6 @@ class AdminSettingController extends Controller
             $setting->update($settingFormData);
         }
 
-        // @dd(request()->all());
-
-
-
-        // $setting->update($settingFormData);
         return redirect()->back()->with("success", "Favicon And Logo are updated successfully");
     }
 }

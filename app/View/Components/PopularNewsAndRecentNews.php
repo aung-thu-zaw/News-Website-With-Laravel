@@ -25,13 +25,13 @@ class PopularNewsAndRecentNews extends Component
     public function render()
     {
         return view('components.popular-news-and-recent-news', [
-            "popularNews"=>NewsPost::with("subCategory:id,name,slug", "author:id,name")
+            "popularNews"=>NewsPost::with("subCategory.category", "author")
             ->orderBy("visitors", "desc")
             ->take(4)
             ->get(),
 
-            "recentNews"=>NewsPost::with("subCategory:id,name,slug", "author:id,name")
-            ->latest()
+            "recentNews"=>NewsPost::with("subCategory.category", "author")
+            ->orderBy("id", "desc")
             ->take(4)
             ->get(),
         ]);

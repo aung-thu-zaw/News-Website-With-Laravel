@@ -21,10 +21,14 @@ use App\Http\Controllers\Admin\Dashboard\Posts\AdminBreakingNewsController;
 use App\Http\Controllers\Admin\Dashboard\Posts\AdminNewsPostController;
 use App\Http\Controllers\Admin\Dashboard\Posts\AdminTrendingVideosController;
 use App\Http\Controllers\Admin\Dashboard\TagController;
+use App\Http\Controllers\ArchiveController;
 use App\Http\Controllers\Categories\CategoryController;
 use App\Http\Controllers\Categories\SubCategoryController;
+use App\Http\Controllers\DateNewsController;
 use App\Http\Controllers\Galleries\PhotoGalleryController;
 use App\Http\Controllers\Galleries\VideoGalleryController;
+use App\Http\Controllers\PopularNewsController;
+use App\Http\Controllers\RecentNewsController;
 use Illuminate\Support\Facades\Route;
 
 # ============== User Authentication ==============
@@ -68,6 +72,12 @@ Route::get("/contact-us", [ContactUsController::class,"index"])->name("contact-u
 
 Route::get("/news/{category:slug}/{sub_category:slug}", [SubCategoryController::class,"show"])->name("sub-category.show");
 
+Route::get("/news/{year}/{month}/{day}", [DateNewsController::class,"show"])->name("date-news.show");
+
+Route::get("/popular-news", [PopularNewsController::class,"show"])->name("popular-news.show");
+
+Route::get("/recent-news", [RecentNewsController::class,"show"])->name("recent-news.show");
+
 Route::get("/{category:slug}", [CategoryController::class,"show"])->name("category.show");
 
 Route::get("/gallery/photos", [PhotoGalleryController::class,"index"])->name("photo-gallery.index");
@@ -90,6 +100,7 @@ Route::middleware(["auth","admin"])
             Route::patch("/sidebar-advertisement/update", [AdminSidebarAdvertisementController::class,"update"])->name("sidebar-advertisement.update");
 
             Route::get('/setting', [AdminSettingController::class,"show"])->name('setting');
+
             Route::patch('/setting/update', [AdminSettingController::class,"update"])->name('setting.update');
         });
 

@@ -37,7 +37,8 @@
                     <div class="card-img-overlay d-flex flex-column justify-content-end">
                         <div class="carousel-caption d-none d-md-block">
                             <h5 class="text-warning">
-                                <a href="#" class="text-white">{{ $randomPost->title }}</a>
+                                <a href="{{ route('news.show',$randomPost->slug) }}" class="text-white">{{
+                                    $randomPost->title }}</a>
                             </h5>
                             <small class="text-warning">
                                 {!! StringHelper::description($randomPost->body) !!}
@@ -60,7 +61,8 @@
                     <div class="card-img-overlay d-flex flex-column justify-content-end">
                         <div class="carousel-caption d-none d-md-block">
                             <h5 class="text-warning">
-                                <a href="#" class="text-white">{{ $randomPost->title }}</a>
+                                <a href="{{ route('news.show',$randomPost->slug) }}" class="text-white">{{
+                                    $randomPost->title }}</a>
                             </h5>
                             <small class="text-warning">
                                 {!! StringHelper::description($randomPost->body) !!}

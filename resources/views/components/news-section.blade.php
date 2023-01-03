@@ -17,7 +17,8 @@
                             <span class="border d-none d-lg-block w-75">
                             </span>
                             <div>
-                                <a href="#" class="btn btn-primary">See all</a>
+                                <a href="/news/{{ $subcategory->category->slug }}/{{ $subcategory->slug }}"
+                                    class="btn btn-primary">See all</a>
                             </div>
                         </div>
 
@@ -39,7 +40,8 @@
                                     <small class="card-text">
                                         {!! StringHelper::description($post->body) !!}
                                     </small>
-                                    <a href="#" class="header-news-tag-sm text-white my-1">
+                                    <a href="/news/{{ $subcategory->category->slug }}/{{ $subcategory->slug }}"
+                                        class="header-news-tag-sm text-white my-1">
                                         {{ $post->subCategory->name }}
                                     </a>
                                     <div class="d-flex align-items-center justify-content-between">
@@ -50,7 +52,10 @@
                                             </span>
                                             <span>
                                                 <i class="fa-solid fa-calendar-days me-1"></i>
-                                                <a href="#" class="text-dark">
+                                                <a href="/news/{{ DateTimeHelper::formatYear($post,'created_at') }}/{{
+                                                    DateTimeHelper::formatMonth($post,'created_at') }}/{{
+                                                    DateTimeHelper::formatDay($post,'created_at') }}"
+                                                    class="text-dark">
                                                     {{ DateTimeHelper::formatDate($post,"created_at") }}
                                                 </a>
                                             </span>
@@ -87,9 +92,14 @@
                                     <div class="col-10 col-lg-8">
                                         <div class="card-body">
                                             <h6 class="card-title">
-                                                {{ StringHelper::title($post->title) }}
+
+                                                <a href="{{ route('news.show',$post->slug) }}" class="text-dark">
+                                                    {{ StringHelper::title($post->title) }}
+                                                </a>
+
                                             </h6>
-                                            <a href="#" class="news-tag-sm text-white my-1">{{
+                                            <a href="/news/{{ $subcategory->category->slug }}/{{ $subcategory->slug }}"
+                                                class="news-tag-sm text-white my-1">{{
                                                 $post->subCategory->name
                                                 }}</a>
                                             <div class="icon-box-sm">
@@ -99,7 +109,10 @@
                                                 </span>
                                                 <span>
                                                     <i class="fa-solid fa-calendar-days me-1"></i>
-                                                    <a href="#" class="text-dark">
+                                                    <a href="/news/{{ DateTimeHelper::formatYear($post,'created_at') }}/{{
+                                                        DateTimeHelper::formatMonth($post,'created_at') }}/{{
+                                                        DateTimeHelper::formatDay($post,'created_at') }}"
+                                                        class="text-dark">
                                                         {{ DateTimeHelper::formatDate($post,"created_at") }}
                                                     </a>
                                                 </span>

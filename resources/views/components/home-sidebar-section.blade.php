@@ -4,8 +4,6 @@
 
     <x-online-poll />
 
-    <x-archive />
-
     <x-tags />
 
     <x-sidebar-top-advertisement />

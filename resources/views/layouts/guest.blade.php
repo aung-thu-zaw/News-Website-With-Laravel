@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     @meta_tags
+    
+    <link rel="shortcut icon" href="{{ asset('storage/website/'.$setting->favicon) }}" type="image/x-icon">
 
     <link
         href="https://fonts.googleapis.com/css2?family=Crete+Round:ital@0;1&family=Roboto+Slab:wght@500&family=Rubik:wght@400;500&family=Vollkorn:wght@400;500;700&display=swap"

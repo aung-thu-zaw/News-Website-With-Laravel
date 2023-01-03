@@ -10,7 +10,7 @@ class AboutUsController extends Controller
 {
     public function index()
     {
-        Meta::setTitle("About-us");
+        Meta::prependTitle("About-us");
         return view("about-us.index");
     }
 }

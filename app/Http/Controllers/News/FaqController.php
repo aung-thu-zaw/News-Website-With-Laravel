@@ -8,8 +8,9 @@ use Butschster\Head\Facades\Meta;
 
 class FaqController extends Controller
 {
-    public function index(){
-        Meta::setTitle("FAQ");
+    public function index()
+    {
+        Meta::prependTitle("FAQ");
         return view("faq.index");
     }
 }

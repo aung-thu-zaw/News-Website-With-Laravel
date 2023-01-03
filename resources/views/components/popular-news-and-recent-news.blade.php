@@ -22,8 +22,14 @@
                     </div>
                     <div class="col-10 col-lg-8">
                         <div class="card-body">
-                            <h6 class="card-title">{{ $popularPost->title }}</h6>
-                            <a href="#" class="news-tag-sm text-white my-1">{{ $popularPost->subCategory->name }}</a>
+                            <h6 class="card-title">
+                                <a href="{{ route('news.show',$popularPost->slug) }}"
+                                    class="text-dark text-decoration-none">
+                                    {{ $popularPost->title }}
+                                </a>
+                            </h6>
+                            <a href="/news/{{ $popularPost->subCategory->category->slug }}/{{ $popularPost->subCategory->slug }}"
+                                class="news-tag-sm text-white my-1">{{ $popularPost->subCategory->name }}</a>
                             <div class="icon-box-sm">
                                 <span>
                                     <i class="fa-solid fa-user me-1"></i>
@@ -31,7 +37,9 @@
                                 </span>
                                 <span>
                                     <i class="fa-solid fa-calendar-days me-1"></i>
-                                    <a href="#" class="text-dark">
+                                    <a href="/news/{{ DateTimeHelper::formatYear($popularPost,'created_at') }}/{{
+                                        DateTimeHelper::formatMonth($popularPost,'created_at') }}/{{
+                                        DateTimeHelper::formatDay($popularPost,'created_at') }}" class="text-dark">
                                         {{ DateTimeHelper::formatDate($popularPost,"created_at") }}
                                     </a>
                                 </span>
@@ -42,9 +50,9 @@
             </div>
             @endforeach
             <div class="d-grid">
-                <button class="btn btn-primary btn-sm">
+                <a href="{{ route('popular-news.show') }}" class="btn btn-primary btn-sm">
                     See All
-                </button>
+                </a>
             </div>
 
 
@@ -61,8 +69,15 @@
                     </div>
                     <div class="col-10 col-lg-8">
                         <div class="card-body">
-                            <h6 class="card-title">{{ $recentPost->title }}</h6>
-                            <a href="#" class="news-tag-sm text-white my-1">{{ $recentPost->subCategory->name }}</a>
+                            <h6 class="card-title">
+                                <a href="{{ route('news.show',$recentPost->slug) }}"
+                                    class="text-dark text-decoration-none">
+                                    {{ $recentPost->title }}
+                                </a>
+                            </h6>
+
+                            <a href="/news/{{ $recentPost->subCategory->category->slug }}/{{ $recentPost->subCategory->slug }}"
+                                class="news-tag-sm text-white my-1">{{ $recentPost->subCategory->name }}</a>
                             <div class="icon-box-sm">
                                 <span>
                                     <i class="fa-solid fa-user me-1"></i>
@@ -70,7 +85,9 @@
                                 </span>
                                 <span>
                                     <i class="fa-solid fa-calendar-days me-1"></i>
-                                    <a href="#" class="text-dark">
+                                    <a href="/news/{{ DateTimeHelper::formatYear($recentPost,'created_at') }}/{{
+                                        DateTimeHelper::formatMonth($recentPost,'created_at') }}/{{
+                                        DateTimeHelper::formatDay($recentPost,'created_at') }}" class="text-dark">
                                         {{ DateTimeHelper::formatDate($recentPost,"created_at") }}
                                     </a>
                                 </span>
@@ -81,9 +98,9 @@
             </div>
             @endforeach
             <div class="d-grid">
-                <button class="btn btn-primary btn-sm">
+                <a href="{{ route('recent-news.show') }}" class="btn btn-primary btn-sm">
                     See All
-                </button>
+                </a>
             </div>
         </div>
     </div>
