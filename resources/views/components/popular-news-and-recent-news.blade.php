@@ -50,7 +50,7 @@
             </div>
             @endforeach
             <div class="d-grid">
-                <a href="{{ route('popular-news.show') }}" class="btn btn-primary btn-sm">
+                <a href="{{ route('popular-news.index') }}" class="btn btn-primary btn-sm">
                     See All
                 </a>
             </div>
@@ -98,7 +98,7 @@
             </div>
             @endforeach
             <div class="d-grid">
-                <a href="{{ route('recent-news.show') }}" class="btn btn-primary btn-sm">
+                <a href="{{ route('recent-news.index') }}" class="btn btn-primary btn-sm">
                     See All
                 </a>
             </div>

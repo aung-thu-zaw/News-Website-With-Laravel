@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use Illuminate\Validation\Rule;
 use Butschster\Head\Facades\Meta;
+
 class AdminCategoryController extends Controller
 {
     public function index()
@@ -19,6 +20,7 @@ class AdminCategoryController extends Controller
 
     public function create()
     {
+        Meta::prependTitle("Category Create");
         return view("admin.dashboard.categories.category.create");
     }
 
@@ -32,12 +34,12 @@ class AdminCategoryController extends Controller
 
         Category::create($categoryFormData);
 
-        return to_route("admin.category.index")->with("success", "Category is added successfully");
+        return to_route("admin.categories.index")->with("success", "Category is added successfully");
     }
-
 
     public function edit(Category $category)
     {
+        Meta::prependTitle("Category Edit");
         return view("admin.dashboard.categories.category.edit", [
             "category"=>$category,
             "page"=>request('page'),
@@ -53,12 +55,12 @@ class AdminCategoryController extends Controller
         ]);
 
         $category->update($categoryFormData);
-        return to_route("admin.category.index", "page=".request("page"))->with("success", "Category is updated successfully");
+        return to_route("admin.categories.index", "page=".request("page"))->with("success", "Category is updated successfully");
     }
 
     public function destroy(Category $category)
     {
         $category->delete();
-        return to_route("admin.category.index", "page=".request("page"))->with("success", "Category is deleted successfully");
+        return to_route("admin.categories.index", "page=".request("page"))->with("success", "Category is deleted successfully");
     }
 }

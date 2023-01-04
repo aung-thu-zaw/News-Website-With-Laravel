@@ -56,7 +56,7 @@
 
                             <div class="card-body">
                                 <h6 class="card-text">
-                                    <a href="{{ route('video-news.show',$post->slug) }}">
+                                    <a href="{{ route('video-news.show',$post->slug) }}" class="text-dark">
                                         {{ $post->title }}
                                     </a>
                                 </h6>

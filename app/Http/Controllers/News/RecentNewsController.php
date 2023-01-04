@@ -9,10 +9,10 @@ use Butschster\Head\Facades\Meta;
 
 class RecentNewsController extends Controller
 {
-    public function show()
+    public function index()
     {
         Meta::setTitle("Recent News");
-        return view("popular-news-and-recent-news.recent-news.show", [
+        return view("popular-news-and-recent-news.recent-news.index", [
             "recentNewsPosts"=>NewsPost::with("subCategory:id,name,slug", "author:id,name")
             ->orderBy("id", "desc")
             ->take(10)

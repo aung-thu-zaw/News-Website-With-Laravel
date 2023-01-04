@@ -1,9 +1,9 @@
 <x-dashboard-layout>
-    @section("title", "Photo Gallery")
+    @section("title", "Photos")
     <div class="row">
         <div class="col-12 px-5 pt-5 pb-3">
             <div class="mb-3 d-flex align-items-center justify-content-end">
-                <a href="{{ route('admin.photo-gallery.create') }}" class="btn btn-primary">Create
+                <a href="{{ route('admin.photos.create') }}" class="btn btn-primary">Create
                     <i class="fa-solid fa-plus"></i></a>
             </div>
             <table class="table table-bordered">
@@ -34,7 +34,7 @@
                         <td>
                             <div class="d-flex align-items-center">
 
-                                <form action="{{ route('admin.photo-gallery.edit',$photo->id) }}" method="GET">
+                                <form action="{{ route('admin.photos.edit',$photo->id) }}" method="GET">
                                     @csrf
                                     <input type="hidden" name="page" value="{{ $photos->currentPage() }}">
                                     <button type="submit" class="btn btn-info me-3">
@@ -42,7 +42,7 @@
                                     </button>
                                 </form>
 
-                                <form action="{{ route('admin.photo-gallery.destroy',$photo->id) }}" method="POST">
+                                <form action="{{ route('admin.photos.destroy',$photo->id) }}" method="POST">
                                     @csrf
                                     @method("DELETE")
                                     <input type="hidden" name="page" value="{{ $photos->currentPage() }}">

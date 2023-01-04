@@ -47,8 +47,7 @@
                             <div class="card-img-overlay d-flex flex-column justify-content-end">
 
                                 <h5 class="card-title">
-                                    <a href="{{ route('news.show',$post->slug) }}"
-                                        class="text-white text-decoration-none">
+                                    <a href="{{ route('news.show',$post->slug) }}" class="text-white">
                                         {{ $post->title }}
                                     </a>
                                 </h5>
@@ -57,7 +56,8 @@
                                     {{ StringHelper::description($post->body,100) }}
                                 </p>
 
-                                <a href="#" class="header-news-tag-sm text-white my-1">{{ $post->subCategory->name
+                                <a href="#" class="header-news-tag-sm text-white my-1 text-decoration-none">{{
+                                    $post->subCategory->name
                                     }}</a>
                                 <div class="icon-box-sm">
                                     <span>

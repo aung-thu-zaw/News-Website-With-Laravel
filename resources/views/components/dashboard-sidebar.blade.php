@@ -29,10 +29,10 @@
                 </a>
             </div>
             <div class="collapse collapseOne" id="collapseExample" style="background: rgb(32, 33, 33)">
-                <a href="{{ route('admin.home-advertisement') }}" class="">
+                <a href="{{ route('admin.home-advertisement.show') }}" class="">
                     <span class="ms-5 dashboard-nav-item">Home Advertisement</span>
                 </a>
-                <a href="{{ route('admin.sidebar-advertisement') }}" class="">
+                <a href="{{ route('admin.sidebar-advertisement.show') }}" class="">
                     <span class="ms-5 dashboard-nav-item">Sidebar Advertisement</span>
                 </a>
             </div>
@@ -54,10 +54,10 @@
                 </a>
             </div>
             <div class="collapse collapseTwo" id="collapseExample" style="background: rgb(32, 33, 33)">
-                <a href="{{ route('admin.category.index') }}" class="">
+                <a href="{{ route('admin.categories.index') }}" class="">
                     <span class="ms-5 dashboard-nav-item">Category</span>
                 </a>
-                <a href="{{ route('admin.sub-category.index') }}" class="">
+                <a href="{{ route('admin.sub-categories.index') }}" class="">
                     <span class="ms-5 dashboard-nav-item">SubCategory</span>
                 </a>
             </div>
@@ -78,13 +78,13 @@
                 </a>
             </div>
             <div class="collapse collapseThree" id="collapseExample" style="background: rgb(32, 33, 33)">
-                <a href="{{ route('admin.post.index') }}" class="">
+                <a href="{{ route('admin.news-posts.index') }}" class="">
                     <span class="ms-5 dashboard-nav-item">News Posts</span>
                 </a>
-                <a href="{{ route('admin.post.video.index') }}" class="">
-                    <span class="ms-5 dashboard-nav-item">News Video Posts</span>
+                <a href="{{ route('admin.video-news-posts.index') }}" class="">
+                    <span class="ms-5 dashboard-nav-item">Video News Posts</span>
                 </a>
-                <a href="{{ route('admin.post.trending-video.index') }}" class="">
+                <a href="{{ route('admin.trending-videos.index') }}" class="">
                     <span class="ms-5 dashboard-nav-item">Trending Videos</span>
                 </a>
             </div>
@@ -105,10 +105,10 @@
                 </a>
             </div>
             <div class="collapse collapseFour" id="collapseExample" style="background: rgb(32, 33, 33)">
-                <a href="{{ route('admin.photo-gallery.index') }}" class="">
+                <a href="{{ route('admin.photos.index') }}" class="">
                     <span class="ms-5 dashboard-nav-item">Photo Gallery</span>
                 </a>
-                <a href="{{ route('admin.video-gallery.index') }}" class="">
+                <a href="{{ route('admin.videos.index') }}" class="">
                     <span class="ms-5 dashboard-nav-item">Video Gallery</span>
                 </a>
             </div>
@@ -142,7 +142,7 @@
                 </span>
             </div>
             <ul class="dropdown-menu bg-dark text-white-50">
-                <li><a class="dropdown-item" href="{{ route('news.home') }}">Home</a></li>
+                <li><a class="dropdown-item" href="{{ route('news.index') }}">Home</a></li>
                 <li>
                     <hr class="dropdown-divider text-white">
                 </li>

@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-12 px-5 pt-5 pb-3">
             <div class="mb-3 d-flex align-items-center justify-content-end">
-                <a href="{{ route('admin.video-gallery.create') }}" class="btn btn-primary">Create
+                <a href="{{ route('admin.trending-videos.create') }}" class="btn btn-primary">Create
                     <i class="fa-solid fa-plus"></i></a>
             </div>
             <table class="table table-bordered">
@@ -18,8 +18,10 @@
                 </thead>
                 <tbody>
 
+
                     @foreach ($trendingVideos as $video)
                     <tr>
+
 
                         <th scope="row">{{ $video->id }}</th>
                         <th scope="row">
@@ -44,10 +46,11 @@
                         <td>
                             {!! $video->caption !!}
                         </td>
+
+
                         <td>
                             <div class="d-flex align-items-center">
-
-                                <form action="{{ route('admin.video-gallery.edit',$video->id) }}" method="GET">
+                                <form action="{{ route('admin.trending-videos.edit',$video->id) }}" method="GET">
                                     @csrf
                                     <input type="hidden" name="page" value="{{ $trendingVideos->currentPage() }}">
                                     <button type="submit" class="btn btn-info me-3">
@@ -55,7 +58,7 @@
                                     </button>
                                 </form>
 
-                                <form action="{{ route('admin.video-gallery.destroy',$video->id) }}" method="POST">
+                                <form action="{{ route('admin.trending-videos.destroy',$video->id) }}" method="POST">
                                     @csrf
                                     @method("DELETE")
                                     <input type="hidden" name="page" value="{{ $trendingVideos->currentPage() }}">

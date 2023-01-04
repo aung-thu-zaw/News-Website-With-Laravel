@@ -16,7 +16,7 @@
                         style="height: 100%; object-fit: cover">
                     <div class="card-img-overlay d-flex flex-column justify-content-end">
                         <h3 class="card-title">
-                            <a href="{{ route('news.show',$post->slug) }}" class="text-white text-decoration-none">
+                            <a href="{{ route('news.show',$post->slug) }}" class="text-white">
                                 {{ $post->title }}
                             </a>
                         </h3>
@@ -24,7 +24,7 @@
                             {!! StringHelper::description($post->body) !!}
                         </p>
                         <a href="/news/{{ $post->subCategory->category->slug }}/{{ $post->subCategory->slug }}"
-                            class="header-news-tag text-white my-1">{{ $post->subCategory->name }}</a>
+                            class="header-news-tag text-white my-1 text-decoration-none">{{ $post->subCategory->name }}</a>
                         <div class="d-flex align-items-center justify-content-between">
                             <div class="icon-box">
                                 <span>
@@ -67,8 +67,7 @@
                                 style="height: 100%; object-fit: cover">
                             <div class="card-img-overlay d-flex flex-column justify-content-end">
                                 <h5 class="card-title">
-                                    <a href="{{ route('news.show',$post->slug) }}"
-                                        class="text-white text-decoration-none">
+                                    <a href="{{ route('news.show',$post->slug) }}" class="text-white">
                                         {{ $post->title }}
                                     </a>
                                 </h5>
@@ -76,7 +75,8 @@
                                     {!! StringHelper::description($post->body,100) !!}
                                 </p>
                                 <a href="/news/{{ $post->subCategory->category->slug }}/{{ $post->subCategory->slug }}"
-                                    class="header-news-tag-sm text-white my-1">{{ $post->subCategory->name
+                                    class="header-news-tag-sm text-white my-1 text-decoration-none">{{
+                                    $post->subCategory->name
                                     }}</a>
                                 <div class="icon-box-sm">
                                     <span>
@@ -110,8 +110,7 @@
                                 style="height: 100%; object-fit: cover">
                             <div class="card-img-overlay d-flex flex-column justify-content-end">
                                 <h5 class="card-title">
-                                    <a href="{{ route('news.show',$post->slug) }}"
-                                        class="text-white text-decoration-none">
+                                    <a href="{{ route('news.show',$post->slug) }}" class="text-white">
                                         {{ $post->title }}
                                     </a>
                                 </h5>
@@ -119,7 +118,7 @@
                                     {{ StringHelper::description($post->body,100) }}
                                 </p>
                                 <a href="/news/{{ $post->subCategory->category->slug }}/{{ $post->subCategory->slug }}"
-                                    class="header-news-tag-sm text-white my-1">{{ $post->subCategory->name
+                                    class="header-news-tag-sm text-white my-1 text-decoration-none">{{ $post->subCategory->name
                                     }}</a>
                                 <div class="icon-box-sm">
                                     <span>

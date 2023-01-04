@@ -4,30 +4,30 @@
 
         <div class="col-12 p-5">
             <div class="mb-3 d-flex align-items-center justify-content-end">
-                <a href="{{ route('admin.post.index') }}" class="btn btn-primary">View <i
+                <a href="{{ route('admin.video-news-posts.index') }}" class="btn btn-primary">View <i
                         class="fa-solid fa-eye"></i></a>
             </div>
             <div class="border p-5">
-                <form action="{{ route('admin.post.video.update',$newsVideoPost->slug) }}" method="POST"
+                <form action="{{ route('admin.video-news-posts.update',$videoNewsPost->slug) }}" method="POST"
                     enctype="multipart/form-data">
                     @csrf
                     @method("PATCH")
 
                     <input type="hidden" name="page" value="{{$page}}">
 
-                    <x-form.input type="text" name="video_id" value="{{ $newsVideoPost->video_id }}">
-                        <x-form.label name="Video Id*" />
+                    <x-form.input type="text" name="video_id" value="{{ $videoNewsPost->video_id }}">
+                        <x-form.label name="Video Id *" />
                     </x-form.input>
 
-                    <x-form.input type="text" name="title" value="{{ $newsVideoPost->title }}">
+                    <x-form.input type="text" name="title" value="{{ $videoNewsPost->title }}">
                         <x-form.label name="Title *" />
                     </x-form.input>
 
-                    <x-form.input type="text" name="slug" value="{{ $newsVideoPost->slug }}">
+                    <x-form.input type="text" name="slug" value="{{ $videoNewsPost->slug }}">
                         <x-form.label name="Slug *" />
                     </x-form.input>
 
-                    <x-form.textarea name="body" value="{{ $newsVideoPost->body }}">
+                    <x-form.textarea name="body" value="{{ $videoNewsPost->body }}">
                         <x-form.label name="Detail *" />
                     </x-form.textarea>
 
@@ -41,12 +41,12 @@
                     <x-form.input-button name="Update" />
                 </form>
 
-                @if(count($newsVideoPost->tags))
+                @if(count($videoNewsPost->tags))
                 <div class="mb-3">
                     <span class="mb-5">Exisiting Tags</span>
                     <div class="d-flex align-items-center">
-                        @foreach ($newsVideoPost->tags as $tag)
-                        <form action="{{ route('tag.destroy',$tag->id) }}" method="POST">
+                        @foreach ($videoNewsPost->tags as $tag)
+                        <form action="{{ route('admin.tag.destroy',$tag->id) }}" method="POST">
                             @csrf
                             @method("DELETE")
                             <span class="header-news-tag text-white my-1 mx-1">

@@ -5,15 +5,15 @@ namespace App\Http\Controllers\Admin\Dashboard\Posts;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Tag;
-use App\Models\VideoNewsPost;
 use Butschster\Head\Facades\Meta;
 use Illuminate\Validation\Rule;
+use App\Models\VideoNewsPost;
 
 class AdminVideoNewsPostController extends Controller
 {
     public function index()
     {
-        Meta::prependTitle("Video News Post");
+        Meta::prependTitle("Video News Posts");
         return view("admin.dashboard.posts.video-news-posts.index", [
             "videoNewsPosts"=>VideoNewsPost::with("author")->where("user_id", 1)->orderBy("id", "desc")->paginate(10)
         ]);
@@ -21,6 +21,7 @@ class AdminVideoNewsPostController extends Controller
 
     public function create()
     {
+        Meta::prependTitle("Video News Post Create");
         return view("admin.dashboard.posts.video-news-posts.create");
     }
 
@@ -28,8 +29,8 @@ class AdminVideoNewsPostController extends Controller
     {
         $postFormData=$request->validate([
             "video_id"=>["required"],
-            "title"=>["required",Rule::unique("sub_categories", "name")],
-            "slug"=>["required",Rule::unique("sub_categories", "slug")],
+            "title"=>["required",Rule::unique("video_news_posts", "title")],
+            "slug"=>["required",Rule::unique("video_news_posts", "slug")],
             "body"=>["required"],
         ]);
 
@@ -60,12 +61,13 @@ class AdminVideoNewsPostController extends Controller
             }
         }
 
-        return to_route("admin.post.video.index")->with("success", "Video Post is created successfully");
+        return to_route("admin.video-news-posts.index")->with("success", "Video Post is created successfully");
     }
 
 
     public function edit(VideoNewsPost $videoNewsPost)
     {
+        Meta::prependTitle("Video News Post Edit");
         return view("admin.dashboard.posts.video-news-posts.edit", [
             "videoNewsPost"=>$videoNewsPost,
             "page"=>request('page'),
@@ -76,8 +78,8 @@ class AdminVideoNewsPostController extends Controller
     {
         $postFormData=$request->validate([
             "video_id"=>["required"],
-            "title"=>["required",Rule::unique("sub_categories", "name")->ignore(auth()->user()->id)],
-            "slug"=>["required",Rule::unique("sub_categories", "slug")->ignore(auth()->user()->id)],
+            "title"=>["required",Rule::unique("video_news_posts", "title")->ignore($videoNewsPost->id)],
+            "slug"=>["required",Rule::unique("video_news_posts", "slug")->ignore($videoNewsPost->id)],
             "body"=>["required"],
         ]);
 
@@ -111,12 +113,12 @@ class AdminVideoNewsPostController extends Controller
             }
         }
 
-        return to_route("admin.post.video.index", "page=".request("page"))->with("success", "Video Post is updated successfully");
+        return to_route("admin.video-news-posts.index", "page=".request("page"))->with("success", "Video Post is updated successfully");
     }
 
     public function destroy(VideoNewsPost $videoNewsPost)
     {
         $videoNewsPost->delete();
-        return to_route("admin.post.video.index", "page=".request("page"))->with("success", "Video Post is deleted successfully");
+        return to_route("admin.video-news-posts.index", "page=".request("page"))->with("success", "Video Post is deleted successfully");
     }
 }

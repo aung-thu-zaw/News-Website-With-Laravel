@@ -9,6 +9,15 @@ font-family: 'Vollkorn', serif; */
     box-sizing: border-box;
     font-family: "Crete Round", serif;
 }
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
 .signup-input {
     position: relative;
 }
@@ -153,6 +162,7 @@ font-family: 'Vollkorn', serif; */
     align-items: center;
     justify-content: center;
 }
+
 .home-advertisement {
     height: 200px;
 }
@@ -161,10 +171,6 @@ font-family: 'Vollkorn', serif; */
     height: 100%;
     object-fit: cover;
     object-position: center;
-}
-
-a {
-    text-decoration: none;
 }
 
 /*

@@ -18,7 +18,7 @@
                             </span>
                             <div>
                                 <a href="/news/{{ $subcategory->category->slug }}/{{ $subcategory->slug }}"
-                                    class="btn btn-primary">See all</a>
+                                    class="btn btn-outline-primary text-decoration-none">See all</a>
                             </div>
                         </div>
 
@@ -41,7 +41,7 @@
                                         {!! StringHelper::description($post->body) !!}
                                     </small>
                                     <a href="/news/{{ $subcategory->category->slug }}/{{ $subcategory->slug }}"
-                                        class="header-news-tag-sm text-white my-1">
+                                        class="header-news-tag-sm text-white my-1 text-decoration-none">
                                         {{ $post->subCategory->name }}
                                     </a>
                                     <div class="d-flex align-items-center justify-content-between">
@@ -99,7 +99,7 @@
 
                                             </h6>
                                             <a href="/news/{{ $subcategory->category->slug }}/{{ $subcategory->slug }}"
-                                                class="news-tag-sm text-white my-1">{{
+                                                class="news-tag-sm text-white my-1 text-decoration-none">{{
                                                 $post->subCategory->name
                                                 }}</a>
                                             <div class="icon-box-sm">

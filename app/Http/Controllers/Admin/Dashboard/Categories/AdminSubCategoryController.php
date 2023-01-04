@@ -21,6 +21,7 @@ class AdminSubCategoryController extends Controller
 
     public function create()
     {
+        Meta::prependTitle("SubCategory Create");
         return view("admin.dashboard.categories.sub-category.create", [
             "categories"=>Category::all()
         ]);
@@ -38,15 +39,16 @@ class AdminSubCategoryController extends Controller
 
         SubCategory::create($subCategoryFormData);
 
-        return to_route("admin.sub-category.index")->with("success", "SubCategory is added successfully");
+        return to_route("admin.sub-categories.index")->with("success", "SubCategory is added successfully");
     }
 
     public function edit(SubCategory $subCategory)
     {
+        Meta::prependTitle("SubCategory Edit");
         return view("admin.dashboard.categories.sub-category.edit", [
             "subCategory"=>$subCategory->load("category"),
+            "categories"=>Category::select("id", "name")->get(),
             "page"=>request('page'),
-            "categories"=>Category::select("id", "name")->get()
         ]);
     }
 
@@ -61,12 +63,12 @@ class AdminSubCategoryController extends Controller
         ]);
         $subCategory->update($subCategoryFormData);
 
-        return to_route("admin.sub-category.index", "page=".request("page"))->with("success", "SubCategory is updated successfully");
+        return to_route("admin.sub-categories.index", "page=".request("page"))->with("success", "SubCategory is updated successfully");
     }
 
     public function destroy(SubCategory $subCategory)
     {
         $subCategory->delete();
-        return to_route("admin.sub-category.index", "page=".request("page"))->with("success", "SubCategory is deleted successfully");
+        return to_route("admin.sub-categories.index", "page=".request("page"))->with("success", "SubCategory is deleted successfully");
     }
 }

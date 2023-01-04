@@ -8,15 +8,16 @@
             <ul class="navbar-nav d-flex align-items-center justify-content-between" style="width: 100%">
                 @foreach ($categories as $category)
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle text-decoration-none" href="#" id="navbarDropdownMenuLink"
+                        role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         {{ $category->name }}
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         @foreach ($category->subCategories as $subcategory)
                         @if ($subcategory->status_on_navbar==="show")
                         <li>
-                            <a class="dropdown-item" href="/news/{{ $category->slug }}/{{ $subcategory->slug }}">
+                            <a class="dropdown-item text-decoration-none"
+                                href="/news/{{ $category->slug }}/{{ $subcategory->slug }}">
                                 {{$subcategory->name }}
                             </a>
                         </li>
@@ -27,18 +28,18 @@
                 @endforeach
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle text-decoration-none" href="#" id="navbarDropdownMenuLink"
+                        role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Gallery
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <li>
-                            <a class="dropdown-item" href="{{ route('photo-gallery.index') }}">
+                            <a class="dropdown-item text-decoration-none" href="{{ route('photo-gallery.index') }}">
                                 Photos
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="{{ route('video-gallery.index') }}">
+                            <a class="dropdown-item text-decoration-none" href="{{ route('video-gallery.index') }}">
                                 Videos
                             </a>
                         </li>

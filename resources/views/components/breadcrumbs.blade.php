@@ -6,16 +6,18 @@
         aria-label="breadcrumb" class="mt-3">
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a href="{{ route('news.home') }}" data-bs-toggle="tooltip" data-bs-title="Home">Home</a>
+                <a class="text-decoration-none" href="{{ route('news.index') }}" data-bs-toggle="tooltip"
+                    data-bs-title="Home">Home</a>
             </li>
             <li class="breadcrumb-item active" aria-current="page">
-                <a href="{{ route('category.show',$post->subCategory->category->slug) }}" data-bs-toggle="tooltip"
-                    data-bs-title="Category">
+                <a class="text-decoration-none" href="{{ route('category.show',$post->subCategory->category->slug) }}"
+                    data-bs-toggle="tooltip" data-bs-title="Category">
                     {{ $post->subCategory->category->name}}
                 </a>
             </li>
             <li class="breadcrumb-item active" aria-current="page">
-                <a href="/news/{{ $post->subCategory->category->slug }}/{{ $post->subCategory->slug }} "
+                <a class="text-decoration-none"
+                    href="/news/{{ $post->subCategory->category->slug }}/{{ $post->subCategory->slug }} "
                     data-bs-toggle="tooltip" data-bs-title="SubCategory">
                     {{$post->subCategory->name }}
                 </a>
@@ -36,11 +38,12 @@
         aria-label="breadcrumb" class="mt-3">
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a href="{{ route('news.home') }}" data-bs-toggle="tooltip" data-bs-title="Home">Home</a>
+                <a class="text-decoration-none" href="{{ route('news.index') }}" data-bs-toggle="tooltip"
+                    data-bs-title="Home">Home</a>
             </li>
             <li class="breadcrumb-item active" aria-current="page">
-                <a href="{{ route('category.show',$category->slug) }}" data-bs-toggle="tooltip"
-                    data-bs-title="Category">
+                <a class="text-decoration-none" href="{{ route('category.show',$category->slug) }}"
+                    data-bs-toggle="tooltip" data-bs-title="Category">
                     {{ $category->name}}
                 </a>
             </li>
@@ -62,7 +65,8 @@
         aria-label="breadcrumb" class="mt-3">
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a href="{{ route('news.home') }}" data-bs-toggle="tooltip" data-bs-title="Home">Home</a>
+                <a class="text-decoration-none" href="{{ route('news.index') }}" data-bs-toggle="tooltip"
+                    data-bs-title="Home">Home</a>
             </li>
             <li class="breadcrumb-item active" aria-current="page">
                 <span data-bs-toggle="tooltip" data-bs-title="Category">
@@ -86,7 +90,8 @@
         aria-label="breadcrumb" class="mt-3">
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a href="{{ route('news.home') }}" data-bs-toggle="tooltip" data-bs-title="Home">Home</a>
+                <a class="text-decoration-none" href="{{ route('news.index') }}" data-bs-toggle="tooltip"
+                    data-bs-title="Home">Home</a>
             </li>
             <li class="breadcrumb-item active" aria-current="page">
                 <span data-bs-toggle="tooltip" data-bs-title="Post">
@@ -109,7 +114,8 @@
         aria-label="breadcrumb" class="mt-3">
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a href="{{ route('news.home') }}" data-bs-toggle="tooltip" data-bs-title="Home">Home</a>
+                <a class="text-decoration-none" href="{{ route('news.index') }}" data-bs-toggle="tooltip"
+                    data-bs-title="Home">Home</a>
             </li>
             <li class="breadcrumb-item active" aria-current="page">
                 <span data-bs-toggle="tooltip" data-bs-title="Post">
@@ -132,7 +138,8 @@
         aria-label="breadcrumb" class="mt-3">
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a href="{{ route('news.home') }}" data-bs-toggle="tooltip" data-bs-title="Home">Home</a>
+                <a class="text-decoration-none" href="{{ route('news.index') }}" data-bs-toggle="tooltip"
+                    data-bs-title="Home">Home</a>
             </li>
             <li class="breadcrumb-item active" aria-current="page">
                 <span data-bs-toggle="tooltip" data-bs-title="Post">
@@ -156,7 +163,8 @@
         aria-label="breadcrumb" class="mt-3">
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a href="{{ route('news.home') }}" data-bs-toggle="tooltip" data-bs-title="Home">Home</a>
+                <a class="text-decoration-none" href="{{ route('news.index') }}" data-bs-toggle="tooltip"
+                    data-bs-title="Home">Home</a>
             </li>
             <li class="breadcrumb-item active" aria-current="page">
                 <span data-bs-toggle="tooltip" data-bs-title="Post">
@@ -178,7 +186,8 @@
         aria-label="breadcrumb" class="mt-3">
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a href="{{ route('news.home') }}" data-bs-toggle="tooltip" data-bs-title="Home">Home</a>
+                <a class="text-decoration-none" href="{{ route('news.index') }}" data-bs-toggle="tooltip"
+                    data-bs-title="Home">Home</a>
             </li>
             <li class="breadcrumb-item active" aria-current="page">
                 <span data-bs-toggle="tooltip" data-bs-title="Post">
@@ -201,7 +210,8 @@
         aria-label="breadcrumb" class="mt-3">
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a href="{{ route('news.home') }}" data-bs-toggle="tooltip" data-bs-title="Home">Home</a>
+                <a class="text-decoration-none" href="{{ route('news.index') }}" data-bs-toggle="tooltip"
+                    data-bs-title="Home">Home</a>
             </li>
             <li class="breadcrumb-item active" aria-current="page">
                 <span data-bs-toggle="tooltip" data-bs-title="Post">

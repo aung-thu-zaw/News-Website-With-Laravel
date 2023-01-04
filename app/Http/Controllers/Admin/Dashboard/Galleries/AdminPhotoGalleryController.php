@@ -20,6 +20,7 @@ class AdminPhotoGalleryController extends Controller
 
     public function create()
     {
+        Meta::prependTitle("Photo Create");
         return view("admin.dashboard.galleries.photo-gallery.create");
     }
 
@@ -43,11 +44,12 @@ class AdminPhotoGalleryController extends Controller
 
         Photo::create($photoFormData);
 
-        return to_route("admin.photo-gallery.index")->with("success", "Photo is created successfully");
+        return to_route("admin.photos.index")->with("success", "Photo is created successfully");
     }
 
     public function edit(Photo $Photo)
     {
+        Meta::prependTitle("Photo Edit");
         return view("admin.dashboard.galleries.photo-gallery.edit", [
             "photo"=>$Photo,
             "page"=>request('page'),
@@ -84,7 +86,7 @@ class AdminPhotoGalleryController extends Controller
 
         $photo->update($photoFormData);
 
-        return to_route("admin.photo-gallery.index", "page=".request("page"))->with("success", "Photo is updated successfully");
+        return to_route("admin.photos.index", "page=".request("page"))->with("success", "Photo is updated successfully");
     }
 
 
@@ -94,6 +96,6 @@ class AdminPhotoGalleryController extends Controller
             unlink(public_path("storage/photo-gallery/$photo->photo"));
         }
         $photo->delete();
-        return to_route("admin.photo-gallery.index", "page=".request("page"))->with("success", "Photo is deleted successfully");
+        return to_route("admin.photos.index", "page=".request("page"))->with("success", "Photo is deleted successfully");
     }
 }

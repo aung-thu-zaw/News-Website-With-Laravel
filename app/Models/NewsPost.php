@@ -9,6 +9,11 @@ class NewsPost extends Model
 {
     use HasFactory;
 
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
     public function subCategory()
     {
         return $this->belongsTo(SubCategory::class);

@@ -1,14 +1,15 @@
 <x-dashboard-layout>
     @section("title", "News Post Edit")
+
     <div class="row">
 
         <div class="col-12 p-5">
             <div class="mb-3 d-flex align-items-center justify-content-end">
-                <a href="{{ route('admin.post.index') }}" class="btn btn-primary">View <i
+                <a href="{{ route('admin.news-posts.index') }}" class="btn btn-primary">View <i
                         class="fa-solid fa-eye"></i></a>
             </div>
             <div class="border p-5">
-                <form action="{{ route('admin.post.update',$newsPost->slug) }}" method="POST"
+                <form action="{{ route('admin.news-posts.update',$newsPost->slug) }}" method="POST"
                     enctype="multipart/form-data">
                     @csrf
                     @method("PATCH")
@@ -57,7 +58,7 @@
                     <span class="mb-5">Exisiting Tags</span>
                     <div class="d-flex align-items-center">
                         @foreach ($newsPost->tags as $tag)
-                        <form action="{{ route('tag.destroy',$tag->id) }}" method="POST">
+                        <form action="{{ route('admin.tag.destroy',$tag->id) }}" method="POST">
                             @csrf
                             @method("DELETE")
                             <span class="header-news-tag text-white my-1 mx-1">

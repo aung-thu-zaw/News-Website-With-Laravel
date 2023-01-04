@@ -2,7 +2,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-3">
     <div class="row container-fluid">
         <div class="col-1">
-            <a class="navbar-brand" href="{{ route('news.home') }}">
+            <a class="navbar-brand" href="{{ route('news.index') }}">
                 <img src="{{ asset('storage/website/'.$setting->logo) }}" alt=""
                     style="width: 100%; height:50px; object-fit: cover;">
             </a>
@@ -16,23 +16,26 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mb-2 w-auto mb-lg-0 d-flex mx-auto align-items-center justify-content-evenly">
                     <li class="nav-item mx-3">
-                        <a href="{{ route('news.home') }}" class="nav-link" aria-current="page">Home</a>
+                        <a href="{{ route('news.index') }}" class="nav-link text-decoration-none"
+                            aria-current="page">Home</a>
                     </li>
                     <li class="nav-item mx-3">
-                        <a href="{{ route('about-us') }}" class="nav-link" aria-current="page">About Us</a>
+                        <a href="{{ route('about-us.index') }}" class="nav-link text-decoration-none"
+                            aria-current="page">About Us</a>
                     </li>
                     <li class="nav-item mx-3">
-                        <a href="{{ route('faq') }}" class="nav-link" aria-current="page">FAQ</a>
+                        <a href="{{ route('faq.index') }}" class="nav-link text-decoration-none"
+                            aria-current="page">FAQ</a>
                     </li>
                     <li class="nav-item mx-3">
-                        <a href="{{ route('contact-us') }}" class="nav-link" aria-current="page">
+                        <a href="{{ route('contact-us.index') }}" class="nav-link text-decoration-none"
+                            aria-current="page">
                             Contact Us
                         </a>
                     </li>
                 </ul>
 
                 <div class="d-flex align-items-center justify-content-between w-auto">
-
 
                     <!-- Choose Languages  -->
                     <div class="dropdown me-5">
@@ -47,7 +50,6 @@
                         </ul>
                     </div>
 
-
                     @auth
                     <div class="dropdown ms-auto me-4">
                         <div class="d-flex align-items-center justify-content-center" href="#" role="button"
@@ -56,26 +58,26 @@
                             @if (!auth()->user()->avatar)
                             <img src="{{ asset('storage/avatars/default-avatar-'.auth()->user()->id.'.png') }}" alt=""
                                 width="40px" height="40px" class="rounded-circle me-2" style="object-fit: cover" />
+
                             @elseif (auth()->user()->avatar && auth()->user()->google_id &&
                             str_starts_with(auth()->user()->avatar, "http"))
                             <img src="{{ auth()->user()->avatar }}" alt="" width="40px" height="40px"
                                 class="rounded-circle me-2" style="object-fit: cover" />
+
                             @elseif (auth()->user()->avatar && auth()->user()->facebook_id &&
                             str_starts_with(auth()->user()->avatar, "http"))
                             <img src="{{ auth()->user()->avatar }}" alt="" width="40px" height="40px"
                                 class="rounded-circle me-2" style="object-fit: cover" />
+
                             @elseif (auth()->user()->avatar && auth()->user()->github_id &&
                             str_starts_with(auth()->user()->avatar, "http"))
                             <img src="{{ auth()->user()->avatar }}" alt="" width="40px" height="40px"
                                 class="rounded-circle me-2" style="object-fit: cover" />
+
                             @elseif (auth()->user()->avatar && !str_starts_with(auth()->user()->avatar, "http"))
                             <img src="{{ asset('/storage/avatars/'.auth()->user()->avatar) }}" alt="" width="40px"
                                 height="40px" class="rounded-circle me-2" style="object-fit: cover" />
                             @endif
-
-
-
-
 
                             <p class="mb-0 text-white">{{ auth()->user()->name }}</p>
                         </div>
@@ -124,7 +126,6 @@
                                 <a class="nav-link text-decoration-underline text-primary" aria-current="page"
                                     href="{{ route('register') }}">Register</a>
                             </li>
-
                             |
                             <li class="nav-item mx-3">
                                 <a class="nav-link text-decoration-underline text-primary" aria-current="page"
@@ -133,7 +134,6 @@
                         </ul>
                     </div>
                     @endauth
-
                 </div>
             </div>
         </div>

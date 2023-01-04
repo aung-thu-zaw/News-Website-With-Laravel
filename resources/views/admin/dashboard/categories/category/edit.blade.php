@@ -3,24 +3,24 @@
     <div class="row">
         <div class="col-12 p-5">
             <div class="mb-3 d-flex align-items-center justify-content-end">
-                <a href="{{ route('admin.category.index') }}" class="btn btn-primary">View <i
+                <a href="{{ route('admin.categories.index') }}" class="btn btn-primary">View <i
                         class="fa-solid fa-eye"></i></a>
             </div>
-            <form action="{{ route('admin.category.update',$category->slug) }}" method="POST" class="border p-5">
+            <form action="{{ route('admin.categories.update',$category->slug) }}" method="POST" class="border p-5">
                 @csrf
                 @method("PATCH")
                 <input type="hidden" name="page" value="{{$page}}">
 
                 <x-form.input type="text" name="name" value="{{ $category->name }}">
-                    <x-form.label name="Name" />
+                    <x-form.label name="Name *" />
                 </x-form.input>
 
                 <x-form.input type="text" name="slug" value="{{ $category->slug }}">
-                    <x-form.label name="Slug" />
+                    <x-form.label name="Slug *" />
                 </x-form.input>
 
                 <x-form.edit-show-hide-select name="status" :category="$category->status">
-                    <x-form.label name="Status" />
+                    <x-form.label name="Status *" />
                 </x-form.edit-show-hide-select>
 
                 <x-form.input-button name="Update" />

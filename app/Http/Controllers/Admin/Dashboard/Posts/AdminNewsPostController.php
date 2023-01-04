@@ -22,6 +22,7 @@ class AdminNewsPostController extends Controller
 
     public function create()
     {
+        Meta::prependTitle("News Post Create");
         return view("admin.dashboard.posts.news-posts.create", [
             "subCategories"=>SubCategory::with("category")->get()
         ]);
@@ -31,8 +32,8 @@ class AdminNewsPostController extends Controller
     {
         $postFormData=$request->validate([
             "sub_category_id"=>["required",Rule::exists("sub_categories", "id")],
-            "title"=>["required",Rule::unique("sub_categories", "name")],
-            "slug"=>["required",Rule::unique("sub_categories", "slug")],
+            "title"=>["required",Rule::unique("news_posts", "title")],
+            "slug"=>["required",Rule::unique("news_posts", "slug")],
             "body"=>["required"],
         ]);
 
@@ -78,12 +79,13 @@ class AdminNewsPostController extends Controller
             }
         }
 
-        return to_route("admin.post.index")->with("success", "Post is created successfully");
+        return to_route("admin.news-posts.index")->with("success", "Post is created successfully");
     }
 
 
     public function edit(NewsPost $newsPost)
     {
+        Meta::prependTitle("News Post Edit");
         return view("admin.dashboard.posts.news-posts.edit", [
             "newsPost"=>$newsPost,
             "subCategories"=>SubCategory::with("category")->get(),
@@ -95,8 +97,8 @@ class AdminNewsPostController extends Controller
     {
         $postFormData=$request->validate([
             "sub_category_id"=>["required",Rule::exists("sub_categories", "id")],
-            "title"=>["required",Rule::unique("sub_categories", "name")->ignore(auth()->user()->id)],
-            "slug"=>["required",Rule::unique("sub_categories", "slug")->ignore(auth()->user()->id)],
+            "title"=>["required",Rule::unique("news_posts", "title")->ignore($newsPost->id)],
+            "slug"=>["required",Rule::unique("news_posts", "slug")->ignore($newsPost->id)],
             "body"=>["required"],
         ]);
 
@@ -151,7 +153,7 @@ class AdminNewsPostController extends Controller
             }
         }
 
-        return to_route("admin.post.index", "page=".request("page"))->with("success", "Post is updated successfully");
+        return to_route("admin.news-posts.index", "page=".request("page"))->with("success", "Post is updated successfully");
     }
 
     public function destroy(NewsPost $newsPost)
@@ -161,6 +163,6 @@ class AdminNewsPostController extends Controller
         }
 
         $newsPost->delete();
-        return to_route("admin.post.index", "page=".request("page"))->with("success", "Post is deleted successfully");
+        return to_route("admin.news-posts.index", "page=".request("page"))->with("success", "Post is deleted successfully");
     }
 }

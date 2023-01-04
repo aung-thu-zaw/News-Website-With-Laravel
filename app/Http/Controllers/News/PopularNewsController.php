@@ -10,10 +10,10 @@ use Butschster\Head\Facades\Meta;
 
 class PopularNewsController extends Controller
 {
-    public function show()
+    public function index()
     {
         Meta::setTitle("Popular News");
-        return view("popular-news-and-recent-news.popular-news.show", [
+        return view("popular-news-and-recent-news.popular-news.index", [
          "popularNewsPosts"=>NewsPost::with("subCategory:id,name,slug", "author:id,name")
          ->orderBy("visitors", "desc")
          ->paginate(12),

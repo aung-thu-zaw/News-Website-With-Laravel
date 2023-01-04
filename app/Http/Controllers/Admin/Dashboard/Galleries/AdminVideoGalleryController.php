@@ -9,7 +9,6 @@ use Butschster\Head\Facades\Meta;
 
 class AdminVideoGalleryController extends Controller
 {
-
     public function index()
     {
         Meta::prependTitle("Video Gallery");
@@ -21,6 +20,7 @@ class AdminVideoGalleryController extends Controller
 
     public function create()
     {
+        Meta::prependTitle("Video Create");
         return view("admin.dashboard.galleries.video-gallery.create");
     }
 
@@ -34,13 +34,14 @@ class AdminVideoGalleryController extends Controller
          ]);
         Video::create($videoFormData);
 
-        return to_route("admin.video-gallery.index")->with("success", "Video is created successfully");
+        return to_route("admin.videos.index")->with("success", "Video is created successfully");
     }
 
 
 
     public function edit(Video $video)
     {
+        Meta::prependTitle("Video Edit");
         return view("admin.dashboard.galleries.video-gallery.edit", [
             "video"=>$video,
             "page"=>request('page'),
@@ -58,13 +59,13 @@ class AdminVideoGalleryController extends Controller
 
         $video->update($videoFormData);
 
-        return to_route("admin.video-gallery.index", "page=".request("page"))->with("success", "Video is updated successfully");
+        return to_route("admin.videos.index", "page=".request("page"))->with("success", "Video is updated successfully");
     }
 
 
     public function destroy(Video $video)
     {
         $video->delete();
-        return to_route("admin.video-gallery.index", "page=".request("page"))->with("success", "Video is deleted successfully");
+        return to_route("admin.videos.index", "page=".request("page"))->with("success", "Video is deleted successfully");
     }
 }

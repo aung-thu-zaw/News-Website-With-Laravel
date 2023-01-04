@@ -3,10 +3,10 @@
     <div class="row">
         <div class="col-12 p-5">
             <div class="mb-3 d-flex align-items-center justify-content-end">
-                <a href="{{ route('admin.video-gallery.index') }}" class="btn btn-primary">View <i
+                <a href="{{ route('admin.videos.index') }}" class="btn btn-primary">View <i
                         class="fa-solid fa-eye"></i></a>
             </div>
-            <form action="{{ route('admin.video-gallery.update',$video->id) }}" method="POST"
+            <form action="{{ route('admin.videos.update',$video->id) }}" method="POST"
                 enctype="multipart/form-data" class="border p-5">
                 @csrf
                 @method("PATCH")

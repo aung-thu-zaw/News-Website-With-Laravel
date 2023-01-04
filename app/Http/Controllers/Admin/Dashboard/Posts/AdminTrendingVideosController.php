@@ -11,7 +11,7 @@ class AdminTrendingVideosController extends Controller
 {
     public function index()
     {
-        Meta::prependTitle("Trending Video");
+        Meta::prependTitle("Trending Videos");
         return view("admin.dashboard.posts.trending-videos.index", [
             "trendingVideos"=>TrendingVideo::orderBy("id", "desc")->paginate(10)
         ]);
@@ -20,6 +20,7 @@ class AdminTrendingVideosController extends Controller
 
     public function create()
     {
+        Meta::prependTitle("Trending Video Create");
         return view("admin.dashboard.posts.trending-videos.create");
     }
 
@@ -33,19 +34,17 @@ class AdminTrendingVideosController extends Controller
          ]);
         TrendingVideo::create($videoFormData);
 
-        return to_route("admin.video-gallery.index")->with("success", "Video is created successfully");
+        return to_route("admin.trending-videos.index")->with("success", "Video is created successfully");
     }
-
-
 
     public function edit(TrendingVideo $trendingVideo)
     {
+        Meta::prependTitle("Trending Video Edit");
         return view("admin.dashboard.posts.trending-videos.edit", [
             "trendingVideo"=>$trendingVideo,
             "page"=>request('page'),
         ]);
     }
-
 
     public function update(Request $request, TrendingVideo $trendingVideo)
     {
@@ -57,13 +56,13 @@ class AdminTrendingVideosController extends Controller
 
         $trendingVideo->update($videoFormData);
 
-        return to_route("admin.video-gallery.index", "page=".request("page"))->with("success", "Video is updated successfully");
+        return to_route("admin.trending-videos.index", "page=".request("page"))->with("success", "Video is updated successfully");
     }
 
 
     public function destroy(TrendingVideo $trendingVideo)
     {
         $trendingVideo->delete();
-        return to_route("admin.video-gallery.index", "page=".request("page"))->with("success", "Video is deleted successfully");
+        return to_route("admin.trending-videos.index", "page=".request("page"))->with("success", "Video is deleted successfully");
     }
 }

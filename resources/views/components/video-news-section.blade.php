@@ -13,7 +13,8 @@
                     </div>
                     <div class="border d-md-none d-lg-block" style="width: 60%;"></div>
                     <div>
-                        <a href="{{ route('video-news.index') }}" class="btn btn-outline-primary">Show All</a>
+                        <a href="{{ route('video-news.index') }}"
+                            class="btn btn-outline-primary text-decoration-none">Show All</a>
                     </div>
                 </div>
 
@@ -41,7 +42,7 @@
 
                             <div class="card-body">
                                 <h6 class="card-text">
-                                    <a href="{{ route('video-news.show',$post->slug) }}">
+                                    <a href="{{ route('video-news.show',$post->slug) }}" class="text-dark">
                                         {{ $post->title }}
                                     </a>
                                 </h6>
