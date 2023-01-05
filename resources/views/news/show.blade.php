@@ -8,7 +8,7 @@
 
                 <x-related-tags :tags="$tags" />
 
-                <x-comments-box />
+
 
             </div>
 
