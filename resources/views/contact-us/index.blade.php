@@ -3,25 +3,20 @@
         <div class="row">
             <div class="col-12">
                 <h1 class="text-center">
-                    Contact Us
+                    {{ $contact->title }}
                 </h1>
                 <div class="border-top border-bottom border-3 d-flex align-items-center justify-content-center my-3">
                     <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);"
                         aria-label="breadcrumb" class="mt-3">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Contact Us</li>
+                            <li class="breadcrumb-item active" aria-current="page">{{ $contact->title }}</li>
                         </ol>
                     </nav>
                 </div>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae labore pariatur earum at architecto
-                    modi, exercitationem non? Aliquam, suscipit dignissimos porro ea fugiat nam dolor harum alias sequi
-                    ullam ducimus sint! Alias, consequuntur dignissimos molestias eum eius nesciunt repellat perferendis
-                    asperiores. Eum dicta voluptatum veritatis unde alias, perferendis tempora vel inventore
-                    voluptatibus, facilis reprehenderit suscipit hic. Eos cum minus iure recusandae? Debitis illum
-                    provident, excepturi neque, laborum sed in modi maiores suscipit qui alias possimus nesciunt omnis
-                    ullam fugit? Cum deleniti deserunt autem, ea in illum voluptates quo nisi nihil nemo amet ratione,
-                    quia dolore atque eum porro. Eveniet, magni.</p>
+                <p>
+                    {!! $contact->detail !!}
+                </p>
 
 
                 <div class="row">
@@ -59,15 +54,12 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="border border-3 rounded-3 shadow-sm" style="height: 500px;">
-                            <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62335.43938267465!2d98.58622321109229!3d12.45205439859057!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30fbb04dd43ed2db%3A0x4d1bccdd01a793d3!2z4YCZ4YC84YCt4YCQ4YC6!5e0!3m2!1smy!2smm!4v1670903455528!5m2!1smy!2smm"
-                                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
-                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+                            <iframe src="{{ $contact->map }}" width="100%" height="100%" style="border:0;"
+                                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
                 </div>
-
-
 
             </div>
         </div>

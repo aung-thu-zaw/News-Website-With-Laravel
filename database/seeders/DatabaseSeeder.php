@@ -40,6 +40,8 @@ class DatabaseSeeder extends Seeder
             VideoSeeder::class,
             TrendingVideoSeeder::class,
             VideoNewsPostSeeder::class,
+            PageSeeder::class,
+            FaqSeeder::class,
         ]);
     }
 }

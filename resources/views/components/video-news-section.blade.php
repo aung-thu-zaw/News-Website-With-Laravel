@@ -9,7 +9,7 @@
             <div class="border border-secondary shadow-sm p-3 rounded-1">
                 <div class="d-flex align-items-center justify-content-between mb-3">
                     <div>
-                        <h3>Most Famous Video</h3>
+                        <h3>Most Viwed Video</h3>
                     </div>
                     <div class="border d-md-none d-lg-block" style="width: 60%;"></div>
                     <div>

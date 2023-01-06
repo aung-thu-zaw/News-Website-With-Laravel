@@ -1,4 +1,4 @@
-@props(["name","advertisement"=>"","category"=>"","subcategorynav"=>"","subcategoryhome"=>""])
+@props(["name","advertisement"=>"","category"=>"","subcategorynav"=>"","subcategoryhome"=>"","status"=>""])
 <x-form.input-wrapper>
     {{ $slot }}
 
@@ -46,6 +46,18 @@
             Show
         </option>
         <option value="hide" {{ $subcategoryhome==="hide" ? "selected" :""}}>
+            Hide
+        </option>
+    </select>
+    @endif
+
+    @if ($status)
+    <select class="form-select" name="{{ $name }}" id="" required>
+        <option value="" selected disabled>Select Status</option>
+        <option value="show" {{ $status==="show" ? "selected" :""}}>
+            Show
+        </option>
+        <option value="hide" {{ $status==="hide" ? "selected" :""}}>
             Hide
         </option>
     </select>

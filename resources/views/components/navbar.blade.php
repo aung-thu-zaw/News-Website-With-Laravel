@@ -19,20 +19,31 @@
                         <a href="{{ route('news.index') }}" class="nav-link text-decoration-none"
                             aria-current="page">Home</a>
                     </li>
+                    @if ($about->status==="show")
                     <li class="nav-item mx-3">
                         <a href="{{ route('about-us.index') }}" class="nav-link text-decoration-none"
                             aria-current="page">About Us</a>
                     </li>
+                    @endif
+
+                    @if ($faq->status==="show")
                     <li class="nav-item mx-3">
                         <a href="{{ route('faq.index') }}" class="nav-link text-decoration-none"
                             aria-current="page">FAQ</a>
                     </li>
+                    @endif
+
+                    @if ($contact->status==="show")
                     <li class="nav-item mx-3">
                         <a href="{{ route('contact-us.index') }}" class="nav-link text-decoration-none"
                             aria-current="page">
                             Contact Us
                         </a>
                     </li>
+                    @endif
+
+
+
                 </ul>
 
                 <div class="d-flex align-items-center justify-content-between w-auto">

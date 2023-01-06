@@ -1,4 +1,4 @@
-<footer class="bg-dark text-white" style="height: auto">
+<footer class="bg-dark text-white py-5" style="height: auto">
     <div class="container py-3">
         <div class="row">
             <div class="col-lg-4">
@@ -13,15 +13,23 @@
             <div class="col-lg-4">
                 <h4 class="heading">Useful Links</h4>
                 <ul class="">
-                    <li><a href="#" class="text-white">Home</a></li>
+                    <li><a href="{{ route('news.index') }}" class="text-white">Home</a></li>
 
-                    <li><a href="#" class="text-white">Terms And Conditions</a></li>
+                    @if ($termsAndConditions->status==="show")
+                    <li><a href="{{ route('terms-and-conditions.index') }}" class="text-white">Terms And Conditions</a>
+                    </li>
+                    @endif
 
-                    <li><a href="#" class="text-white">Privacy And Policy</a></li>
+                    @if ($privacyAndPolicy->status==="show")
+                    <li><a href="{{ route('privacy-and-policy.index') }}" class="text-white">Privacy And Policy</a></li>
+                    @endif
 
-                    <li><a href="#" class="text-white">Disclaimer</a></li>
+                    @if ($disclaimer->status==="show")
+                    <li><a href="{{ route('disclaimer.index') }}" class="text-white">Disclaimer</a></li>
+                    @endif
 
-                    <li><a href="#" class="text-white">Contact</a></li>
+
+
                 </ul>
             </div>
             <div class="col-lg-4">

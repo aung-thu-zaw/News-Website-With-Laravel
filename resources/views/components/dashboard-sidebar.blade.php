@@ -125,6 +125,45 @@
         </div>
 
 
+        <div class="my-2">
+            <div class="">
+                <a data-bs-toggle="collapse" data-bs-target=".collapseFive" href="#collapseExample" role="button"
+                    aria-expanded="false" aria-controls="collapseExample" onclick="toggleDownArrowFive()"
+                    class="d-flex align-items-center justify-content-between">
+                    <div>
+                        <i class="fa-solid fa-file-lines me-2"></i>
+                        <span class="me-5 dashboard-nav-item">Pages</span>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-caret-down left-icon-5" id="down-icon-5"></i>
+                    </div>
+                </a>
+            </div>
+            <div class="collapse collapseFive" id="collapseExample" style="background: rgb(32, 33, 33)">
+                <a href="{{ route('admin.about-us.show') }}" class="">
+                    <span class="ms-5 dashboard-nav-item">About Us</span>
+                </a>
+                <a href="{{ route('admin.faq.show') }}" class="">
+                    <span class="ms-5 dashboard-nav-item">FAQ</span>
+                </a>
+                <a href="{{ route('admin.faq-accordion.index') }}" class="">
+                    <span class="ms-5 dashboard-nav-item">FAQ (Accordion)</span>
+                </a>
+                <a href="{{ route('admin.contact-us.show') }}" class="">
+                    <span class="ms-5 dashboard-nav-item">Contact Us</span>
+                </a>
+                <a href="{{ route('admin.terms-and-conditions.show') }}" class="">
+                    <span class="ms-5 dashboard-nav-item">Terms And Conditions</span>
+                </a>
+                <a href="{{ route('admin.privacy-and-policy.show') }}" class="">
+                    <span class="ms-5 dashboard-nav-item">Privacy And Policy</span>
+                </a>
+                <a href="{{ route('admin.disclaimer.show') }}" class="">
+                    <span class="ms-5 dashboard-nav-item">Disclaimer</span>
+                </a>
+            </div>
+        </div>
+
 
     </div>
 
