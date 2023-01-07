@@ -53,11 +53,21 @@ class AdminVideoNewsPostController extends Controller
             $tagsNewArray=array_values(array_unique($tagsNewArray));
 
             foreach ($tagsNewArray as $tag) {
-                $tagModel=new Tag();
-                $tagModel->video_news_post_id=$post->id;
-                $tagModel->name=$tag;
-                $tagModel->slug=strtolower(str_replace(" ", "-", $tag));
-                $tagModel->save();
+                $countExisitngTags=Tag::where("name", $tag)->count();
+
+                $exisitngTags=Tag::where("name", $tag)->get();
+
+                if (!$countExisitngTags) {
+                    $tagModel=new Tag();
+                    $tagModel->name=$tag;
+                    $tagModel->slug=strtolower(str_replace(" ", "-", $tag));
+                    $tagModel->save();
+                    $post->tags()->attach($tagModel);
+                }
+
+                if ($countExisitngTags) {
+                    $post->tags()->attach($exisitngTags);
+                }
             }
         }
 
@@ -102,13 +112,34 @@ class AdminVideoNewsPostController extends Controller
             $tagsNewArray=array_values(array_unique($tagsNewArray));
 
             foreach ($tagsNewArray as $tag) {
-                $exisitngTag=Tag::where("video_news_post_id", $videoNewsPost->id)->where("name", $tag)->count();
-                if (!$exisitngTag) {
+                $countExisitngTags=Tag::where("name", $tag)->count();
+
+                $exisitngTags=Tag::where("name", $tag)->get();
+
+
+
+                if (!$countExisitngTags) {
                     $tagModel=new Tag();
-                    $tagModel->video_news_post_id=$videoNewsPost->id;
                     $tagModel->name=$tag;
                     $tagModel->slug=strtolower(str_replace(" ", "-", $tag));
                     $tagModel->save();
+                    $videoNewsPost->tags()->attach($tagModel);
+                }
+
+                foreach ($videoNewsPost->tags as $videoExistTag) {
+                    if ($videoExistTag) {
+                        // $videoExistTag->tags()->attach($tag);
+                        $videoNewsPost->tags()->detach($exisitngTags);
+                        // echo "hit";
+                        // echo "<pre/>";
+                        // echo $videoExistTag;
+                    }
+                }
+
+                // die();
+
+                if ($countExisitngTags) {
+                    $videoNewsPost->tags()->attach($exisitngTags);
                 }
             }
         }

@@ -21,7 +21,7 @@ class HomeNewsController extends Controller
         Meta::prependTitle('Home');
 
         return view('news.index', [
-            "latestNewsPosts"=>NewsPost::with("subCategory", "author")->orderBy("id", "desc")->take(5)->get(),
+            "latestNewsPosts"=>NewsPost::with("subCategory.category", "author")->orderBy("id", "desc")->take(5)->get(),
             "trendingVideos"=>TrendingVideo::orderBy("id", "desc")->get(),
             "subCategories"=>SubCategory::with("newsPosts.subCategory", "newsPosts.author", "category.subCategories")->orderBy("id", "desc")->get(),
             "newsVideoPosts"=>VideoNewsPost::with("author")->orderBy("visitors", "desc")->take(12)->get()
@@ -44,7 +44,7 @@ class HomeNewsController extends Controller
         return view("news.show", [
             "newsPost"=>$newsPost,
             "socialShare"=>$socialShare,
-            "tags"=>Tag::select("name", "slug")->where("news_post_id", $newsPost->id)->get(),
+            // "tags"=>Tag::select("name", "slug")->where("news_post_id", $newsPost->id)->get(),
 
         ]);
     }

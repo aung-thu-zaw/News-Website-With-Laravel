@@ -24,7 +24,8 @@
                             {!! StringHelper::description($post->body) !!}
                         </p>
                         <a href="/news/{{ $post->subCategory->category->slug }}/{{ $post->subCategory->slug }}"
-                            class="header-news-tag text-white my-1 text-decoration-none">{{ $post->subCategory->name }}</a>
+                            class="header-news-tag text-white my-1 text-decoration-none">{{ $post->subCategory->name
+                            }}</a>
                         <div class="d-flex align-items-center justify-content-between">
                             <div class="icon-box">
                                 <span>
@@ -118,7 +119,8 @@
                                     {{ StringHelper::description($post->body,100) }}
                                 </p>
                                 <a href="/news/{{ $post->subCategory->category->slug }}/{{ $post->subCategory->slug }}"
-                                    class="header-news-tag-sm text-white my-1 text-decoration-none">{{ $post->subCategory->name
+                                    class="header-news-tag-sm text-white my-1 text-decoration-none">{{
+                                    $post->subCategory->name
                                     }}</a>
                                 <div class="icon-box-sm">
                                     <span>

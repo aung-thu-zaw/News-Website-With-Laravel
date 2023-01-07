@@ -41,7 +41,6 @@ class VideoNewsController extends Controller
         return view("video-news-post.show", [
             "videoNewsPost"=>$videoNewsPost,
             "socialShare"=>$socialShare,
-            "tags"=>Tag::select("name", "slug")->where("video_news_post_id", $videoNewsPost->id)->get(),
         ]);
     }
 }

@@ -6,9 +6,9 @@
 
                 <x-single-news-details :post="$videoNewsPost" :socialshare="$socialShare" />
 
-                <x-related-tags :tags="$tags" />
+                {{-- <x-related-tags :tags="$tags" /> --}}
+                <x-related-tags :post="$videoNewsPost" />
 
-                <x-comments-box />
 
             </div>
 

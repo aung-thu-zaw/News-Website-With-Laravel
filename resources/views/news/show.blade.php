@@ -6,7 +6,7 @@
 
                 <x-single-news-details :post="$newsPost" :socialshare="$socialShare" />
 
-                <x-related-tags :tags="$tags" />
+                <x-related-tags :post="$newsPost" />
 
 
 

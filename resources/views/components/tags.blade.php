@@ -6,7 +6,9 @@
     </div>
     <div class="mb-2 d-flex align-items-center flex-wrap">
         @foreach ($tags as $tag)
-        <a href="#" class="header-news-tag-sm text-white my-1 mx-1">{{ $tag->name }}</a>
+        <a href="{{ route('tags.news-posts.show',$tag->slug) }}" class="header-news-tag-sm text-white my-1 mx-1">{{
+            $tag->name
+            }}</a>
         @endforeach
     </div>
 </div>

@@ -24,7 +24,8 @@ class Tags extends Component
      */
     public function render()
     {
-        $tags=Tag::select("name", "slug")->get();
-        return view('components.tags', compact("tags"));
+        return view('components.tags', [
+            "tags"=>Tag::orderBy("id", "desc")->get()
+        ]);
     }
 }

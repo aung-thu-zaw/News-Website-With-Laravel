@@ -53,14 +53,13 @@
                     <x-form.input-button name="Update" />
                 </form>
 
-                @if(count($newsPost->tags))
+                @if($newsPost->tags->count())
                 <div class="mb-3">
                     <span class="mb-5">Exisiting Tags</span>
                     <div class="d-flex align-items-center">
                         @foreach ($newsPost->tags as $tag)
-                        <form action="{{ route('admin.tag.destroy',$tag->id) }}" method="POST">
+                        <form action="/admin/news-post/{{ $newsPost->slug }}/{{ $tag->slug }}" method="POST">
                             @csrf
-                            @method("DELETE")
                             <span class="header-news-tag text-white my-1 mx-1">
                                 {{ $tag->name }}
                                 <button type="submit" class="ms-3 fs-5 text-danger border-0"

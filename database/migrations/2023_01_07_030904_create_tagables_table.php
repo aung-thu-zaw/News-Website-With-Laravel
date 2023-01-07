@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class () extends Migration {
     /**
      * Run the migrations.
      *
@@ -13,8 +12,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('tags', function (Blueprint $table) {
-            $table->foreignId("video_news_post_id")->nullable()->after("news_post_id")->constrained()->cascadeOnDelete();
+        Schema::create('tagables', function (Blueprint $table) {
+            $table->foreignId("tag_id")->constrained()->cascadeOnDelete();
+            $table->unsignedBigInteger("tagable_id");
+            $table->string("tagable_type");
+            $table->timestamps();
         });
     }
 
@@ -25,8 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('tags', function (Blueprint $table) {
-            $table->dropConstrainedForeignId("video_news_post_id");
-        });
+        Schema::dropIfExists('tagables');
     }
 };

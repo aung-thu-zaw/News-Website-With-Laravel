@@ -39,6 +39,10 @@ use App\Http\Controllers\Pages\DisclaimerController;
 use App\Http\Controllers\Pages\FaqController;
 use App\Http\Controllers\Pages\PrivacyAndPolicyController;
 use App\Http\Controllers\Pages\TermsAndConditionsController;
+use App\Http\Controllers\Tags\NewsPostController;
+use App\Http\Controllers\Tags\TagNewsPostController;
+use App\Http\Controllers\Tags\TagPostController;
+use App\Http\Controllers\Tags\TagVideoNewsPostController;
 use Illuminate\Support\Facades\Route;
 
 # ============== User Authentication ==============
@@ -85,9 +89,15 @@ Route::get('/video-news/{video_news_post:slug}', [VideoNewsController::class,"sh
 
 Route::get("/news/{year}/{month}/{day}", [DateNewsController::class,"show"])->name("date-news.show");
 
-// Route::get("/{category:slug}", [CategoryController::class,"show"])->name("category.show");
+Route::get("/{category:slug}", [CategoryController::class,"show"])->name("category.show");
 
-// Route::get("/news/{category:slug}/{sub_category:slug}", [SubCategoryController::class,"show"])->name("sub-category.show");
+Route::get("/news/{category:slug}/{sub_category:slug}", [SubCategoryController::class,"show"])->name("sub-category.show");
+
+
+
+Route::get("/tags/{tag:slug}/news-posts", [TagNewsPostController::class,"show"])->name("tags.news-posts.show");
+// Route::get("/tag/{tag:slug}/video-news-posts", [TagVideoNewsPostController::class,"show"])->name("tags.video-posts.show");
+
 
 
 Route::get("/about-us", [AboutUsController::class,"index"])->name("about-us.index");
@@ -173,4 +183,7 @@ Route::middleware(["auth","admin"])
             Route::resource('/faq-accordion', AdminFaqAccordionController::class);
         });
 
-Route::delete('/admin/tags/{tag:id}', [TagController::class,"destroy"])->name("admin.tag.destroy");
+Route::post('/admin/news-post/{news_post:slug}/{tag:slug}', [TagNewsPostController::class,"newsPostTagHandler"])->name("admin.news-post-tag-handle");
+
+
+Route::post('/admin/video-news-post/{video_news_post:slug}/{tag:slug}', [TagNewsPostController::class,"videonewsPostTagHandler"])->name("admin.video-news-post-tag-handle");

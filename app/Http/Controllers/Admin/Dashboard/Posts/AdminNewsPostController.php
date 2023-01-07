@@ -70,12 +70,23 @@ class AdminNewsPostController extends Controller
 
             $tagsNewArray=array_values(array_unique($tagsNewArray));
 
+
             foreach ($tagsNewArray as $tag) {
-                $tagModel=new Tag();
-                $tagModel->news_post_id=$post->id;
-                $tagModel->name=$tag;
-                $tagModel->slug=strtolower(str_replace(" ", "-", $tag));
-                $tagModel->save();
+                $countExisitngTags=Tag::where("name", $tag)->count();
+
+                $exisitngTags=Tag::where("name", $tag)->get();
+
+                if (!$countExisitngTags) {
+                    $tagModel=new Tag();
+                    $tagModel->name=$tag;
+                    $tagModel->slug=strtolower(str_replace(" ", "-", $tag));
+                    $tagModel->save();
+                    $post->tags()->attach($tagModel);
+                }
+
+                if ($countExisitngTags) {
+                    $post->tags()->attach($exisitngTags);
+                }
             }
         }
 
@@ -89,6 +100,7 @@ class AdminNewsPostController extends Controller
         return view("admin.dashboard.posts.news-posts.edit", [
             "newsPost"=>$newsPost,
             "subCategories"=>SubCategory::with("category")->get(),
+            // "tag"=>Tag::where("id", $newsPost->tags->id)->get(),
             "page"=>request('page'),
         ]);
     }
@@ -141,14 +153,48 @@ class AdminNewsPostController extends Controller
 
             $tagsNewArray=array_values(array_unique($tagsNewArray));
 
+
+            // foreach ($tagsNewArray as $tag) {
+            //     $countExisitngTags=Tag::where("name", $tag)->count();
+
+
+            //     if (!$countExisitngTags) {
+            //         $tagModel=new Tag();
+            //         $tagModel->name=$tag;
+            //         $tagModel->slug=strtolower(str_replace(" ", "-", $tag));
+            //         $tagModel->save();
+            //         $newsPost->tags()->attach($tagModel);
+            //     }
+            // }
             foreach ($tagsNewArray as $tag) {
-                $exisitngTag=Tag::where("news_post_id", $newsPost->id)->where("name", $tag)->count();
-                if (!$exisitngTag) {
+                $countExisitngTags=Tag::where("name", $tag)->count();
+
+                $exisitngTags=Tag::where("name", $tag)->get();
+
+
+
+                if (!$countExisitngTags) {
                     $tagModel=new Tag();
-                    $tagModel->news_post_id=$newsPost->id;
                     $tagModel->name=$tag;
                     $tagModel->slug=strtolower(str_replace(" ", "-", $tag));
                     $tagModel->save();
+                    $newsPost->tags()->attach($tagModel);
+                }
+
+                foreach ($newsPost->tags as $videoExistTag) {
+                    if ($videoExistTag) {
+                        // $videoExistTag->tags()->attach($tag);
+                        $newsPost->tags()->detach($exisitngTags);
+                        // echo "hit";
+                        // echo "<pre/>";
+                        // echo $videoExistTag;
+                    }
+                }
+
+                // die();
+
+                if ($countExisitngTags) {
+                    $newsPost->tags()->attach($exisitngTags);
                 }
             }
         }
