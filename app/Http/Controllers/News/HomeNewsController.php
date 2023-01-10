@@ -4,6 +4,7 @@ namespace App\Http\Controllers\News;
 
 use App\Http\Controllers\Controller;
 use App\Models\BreakingNews;
+use App\Models\LiveVideo;
 use App\Models\NewsPost;
 use App\Models\NewsVideoPost;
 use App\Models\SubCategory;
@@ -24,7 +25,7 @@ class HomeNewsController extends Controller
             "latestNewsPosts"=>NewsPost::with("subCategory.category", "author")->orderBy("id", "desc")->take(5)->get(),
             "trendingVideos"=>TrendingVideo::orderBy("id", "desc")->get(),
             "subCategories"=>SubCategory::with("newsPosts.subCategory", "newsPosts.author", "category.subCategories")->orderBy("id", "desc")->get(),
-            "newsVideoPosts"=>VideoNewsPost::with("author")->orderBy("visitors", "desc")->take(12)->get()
+            "newsVideoPosts"=>VideoNewsPost::with("author")->orderBy("visitors", "desc")->take(12)->get(),
         ]);
     }
 

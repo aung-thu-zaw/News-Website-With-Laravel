@@ -124,6 +124,16 @@
             </a>
         </div>
 
+        <div class="my-2">
+            <a href="{{ route('admin.live-videos.index') }}">
+                <i class="fa-solid fa-video me-2"></i>
+                <span class="dashboard-nav-item">
+                    Live Videos
+                </span>
+            </a>
+        </div>
+        
+
 
         <div class="my-2">
             <div class="">

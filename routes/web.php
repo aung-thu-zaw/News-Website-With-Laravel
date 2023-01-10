@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminSettingController;
 use App\Http\Controllers\Admin\Dashboard\AdminDashboardController;
+use App\Http\Controllers\Admin\Dashboard\AdminLiveVideoController;
 use App\Http\Controllers\Admin\Dashboard\Advertisements\AdminHomeAdvertisementController;
 use App\Http\Controllers\Admin\Dashboard\Advertisements\AdminSidebarAdvertisementController;
 use App\Http\Controllers\Auth\SocialiteFacebookAuthController;
@@ -181,6 +182,9 @@ Route::middleware(["auth","admin"])
             Route::resource('/photos', AdminPhotoGalleryController::class);
             // FAQ Accordion
             Route::resource('/faq-accordion', AdminFaqAccordionController::class);
+            // Live Video
+            Route::resource('/live-videos', AdminLiveVideoController::class);
+  
         });
 
 Route::post('/admin/news-post/{news_post:slug}/{tag:slug}', [TagNewsPostController::class,"newsPostTagHandler"])->name("admin.news-post-tag-handle");

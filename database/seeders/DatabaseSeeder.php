@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\LiveVideo;
 use App\Models\Setting;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -42,6 +43,7 @@ class DatabaseSeeder extends Seeder
             VideoNewsPostSeeder::class,
             PageSeeder::class,
             FaqSeeder::class,
+            LiveVideoSeeder::class,
         ]);
     }
 }
