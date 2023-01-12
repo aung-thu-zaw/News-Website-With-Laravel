@@ -33,7 +33,19 @@ class HomeNewsController extends Controller
                         ->take(12)
                         ->get();
 
-        return view('news.index', compact("latestNewsPosts", "trendingVideos", "subCategories", "newsVideoPosts"));
+        if (request("search")) {
+            $newsPosts=NewsPost::search(request("search"))->paginate(10);
+
+            $newsPosts->load("subCategory.category", "author");
+
+
+
+
+
+            return view("search-news.index", compact("newsPosts"));
+        } else {
+            return view('news.index', compact("latestNewsPosts", "trendingVideos", "subCategories", "newsVideoPosts"));
+        }
     }
 
     public function show(NewsPost $newsPost)

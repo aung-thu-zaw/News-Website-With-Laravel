@@ -18,7 +18,7 @@ return new class () extends Migration {
             $table->foreignId("sub_category_id");
             $table->string("title");
             $table->string("slug")->unique();
-            $table->text("body");
+            $table->text("body")->fulltext();
             $table->string("thumbnail")->nullable();
             $table->integer("visitors")->default(0);
             $table->timestamps();

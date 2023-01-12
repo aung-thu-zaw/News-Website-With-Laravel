@@ -18,18 +18,14 @@ class LiveVideoFactory extends Factory
     {
         return [
             "video_id"=>$this->faker->randomElement([
-                "euP0mBlAn2Q",
-                "dgg9M5nuLTA",
-                "98FkRIbihyQ",
-                "nIoXOplUvAw",
-                "9xAumJRKV6A",
-                "irWAjPQyYzg",
-                "DAAwy_l4jw4",
-                "vruB_WNbknw",
-                "hXd4KEqrYEE",
-                "wrR6QlAxvPs",
+                "w_Ma8oQLmSM",
+                "9Auq9mYxFEE",
+                "pykpO5kQJ98",
+                "pykpO5kQJ98",
+                "h3MuIUNCCzI",
+
             ]),
-            "title"=>$this->faker->title()
+            "title"=>$this->faker->sentence()
         ];
     }
 }

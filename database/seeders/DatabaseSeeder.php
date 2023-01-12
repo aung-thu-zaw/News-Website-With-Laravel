@@ -18,20 +18,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::factory()->create([
-            "name"=>"Aung Thu Zaw",
-            "email"=>"aungthuzaw@gmail.com",
-            "password"=>bcrypt("1111111111"),
-            "is_admin"=>true
-        ]);
-
         Setting::create([
             "favicon"=>"favicon.png",
             "logo"=>"logo.png"
         ]);
-        User::factory(9)->create();
+
 
         $this->call([
+            UserSeeder::class,
             HomeAdvertisementSeeder::class,
             SidebarAdvertisementSeeder::class,
             CategorySeeder::class,

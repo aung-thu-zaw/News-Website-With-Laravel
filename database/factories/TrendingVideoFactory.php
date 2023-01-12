@@ -18,16 +18,17 @@ class TrendingVideoFactory extends Factory
     {
         return [
             "video_id"=>$this->faker->randomElement([
-                "euP0mBlAn2Q",
-                "dgg9M5nuLTA",
-                "98FkRIbihyQ",
-                "nIoXOplUvAw",
-                "9xAumJRKV6A",
-                "irWAjPQyYzg",
-                "DAAwy_l4jw4",
-                "vruB_WNbknw",
-                "hXd4KEqrYEE",
-                "wrR6QlAxvPs",
+                "LTJU9YWfmFU",
+                "ardtvdR28SQ",
+                "EOnZswhnOzM",
+                "jBEgDVmuUxM",
+                "dz_lyFG8kr8",
+                "zN8Vo_2xO-Q",
+                "_lgcmYSePGA",
+                "Voiae2-E-7Y",
+                "5vaVfl_zmCY",
+                "TEEnKA3sVK8",
+
             ]),
             "owner"=>$this->faker->name(),
             "caption"=>$this->faker->sentence()

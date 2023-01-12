@@ -17,6 +17,7 @@
                         <th scope="col">SubCategory</th>
                         <th scope="col">Visitors</th>
                         <th scope="col">Author</th>
+                        <th scope="col">Role</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
@@ -47,6 +48,9 @@
                         </td>
                         <td>
                             {{ $post->author->name }}
+                        </td>
+                        <td>
+                            {{ $post->author->role }}
                         </td>
                         <td>
                             <div class=" d-flex align-items-center">

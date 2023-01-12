@@ -17,7 +17,7 @@ class SidebarAdvertisementFactory extends Factory
     public function definition()
     {
         return [
-            "top_advertisement_photo"=>"sidebar-top-advertisement-photo.png",
+            "top_advertisement_photo"=>"sidebar-top-advertisement-photo.jpg",
             "top_advertisement_url"=>"https://www.example.com",
             "top_advertisement_status"=>"hide",
             "bottom_advertisement_photo"=>"sidebar-bottom-advertisement-photo.webp",

@@ -15,52 +15,87 @@ class NewsPostSeeder extends Seeder
      */
     public function run()
     {
-        NewsPost::factory(20)->create(["user_id"=>1,"sub_category_id"=>1]);
-        NewsPost::factory(20)->create(["user_id"=>1,"sub_category_id"=>2]);
-        NewsPost::factory(20)->create(["user_id"=>1,"sub_category_id"=>3]);
-        NewsPost::factory(20)->create(["user_id"=>1,"sub_category_id"=>4]);
-        NewsPost::factory(20)->create(["user_id"=>1,"sub_category_id"=>5]);
-        NewsPost::factory(20)->create(["user_id"=>1,"sub_category_id"=>6]);
-        NewsPost::factory(20)->create(["user_id"=>1,"sub_category_id"=>7]);
-        NewsPost::factory(20)->create(["user_id"=>1,"sub_category_id"=>8]);
-        NewsPost::factory(20)->create(["user_id"=>1,"sub_category_id"=>9]);
-        NewsPost::factory(20)->create(["user_id"=>1,"sub_category_id"=>10]);
-        NewsPost::factory(20)->create(["user_id"=>1,"sub_category_id"=>11]);
-        NewsPost::factory(20)->create(["user_id"=>1,"sub_category_id"=>12]);
-        NewsPost::factory(20)->create(["user_id"=>1,"sub_category_id"=>13]);
-        NewsPost::factory(20)->create(["user_id"=>1,"sub_category_id"=>14]);
-        NewsPost::factory(20)->create(["user_id"=>1,"sub_category_id"=>15]);
-        NewsPost::factory(20)->create(["user_id"=>1,"sub_category_id"=>16]);
-        NewsPost::factory(20)->create(["user_id"=>1,"sub_category_id"=>17]);
-        NewsPost::factory(20)->create(["user_id"=>1,"sub_category_id"=>18]);
-        NewsPost::factory(20)->create(["user_id"=>1,"sub_category_id"=>19]);
-        NewsPost::factory(20)->create(["user_id"=>1,"sub_category_id"=>20]);
-        NewsPost::factory(20)->create(["user_id"=>1,"sub_category_id"=>21]);
-        NewsPost::factory(20)->create(["user_id"=>1,"sub_category_id"=>22]);
-        NewsPost::factory(20)->create(["user_id"=>1,"sub_category_id"=>23]);
-        NewsPost::factory(20)->create(["user_id"=>1,"sub_category_id"=>24]);
-        NewsPost::factory(20)->create(["user_id"=>1,"sub_category_id"=>25]);
-        NewsPost::factory(20)->create(["user_id"=>1,"sub_category_id"=>26]);
-        NewsPost::factory(20)->create(["user_id"=>1,"sub_category_id"=>27]);
-        NewsPost::factory(20)->create(["user_id"=>1,"sub_category_id"=>28]);
-        NewsPost::factory(20)->create(["user_id"=>1,"sub_category_id"=>29]);
-        NewsPost::factory(20)->create(["user_id"=>1,"sub_category_id"=>30]);
-        NewsPost::factory(20)->create(["user_id"=>1,"sub_category_id"=>31]);
-        NewsPost::factory(20)->create(["user_id"=>1,"sub_category_id"=>32]);
-        NewsPost::factory(20)->create(["user_id"=>1,"sub_category_id"=>33]);
-        NewsPost::factory(20)->create(["user_id"=>1,"sub_category_id"=>34]);
-        NewsPost::factory(20)->create(["user_id"=>1,"sub_category_id"=>35]);
-        NewsPost::factory(20)->create(["user_id"=>1,"sub_category_id"=>36]);
-        NewsPost::factory(20)->create(["user_id"=>1,"sub_category_id"=>37]);
-        NewsPost::factory(20)->create(["user_id"=>1,"sub_category_id"=>38]);
-        NewsPost::factory(20)->create(["user_id"=>1,"sub_category_id"=>39]);
-        NewsPost::factory(20)->create(["user_id"=>1,"sub_category_id"=>40]);
-        NewsPost::factory(20)->create(["user_id"=>1,"sub_category_id"=>41]);
-        NewsPost::factory(20)->create(["user_id"=>1,"sub_category_id"=>42]);
-        NewsPost::factory(20)->create(["user_id"=>1,"sub_category_id"=>43]);
-        NewsPost::factory(20)->create(["user_id"=>1,"sub_category_id"=>44]);
-        NewsPost::factory(20)->create(["user_id"=>1,"sub_category_id"=>45]);
-        NewsPost::factory(20)->create(["user_id"=>1,"sub_category_id"=>46]);
-        NewsPost::factory(20)->create(["user_id"=>1,"sub_category_id"=>47]);
+        NewsPost::factory()->create(["sub_category_id"=>1,"thumbnail"=>"africa-1.jpg"]);
+        NewsPost::factory()->create(["sub_category_id"=>1,"thumbnail"=>"africa-2.jpg"]);
+        NewsPost::factory()->create(["sub_category_id"=>1,"thumbnail"=>"africa-3.jpg"]);
+        NewsPost::factory()->create(["sub_category_id"=>1,"thumbnail"=>"africa-4.jpg"]);
+        NewsPost::factory()->create(["sub_category_id"=>1,"thumbnail"=>"africa-5.jpg"]);
+        NewsPost::factory()->create(["sub_category_id"=>1,"thumbnail"=>"africa-6.jpg"]);
+        NewsPost::factory()->create(["sub_category_id"=>1,"thumbnail"=>"africa-7.jpg"]);
+        NewsPost::factory()->create(["sub_category_id"=>1,"thumbnail"=>"africa-8.jpg"]);
+        NewsPost::factory()->create(["sub_category_id"=>1,"thumbnail"=>"africa-9.jpg"]);
+        NewsPost::factory()->create(["sub_category_id"=>1,"thumbnail"=>"africa-10.jpg"]);
+
+
+        NewsPost::factory()->create(["sub_category_id"=>3,"thumbnail"=>"asian-1.jpg"]);
+        NewsPost::factory()->create(["sub_category_id"=>3,"thumbnail"=>"asian-2.jpg"]);
+        NewsPost::factory()->create(["sub_category_id"=>3,"thumbnail"=>"asian-3.jpg"]);
+        NewsPost::factory()->create(["sub_category_id"=>3,"thumbnail"=>"asian-4.jpg"]);
+        NewsPost::factory()->create(["sub_category_id"=>3,"thumbnail"=>"asian-5.jpg"]);
+        NewsPost::factory()->create(["sub_category_id"=>3,"thumbnail"=>"asian-6.jpg"]);
+        NewsPost::factory()->create(["sub_category_id"=>3,"thumbnail"=>"asian-7.jpg"]);
+        NewsPost::factory()->create(["sub_category_id"=>3,"thumbnail"=>"asian-8.jpg"]);
+        NewsPost::factory()->create(["sub_category_id"=>3,"thumbnail"=>"asian-9.jpg"]);
+        NewsPost::factory()->create(["sub_category_id"=>3,"thumbnail"=>"asian-10.jpg"]);
+
+
+        NewsPost::factory()->create(["sub_category_id"=>10,"thumbnail"=>"revolution-1.jpg"]);
+        NewsPost::factory()->create(["sub_category_id"=>10,"thumbnail"=>"revolution-2.jpg"]);
+        NewsPost::factory()->create(["sub_category_id"=>10,"thumbnail"=>"revolution-3.jpg"]);
+        NewsPost::factory()->create(["sub_category_id"=>10,"thumbnail"=>"revolution-4.jpg"]);
+        NewsPost::factory()->create(["sub_category_id"=>10,"thumbnail"=>"revolution-5.jpg"]);
+        NewsPost::factory()->create(["sub_category_id"=>10,"thumbnail"=>"revolution-6.jpg"]);
+        NewsPost::factory()->create(["sub_category_id"=>10,"thumbnail"=>"revolution-7.jpg"]);
+        NewsPost::factory()->create(["sub_category_id"=>10,"thumbnail"=>"revolution-8.jpg"]);
+        NewsPost::factory()->create(["sub_category_id"=>10,"thumbnail"=>"revolution-9.jpg"]);
+        NewsPost::factory()->create(["sub_category_id"=>10,"thumbnail"=>"revolution-10.jpg"]);
+
+
+        NewsPost::factory()->create(["sub_category_id"=>13,"thumbnail"=>"civil-war-1.jpg"]);
+        NewsPost::factory()->create(["sub_category_id"=>13,"thumbnail"=>"civil-war-2.jpg"]);
+        NewsPost::factory()->create(["sub_category_id"=>13,"thumbnail"=>"civil-war-3.jpg"]);
+        NewsPost::factory()->create(["sub_category_id"=>13,"thumbnail"=>"civil-war-4.jpg"]);
+        NewsPost::factory()->create(["sub_category_id"=>13,"thumbnail"=>"civil-war-5.jpg"]);
+        NewsPost::factory()->create(["sub_category_id"=>13,"thumbnail"=>"civil-war-6.jpg"]);
+        NewsPost::factory()->create(["sub_category_id"=>13,"thumbnail"=>"civil-war-7.jpg"]);
+        NewsPost::factory()->create(["sub_category_id"=>13,"thumbnail"=>"civil-war-8.jpg"]);
+        NewsPost::factory()->create(["sub_category_id"=>13,"thumbnail"=>"civil-war-9.jpg"]);
+        NewsPost::factory()->create(["sub_category_id"=>13,"thumbnail"=>"civil-war-10.jpg"]);
+
+
+        NewsPost::factory()->create(["sub_category_id"=>15,"thumbnail"=>"tech-1.jpg"]);
+        NewsPost::factory()->create(["sub_category_id"=>15,"thumbnail"=>"tech-2.jpg"]);
+        NewsPost::factory()->create(["sub_category_id"=>15,"thumbnail"=>"tech-3.jpg"]);
+        NewsPost::factory()->create(["sub_category_id"=>15,"thumbnail"=>"tech-4.jpg"]);
+        NewsPost::factory()->create(["sub_category_id"=>15,"thumbnail"=>"tech-5.jpg"]);
+        NewsPost::factory()->create(["sub_category_id"=>15,"thumbnail"=>"tech-6.jpg"]);
+        NewsPost::factory()->create(["sub_category_id"=>15,"thumbnail"=>"tech-7.jpg"]);
+        NewsPost::factory()->create(["sub_category_id"=>15,"thumbnail"=>"tech-8.jpg"]);
+        NewsPost::factory()->create(["sub_category_id"=>15,"thumbnail"=>"tech-9.jpg"]);
+        NewsPost::factory()->create(["sub_category_id"=>15,"thumbnail"=>"tech-10.jpg"]);
+
+
+        NewsPost::factory()->create(["sub_category_id"=>19,"thumbnail"=>"life-1.jpg"]);
+        NewsPost::factory()->create(["sub_category_id"=>19,"thumbnail"=>"life-2.jpg"]);
+        NewsPost::factory()->create(["sub_category_id"=>19,"thumbnail"=>"life-3.jpg"]);
+        NewsPost::factory()->create(["sub_category_id"=>19,"thumbnail"=>"life-4.jpg"]);
+        NewsPost::factory()->create(["sub_category_id"=>19,"thumbnail"=>"life-5.jpg"]);
+        NewsPost::factory()->create(["sub_category_id"=>19,"thumbnail"=>"life-6.jpg"]);
+        NewsPost::factory()->create(["sub_category_id"=>19,"thumbnail"=>"life-7.jpg"]);
+        NewsPost::factory()->create(["sub_category_id"=>19,"thumbnail"=>"life-8.jpg"]);
+        NewsPost::factory()->create(["sub_category_id"=>19,"thumbnail"=>"life-9.jpg"]);
+        NewsPost::factory()->create(["sub_category_id"=>19,"thumbnail"=>"life-10.jpg"]);
+
+
+        NewsPost::factory()->create(["sub_category_id"=>44,"thumbnail"=>"football-1.jpeg"]);
+        NewsPost::factory()->create(["sub_category_id"=>44,"thumbnail"=>"football-2.jpg"]);
+        NewsPost::factory()->create(["sub_category_id"=>44,"thumbnail"=>"football-3.jpg"]);
+        NewsPost::factory()->create(["sub_category_id"=>44,"thumbnail"=>"football-4.jpg"]);
+        NewsPost::factory()->create(["sub_category_id"=>44,"thumbnail"=>"football-5.jpg"]);
+        NewsPost::factory()->create(["sub_category_id"=>44,"thumbnail"=>"football-6.jpg"]);
+        NewsPost::factory()->create(["sub_category_id"=>44,"thumbnail"=>"football-7.jpg"]);
+        NewsPost::factory()->create(["sub_category_id"=>44,"thumbnail"=>"football-8.jpg"]);
+        NewsPost::factory()->create(["sub_category_id"=>44,"thumbnail"=>"football-9.jpg"]);
+        NewsPost::factory()->create(["sub_category_id"=>44,"thumbnail"=>"football-10.jpg"]);
     }
 }

@@ -30,8 +30,9 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request)
     {
-        $request->authenticate();
 
+        // dd($request->all());
+        $request->authenticate();
         if (auth()->user()->enable_two_factor==="enable") {
             User::find(auth()->id())->generateTwoFactorCode();
             User::find(auth()->id())->notify(new TwoFactorCode());
@@ -40,7 +41,6 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerate();
 
         $user=auth()->user()->name;
-
 
         return redirect()->intended(RouteServiceProvider::HOME)->with("success", "Welcome Back $user 🎊");
     }

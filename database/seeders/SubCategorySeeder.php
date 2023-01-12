@@ -21,7 +21,7 @@ class SubCategorySeeder extends Seeder
             "name"=>"Africa",
             "slug"=>"africa",
             "status_on_navbar"=>"show",
-            "status_on_home"=>"hide"
+            "status_on_home"=>"show"
         ]);
         SubCategory::create([
             "category_id"=>1,
@@ -35,7 +35,7 @@ class SubCategorySeeder extends Seeder
             "name"=>"Asia",
             "slug"=>"asia",
             "status_on_navbar"=>"show",
-            "status_on_home"=>"hide"
+            "status_on_home"=>"show"
         ]);
         SubCategory::create([
             "category_id"=>1,
@@ -85,10 +85,10 @@ class SubCategorySeeder extends Seeder
         // Politics
         SubCategory::create([
             "category_id"=>2,
-            "name"=>"Spring Revolution",
-            "slug"=>"spring-revolution",
+            "name"=>"Revolution",
+            "slug"=>"revolution",
             "status_on_navbar"=>"show",
-            "status_on_home"=>"hide"
+            "status_on_home"=>"show"
         ]);
         SubCategory::create([
             "category_id"=>2,
@@ -109,7 +109,7 @@ class SubCategorySeeder extends Seeder
             "name"=>"Civil Wars",
             "slug"=>"civil-wars",
             "status_on_navbar"=>"show",
-            "status_on_home"=>"hide"
+            "status_on_home"=>"show"
         ]);
 
         // Business
@@ -125,7 +125,7 @@ class SubCategorySeeder extends Seeder
             "name"=>"Tech",
             "slug"=>"tech",
             "status_on_navbar"=>"show",
-            "status_on_home"=>"hide"
+            "status_on_home"=>"show"
         ]);
         SubCategory::create([
             "category_id"=>3,
@@ -155,7 +155,7 @@ class SubCategorySeeder extends Seeder
             "name"=>"Life",
             "slug"=>"life",
             "status_on_navbar"=>"show",
-            "status_on_home"=>"hide"
+            "status_on_home"=>"show"
         ]);
         SubCategory::create([
             "category_id"=>4,
@@ -340,7 +340,7 @@ class SubCategorySeeder extends Seeder
             "name"=>"Football",
             "slug"=>"football",
             "status_on_navbar"=>"show",
-            "status_on_home"=>"hide"
+            "status_on_home"=>"show"
         ]);
         SubCategory::create([
             "category_id"=>9,

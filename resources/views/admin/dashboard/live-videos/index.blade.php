@@ -23,7 +23,7 @@
                         <td>
                             <div class="card text-bg-dark" style="width: 200px;">
                                 <img src="http://img.youtube.com/vi/{{ $video->video_id }}/mqdefault.jpg"
-                                    class="card-img img-fluid" alt="..."
+                                    class="card-img img-fluid img-thumbnail" alt="..."
                                     style="width: 100%; height: 100%; object-fit: cover">
                                 <div class="card-img-overlay d-flex align-items-center justify-content-center">
                                     <span class="fs-1" style="cursor: pointer">

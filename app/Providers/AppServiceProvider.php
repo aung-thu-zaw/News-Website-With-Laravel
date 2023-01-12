@@ -9,6 +9,7 @@ use App\Models\LiveVideo;
 use App\Models\Page;
 use App\Models\Setting;
 use App\Models\SidebarAdvertisement;
+use App\Models\SubCategory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\View;
@@ -49,5 +50,6 @@ class AppServiceProvider extends ServiceProvider
         View::share("privacyAndPolicy", Page::where("id", 5)->first());
         View::share("disclaimer", Page::where("id", 6)->first());
         View::share("liveVideo", LiveVideo::orderBy("id", "desc")->first());
+        View::share("subCategories", SubCategory::with("category")->where("status_on_navbar", "show")->orderBy("id", "desc")->get());
     }
 }

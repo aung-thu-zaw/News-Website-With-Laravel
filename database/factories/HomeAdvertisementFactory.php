@@ -17,10 +17,10 @@ class HomeAdvertisementFactory extends Factory
     public function definition()
     {
         return [
-            "top_advertisement_photo"=>"home-top-advertisement-photo.png",
+            "top_advertisement_photo"=>"home-top-advertisement-photo.webp",
             "top_advertisement_url"=>"https://www.example.com",
             "top_advertisement_status"=>"hide",
-            "middle_advertisement_photo"=>"home-middle-advertisement-photo.png",
+            "middle_advertisement_photo"=>"home-middle-advertisement-photo.webp",
             "middle_advertisement_url"=>"https://www.example.com",
             "middle_advertisement_status"=>"hide",
             "bottom_advertisement_photo"=>"home-bottom-advertisement-photo.webp",

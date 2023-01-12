@@ -38,6 +38,6 @@ class SocialiteGoogleAuthController extends Controller
             Auth::login($existingUser);
         }
 
-        return to_route('news.home');
+        return to_route('news.index');
     }
 }

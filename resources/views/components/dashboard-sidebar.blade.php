@@ -161,7 +161,7 @@
                     class="d-flex align-items-center justify-content-between">
                     <div>
                         <i class="fa-solid fa-users me-2"></i>
-                        <span class="me-5 dashboard-nav-item">Users</span>
+                        <span class="me-5 dashboard-nav-item">User Lists</span>
                     </div>
                     <div>
                         <i class="fa-solid fa-caret-down left-icon-6" id="down-icon-6"></i>
@@ -177,6 +177,8 @@
                 </a>
             </div>
         </div>
+
+
 
         <div class="my-2">
             <a href="{{ route('admin.live-videos.index') }}">

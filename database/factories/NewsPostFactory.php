@@ -19,7 +19,7 @@ class NewsPostFactory extends Factory
     {
         return [
             "sub_category_id"=>$this->faker->numberBetween(1, 49),
-            "user_id"=>$this->faker->numberBetween(1, 10),
+            "user_id"=>$this->faker->numberBetween(1, 5),
             "title"=>$this->faker->sentence(),
             "slug"=>$this->faker->slug(),
             "body"=>$this->faker->paragraph(50),
