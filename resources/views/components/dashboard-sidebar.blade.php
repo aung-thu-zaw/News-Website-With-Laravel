@@ -114,27 +114,6 @@
             </div>
         </div>
 
-
-        <div class="my-2">
-            <a href="{{ route('admin.setting') }}">
-                <i class="fa-solid fa-gear me-2"></i>
-                <span class="dashboard-nav-item">
-                    Setting
-                </span>
-            </a>
-        </div>
-
-        <div class="my-2">
-            <a href="{{ route('admin.live-videos.index') }}">
-                <i class="fa-solid fa-video me-2"></i>
-                <span class="dashboard-nav-item">
-                    Live Videos
-                </span>
-            </a>
-        </div>
-        
-
-
         <div class="my-2">
             <div class="">
                 <a data-bs-toggle="collapse" data-bs-target=".collapseFive" href="#collapseExample" role="button"
@@ -175,8 +154,49 @@
         </div>
 
 
-    </div>
+        <div class="my-2">
+            <div class="">
+                <a data-bs-toggle="collapse" data-bs-target=".collapseSix" href="#collapseExample" role="button"
+                    aria-expanded="false" aria-controls="collapseExample" onclick="toggleDownArrowSix()"
+                    class="d-flex align-items-center justify-content-between">
+                    <div>
+                        <i class="fa-solid fa-users me-2"></i>
+                        <span class="me-5 dashboard-nav-item">Users</span>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-caret-down left-icon-6" id="down-icon-6"></i>
+                    </div>
+                </a>
+            </div>
+            <div class="collapse collapseSix" id="collapseExample" style="background: rgb(32, 33, 33)">
+                <a href="{{ route('admin.noraml-user-lists.index') }}" class="">
+                    <span class="ms-5 dashboard-nav-item">Normal User Lists</span>
+                </a>
+                <a href="{{ route('admin.permission-users.index') }}" class="">
+                    <span class="ms-5 dashboard-nav-item">Permission User Lists</span>
+                </a>
+            </div>
+        </div>
 
+        <div class="my-2">
+            <a href="{{ route('admin.live-videos.index') }}">
+                <i class="fa-solid fa-video me-2"></i>
+                <span class="dashboard-nav-item">
+                    Live Videos
+                </span>
+            </a>
+        </div>
+
+        <div class="my-2">
+            <a href="{{ route('admin.setting') }}">
+                <i class="fa-solid fa-gear me-2"></i>
+                <span class="dashboard-nav-item">
+                    Setting
+                </span>
+            </a>
+        </div>
+
+    </div>
 
     <div class="border-3 border-top py-2 px-3 d-flex align-items-center justify-content-center">
         <div class="me-3">
@@ -202,7 +222,6 @@
                 <li style="cursor: pointer;">
                     <form action="{{ route('logout') }}" method="POST">
                         @csrf
-
                         <button type="submit" class="btn text-white">Logout</button>
                     </form>
                 </li>

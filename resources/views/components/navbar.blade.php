@@ -1,4 +1,3 @@
-<!-- Navbar Start  -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-3">
     <div class="row container-fluid">
         <div class="col-1">
@@ -48,15 +47,14 @@
 
                 <div class="d-flex align-items-center justify-content-between w-auto">
 
-                    <!-- Choose Languages  -->
                     <div class="dropdown me-5">
                         <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
                             data-bs-toggle="dropdown" aria-expanded="false">
                             Languages
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                            <li><a class="dropdown-item" href="#">English</a></li>
-                            <li><a class="dropdown-item" href="#">Myanmar</a></li>
+                            <li><a class="dropdown-item text-decoration-none" href="#">English</a></li>
+                            <li><a class="dropdown-item text-decoration-none" href="#">Myanmar</a></li>
 
                         </ul>
                     </div>
@@ -97,20 +95,20 @@
 
                             @if (auth()->check() && auth()->user()->is_admin)
                             <li>
-                                <a class="dropdown-item" href="{{ route('admin.dashboard') }}">
+                                <a class="dropdown-item text-decoration-none" href="{{ route('admin.dashboard') }}">
                                     Dashboard
                                     <i class="fa-solid fa-gauge-high ms-3"></i>
                                 </a>
                             </li>
                             @endif
                             <li>
-                                <a class="dropdown-item" href="{{ route('profile.edit') }}">
+                                <a class="dropdown-item text-decoration-none" href="{{ route('profile.edit') }}">
                                     My Profile
                                     <i class="fa-solid fa-address-card ms-3"></i>
                                 </a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item text-decoration-none" href="#">
                                     Bookmark
                                     <i class="fa-sharp fa-solid fa-bookmark ms-3"></i>
                                 </a>
@@ -157,4 +155,3 @@
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
 @endif
-<!-- Navbar End  -->

@@ -10,6 +10,7 @@ class DisclaimerController extends Controller
 {
     public function index(){
         Meta::prependTitle("Disclaimer");
+        
         return view("disclaimer.index");
     }
 }

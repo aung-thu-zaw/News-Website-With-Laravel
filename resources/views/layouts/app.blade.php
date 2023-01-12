@@ -29,6 +29,8 @@
 
     <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 </head>
 
 <body>

@@ -47,7 +47,7 @@
 
                     <div class="mb-3">
                         <img src="{{ asset('storage/thumbnails/'.$newsPost->thumbnail) }}" alt="" id="previewPhoto1"
-                            style="width: 400px">
+                            style="width: 400px" class="img-fluid img-thumbnail">
                     </div>
 
                     <x-form.input-button name="Update" />

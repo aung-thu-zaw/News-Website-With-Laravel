@@ -1,4 +1,4 @@
-@props(["name","categories"=>"","id"=>"","subcategories"=>""])
+@props(["name","categories"=>"","id"=>"","subcategories"=>"","role"=>""])
 <x-form.input-wrapper>
     {{ $slot }}
     @if ($categories && $id && $name)
@@ -36,6 +36,7 @@
         @endforeach
     </select>
     @endif
+
     <x-form.error :name="$name" />
 
 </x-form.input-wrapper>

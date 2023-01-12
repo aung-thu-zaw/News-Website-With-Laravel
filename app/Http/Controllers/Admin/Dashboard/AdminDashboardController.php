@@ -11,6 +11,7 @@ class AdminDashboardController extends Controller
     public function index()
     {
         Meta::prependTitle("Admin Dashboard");
+
         return view('admin.dashboard.index');
     }
 }

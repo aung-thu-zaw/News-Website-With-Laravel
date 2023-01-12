@@ -13,8 +13,8 @@
                             <x-form.input-wrapper>
                                 <span class="mb-2">Advertisement Photo</span>
                                 <img src='{{ asset("storage/advertisements/$homeAdvertisement->top_advertisement_photo") }}'
-                                    class="img-fluid" alt="" style="height:150px; width:100%; object-fit:cover"
-                                    id="previewPhoto1">
+                                    class="img-fluid img-thumbnail" alt=""
+                                    style="height:150px; width:100%; object-fit:cover" id="previewPhoto1">
                             </x-form.input-wrapper>
 
                             <x-form.input type="file" name="top_advertisement_photo" id="file1">
@@ -41,8 +41,8 @@
                             <x-form.input-wrapper>
                                 <span class="mb-2">Advertisement Photo</span>
                                 <img src='{{ asset("storage/advertisements/$homeAdvertisement->middle_advertisement_photo") }}'
-                                    class="img-fluid" alt="" style="height:150px; width:100%; object-fit:cover"
-                                    id="previewPhoto2">
+                                    class="img-fluid img-thumbnail" alt=""
+                                    style="height:150px; width:100%; object-fit:cover" id="previewPhoto2">
                             </x-form.input-wrapper>
 
                             <x-form.input type="file" name="middle_advertisement_photo" id="file2">
@@ -70,8 +70,8 @@
                             <x-form.input-wrapper>
                                 <span class="mb-2">Advertisement Photo</span>
                                 <img src='{{ asset("storage/advertisements/$homeAdvertisement->bottom_advertisement_photo") }}'
-                                    class="img-fluid" alt="" style="height:150px; width:100%; object-fit:cover"
-                                    id="previewPhoto3">
+                                    class="img-fluid img-thumbnail" alt=""
+                                    style="height:150px; width:100%; object-fit:cover" id="previewPhoto3">
                             </x-form.input-wrapper>
 
                             <x-form.input type="file" name="bottom_advertisement_photo" id="file3">

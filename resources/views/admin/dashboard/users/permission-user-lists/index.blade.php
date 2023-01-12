@@ -1,51 +1,64 @@
 <x-dashboard-layout>
-    @section("title", "Photos")
+    @section("title", "Permission User Lists")
     <div class="row">
         <div class="col-12 px-5 pt-5 pb-3">
             <div class="mb-3 d-flex align-items-center justify-content-end">
-                <a href="{{ route('admin.photos.create') }}" class="btn btn-primary">Create
+                <a href="{{ route('admin.permission-users.create') }}" class="btn btn-primary">Create
                     <i class="fa-solid fa-plus"></i></a>
             </div>
             <table class="table table-bordered">
                 <thead>
                     <tr>
                         <th scope="col">No</th>
-                        <th scope="col">Photo</th>
-                        <th scope="col">Owner</th>
-                        <th scope="col">Caption</th>
+                        <th scope="col">Avatar</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Role</th>
+                        <th scope="col">Created At</th>
+
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>
 
-                    @foreach ($photos as $photo)
+                    @foreach ($permissionUsers as $permissionUser)
                     <tr>
-                        <th scope="row">{{ $photo->id }}</th>
+                        <th scope="row">{{ $permissionUser->id }}</th>
                         <td>
-                            <img src="{{ asset('storage/photo-gallery/'.$photo->photo) }}" alt=""
+                            <img src="{{ asset('storage/avatars/'.$permissionUser->avatar) }}" alt=""
                                 class="img-fluid img-thumbnail" style="width: 200px;">
                         </td>
                         <td>
-                            {{ $photo->owner }}
+                            {{ $permissionUser->name }}
                         </td>
                         <td>
-                            {!! $photo->caption !!}
+                            {{ $permissionUser->email }}
                         </td>
                         <td>
-                            <div class="d-flex align-items-center">
+                            {{ $permissionUser->role }}
+                        </td>
+                        <td>
+                            {{ $permissionUser->created_at }}
+                        </td>
 
-                                <form action="{{ route('admin.photos.edit',$photo->id) }}" method="GET">
+                        <td>
+                            <div class=" d-flex align-items-center">
+
+                                <form action="{{ route('admin.permission-users.edit',$permissionUser->id) }}"
+                                    method="GET">
                                     @csrf
-                                    <input type="hidden" name="page" value="{{ $photos->currentPage() }}">
+                                    <input type="hidden" name="page" value="{{ $permissionUsers->currentPage() }}">
                                     <button type="submit" class="btn btn-info me-3">
                                         Edit
                                     </button>
                                 </form>
 
-                                <form action="{{ route('admin.photos.destroy',$photo->id) }}" method="POST">
+                                <form action="{{ route('admin.permission-users.destroy',$permissionUser->id) }}"
+                                    method="POST">
                                     @csrf
                                     @method("DELETE")
-                                    <input type="hidden" name="page" value="{{ $photos->currentPage() }}">
+
+                                    <input type="hidden" name="page" value="{{ $permissionUsers->currentPage() }}">
                                     <button type="submit" class="btn btn-danger me-3"
                                         onclick="return confirm('Are you sure want to delete?');">
                                         Delete
@@ -58,6 +71,6 @@
                 </tbody>
             </table>
         </div>
-        {{ $photos->links() }}
+        {{ $permissionUsers->links() }}
     </div>
 </x-dashboard-layout>

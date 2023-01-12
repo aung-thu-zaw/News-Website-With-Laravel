@@ -25,7 +25,7 @@ class RandomNewsForYou extends Component
     public function render()
     {
         return view('components.random-news-for-you', [
-            "randomNews"=>NewsPost::inRandomOrder()->orderBy("id", "desc")->take(10)->get()
+            "randomNews"=>NewsPost::with("subCategory.category", "author")->inRandomOrder()->orderBy("id", "desc")->take(10)->get()
         ]);
     }
 }

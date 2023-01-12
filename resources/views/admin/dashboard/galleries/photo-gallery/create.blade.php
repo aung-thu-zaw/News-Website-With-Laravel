@@ -12,7 +12,7 @@
 
                 <div class="mb-3 d-flex flex-column">
                     <span class="mb-3">Preview Photo</span>
-                    <img src="" alt="" id="previewPhoto1" class="img-fluid" style="width:300px">
+                    <img src="" alt="" id="previewPhoto1" class="img-fluid img-thumbnail" style="width:300px">
                 </div>
 
                 <x-form.input type="file" name="photo" id="file1">

@@ -15,7 +15,7 @@
                 <div class="mb-3 d-flex flex-column">
                     <span class="mb-3">Exisiting Photo</span>
                     <img src="{{ asset('storage/photo-gallery/'.$photo->photo) }}" alt="" id="previewPhoto1"
-                        class="img-fluid" style="width:300px">
+                        class="img-fluid img-thumbnail" style="width:300px">
                 </div>
 
                 <x-form.input type="file" name="photo" id="file1" value="{{ $photo->photo }}">

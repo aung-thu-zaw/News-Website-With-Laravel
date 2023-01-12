@@ -15,7 +15,8 @@
                             <x-form.input-wrapper>
                                 <span class="mb-2">Advertisement Photo</span>
                                 <img src='{{ asset("storage/advertisements/$sidebarAdvertisement->top_advertisement_photo") }}'
-                                    alt="" style="height:400px; width:100%; object-fit:cover" id="previewPhoto1">
+                                    alt="" class=" img-thumbnail img-fluid"
+                                    style="height:400px; width:100%; object-fit:cover" id="previewPhoto1">
                             </x-form.input-wrapper>
 
                             <x-form.input type="file" name="top_advertisement_photo" id="file1">
@@ -42,7 +43,8 @@
                             <x-form.input-wrapper>
                                 <span class="mb-2">Advertisement Photo</span>
                                 <img src='{{ asset("storage/advertisements/$sidebarAdvertisement->bottom_advertisement_photo") }}'
-                                    alt="" style="height:400px; width:100%; object-fit:cover" id="previewPhoto2">
+                                    alt="" class=" img-thumbnail img-fluid"
+                                    style="height:400px; width:100%; object-fit:cover" id="previewPhoto2">
                             </x-form.input-wrapper>
 
                             <x-form.input type="file" name="bottom_advertisement_photo" id="file2">

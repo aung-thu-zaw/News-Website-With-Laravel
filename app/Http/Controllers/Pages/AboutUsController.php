@@ -11,6 +11,7 @@ class AboutUsController extends Controller
     public function index()
     {
         Meta::prependTitle("About Us");
+        
         return view("about-us.index");
     }
 }

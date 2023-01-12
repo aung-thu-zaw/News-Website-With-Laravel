@@ -12,6 +12,7 @@ class PhotoGalleryController extends Controller
     public function index()
     {
         Meta::prependTitle("Photos");
+
         return view("galleries.photo-gallery.index", [
             "photos"=>Photo::orderBy("id", "desc")->get()
         ]);

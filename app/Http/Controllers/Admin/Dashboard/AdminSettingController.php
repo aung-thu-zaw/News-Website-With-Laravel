@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Models\Setting;
@@ -12,6 +12,7 @@ class AdminSettingController extends Controller
     public function show()
     {
         Meta::prependTitle("Setting");
+
         return view("admin.dashboard.setting.show", [
             "setting"=>Setting::where("id", 1)->first()
         ]);

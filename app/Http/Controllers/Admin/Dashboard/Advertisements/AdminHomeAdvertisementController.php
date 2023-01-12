@@ -12,6 +12,7 @@ class AdminHomeAdvertisementController extends Controller
     public function show()
     {
         Meta::prependTitle("Home Advertisement");
+
         return view('admin.dashboard.advertisements.home-advertisement.show', [
             "homeAdvertisement" => HomeAdvertisement::first()
         ]);

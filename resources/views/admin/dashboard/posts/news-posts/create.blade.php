@@ -37,7 +37,7 @@
                 </x-form.input>
 
                 <div class="mb-3">
-                    <img src="" alt="" id="previewPhoto1" style="width: 400px">
+                    <img src="" alt="" id="previewPhoto1" style="width: 400px" class="img-fluid img-thumbnail">
                 </div>
 
                 <x-form.input-button name="Create" />

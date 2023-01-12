@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -49,6 +50,14 @@ class User extends Authenticatable implements MustVerifyEmail
     ];
 
 
+    protected function password(): Attribute
+    {
+        return Attribute::make(
+            set: fn ($value) => bcrypt($value),
+        );
+    }
+
+
     public function generateTwoFactorCode()
     {
         $this->timestamps=false;
@@ -66,7 +75,8 @@ class User extends Authenticatable implements MustVerifyEmail
         $this->save();
     }
 
-    public function newsPosts(){
+    public function newsPosts()
+    {
         return $this->hasMany(NewsPost::class);
     }
 }

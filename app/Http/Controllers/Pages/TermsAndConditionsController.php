@@ -11,7 +11,7 @@ class TermsAndConditionsController extends Controller
     public function index()
     {
         Meta::prependTitle("Terms And Conditions");
+
         return view("terms-and-conditions.index");
     }
 }
-

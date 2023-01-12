@@ -13,6 +13,7 @@ class AdminCategoryController extends Controller
     public function index()
     {
         Meta::prependTitle("Category");
+
         return view("admin.dashboard.categories.category.index", [
             "categories"=>Category::orderBy("id", "desc")->paginate(10)
         ]);
@@ -21,6 +22,7 @@ class AdminCategoryController extends Controller
     public function create()
     {
         Meta::prependTitle("Category Create");
+
         return view("admin.dashboard.categories.category.create");
     }
 
@@ -40,6 +42,7 @@ class AdminCategoryController extends Controller
     public function edit(Category $category)
     {
         Meta::prependTitle("Category Edit");
+
         return view("admin.dashboard.categories.category.edit", [
             "category"=>$category,
             "page"=>request('page'),

@@ -14,14 +14,18 @@ class AdminSubCategoryController extends Controller
     public function index()
     {
         Meta::prependTitle("SubCategory");
+
         return view("admin.dashboard.categories.sub-category.index", [
-            "subCategories"=>SubCategory::with("category:id,name")->orderBy("id", "desc")->paginate(5)
+            "subCategories"=>SubCategory::with("category")
+                            ->orderBy("id", "desc")
+                            ->paginate(5)
         ]);
     }
 
     public function create()
     {
         Meta::prependTitle("SubCategory Create");
+
         return view("admin.dashboard.categories.sub-category.create", [
             "categories"=>Category::all()
         ]);
@@ -45,6 +49,7 @@ class AdminSubCategoryController extends Controller
     public function edit(SubCategory $subCategory)
     {
         Meta::prependTitle("SubCategory Edit");
+
         return view("admin.dashboard.categories.sub-category.edit", [
             "subCategory"=>$subCategory->load("category"),
             "categories"=>Category::select("id", "name")->get(),
@@ -61,6 +66,7 @@ class AdminSubCategoryController extends Controller
             "status_on_navbar"=>["required"],
             "status_on_home"=>["required"],
         ]);
+
         $subCategory->update($subCategoryFormData);
 
         return to_route("admin.sub-categories.index", "page=".request("page"))->with("success", "SubCategory is updated successfully");

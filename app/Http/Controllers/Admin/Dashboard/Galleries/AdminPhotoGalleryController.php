@@ -12,6 +12,7 @@ class AdminPhotoGalleryController extends Controller
     public function index()
     {
         Meta::prependTitle("Photo Gallery");
+
         return view("admin.dashboard.galleries.photo-gallery.index", [
             "photos"=>Photo::orderBy("id", "desc")->paginate(10)
         ]);
@@ -21,6 +22,7 @@ class AdminPhotoGalleryController extends Controller
     public function create()
     {
         Meta::prependTitle("Photo Create");
+
         return view("admin.dashboard.galleries.photo-gallery.create");
     }
 
@@ -50,6 +52,7 @@ class AdminPhotoGalleryController extends Controller
     public function edit(Photo $Photo)
     {
         Meta::prependTitle("Photo Edit");
+
         return view("admin.dashboard.galleries.photo-gallery.edit", [
             "photo"=>$Photo,
             "page"=>request('page'),

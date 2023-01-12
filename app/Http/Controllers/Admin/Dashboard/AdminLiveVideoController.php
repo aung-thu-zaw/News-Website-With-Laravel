@@ -11,6 +11,8 @@ class AdminLiveVideoController extends Controller
 {
     public function index()
     {
+        Meta::prependTitle("Live Videos");
+
         return view("admin.dashboard.live-videos.index", [
             "liveVideos"=>LiveVideo::orderBy("id", "desc")->paginate(10)
         ]);
@@ -19,6 +21,8 @@ class AdminLiveVideoController extends Controller
 
     public function create()
     {
+        Meta::prependTitle("Live Video Create");
+
         return view("admin.dashboard.live-videos.create");
     }
 
@@ -37,7 +41,8 @@ class AdminLiveVideoController extends Controller
 
     public function edit(LiveVideo $liveVideo)
     {
-        Meta::prependTitle("Trending Video Edit");
+        Meta::prependTitle("Live Video Edit");
+
         return view("admin.dashboard.live-videos.edit", [
             "liveVideo"=>$liveVideo,
             "page"=>request('page'),

@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder
             "favicon"=>"favicon.png",
             "logo"=>"logo.png"
         ]);
-        // User::factory(9)->create();
+        User::factory(9)->create();
 
         $this->call([
             HomeAdvertisementSeeder::class,

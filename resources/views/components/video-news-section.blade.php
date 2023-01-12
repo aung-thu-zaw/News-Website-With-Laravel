@@ -20,8 +20,6 @@
 
                 <div class="row g-3">
 
-
-
                     @foreach ($posts as $post)
                     <div class="col-lg-3 col-md-4">
                         <div class="card" style="width: 18rem;">

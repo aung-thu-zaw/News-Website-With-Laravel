@@ -24,9 +24,4 @@ class TagNewsPostController extends Controller
         return redirect()->back()->with("success", "Tag is deleted successfully");
     }
 
-    public function videonewsPostTagHandler(VideoNewsPost $videoNewsPost, Tag $tag)
-    {
-        $videoNewsPost->tags()->detach($tag);
-        return redirect()->back()->with("success", "Tag is deleted successfully");
-    }
 }

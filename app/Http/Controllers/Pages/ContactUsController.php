@@ -10,6 +10,7 @@ class ContactUsController extends Controller
 {
     public function index(){
         Meta::prependTitle("Contact Us");
+        
         return view("contact-us.index");
     }
 }

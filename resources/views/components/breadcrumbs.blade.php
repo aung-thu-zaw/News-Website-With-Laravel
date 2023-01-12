@@ -142,13 +142,13 @@
                     data-bs-title="Home">Home</a>
             </li>
             <li class="breadcrumb-item active" aria-current="page">
-                <span data-bs-toggle="tooltip" data-bs-title="Post">
+                <span data-bs-toggle="tooltip" data-bs-title="Date">
                     {{ DateTimeHelper::formatDate($date,"created_at") }}
                 </span>
             </li>
             <li class="breadcrumb-item active" aria-current="page">
-                <span data-bs-toggle="tooltip" data-bs-title="Post">
-                    All Posts
+                <span data-bs-toggle="tooltip" data-bs-title="Posts">
+                    All
                 </span>
             </li>
         </ol>

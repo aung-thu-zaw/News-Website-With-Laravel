@@ -15,6 +15,7 @@ class SubCategorySeeder extends Seeder
      */
     public function run()
     {
+        // World
         SubCategory::create([
             "category_id"=>1,
             "name"=>"Africa",
@@ -81,6 +82,7 @@ class SubCategorySeeder extends Seeder
 
 
 
+        // Politics
         SubCategory::create([
             "category_id"=>2,
             "name"=>"Spring Revolution",
@@ -110,7 +112,7 @@ class SubCategorySeeder extends Seeder
             "status_on_home"=>"hide"
         ]);
 
-
+        // Business
         SubCategory::create([
             "category_id"=>3,
             "name"=>"Markets",
@@ -147,7 +149,7 @@ class SubCategorySeeder extends Seeder
             "status_on_home"=>"hide"
         ]);
 
-
+        // Health
         SubCategory::create([
             "category_id"=>4,
             "name"=>"Life",
@@ -184,7 +186,7 @@ class SubCategorySeeder extends Seeder
             "status_on_home"=>"hide"
         ]);
 
-
+        // Entertainment
         SubCategory::create([
             "category_id"=>5,
             "name"=>"Celebrity",
@@ -207,7 +209,7 @@ class SubCategorySeeder extends Seeder
             "status_on_home"=>"hide"
         ]);
 
-
+        // Technology
         SubCategory::create([
             "category_id"=>6,
             "name"=>"Computer",
@@ -237,7 +239,7 @@ class SubCategorySeeder extends Seeder
             "status_on_home"=>"hide"
         ]);
 
-
+        // Life Style
         SubCategory::create([
             "category_id"=>7,
             "name"=>"Arts",
@@ -281,7 +283,7 @@ class SubCategorySeeder extends Seeder
             "status_on_home"=>"hide"
         ]);
 
-
+        // Travel
         SubCategory::create([
             "category_id"=>8,
             "name"=>"Food and Drink",
@@ -311,7 +313,7 @@ class SubCategorySeeder extends Seeder
             "status_on_home"=>"hide"
         ]);
 
-
+        // Sport
         SubCategory::create([
             "category_id"=>9,
             "name"=>"World Cup",
@@ -358,21 +360,6 @@ class SubCategorySeeder extends Seeder
             "category_id"=>9,
             "name"=>"Olympics",
             "slug"=>"olympics",
-            "status_on_navbar"=>"show",
-            "status_on_home"=>"hide"
-        ]);
-
-        SubCategory::create([
-            "category_id"=>10,
-            "name"=>"Photos",
-            "slug"=>"photos",
-            "status_on_navbar"=>"show",
-            "status_on_home"=>"hide"
-        ]);
-        SubCategory::create([
-            "category_id"=>10,
-            "name"=>"Videos",
-            "slug"=>"videos",
             "status_on_navbar"=>"show",
             "status_on_home"=>"hide"
         ]);

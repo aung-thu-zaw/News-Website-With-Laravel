@@ -12,6 +12,7 @@ class AdminSidebarAdvertisementController extends Controller
     public function show()
     {
         Meta::prependTitle("Sidebar Advertisement");
+
         return view('admin.dashboard.advertisements.sidebar-advertisement.show', [
             "sidebarAdvertisement" => SidebarAdvertisement::first()
         ]);

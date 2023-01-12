@@ -10,6 +10,7 @@ class FaqController extends Controller
 {
     public function index(){
         Meta::prependTitle("FAQ");
+        
         return view("faq.index");
     }
 }

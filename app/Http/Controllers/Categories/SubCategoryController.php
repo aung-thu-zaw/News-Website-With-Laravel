@@ -13,11 +13,15 @@ class SubCategoryController extends Controller
 {
     public function show(Category $category, SubCategory $subCategory)
     {
-        Meta::setTitle("$subCategory->name");
+        Meta::setTitle($subCategory->name);
+
         return view('categories.sub-category.show', [
             "category"=>$category,
             "subCategory"=>$subCategory,
-            "newsPosts"=>NewsPost::with("subCategory")->where("sub_category_id", $subCategory->id)->orderBy("id", "desc")->paginate(12)
+            "newsPosts"=>NewsPost::with("subCategory")
+                        ->where("sub_category_id", $subCategory->id)
+                        ->orderBy("id", "desc")
+                        ->paginate(12)
         ]);
     }
 }

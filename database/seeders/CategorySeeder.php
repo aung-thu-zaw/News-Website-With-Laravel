@@ -15,8 +15,6 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        // Category::factory()->create();
-
         Category::create([
             "name"=>"World",
             "slug"=>"world",
@@ -60,11 +58,6 @@ class CategorySeeder extends Seeder
         Category::create([
             "name"=>"Sports",
             "slug"=>"sports",
-            "status"=>"show"
-        ]);
-        Category::create([
-            "name"=>"Gallery",
-            "slug"=>"gallery",
             "status"=>"show"
         ]);
     }

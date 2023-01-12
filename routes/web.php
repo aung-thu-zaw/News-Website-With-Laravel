@@ -1,10 +1,12 @@
 <?php
 
-use App\Http\Controllers\Admin\AdminSettingController;
+use App\Http\Controllers\Admin\Dashboard\AdminSettingController;
 use App\Http\Controllers\Admin\Dashboard\AdminDashboardController;
 use App\Http\Controllers\Admin\Dashboard\AdminLiveVideoController;
 use App\Http\Controllers\Admin\Dashboard\Advertisements\AdminHomeAdvertisementController;
 use App\Http\Controllers\Admin\Dashboard\Advertisements\AdminSidebarAdvertisementController;
+use App\Http\Controllers\Admin\Dashboard\Users\AdminAuthorListController;
+use App\Http\Controllers\Admin\Dashboard\Users\AdminAuthorPostController;
 use App\Http\Controllers\Auth\SocialiteFacebookAuthController;
 use App\Http\Controllers\Auth\SocialiteGitHubAuthController;
 use App\Http\Controllers\Auth\SocialiteGoogleAuthController;
@@ -25,7 +27,8 @@ use App\Http\Controllers\Admin\Dashboard\Pages\AdminTermsAndConditionsController
 use App\Http\Controllers\Admin\Dashboard\Posts\AdminNewsPostController;
 use App\Http\Controllers\Admin\Dashboard\Posts\AdminTrendingVideosController;
 use App\Http\Controllers\Admin\Dashboard\Posts\AdminVideoNewsPostController;
-use App\Http\Controllers\Admin\Dashboard\TagController;
+use App\Http\Controllers\Admin\Dashboard\Users\AdminNormalUserListController;
+use App\Http\Controllers\Admin\Dashboard\Users\AdminPermissionUserListController;
 use App\Http\Controllers\Categories\CategoryController;
 use App\Http\Controllers\Categories\SubCategoryController;
 use App\Http\Controllers\News\DateNewsController;
@@ -78,6 +81,15 @@ Route::controller(ProfileController::class)
             Route::patch('/profile', 'update')->name('update');
             Route::delete('/profile', 'destroy')->name('destroy');
         });
+
+
+
+
+
+
+
+
+
 
 # ============== News Page ==============
 
@@ -184,10 +196,14 @@ Route::middleware(["auth","admin"])
             Route::resource('/faq-accordion', AdminFaqAccordionController::class);
             // Live Video
             Route::resource('/live-videos', AdminLiveVideoController::class);
-  
+
+            Route::get("normal-users", [AdminNormalUserListController::class,"index"])->name("noraml-user-lists.index");
+
+            // Author Lists
+            Route::resource('/permission-users', AdminPermissionUserListController::class);
         });
 
 Route::post('/admin/news-post/{news_post:slug}/{tag:slug}', [TagNewsPostController::class,"newsPostTagHandler"])->name("admin.news-post-tag-handle");
 
 
-Route::post('/admin/video-news-post/{video_news_post:slug}/{tag:slug}', [TagNewsPostController::class,"videonewsPostTagHandler"])->name("admin.video-news-post-tag-handle");
+Route::post('/admin/video-news-post/{video_news_post:slug}/{tag:slug}', [TagVideoNewsPostController::class,"videonewsPostTagHandler"])->name("admin.video-news-post-tag-handle");

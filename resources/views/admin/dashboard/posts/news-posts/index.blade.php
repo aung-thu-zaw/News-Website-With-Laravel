@@ -26,8 +26,8 @@
                     <tr>
                         <th scope="row">{{ $post->id }}</th>
                         <td>
-                            <img src="{{ asset('storage/thumbnails/'.$post->thumbnail) }}" alt="" class="img-fluid"
-                                style="width: 200px;">
+                            <img src="{{ asset('storage/thumbnails/'.$post->thumbnail) }}" alt=""
+                                class="img-fluid img-thumbnail" style="width: 200px;">
                         </td>
                         <td>
                             {{ $post->title }}
