@@ -3,101 +3,59 @@
 namespace App\Http\Controllers\Admin\Dashboard\Users;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StorePermissionUserRequest;
+use App\Http\Requests\UpdatePermissionUserRequest;
 use App\Models\User;
-use Illuminate\Http\Request;
+use Butschster\Head\Facades\Meta;
+use App\Services\PermissionUserService;
 
 class AdminPermissionUserListController extends Controller
 {
     public function index()
     {
-        return view("admin.dashboard.users.permission-user-lists.index", [
-            "permissionUsers"=>User::whereNotNull("role")->orderBy("id", "desc")->paginate(10)
-        ]);
+        Meta::prependTitle("Permission User List");
+
+        $permissionUsers=User::whereNotNull("role")->orderBy("id", "desc")->paginate(10);
+
+        return view("admin.dashboard.users.permission-user-lists.index", compact("permissionUsers"));
     }
+
     public function create()
     {
+        Meta::prependTitle("Permission User Create");
+
         return view("admin.dashboard.users.permission-user-lists.create");
     }
 
-    public function store(Request $request)
+    public function store(StorePermissionUserRequest $request, PermissionUserService $permissionUserService)
     {
-        $userFormData=$request->validate([
-            "avatar"=>["required","mimes:png,jpg,webp"],
-            "name"=>["required"],
-            "email"=>["required"],
-            "password"=>["required","confirmed"],
-            "role"=>["required"]
-        ]);
+        $avatar = $permissionUserService->uploadAvatar($request);
 
-        $extension=$request->file("avatar")->extension();
-
-        $time=time();
-
-        $finalName="avatar-$time.$extension";
-
-        $request->file("avatar")->storeAs("avatars", $finalName);
-
-        $userFormData["avatar"]=$finalName;
-
-        $userFormData["email_verified_at"]=now();
-
-        User::create($userFormData);
+        $permissionUserService->createUser($request->validated() + ['avatar' => $avatar,"email_verified_at"=>now()]);
 
         return to_route("admin.permission-users.index")->with("success", "Permission user is created successfully");
     }
 
     public function edit($id)
     {
+        Meta::prependTitle("Permission User Edit");
+
         $user=User::where("id", $id)->first();
 
-        return view("admin.dashboard.users.permission-user-lists.edit", [
-            "user"=>$user,
-            "page"=>request('page'),
-        ]);
+        $page=request('page');
+
+        return view("admin.dashboard.users.permission-user-lists.edit", compact("user", "page"));
     }
 
-    public function update(Request $request, $id)
+    public function update(UpdatePermissionUserRequest $request, $id, PermissionUserService $permissionUserService)
     {
         $user=User::where("id", $id)->first();
 
-        $userFormData=$request->validate([
-            "name"=>["required"],
-            "email"=>["required"],
-            "role"=>["required"]
-        ]);
+        $avatar = $permissionUserService->updateAvatar($request, $user);
 
-        if ($request->hasFile("avatar")) {
-            $request->validate([
-            "avatar"=>["required","mimes:png,jpg,webp"],
-            ]);
+        $password = $permissionUserService->updatePassword($request, $user);
 
-            if (!empty($user->avatar) && file_exists(public_path("storage/avatars/$user->avatar"))) {
-                unlink(public_path("storage/avatars/$user->avatar"));
-            }
-
-            $extension=$request->file("avatar")->extension();
-
-            $time=time();
-
-            $finalName="avatar-$time.$extension";
-
-            $request->file("avatar")->storeAs("avatars", $finalName);
-
-            $userFormData["avatar"]=$finalName;
-        }
-
-
-        if ($request->input("password") && $request->input("password_confirmation")) {
-            $request->validate([
-                "password"=>["required","confirmed"],
-            ]);
-
-            $userFormData["password"]=$request->password;
-        }
-
-
-        $user->update($userFormData);
-
+        $user->update($request->validated() + ['avatar' => $avatar,"password"=>$password]);
 
         return to_route("admin.permission-users.index")->with("success", "Permission user is updated successfully");
     }
@@ -105,7 +63,11 @@ class AdminPermissionUserListController extends Controller
     public function destroy($id)
     {
         $user=User::where("id", $id)->first();
+
+        User::deleteUserPhoto($user);
+
         $user->delete();
+
         return to_route("admin.permission-users.index", "page=".request("page"))->with("success", "Permission user is deleted successfully");
     }
 }

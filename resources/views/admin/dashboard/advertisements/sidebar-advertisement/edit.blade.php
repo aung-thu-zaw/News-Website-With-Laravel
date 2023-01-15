@@ -19,18 +19,18 @@
                                     style="height:400px; width:100%; object-fit:cover" id="previewPhoto1">
                             </x-form.input-wrapper>
 
-                            <x-form.input type="file" name="top_advertisement_photo" id="file1">
-                                <x-form.label name="Choose Ad Photo" />
+                            <x-form.input type="file" name="top_advertisement_photo" id="file1" required="required">
+                                <x-form.label name="Choose Ad Photo *" />
                             </x-form.input>
 
                             <x-form.input type="text" name="top_advertisement_url"
-                                value="{{ $sidebarAdvertisement->top_advertisement_url }}">
+                                value="{{ $sidebarAdvertisement->top_advertisement_url }}" required="required">
                                 <x-form.label name="Url" />
                             </x-form.input>
 
                             <x-form.edit-show-hide-select name="top_advertisement_status"
-                                :advertisement="$sidebarAdvertisement->top_advertisement_status">
-                                <x-form.label name="Status" />
+                                :advertisement="$sidebarAdvertisement->top_advertisement_status" required="required">
+                                <x-form.label name="Status *" />
                             </x-form.edit-show-hide-select>
 
                         </div>
@@ -47,20 +47,20 @@
                                     style="height:400px; width:100%; object-fit:cover" id="previewPhoto2">
                             </x-form.input-wrapper>
 
-                            <x-form.input type="file" name="bottom_advertisement_photo" id="file2">
-                                <x-form.label name="Choose Ad Photo" />
+                            <x-form.input type="file" name="bottom_advertisement_photo" id="file2" required="required">
+                                <x-form.label name="Choose Ad Photo *" />
                             </x-form.input>
 
                             <x-form.input type="text" name="bottom_advertisement_url"
-                                value="{{ $sidebarAdvertisement->bottom_advertisement_url }}">
+                                value="{{ $sidebarAdvertisement->bottom_advertisement_url }}" required="required">
                                 <x-form.label name="Url" />
                             </x-form.input>
 
-
                             <x-form.edit-show-hide-select name="bottom_advertisement_status"
-                                :advertisement="$sidebarAdvertisement->bottom_advertisement_status">
-                                <x-form.label name="Status" />
+                                :advertisement="$sidebarAdvertisement->bottom_advertisement_status" required="required">
+                                <x-form.label name="Status *" />
                             </x-form.edit-show-hide-select>
+
                         </div>
                     </div>
                 </div>

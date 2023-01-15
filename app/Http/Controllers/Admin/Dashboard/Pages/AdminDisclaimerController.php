@@ -3,28 +3,26 @@
 namespace App\Http\Controllers\Admin\Dashboard\Pages;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\PageRequest;
 use App\Models\Page;
-use Illuminate\Http\Request;
+use Butschster\Head\Facades\Meta;
 
 class AdminDisclaimerController extends Controller
 {
-    public function show()
+    public function edit()
     {
-        return view("admin.dashboard.pages.disclaimer.show", [
-            "disclaimer"=>Page::where("id", 6)->first()
-        ]);
+        Meta::prependTitle("Disclaimer");
+
+        $disclaimer=Page::where("id", 6)->first();
+
+        return view("admin.dashboard.pages.disclaimer.edit", compact("disclaimer"));
     }
 
-    public function update(Request $request)
+    public function update(PageRequest $request)
     {
         $disclaimer=Page::where("id", 6)->first();
-        $disclaimerFormData=$request->validate([
-            "title"=>["required"],
-            "detail"=>["required"],
-            "status"=>["required"],
-        ]);
 
-        $disclaimer->update($disclaimerFormData);
+        $disclaimer->update($request->validated());
 
         return redirect()->back()->with("success", "Disclaimer page is updated successfully");
     }

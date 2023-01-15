@@ -3,9 +3,8 @@
 namespace App\Http\Controllers\Admin\Dashboard\Categories;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Requests\CategoryRequest;
 use App\Models\Category;
-use Illuminate\Validation\Rule;
 use Butschster\Head\Facades\Meta;
 
 class AdminCategoryController extends Controller
@@ -14,9 +13,9 @@ class AdminCategoryController extends Controller
     {
         Meta::prependTitle("Category");
 
-        return view("admin.dashboard.categories.category.index", [
-            "categories"=>Category::orderBy("id", "desc")->paginate(10)
-        ]);
+        $categories=Category::orderBy("id", "desc")->paginate(10);
+
+        return view("admin.dashboard.categories.category.index", compact("categories"));
     }
 
     public function create()
@@ -26,15 +25,9 @@ class AdminCategoryController extends Controller
         return view("admin.dashboard.categories.category.create");
     }
 
-    public function store(Request $request)
+    public function store(CategoryRequest $request)
     {
-        $categoryFormData=$request->validate([
-            "name"=>["required",Rule::unique("categories", "name")],
-            "slug"=>["required",Rule::unique("categories", "slug")],
-            "status"=>["required"],
-        ]);
-
-        Category::create($categoryFormData);
+        Category::create($request->validated());
 
         return to_route("admin.categories.index")->with("success", "Category is added successfully");
     }
@@ -43,27 +36,22 @@ class AdminCategoryController extends Controller
     {
         Meta::prependTitle("Category Edit");
 
-        return view("admin.dashboard.categories.category.edit", [
-            "category"=>$category,
-            "page"=>request('page'),
-        ]);
+        $page=request('page');
+
+        return view("admin.dashboard.categories.category.edit", compact("category", "page"));
     }
 
-    public function update(Request $request, Category $category)
+    public function update(CategoryRequest $request, Category $category)
     {
-        $categoryFormData=$request->validate([
-            "name"=>["required",Rule::unique("categories", "name")->ignore($category->id)],
-            "slug"=>["required",Rule::unique("categories", "slug")->ignore($category->id)],
-            "status"=>["required"],
-        ]);
+        $category->update($request->validated());
 
-        $category->update($categoryFormData);
         return to_route("admin.categories.index", "page=".request("page"))->with("success", "Category is updated successfully");
     }
 
     public function destroy(Category $category)
     {
         $category->delete();
+
         return to_route("admin.categories.index", "page=".request("page"))->with("success", "Category is deleted successfully");
     }
 }

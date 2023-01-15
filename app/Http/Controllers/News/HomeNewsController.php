@@ -38,10 +38,6 @@ class HomeNewsController extends Controller
 
             $newsPosts->load("subCategory.category", "author");
 
-
-
-
-
             return view("search-news.index", compact("newsPosts"));
         } else {
             return view('news.index', compact("latestNewsPosts", "trendingVideos", "subCategories", "newsVideoPosts"));

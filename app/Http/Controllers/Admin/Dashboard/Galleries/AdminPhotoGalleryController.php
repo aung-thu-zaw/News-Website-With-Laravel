@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\Admin\Dashboard\Galleries;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Models\Photo;
+use App\Http\Requests\PhotoGalleryRequest;
+use App\Models\PhotoGallery;
+use App\Services\PhotoGalleryService;
 use Butschster\Head\Facades\Meta;
 
 class AdminPhotoGalleryController extends Controller
@@ -13,11 +14,10 @@ class AdminPhotoGalleryController extends Controller
     {
         Meta::prependTitle("Photo Gallery");
 
-        return view("admin.dashboard.galleries.photo-gallery.index", [
-            "photos"=>Photo::orderBy("id", "desc")->paginate(10)
-        ]);
-    }
+        $photos=PhotoGallery::orderBy("id", "desc")->paginate(10);
 
+        return view("admin.dashboard.galleries.photo-gallery.index", compact("photos"));
+    }
 
     public function create()
     {
@@ -26,79 +26,39 @@ class AdminPhotoGalleryController extends Controller
         return view("admin.dashboard.galleries.photo-gallery.create");
     }
 
-    public function store(Request $request)
+    public function store(PhotoGalleryRequest $request, PhotoGalleryService $photoGalleryService)
     {
-        $photoFormData=$request->validate([
-           "photo"=>["required","mimes:png,jpg,jpeg,gif,webp"],
-           "owner"=>["required"],
-           "caption"=>["required"]
-        ]);
+        $photo=$photoGalleryService->uploadPhoto($request);
 
-        $extension=$request->file("photo")->extension();
+        $photoGalleryService->createPhoto($request->validated()+["photo"=>$photo]);
 
-        $time=time();
-
-        $finalName="photo-$time.$extension";
-
-        $request->file("photo")->storeAs("photo-gallery", $finalName);
-
-        $photoFormData["photo"]=$finalName;
-
-        Photo::create($photoFormData);
-
-        return to_route("admin.photos.index")->with("success", "Photo is created successfully");
+        return to_route("admin.photo-gallery.index")->with("success", "Photo is created successfully");
     }
 
-    public function edit(Photo $Photo)
+    public function edit(PhotoGallery $photoGallery)
     {
         Meta::prependTitle("Photo Edit");
 
-        return view("admin.dashboard.galleries.photo-gallery.edit", [
-            "photo"=>$Photo,
-            "page"=>request('page'),
-        ]);
+        $page=request('page');
+
+        return view("admin.dashboard.galleries.photo-gallery.edit", compact("photoGallery", "page"));
     }
 
-    public function update(Request $request, Photo $photo)
+    public function update(PhotoGalleryRequest $request, PhotoGallery $photoGallery, PhotoGalleryService $photoGalleryService)
     {
-        $photoFormData=$request->validate([
-            "owner"=>["required"],
-            "caption"=>["required"]
-         ]);
+        $photo = $photoGalleryService->updatePhoto($request, $photoGallery);
 
+        $photoGallery->update($request->validated() + ['photo' => $photo]);
 
-        if ($request->hasFile("photo")) {
-            $request->validate([
-                "photo"=>["required","mimes:png,jpg,jpeg,gif,webp"],
-            ]);
-
-            if (!empty($photo->photo) && file_exists(public_path("storage/photo-gallery/$photo->photo"))) {
-                unlink(public_path("storage/photo-gallery/$photo->photo"));
-            }
-
-            $extension=$request->file("photo")->extension();
-
-            $time=time();
-
-            $finalName="photo-$time.$extension";
-
-            $request->file("photo")->storeAs("photo-gallery", $finalName);
-
-            $photoFormData["photo"]=$finalName;
-        }
-
-        $photo->update($photoFormData);
-
-        return to_route("admin.photos.index", "page=".request("page"))->with("success", "Photo is updated successfully");
+        return to_route("admin.photo-gallery.index", "page=".request("page"))->with("success", "Photo is updated successfully");
     }
 
-
-    public function destroy(Photo $photo)
+    public function destroy(PhotoGallery $photoGallery)
     {
-        if (!empty($photo->photo) && file_exists(public_path("storage/photo-gallery/$photo->photo"))) {
-            unlink(public_path("storage/photo-gallery/$photo->photo"));
-        }
-        $photo->delete();
-        return to_route("admin.photos.index", "page=".request("page"))->with("success", "Photo is deleted successfully");
+        PhotoGallery::deletePhoto($photoGallery);
+
+        $photoGallery->delete();
+
+        return to_route("admin.photo-gallery.index", "page=".request("page"))->with("success", "Photo is deleted successfully");
     }
 }

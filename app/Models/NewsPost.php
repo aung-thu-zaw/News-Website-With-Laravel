@@ -12,17 +12,6 @@ class NewsPost extends Model
     use HasFactory;
     use Searchable;
 
-    #[SearchUsingFullText(['body'])]
-    public function toSearchableArray()
-    {
-        return [
-            "title" => $this->title,
-            "body" => $this->body,
-        ];
-    }
-
-
-
     public function getRouteKeyName()
     {
         return 'slug';
@@ -33,7 +22,6 @@ class NewsPost extends Model
         return $this->belongsTo(SubCategory::class);
     }
 
-
     public function author()
     {
         return $this->belongsTo(User::class, "user_id");
@@ -42,5 +30,21 @@ class NewsPost extends Model
     public function tags()
     {
         return $this->morphToMany(Tag::class, "tagable");
+    }
+
+    #[SearchUsingFullText(['body'])]
+    public function toSearchableArray()
+    {
+        return [
+            "title" => $this->title,
+            "body" => $this->body,
+        ];
+    }
+
+    public static function deleteThumbnail($newsPost)
+    {
+        if (!empty($newsPost->thumbnail) && file_exists(public_path("storage/thumbnails/$newsPost->thumbnail"))) {
+            unlink(public_path("storage/thumbnails/$newsPost->thumbnail"));
+        }
     }
 }

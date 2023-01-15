@@ -6,11 +6,11 @@
                 @csrf
                 @method("PATCH")
 
-                <x-form.input type="text" name="title" value="{{ $contactUs->title }}">
+                <x-form.input type="text" name="title" value="{{ $contactUs->title }}" required="required">
                     <x-form.label name="Title *" />
                 </x-form.input>
 
-                <x-form.textarea name="detail" value="{{ $contactUs->detail }}">
+                <x-form.textarea name="detail" value="{{ $contactUs->detail }}" required="required">
                     <x-form.label name="Detail *" />
                 </x-form.textarea>
 
@@ -18,7 +18,7 @@
                     <x-form.label name="Map (Iframe Src Code)" />
                 </x-form.input>
 
-                <x-form.edit-show-hide-select name="status" :status="$contactUs->status">
+                <x-form.edit-show-hide-select name="status" :status="$contactUs->status" required="required">
                     <x-form.label name="Status *" />
                 </x-form.edit-show-hide-select>
 

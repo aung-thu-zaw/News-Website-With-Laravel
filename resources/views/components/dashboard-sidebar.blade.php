@@ -29,10 +29,10 @@
                 </a>
             </div>
             <div class="collapse collapseOne" id="collapseExample" style="background: rgb(32, 33, 33)">
-                <a href="{{ route('admin.home-advertisement.show') }}" class="">
+                <a href="{{ route('admin.home-advertisement.edit') }}" class="">
                     <span class="ms-5 dashboard-nav-item">Home Advertisement</span>
                 </a>
-                <a href="{{ route('admin.sidebar-advertisement.show') }}" class="">
+                <a href="{{ route('admin.sidebar-advertisement.edit') }}" class="">
                     <span class="ms-5 dashboard-nav-item">Sidebar Advertisement</span>
                 </a>
             </div>
@@ -105,10 +105,10 @@
                 </a>
             </div>
             <div class="collapse collapseFour" id="collapseExample" style="background: rgb(32, 33, 33)">
-                <a href="{{ route('admin.photos.index') }}" class="">
+                <a href="{{ route('admin.photo-gallery.index') }}" class="">
                     <span class="ms-5 dashboard-nav-item">Photo Gallery</span>
                 </a>
-                <a href="{{ route('admin.videos.index') }}" class="">
+                <a href="{{ route('admin.video-gallery.index') }}" class="">
                     <span class="ms-5 dashboard-nav-item">Video Gallery</span>
                 </a>
             </div>
@@ -129,25 +129,25 @@
                 </a>
             </div>
             <div class="collapse collapseFive" id="collapseExample" style="background: rgb(32, 33, 33)">
-                <a href="{{ route('admin.about-us.show') }}" class="">
+                <a href="{{ route('admin.about-us.edit') }}" class="">
                     <span class="ms-5 dashboard-nav-item">About Us</span>
                 </a>
-                <a href="{{ route('admin.faq.show') }}" class="">
+                <a href="{{ route('admin.faq.edit') }}" class="">
                     <span class="ms-5 dashboard-nav-item">FAQ</span>
                 </a>
                 <a href="{{ route('admin.faq-accordion.index') }}" class="">
                     <span class="ms-5 dashboard-nav-item">FAQ (Accordion)</span>
                 </a>
-                <a href="{{ route('admin.contact-us.show') }}" class="">
+                <a href="{{ route('admin.contact-us.edit') }}" class="">
                     <span class="ms-5 dashboard-nav-item">Contact Us</span>
                 </a>
-                <a href="{{ route('admin.terms-and-conditions.show') }}" class="">
+                <a href="{{ route('admin.terms-and-conditions.edit') }}" class="">
                     <span class="ms-5 dashboard-nav-item">Terms And Conditions</span>
                 </a>
-                <a href="{{ route('admin.privacy-and-policy.show') }}" class="">
+                <a href="{{ route('admin.privacy-and-policy.edit') }}" class="">
                     <span class="ms-5 dashboard-nav-item">Privacy And Policy</span>
                 </a>
-                <a href="{{ route('admin.disclaimer.show') }}" class="">
+                <a href="{{ route('admin.disclaimer.edit') }}" class="">
                     <span class="ms-5 dashboard-nav-item">Disclaimer</span>
                 </a>
             </div>
@@ -190,7 +190,7 @@
         </div>
 
         <div class="my-2">
-            <a href="{{ route('admin.setting') }}">
+            <a href="{{ route('admin.setting.edit') }}">
                 <i class="fa-solid fa-gear me-2"></i>
                 <span class="dashboard-nav-item">
                     Setting

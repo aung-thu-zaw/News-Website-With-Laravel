@@ -3,55 +3,51 @@
 namespace App\Http\Controllers\Admin\Dashboard\Pages;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\FaqAccordionRequest;
 use App\Models\Faq;
-use Illuminate\Http\Request;
+use Butschster\Head\Facades\Meta;
 
 class AdminFaqAccordionController extends Controller
 {
     public function index()
     {
-        return view("admin.dashboard.pages.faq-accordion.index", [
-            "faqAccordions"=>Faq::orderBy("id", "desc")->paginate(10)
-        ]);
+        Meta::prependTitle("FAQ Accordions");
+
+        $faqAccordions=Faq::orderBy("id", "desc")->paginate(10);
+
+        return view("admin.dashboard.pages.faq-accordion.index", compact("faqAccordions"));
     }
 
     public function create()
     {
+        Meta::prependTitle("FAQ Accordion Create");
+
         return view("admin.dashboard.pages.faq-accordion.create");
     }
 
-    public function store(Request $request)
+    public function store(FaqAccordionRequest $request)
     {
-        $faqFormData=$request->validate([
-            "question"=>"required",
-            "answer"=>"required"
-        ]);
-
-        Faq::create($faqFormData);
+        Faq::create($request->validated());
 
         return to_route("admin.faq-accordion.index")->with("success", "FAQ is created successfully");
     }
 
     public function edit($id)
     {
-        $faq=Faq::where("id", $id)->first();
+        Meta::prependTitle("FAQ Accordion Edit");
 
-        return view("admin.dashboard.pages.faq-accordion.edit", [
-            "faqAccordion"=>$faq,
-            "page"=>request('page'),
-        ]);
+        $faqAccordion=Faq::where("id", $id)->first();
+
+        $page=request('page');
+
+        return view("admin.dashboard.pages.faq-accordion.edit", compact("faqAccordion", "page"));
     }
 
-
-    public function update(Request $request, $id)
+    public function update(FaqAccordionRequest $request, $id)
     {
         $faq=Faq::where("id", $id)->first();
-        $faqFormData=$request->validate([
-            "question"=>"required",
-            "answer"=>"required"
-        ]);
 
-        $faq->update($faqFormData);
+        $faq->update($request->validated());
 
         return to_route("admin.faq-accordion.index")->with("success", "FAQ is updated successfully");
     }
@@ -61,6 +57,7 @@ class AdminFaqAccordionController extends Controller
         $faq=Faq::where("id", $id)->first();
 
         $faq->delete();
+
         return to_route("admin.faq-accordion.index", "page=".request("page"))->with("success", "FAQ is deleted successfully");
     }
 }

@@ -5,7 +5,7 @@
 
         <div class="col-12 p-5">
             <div class="mb-3 d-flex align-items-center justify-content-end">
-                <a href="{{ route('admin.news-posts.index') }}" class="btn btn-primary">View <i
+                <a href="{{ route('admin.news-posts.index') }}" class="btn btn-primary text-decoration-none">View <i
                         class="fa-solid fa-eye"></i></a>
             </div>
             <div class="border p-5">
@@ -16,20 +16,20 @@
 
                     <input type="hidden" name="page" value="{{$page}}">
 
-                    <x-form.input type="text" name="title" value="{{ $newsPost->title }}">
+                    <x-form.input type="text" name="title" value="{{ $newsPost->title }}" required="required">
                         <x-form.label name="Title *" />
                     </x-form.input>
 
-                    <x-form.input type="text" name="slug" value="{{ $newsPost->slug }}">
+                    <x-form.input type="text" name="slug" value="{{ $newsPost->slug }}" required="required">
                         <x-form.label name="Slug *" />
                     </x-form.input>
 
-                    <x-form.textarea name="body" value="{{ $newsPost->body }}">
+                    <x-form.textarea name="body" value="{{ $newsPost->body }}" required="required">
                         <x-form.label name="Detail *" />
                     </x-form.textarea>
 
                     <x-form.select name="sub_category_id" :subcategories="$subCategories"
-                        :id="$newsPost->sub_category_id">
+                        :id="$newsPost->sub_category_id" required="required">
                         <x-form.label name="SubCategory *" />
                     </x-form.select>
 

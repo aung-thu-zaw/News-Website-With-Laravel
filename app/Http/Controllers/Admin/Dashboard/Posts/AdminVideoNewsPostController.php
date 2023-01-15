@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\Dashboard\Posts;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\VideoNewsPostRequest;
 use Illuminate\Http\Request;
 use App\Models\Tag;
 use Butschster\Head\Facades\Meta;
@@ -14,14 +15,16 @@ class AdminVideoNewsPostController extends Controller
     public function index()
     {
         Meta::prependTitle("Video News Posts");
-        return view("admin.dashboard.posts.video-news-posts.index", [
-            "videoNewsPosts"=>VideoNewsPost::with("author")->where("user_id", 1)->orderBy("id", "desc")->paginate(10)
-        ]);
+
+        $videoNewsPosts=VideoNewsPost::with("author")->where("user_id", 1)->orderBy("id", "desc")->paginate(10);
+
+        return view("admin.dashboard.posts.video-news-posts.index", compact("videoNewsPosts"));
     }
 
     public function create()
     {
         Meta::prependTitle("Video News Post Create");
+
         return view("admin.dashboard.posts.video-news-posts.create");
     }
 
@@ -78,10 +81,10 @@ class AdminVideoNewsPostController extends Controller
     public function edit(VideoNewsPost $videoNewsPost)
     {
         Meta::prependTitle("Video News Post Edit");
-        return view("admin.dashboard.posts.video-news-posts.edit", [
-            "videoNewsPost"=>$videoNewsPost,
-            "page"=>request('page'),
-        ]);
+
+        $page=request('page');
+
+        return view("admin.dashboard.posts.video-news-posts.edit", compact("videoNewsPost", "page"));
     }
 
     public function update(Request $request, VideoNewsPost $videoNewsPost)
@@ -150,6 +153,7 @@ class AdminVideoNewsPostController extends Controller
     public function destroy(VideoNewsPost $videoNewsPost)
     {
         $videoNewsPost->delete();
+
         return to_route("admin.video-news-posts.index", "page=".request("page"))->with("success", "Video Post is deleted successfully");
     }
 }

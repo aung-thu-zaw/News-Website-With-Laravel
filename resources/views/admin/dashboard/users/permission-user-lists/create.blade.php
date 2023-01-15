@@ -3,8 +3,10 @@
     <div class="row">
         <div class="col-12 p-5">
             <div class="mb-3 d-flex align-items-center justify-content-end">
-                <a href="{{ route('admin.permission-users.index') }}" class="btn btn-primary">View <i
-                        class="fa-solid fa-eye"></i></a>
+                <a href="{{ route('admin.permission-users.index') }}" class="btn btn-primary text-decoration-none">
+                    View
+                    <i class="fa-solid fa-eye"></i>
+                </a>
             </div>
             <form action="{{ route('admin.permission-users.store') }}" method="POST" enctype="multipart/form-data"
                 class="border p-5">
@@ -15,29 +17,29 @@
                 </div>
 
                 <x-form.input type="file" name="avatar" id="file1">
-                    <x-form.label name="Choose Post Photo *" />
+                    <x-form.label name="Choose Post Photo" />
                 </x-form.input>
 
 
-                <x-form.input type="text" name="name">
+                <x-form.input type="text" name="name" required="required">
                     <x-form.label name="Name *" />
                 </x-form.input>
 
-                <x-form.input type="email" name="email">
+                <x-form.input type="email" name="email" required="required">
                     <x-form.label name="Email Address *" />
                 </x-form.input>
 
-                <x-form.input type="password" name="password">
+                <x-form.input type="password" name="password" required="required">
                     <x-form.label name="Password *" />
                 </x-form.input>
 
-                <x-form.input type="password" name="password_confirmation">
+                <x-form.input type="password" name="password_confirmation" required="required">
                     <x-form.label name="Confirm Password *" />
                 </x-form.input>
 
                 <x-form.input-wrapper>
                     <x-form.label name="Role *" />
-                    <select class="form-select" name="role" id="" required>
+                    <select class="form-select" name="role" id="" required="required">
                         <option value="" selected disabled>Select role</option>
                         <option value="admin">
                             Admin
@@ -49,7 +51,6 @@
                             Author
                         </option>
                     </select>
-
                     <x-form.error name="role" />
                 </x-form.input-wrapper>
 

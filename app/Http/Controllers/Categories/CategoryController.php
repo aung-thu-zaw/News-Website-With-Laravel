@@ -12,8 +12,8 @@ class CategoryController extends Controller
     {
         Meta::setTitle($category->name);
 
-        return view('categories.category.show', [
-            "category"=>$category->load("subCategories.category"),
-        ]);
+        $category=$category->load("subCategories.category");
+
+        return view('categories.category.show', compact("category"));
     }
 }

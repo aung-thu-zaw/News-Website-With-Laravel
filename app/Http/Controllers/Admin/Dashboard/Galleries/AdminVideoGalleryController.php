@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Admin\Dashboard\Galleries;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Models\Video;
+use App\Http\Requests\VideoGalleryRequest;
+use App\Models\VideoGallery;
 use Butschster\Head\Facades\Meta;
 
 class AdminVideoGalleryController extends Controller
@@ -13,11 +13,10 @@ class AdminVideoGalleryController extends Controller
     {
         Meta::prependTitle("Video Gallery");
 
-        return view("admin.dashboard.galleries.video-gallery.index", [
-            "videos"=>Video::orderBy("id", "desc")->paginate(10)
-        ]);
-    }
+        $videos=VideoGallery::orderBy("id", "desc")->paginate(10);
 
+        return view("admin.dashboard.galleries.video-gallery.index", compact("videos"));
+    }
 
     public function create()
     {
@@ -27,49 +26,33 @@ class AdminVideoGalleryController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(VideoGalleryRequest $request)
     {
-        $videoFormData=$request->validate([
-            "video_id"=>["required"],
-            "owner"=>["required"],
-            "caption"=>["required"]
-         ]);
+        VideoGallery::create($request->validated());
 
-        Video::create($videoFormData);
-
-        return to_route("admin.videos.index")->with("success", "Video is created successfully");
+        return to_route("admin.video-gallery.index")->with("success", "Video is created successfully");
     }
 
-
-
-    public function edit(Video $video)
+    public function edit(VideoGallery $videoGallery)
     {
         Meta::prependTitle("Video Edit");
 
-        return view("admin.dashboard.galleries.video-gallery.edit", [
-            "video"=>$video,
-            "page"=>request('page'),
-        ]);
+        $page=request('page');
+
+        return view("admin.dashboard.galleries.video-gallery.edit", compact("videoGallery", "page"));
     }
 
-
-    public function update(Request $request, Video $video)
+    public function update(VideoGalleryRequest $request, VideoGallery $videoGallery)
     {
-        $videoFormData=$request->validate([
-            "video_id"=>["required"],
-            "owner"=>["required"],
-            "caption"=>["required"]
-         ]);
+        $videoGallery->update($request->validated());
 
-        $video->update($videoFormData);
-
-        return to_route("admin.videos.index", "page=".request("page"))->with("success", "Video is updated successfully");
+        return to_route("admin.video-gallery.index", "page=".request("page"))->with("success", "Video is updated successfully");
     }
 
-
-    public function destroy(Video $video)
+    public function destroy(VideoGallery $videoGallery)
     {
-        $video->delete();
-        return to_route("admin.videos.index", "page=".request("page"))->with("success", "Video is deleted successfully");
+        $videoGallery->delete();
+
+        return to_route("admin.video-gallery.index", "page=".request("page"))->with("success", "Video is deleted successfully");
     }
 }

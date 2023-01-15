@@ -6,61 +6,33 @@ use App\Http\Controllers\Controller;
 use App\Models\Setting;
 use Illuminate\Http\Request;
 use Butschster\Head\Facades\Meta;
+use App\Services\SettingService;
 
 class AdminSettingController extends Controller
 {
-    public function show()
+    public function edit()
     {
         Meta::prependTitle("Setting");
 
-        return view("admin.dashboard.setting.show", [
-            "setting"=>Setting::where("id", 1)->first()
-        ]);
+        $setting=Setting::where("id", 1)->first();
+
+        return view("admin.dashboard.setting.edit", compact("setting"));
     }
 
-
-    public function update(Request $request)
+    public function update(Request $request, SettingService $settingService)
     {
         $setting=Setting::where("id", 1)->first();
 
-        $settingFormData=$request->validate([
-            "favicon"=>["nullable"],
-            "logo"=>["nullable"],
-        ]);
+        $favicon=$settingService->uploadFavicon($request, $setting) ?? $setting->favicon;
 
-        if ($request->hasFile("favicon")) {
-            $settingFormData=$request->validate([
-                "favicon"=>["required","mimes:png,jpg,jpeg,webp"],
-            ]);
+        $logo=$settingService->uploadLogo($request, $setting) ?? $setting->logo;
 
-            if (!empty($setting->favicon) && file_exists(public_path("storage/website/$setting->favicon"))) {
-                unlink(public_path("storage/website/$setting->favicon"));
-            }
-
-            $extension=$request->file("favicon")->extension();
-            $finalName="favicon.$extension";
-            $request->file("favicon")->storeAs("website", $finalName);
-            $settingFormData["favicon"]=$finalName;
-
-            $setting->update($settingFormData);
-        }
-
-        if ($request->hasFile("logo")) {
-            $settingFormData=$request->validate([
-                "logo"=>["required","mimes:png,jpg,jpeg,webp"],
-            ]);
-
-            if (!empty($setting->logo) && file_exists(public_path("storage/website/$setting->logo"))) {
-                unlink(public_path("storage/website/$setting->logo"));
-            }
-
-            $extension=$request->file("logo")->extension();
-            $finalName="logo.$extension";
-            $request->file("logo")->storeAs("website", $finalName);
-            $settingFormData["logo"]=$finalName;
-
-            $setting->update($settingFormData);
-        }
+        $setting->update(
+            [
+                "favicon"=>$favicon,
+                "logo"=>$logo,
+            ]
+        );
 
         return redirect()->back()->with("success", "Favicon And Logo are updated successfully");
     }

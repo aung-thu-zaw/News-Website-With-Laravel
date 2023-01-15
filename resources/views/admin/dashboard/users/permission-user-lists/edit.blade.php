@@ -1,12 +1,14 @@
 <x-dashboard-layout>
-    @section("title", "Author Lists Edit")
+    @section("title", "Permission User Edit")
 
     <div class="row">
 
         <div class="col-12 p-5">
             <div class="mb-3 d-flex align-items-center justify-content-end">
-                <a href="{{ route('admin.permission-users.index') }}" class="btn btn-primary">View <i
-                        class="fa-solid fa-eye"></i></a>
+                <a href="{{ route('admin.permission-users.index') }}" class="btn btn-primary text-decoration-none">
+                    View
+                    <i class="fa-solid fa-eye"></i>
+                </a>
             </div>
             <div class="border p-5">
                 <form action="{{ route('admin.permission-users.update',$user->id) }}" method="POST"
@@ -26,11 +28,11 @@
                     </x-form.input>
 
 
-                    <x-form.input type="text" name="name" value="{{ $user->name }}">
+                    <x-form.input type="text" name="name" value="{{ $user->name }}" required="required">
                         <x-form.label name="Name *" />
                     </x-form.input>
 
-                    <x-form.input type="email" name="email" value="{{ $user->email }}">
+                    <x-form.input type="email" name="email" value="{{ $user->email }}" required="required">
                         <x-form.label name="Email Address *" />
                     </x-form.input>
 
@@ -50,7 +52,7 @@
 
                     <x-form.input-wrapper>
                         <x-form.label name="Role *" />
-                        <select class="form-select" name="role" id="" required>
+                        <select class="form-select" name="role" id="" required="required">
                             <option value="" selected disabled>Select role</option>
                             <option value="admin" {{ $user->role==="admin"? "selected":"" }}>
                                 Admin

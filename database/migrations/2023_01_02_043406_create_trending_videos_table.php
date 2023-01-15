@@ -16,7 +16,7 @@ return new class () extends Migration {
             $table->id();
             $table->string("video_id");
             $table->string("owner");
-            $table->string("caption");
+            $table->text("caption");
             $table->timestamps();
         });
     }

@@ -54,6 +54,7 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return Attribute::make(
             set: fn ($value) => bcrypt($value),
+            // get: fn ($value) => decrypt($value),
         );
     }
 
@@ -79,4 +80,12 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany(NewsPost::class);
     }
+
+    public static function deleteUserPhoto($user)
+    {
+        if (!empty($user->avatar) && file_exists(public_path("storage/avatars/$user->avatar"))) {
+            unlink(public_path("storage/avatars/$user->avatar"));
+        }
+    }
+
 }

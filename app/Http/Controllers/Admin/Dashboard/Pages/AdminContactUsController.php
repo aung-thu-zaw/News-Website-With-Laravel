@@ -3,29 +3,27 @@
 namespace App\Http\Controllers\Admin\Dashboard\Pages;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\PageRequest;
 use App\Models\Page;
 use Illuminate\Http\Request;
+use Butschster\Head\Facades\Meta;
 
 class AdminContactUsController extends Controller
 {
-    public function show()
+    public function edit()
     {
-        return view("admin.dashboard.pages.contact-us.show", [
-            "contactUs"=>Page::where("id", 3)->first()
-        ]);
+        Meta::prependTitle("Contact Us");
+
+        $contactUs=Page::where("id", 3)->first();
+
+        return view("admin.dashboard.pages.contact-us.edit", compact("contactUs"));
     }
 
-    public function update(Request $request)
+    public function update(PageRequest $request)
     {
         $contactUs=Page::where("id", 3)->first();
-        $contactUsFormData=$request->validate([
-            "title"=>["required"],
-            "detail"=>["required"],
-            "status"=>["required"],
-            "map"=>["nullable"]
-        ]);
 
-        $contactUs->update($contactUsFormData);
+        $contactUs->update($request->validated());
 
         return redirect()->back()->with("success", "Contact us page is updated successfully");
     }

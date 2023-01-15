@@ -3,24 +3,24 @@
     <div class="row">
         <div class="col-12 p-5">
             <div class="mb-3 d-flex align-items-center justify-content-end">
-                <a href="{{ route('admin.videos.index') }}" class="btn btn-primary">View <i
+                <a href="{{ route('admin.video-gallery.index') }}" class="btn btn-primary text-decoration-none">View <i
                         class="fa-solid fa-eye"></i></a>
             </div>
-            <form action="{{ route('admin.videos.update',$video->id) }}" method="POST"
+            <form action="{{ route('admin.video-gallery.update',$videoGallery->id) }}" method="POST"
                 enctype="multipart/form-data" class="border p-5">
                 @csrf
                 @method("PATCH")
-                <input type="hidden" name="page" value="{{$page}}">
+                <input type="hidden" name="page" value="{{request('page')}}">
 
-                <x-form.input type="text" name="video_id" value="{{ $video->video_id }}">
+                <x-form.input type="text" name="video_id" value="{{ $videoGallery->video_id }}" required="required">
                     <x-form.label name="Video Id *" />
                 </x-form.input>
 
-                <x-form.input type="text" name="owner" value="{{ $video->owner }}">
+                <x-form.input type="text" name="owner" value="{{ $videoGallery->owner }}" required="required">
                     <x-form.label name="Owner *" />
                 </x-form.input>
 
-                <x-form.textarea name="caption" value="{{ $video->caption }}">
+                <x-form.textarea name="caption" value="{{ $videoGallery->caption }}" required="required">
                     <x-form.label name="Caption *" />
                 </x-form.textarea>
 

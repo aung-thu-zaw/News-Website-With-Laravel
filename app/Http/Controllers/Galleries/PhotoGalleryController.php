@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Galleries;
 
 use App\Http\Controllers\Controller;
 use App\Models\Photo;
+use App\Models\PhotoGallery;
 use Illuminate\Http\Request;
 use Butschster\Head\Facades\Meta;
 
@@ -13,8 +14,8 @@ class PhotoGalleryController extends Controller
     {
         Meta::prependTitle("Photos");
 
-        return view("galleries.photo-gallery.index", [
-            "photos"=>Photo::orderBy("id", "desc")->get()
-        ]);
+        $photos=PhotoGallery::orderBy("id", "desc")->get();
+
+        return view("galleries.photo-gallery.index", compact("photos"));
     }
 }

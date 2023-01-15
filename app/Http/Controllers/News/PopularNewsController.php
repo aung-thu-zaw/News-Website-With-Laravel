@@ -14,7 +14,6 @@ class PopularNewsController extends Controller
     {
         Meta::setTitle("Popular News");
 
-
         $popularNewsPosts=NewsPost::with("subCategory", "author")
                           ->orderBy("visitors", "desc")
                           ->paginate(12);

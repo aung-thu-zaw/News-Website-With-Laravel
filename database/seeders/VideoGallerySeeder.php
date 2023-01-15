@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Photo;
+use App\Models\VideoGallery;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class PhotoSeeder extends Seeder
+class VideoGallerySeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,6 +15,6 @@ class PhotoSeeder extends Seeder
      */
     public function run()
     {
-        Photo::factory(100)->create();
+        VideoGallery::factory(50)->create();
     }
 }

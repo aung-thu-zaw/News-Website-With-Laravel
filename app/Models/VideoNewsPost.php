@@ -12,16 +12,6 @@ class VideoNewsPost extends Model
     use HasFactory;
     use Searchable;
 
-
-    #[SearchUsingFullText(['body'])]
-    public function toSearchableArray()
-    {
-        return [
-            "title" => $this->title,
-            "body" => $this->body,
-        ];
-    }
-
     public function getRouteKeyName()
     {
         return 'slug';
@@ -35,5 +25,14 @@ class VideoNewsPost extends Model
     public function tags()
     {
         return $this->morphToMany(Tag::class, "tagable");
+    }
+
+    #[SearchUsingFullText(['body'])]
+    public function toSearchableArray()
+    {
+        return [
+            "title" => $this->title,
+            "body" => $this->body,
+        ];
     }
 }

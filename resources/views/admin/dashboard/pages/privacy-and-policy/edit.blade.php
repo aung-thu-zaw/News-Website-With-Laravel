@@ -1,20 +1,21 @@
 <x-dashboard-layout>
-    @section("title", "FAQ")
+    @section("title", "Privacy And Policy")
     <div class="row">
         <div class="col-12 p-5">
-            <form action="{{ route('admin.faq.update',$faq->id) }}" method="POST" class="border p-5">
+            <form action="{{ route('admin.privacy-and-policy.update',$privacyAndPolicy->id) }}" method="POST"
+                class="border p-5">
                 @csrf
                 @method("PATCH")
 
-                <x-form.input type="text" name="title" value="{{ $faq->title }}">
+                <x-form.input type="text" name="title" value="{{ $privacyAndPolicy->title }}" required="required">
                     <x-form.label name="Title *" />
                 </x-form.input>
 
-                <x-form.textarea name="detail" value="{{ $faq->detail }}">
+                <x-form.textarea name="detail" value="{{ $privacyAndPolicy->detail }}" required="required">
                     <x-form.label name="Detail *" />
                 </x-form.textarea>
 
-                <x-form.edit-show-hide-select name="status" :status="$faq->status">
+                <x-form.edit-show-hide-select name="status" :status="$privacyAndPolicy->status" required="required">
                     <x-form.label name="Status *" />
                 </x-form.edit-show-hide-select>
 

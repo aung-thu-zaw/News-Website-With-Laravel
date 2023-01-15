@@ -136,46 +136,46 @@ Route::get("/gallery/videos", [VideoGalleryController::class,"index"])->name("vi
 
 
 # ============== Admin Dashboard ==============
-Route::middleware(["auth","admin"])
+Route::middleware(["auth","verified","can:admin"])
         ->prefix("admin")
         ->name("admin.")
         ->group(function () {
             Route::get('/dashboard', [AdminDashboardController::class,"index"])->name('dashboard');
-            // Home Advertisement
-            Route::get("/home-advertisement", [AdminHomeAdvertisementController::class,"show"])->name("home-advertisement.show");
+
+            Route::get("/home-advertisement", [AdminHomeAdvertisementController::class,"edit"])->name("home-advertisement.edit");
 
             Route::patch("/home-advertisement/update", [AdminHomeAdvertisementController::class,"update"])->name("home-advertisement.update");
             // Sidebar Advertisement
-            Route::get("/sidebar-advertisement", [AdminSidebarAdvertisementController::class,"show"])->name("sidebar-advertisement.show");
+            Route::get("/sidebar-advertisement", [AdminSidebarAdvertisementController::class,"edit"])->name("sidebar-advertisement.edit");
 
             Route::patch("/sidebar-advertisement/update", [AdminSidebarAdvertisementController::class,"update"])->name("sidebar-advertisement.update");
             // Pages
-            Route::get("about-us", [AdminAboutUsController::class,"show"])->name("about-us.show");
+            Route::get("about-us", [AdminAboutUsController::class,"edit"])->name("about-us.edit");
 
             Route::patch("/about-us/update", [AdminAboutUsController::class,"update"])->name("about-us.update");
 
-            Route::get("contact-us", [AdminContactUsController::class,"show"])->name("contact-us.show");
+            Route::get("contact-us", [AdminContactUsController::class,"edit"])->name("contact-us.edit");
 
             Route::patch("/contact-us/update", [AdminContactUsController::class,"update"])->name("contact-us.update");
 
-            Route::get("disclaimer", [AdminDisclaimerController::class,"show"])->name("disclaimer.show");
+            Route::get("disclaimer", [AdminDisclaimerController::class,"edit"])->name("disclaimer.edit");
 
             Route::patch("/disclaimer/update", [AdminDisclaimerController::class,"update"])->name("disclaimer.update");
 
-            Route::get("faq", [AdminFaqController::class,"show"])->name("faq.show");
+            Route::get("faq", [AdminFaqController::class,"edit"])->name("faq.edit");
 
             Route::patch("/faq/update", [AdminFaqController::class,"update"])->name("faq.update");
 
-            Route::get("privacy-and-policy", [AdminPrivacyAndPolicyController::class,"show"])->name("privacy-and-policy.show");
+            Route::get("privacy-and-policy", [AdminPrivacyAndPolicyController::class,"edit"])->name("privacy-and-policy.edit");
 
             Route::patch("/privacy-and-policy/update", [AdminPrivacyAndPolicyController::class,"update"])->name("privacy-and-policy.update");
 
-            Route::get("terms-and-conditions", [AdminTermsAndConditionsController::class,"show"])->name("terms-and-conditions.show");
+            Route::get("terms-and-conditions", [AdminTermsAndConditionsController::class,"edit"])->name("terms-and-conditions.edit");
 
             Route::patch("/terms-and-conditions/update", [AdminTermsAndConditionsController::class,"update"])->name("terms-and-conditions.update");
 
             // Setting
-            Route::get('/setting', [AdminSettingController::class,"show"])->name('setting');
+            Route::get('/setting', [AdminSettingController::class,"edit"])->name('setting.edit');
 
             Route::patch('/setting/update', [AdminSettingController::class,"update"])->name('setting.update');
             // Category
@@ -189,9 +189,9 @@ Route::middleware(["auth","admin"])
             // Trending Video
             Route::resource('/trending-videos', AdminTrendingVideosController::class);
             // Video Gallery
-            Route::resource('/videos', AdminVideoGalleryController::class);
+            Route::resource('/video-gallery', AdminVideoGalleryController::class);
             // Photo Gallery
-            Route::resource('/photos', AdminPhotoGalleryController::class);
+            Route::resource('/photo-gallery', AdminPhotoGalleryController::class);
             // FAQ Accordion
             Route::resource('/faq-accordion', AdminFaqAccordionController::class);
             // Live Video

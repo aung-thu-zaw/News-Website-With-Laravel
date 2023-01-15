@@ -18,7 +18,6 @@ return new class () extends Migration {
             $table->string("facebook_id")->unique()->nullable();
             $table->string("github_id")->unique()->nullable();
             $table->string('name');
-            $table->boolean('is_admin')->default(false);
             $table->string('avatar')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();

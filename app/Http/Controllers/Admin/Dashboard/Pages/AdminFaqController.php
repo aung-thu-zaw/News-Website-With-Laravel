@@ -3,28 +3,26 @@
 namespace App\Http\Controllers\Admin\Dashboard\Pages;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\PageRequest;
 use App\Models\Page;
-use Illuminate\Http\Request;
+use Butschster\Head\Facades\Meta;
 
 class AdminFaqController extends Controller
 {
-    public function show()
+    public function edit()
     {
-        return view("admin.dashboard.pages.faq.show", [
-            "faq"=>Page::where("id", 2)->first()
-        ]);
+        Meta::prependTitle("FAQ");
+
+        $faq=Page::where("id", 2)->first();
+
+        return view("admin.dashboard.pages.faq.edit", compact("faq"));
     }
 
-    public function update(Request $request)
+    public function update(PageRequest $request)
     {
         $faq=Page::where("id", 2)->first();
-        $faqFormData=$request->validate([
-            "title"=>["required"],
-            "detail"=>["required"],
-            "status"=>["required"],
-        ]);
 
-        $faq->update($faqFormData);
+        $faq->update($request->validated());
 
         return redirect()->back()->with("success", "FAQ page is updated successfully");
     }

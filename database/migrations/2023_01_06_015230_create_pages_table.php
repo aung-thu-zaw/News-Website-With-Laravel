@@ -14,9 +14,9 @@ return new class () extends Migration {
     {
         Schema::create('pages', function (Blueprint $table) {
             $table->id();
-            $table->text("title");
+            $table->string("title");
             $table->text("detail");
-            $table->text("status");
+            $table->string("status");
             $table->text("map")->nullable();
             $table->timestamps();
         });

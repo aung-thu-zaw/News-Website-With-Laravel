@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-12 p-5">
             <div class="mb-3 d-flex align-items-center justify-content-end">
-                <a href="{{ route('admin.video-news-posts.index') }}" class="btn btn-primary">View <i
+                <a href="{{ route('admin.video-news-posts.index') }}" class="btn btn-primary text-decoration-none">View <i
                         class="fa-solid fa-eye"></i></a>
             </div>
             <form action="{{ route('admin.video-news-posts.store') }}" method="POST" enctype="multipart/form-data"

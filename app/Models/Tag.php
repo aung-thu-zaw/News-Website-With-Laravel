@@ -13,6 +13,7 @@ class Tag extends Model
     {
         return $this->morphedByMany(NewsPost::class, "tagable");
     }
+    
     public function videoNewsPosts()
     {
         return $this->morphedByMany(VideoNewsPost::class, "tagable");

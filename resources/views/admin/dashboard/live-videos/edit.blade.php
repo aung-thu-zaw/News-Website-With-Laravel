@@ -4,7 +4,7 @@
 
         <div class="col-12 p-5">
             <div class="mb-3 d-flex align-items-center justify-content-end">
-                <a href="{{ route('admin.live-videos.index') }}" class="btn btn-primary">View <i
+                <a href="{{ route('admin.live-videos.index') }}" class="btn btn-primary text-decoration-none">View <i
                         class="fa-solid fa-eye"></i></a>
             </div>
             <div class="border p-5">
@@ -15,11 +15,11 @@
 
                     <input type="hidden" name="page" value="{{$page}}">
 
-                    <x-form.input type="text" name="video_id" value="{{ $liveVideo->video_id }}">
-                        <x-form.label name="Video Id *" />
+                    <x-form.input type="text" name="video_id" value="{{ $liveVideo->video_id }}" required="required">
+                        <x-form.label name="Youtube Video Id *" />
                     </x-form.input>
 
-                    <x-form.input type="text" name="title" value="{{ $liveVideo->title }}">
+                    <x-form.input type="text" name="title" value="{{ $liveVideo->title }}" required="required">
                         <x-form.label name="Title *" />
                     </x-form.input>
 

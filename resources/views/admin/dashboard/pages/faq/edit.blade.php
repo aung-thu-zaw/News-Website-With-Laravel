@@ -2,20 +2,19 @@
     @section("title", "FAQ")
     <div class="row">
         <div class="col-12 p-5">
-            <form action="{{ route('admin.terms-and-conditions.update',$termsAndConditions->id) }}" method="POST"
-                class="border p-5">
+            <form action="{{ route('admin.faq.update',$faq->id) }}" method="POST" class="border p-5">
                 @csrf
                 @method("PATCH")
 
-                <x-form.input type="text" name="title" value="{{ $termsAndConditions->title }}">
+                <x-form.input type="text" name="title" value="{{ $faq->title }}" required="required">
                     <x-form.label name="Title *" />
                 </x-form.input>
 
-                <x-form.textarea name="detail" value="{{ $termsAndConditions->detail }}">
+                <x-form.textarea name="detail" value="{{ $faq->detail }}" required="required">
                     <x-form.label name="Detail *" />
                 </x-form.textarea>
 
-                <x-form.edit-show-hide-select name="status" :status="$termsAndConditions->status">
+                <x-form.edit-show-hide-select name="status" :status="$faq->status" required="required">
                     <x-form.label name="Status *" />
                 </x-form.edit-show-hide-select>
 

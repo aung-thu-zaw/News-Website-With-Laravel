@@ -3,8 +3,10 @@
     <div class="row">
         <div class="col-12 px-5 pt-5 pb-3">
             <div class="mb-3 d-flex align-items-center justify-content-end">
-                <a href="{{ route('admin.faq-accordion.create') }}" class="btn btn-primary">Create
-                    <i class="fa-solid fa-plus"></i></a>
+                <a href="{{ route('admin.faq-accordion.create') }}" class="btn btn-primary text-decoration-none">
+                    Create
+                    <i class="fa-solid fa-plus"></i>
+                </a>
             </div>
             <table class="table table-bordered">
                 <thead>

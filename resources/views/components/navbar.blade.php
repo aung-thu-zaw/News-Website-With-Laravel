@@ -2,9 +2,10 @@
     <div class="row container-fluid">
         <div class="col-1">
             <a class="navbar-brand" href="{{ route('news.index') }}">
-                <img src="{{ asset('storage/website/'.$setting->logo) }}" alt=""
+                <img src="{{ asset('storage/website/'.$setting->logo) }}" alt="" class="img-fluid"
                     style="width: 100%; height:50px; object-fit: cover;">
             </a>
+
         </div>
         <div class="col-11">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -93,14 +94,17 @@
 
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 
-                            @if (auth()->check() && auth()->user()->is_admin)
+
+
+                            @can("admin")
                             <li>
                                 <a class="dropdown-item text-decoration-none" href="{{ route('admin.dashboard') }}">
                                     Dashboard
                                     <i class="fa-solid fa-gauge-high ms-3"></i>
                                 </a>
                             </li>
-                            @endif
+                            @endcan
+
                             <li>
                                 <a class="dropdown-item text-decoration-none" href="{{ route('profile.edit') }}">
                                     My Profile

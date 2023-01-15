@@ -3,93 +3,37 @@
 namespace App\Http\Controllers\Admin\Dashboard\Advertisements;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Requests\HomeAdvertisementRequest;
 use App\Models\HomeAdvertisement;
+use App\Services\HomeAdvertisementService;
 use Butschster\Head\Facades\Meta;
 
 class AdminHomeAdvertisementController extends Controller
 {
-    public function show()
+    public function edit()
     {
         Meta::prependTitle("Home Advertisement");
 
-        return view('admin.dashboard.advertisements.home-advertisement.show', [
-            "homeAdvertisement" => HomeAdvertisement::first()
-        ]);
+        $homeAdvertisement = HomeAdvertisement::first();
+
+        return view('admin.dashboard.advertisements.home-advertisement.edit', compact("homeAdvertisement"));
     }
 
-    public function update(Request $request)
+    public function update(HomeAdvertisementRequest $request, HomeAdvertisementService $homeAdvertisementService)
     {
         $homeAdvertisement=HomeAdvertisement::where("id", 1)->first();
 
+        $topAdvertisementPhoto=$homeAdvertisementService->uploadTopAdvertisementPhoto($request, $homeAdvertisement);
 
-        $homeAdvertisementFormData=$request->validate([
-            "top_advertisement_url"=>["nullable"],
-            "top_advertisement_status"=>["required"],
-            "middle_advertisement_url"=>["nullable"],
-            "middle_advertisement_status"=>["required"],
-            "bottom_advertisement_url"=>["nullable"],
-            "bottom_advertisement_status"=>["required"]
+        $middleAdvertisementPhoto=$homeAdvertisementService->uploadMiddleAdvertisementPhoto($request, $homeAdvertisement);
+
+        $bottomAdvertisementPhoto=$homeAdvertisementService->uploadBottomAdvertisementPhoto($request, $homeAdvertisement);
+
+        $homeAdvertisement->update($request->validated()+[
+            "top_advertisement_photo"=>$topAdvertisementPhoto,
+            "middle_advertisement_photo"=>$middleAdvertisementPhoto,
+            "bottom_advertisement_photo"=>$bottomAdvertisementPhoto,
         ]);
-
-
-
-        if ($request->hasFile("top_advertisement_photo")) {
-            $topAdvertisementFormData=$request->validate([
-                 "top_advertisement_photo"=>["required","image","mimes:png,jpg,jpeg,gif,webp"],
-             ]);
-
-
-            if (!empty($homeAdvertisement->top_advertisement_photo) && file_exists(public_path("storage/advertisements/$homeAdvertisement->top_advertisement_photo"))) {
-                unlink(public_path("storage/advertisements/$homeAdvertisement->top_advertisement_photo"));
-            }
-
-            $extension=$request->file("top_advertisement_photo")->extension();
-            $finalName="home-top-advertisement-photo.$extension";
-            $request->file("top_advertisement_photo")->storeAs("advertisements", $finalName);
-            $topAdvertisementFormData["top_advertisement_photo"]=$finalName;
-
-            $homeAdvertisement->update($topAdvertisementFormData);
-        }
-
-        if ($request->hasFile("middle_advertisement_photo")) {
-            $middleAdvertisementFormData=$request->validate([
-                 "middle_advertisement_photo"=>["required","image","mimes:png,jpg,jpeg,gif,webp"],
-             ]);
-
-
-            if (!empty($homeAdvertisement->middle_advertisement_photo) && file_exists(public_path("storage/advertisements/$homeAdvertisement->middle_advertisement_photo"))) {
-                unlink(public_path("storage/advertisements/$homeAdvertisement->middle_advertisement_photo"));
-            }
-
-            $extension=$request->file("middle_advertisement_photo")->extension();
-            $finalName="home-middle-advertisement-photo.$extension";
-            $request->file("middle_advertisement_photo")->storeAs("advertisements", $finalName);
-            $middleAdvertisementFormData["middle_advertisement_photo"]=$finalName;
-
-            $homeAdvertisement->update($middleAdvertisementFormData);
-        }
-
-        if ($request->hasFile("bottom_advertisement_photo")) {
-            $bottomAdvertisementFormData=$request->validate([
-                 "bottom_advertisement_photo"=>["required","image","mimes:png,jpg,jpeg,gif,webp"],
-             ]);
-
-
-            if (!empty($homeAdvertisement->bottom_advertisement_photo) && file_exists(public_path("storage/advertisements/$homeAdvertisement->bottom_advertisement_photo"))) {
-                unlink(public_path("storage/advertisements/$homeAdvertisement->bottom_advertisement_photo"));
-            }
-
-            $extension=$request->file("bottom_advertisement_photo")->extension();
-            $finalName="home-bottom-advertisement-photo.$extension";
-            $request->file("bottom_advertisement_photo")->storeAs("advertisements", $finalName);
-            $bottomAdvertisementFormData["bottom_advertisement_photo"]=$finalName;
-
-            $homeAdvertisement->update($bottomAdvertisementFormData);
-        }
-
-        $homeAdvertisement->update($homeAdvertisementFormData);
-
 
         return redirect()->back()->with("success", "Home advertisements is updated successfully");
     }

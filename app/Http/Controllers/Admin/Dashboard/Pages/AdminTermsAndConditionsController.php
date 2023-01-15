@@ -3,28 +3,26 @@
 namespace App\Http\Controllers\Admin\Dashboard\Pages;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\PageRequest;
 use App\Models\Page;
-use Illuminate\Http\Request;
+use Butschster\Head\Facades\Meta;
 
 class AdminTermsAndConditionsController extends Controller
 {
-    public function show()
+    public function edit()
     {
-        return view("admin.dashboard.pages.terms-and-conditions.show", [
-            "termsAndConditions"=>Page::where("id", 4)->first()
-        ]);
+        Meta::prependTitle("Terms And Conditions");
+
+        $termsAndConditions=Page::where("id", 4)->first();
+
+        return view("admin.dashboard.pages.terms-and-conditions.edit", compact("termsAndConditions"));
     }
 
-    public function update(Request $request)
+    public function update(PageRequest $request)
     {
         $termsAndConditions=Page::where("id", 4)->first();
-        $termsAndConditionsFormData=$request->validate([
-            "title"=>["required"],
-            "detail"=>["required"],
-            "status"=>["required"],
-        ]);
 
-        $termsAndConditions->update($termsAndConditionsFormData);
+        $termsAndConditions->update($request->validated());
 
         return redirect()->back()->with("success", "Terms and Conditions page is updated successfully");
     }

@@ -16,51 +16,5 @@ class VideoNewsPostSeeder extends Seeder
     public function run()
     {
         VideoNewsPost::factory(20)->create(["user_id"=>1]);
-        VideoNewsPost::factory(20)->create(["user_id"=>1]);
-        VideoNewsPost::factory(20)->create(["user_id"=>1]);
-        VideoNewsPost::factory(20)->create(["user_id"=>1]);
-        VideoNewsPost::factory(20)->create(["user_id"=>1]);
-        VideoNewsPost::factory(20)->create(["user_id"=>1]);
-        VideoNewsPost::factory(20)->create(["user_id"=>1]);
-        VideoNewsPost::factory(20)->create(["user_id"=>1]);
-        VideoNewsPost::factory(20)->create(["user_id"=>1]);
-        VideoNewsPost::factory(20)->create(["user_id"=>1]);
-        VideoNewsPost::factory(20)->create(["user_id"=>1]);
-        VideoNewsPost::factory(20)->create(["user_id"=>1]);
-        VideoNewsPost::factory(20)->create(["user_id"=>1]);
-        VideoNewsPost::factory(20)->create(["user_id"=>1]);
-        VideoNewsPost::factory(20)->create(["user_id"=>1]);
-        VideoNewsPost::factory(20)->create(["user_id"=>1]);
-        VideoNewsPost::factory(20)->create(["user_id"=>1]);
-        VideoNewsPost::factory(20)->create(["user_id"=>1]);
-        VideoNewsPost::factory(20)->create(["user_id"=>1]);
-        VideoNewsPost::factory(20)->create(["user_id"=>1]);
-        VideoNewsPost::factory(20)->create(["user_id"=>1]);
-        VideoNewsPost::factory(20)->create(["user_id"=>1]);
-        VideoNewsPost::factory(20)->create(["user_id"=>1]);
-        VideoNewsPost::factory(20)->create(["user_id"=>1]);
-        VideoNewsPost::factory(20)->create(["user_id"=>1]);
-        VideoNewsPost::factory(20)->create(["user_id"=>1]);
-        VideoNewsPost::factory(20)->create(["user_id"=>1]);
-        VideoNewsPost::factory(20)->create(["user_id"=>1]);
-        VideoNewsPost::factory(20)->create(["user_id"=>1]);
-        VideoNewsPost::factory(20)->create(["user_id"=>1]);
-        VideoNewsPost::factory(20)->create(["user_id"=>1]);
-        VideoNewsPost::factory(20)->create(["user_id"=>1]);
-        VideoNewsPost::factory(20)->create(["user_id"=>1]);
-        VideoNewsPost::factory(20)->create(["user_id"=>1]);
-        VideoNewsPost::factory(20)->create(["user_id"=>1]);
-        VideoNewsPost::factory(20)->create(["user_id"=>1]);
-        VideoNewsPost::factory(20)->create(["user_id"=>1]);
-        VideoNewsPost::factory(20)->create(["user_id"=>1]);
-        VideoNewsPost::factory(20)->create(["user_id"=>1]);
-        VideoNewsPost::factory(20)->create(["user_id"=>1]);
-        VideoNewsPost::factory(20)->create(["user_id"=>1]);
-        VideoNewsPost::factory(20)->create(["user_id"=>1]);
-        VideoNewsPost::factory(20)->create(["user_id"=>1]);
-        VideoNewsPost::factory(20)->create(["user_id"=>1]);
-        VideoNewsPost::factory(20)->create(["user_id"=>1]);
-        VideoNewsPost::factory(20)->create(["user_id"=>1]);
-        VideoNewsPost::factory(20)->create(["user_id"=>1]);
     }
 }

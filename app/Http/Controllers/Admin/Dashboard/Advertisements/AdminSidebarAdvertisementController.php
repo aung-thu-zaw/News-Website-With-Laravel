@@ -3,70 +3,34 @@
 namespace App\Http\Controllers\Admin\Dashboard\Advertisements;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Requests\SidebarAdvertisementRequest;
 use App\Models\SidebarAdvertisement;
+use App\Services\SidebarAdvertisementService;
 use Butschster\Head\Facades\Meta;
 
 class AdminSidebarAdvertisementController extends Controller
 {
-    public function show()
+    public function edit()
     {
         Meta::prependTitle("Sidebar Advertisement");
 
-        return view('admin.dashboard.advertisements.sidebar-advertisement.show', [
-            "sidebarAdvertisement" => SidebarAdvertisement::first()
-        ]);
+        $sidebarAdvertisement = SidebarAdvertisement::first();
+
+        return view('admin.dashboard.advertisements.sidebar-advertisement.edit', compact("sidebarAdvertisement"));
     }
 
-    public function update(Request $request)
+    public function update(SidebarAdvertisementRequest $request, SidebarAdvertisementService $sidebarAdvertisementService)
     {
         $sidebarAdvertisement=SidebarAdvertisement::where("id", 1)->first();
 
-        $sidebarAdvertisementFormData=$request->validate([
-            "top_advertisement_url"=>[],
-            "top_advertisement_status"=>["required"],
-            "bottom_advertisement_url"=>[],
-            "bottom_advertisement_status"=>["required"]
+        $topAdvertisementPhoto=$sidebarAdvertisementService->uploadTopAdvertisementPhoto($request, $sidebarAdvertisement);
+
+        $bottomAdvertisementPhoto=$sidebarAdvertisementService->uploadBottomAdvertisementPhoto($request, $sidebarAdvertisement);
+
+        $sidebarAdvertisement->update($request->validated()+[
+            "top_advertisement_photo"=>$topAdvertisementPhoto,
+            "bottom_advertisement_photo"=>$bottomAdvertisementPhoto,
         ]);
-
-        if ($request->hasFile("top_advertisement_photo")) {
-            $topAdvertisementFormData=$request->validate([
-                 "top_advertisement_photo"=>["required","image","mimes:png,jpg,jpeg,gif,webp"],
-             ]);
-
-
-            if (!empty($sidebarAdvertisement->top_advertisement_photo) && file_exists(public_path("storage/advertisements/$sidebarAdvertisement->top_advertisement_photo"))) {
-                unlink(public_path("storage/advertisements/$sidebarAdvertisement->top_advertisement_photo"));
-            }
-
-            $extension=$request->file("top_advertisement_photo")->extension();
-            $finalName="sidebar-top-advertisement-photo.$extension";
-            $request->file("top_advertisement_photo")->storeAs("advertisements", $finalName);
-            $topAdvertisementFormData["top_advertisement_photo"]=$finalName;
-
-            $sidebarAdvertisement->update($topAdvertisementFormData);
-        }
-
-
-        if ($request->hasFile("bottom_advertisement_photo")) {
-            $bottomAdvertisementFormData=$request->validate([
-                 "bottom_advertisement_photo"=>["required","image","mimes:png,jpg,jpeg,gif,webp"],
-             ]);
-
-
-            if (!empty($sidebarAdvertisement->bottom_advertisement_photo) && file_exists(public_path("storage/advertisements/$sidebarAdvertisement->bottom_advertisement_photo"))) {
-                unlink(public_path("storage/advertisements/$sidebarAdvertisement->bottom_advertisement_photo"));
-            }
-
-            $extension=$request->file("bottom_advertisement_photo")->extension();
-            $finalName="sidebar-bottom-advertisement-photo.$extension";
-            $request->file("bottom_advertisement_photo")->storeAs("advertisements", $finalName);
-            $bottomAdvertisementFormData["bottom_advertisement_photo"]=$finalName;
-
-            $sidebarAdvertisement->update($bottomAdvertisementFormData);
-        }
-        $sidebarAdvertisement->update($sidebarAdvertisementFormData);
-
         return redirect()->back()->with("success", "Sidebar advertisements is updated successfully");
     }
 }

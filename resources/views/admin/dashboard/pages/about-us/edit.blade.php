@@ -6,15 +6,15 @@
                 @csrf
                 @method("PATCH")
 
-                <x-form.input type="text" name="title" value="{{ $aboutUs->title }}">
+                <x-form.input type="text" name="title" value="{{ $aboutUs->title }}" required="required">
                     <x-form.label name="Title *" />
                 </x-form.input>
 
-                <x-form.textarea name="detail" value="{{ $aboutUs->detail }}">
+                <x-form.textarea name="detail" value="{{ $aboutUs->detail }}" required="required">
                     <x-form.label name="Detail *" />
                 </x-form.textarea>
 
-                <x-form.edit-show-hide-select name="status" :status="$aboutUs->status">
+                <x-form.edit-show-hide-select name="status" :status="$aboutUs->status" required="required">
                     <x-form.label name="Status *" />
                 </x-form.edit-show-hide-select>
 
