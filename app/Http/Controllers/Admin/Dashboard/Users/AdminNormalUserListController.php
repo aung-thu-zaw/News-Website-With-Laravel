@@ -12,7 +12,11 @@ class AdminNormalUserListController extends Controller
     {
         Meta::prependTitle("Normal User Lists");
 
-        $normalUsers=User::orderBy("id", "desc")->paginate(10);
+        $normalUsers=User::search(request("search"))
+                     ->where("role", null)
+                     ->orderBy("id", "desc")
+                     ->paginate(10)
+                     ->withQueryString();
 
         return view("admin.dashboard.users.normal-user-lists.index", compact("normalUsers"));
     }

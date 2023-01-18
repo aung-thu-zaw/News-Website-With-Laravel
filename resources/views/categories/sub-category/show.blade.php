@@ -2,9 +2,7 @@
     <section class="container mt-3 py-3">
         <div class="row g-3">
             <div class="col-12">
-
                 <x-breadcrumbs :category="$category" :subcategory="$subCategory" />
-
                 <div class="row">
                     <div class="col-lg-7">
                         <form action="" class="mb-3">
@@ -35,10 +33,6 @@
                         </select>
                     </div>
                 </div>
-
-
-
-
                 <div class="row g-3">
                     @foreach ($newsPosts as $post)
                     <div class="col-lg-4 col-md-6">
@@ -89,7 +83,6 @@
                         </div>
                     </div>
                     @endforeach
-
                     <div class="d-flex align-items-center justify-content-center">
                         {{ $newsPosts->links() }}
                     </div>

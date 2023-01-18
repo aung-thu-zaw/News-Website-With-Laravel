@@ -13,7 +13,10 @@ class AdminLiveVideoController extends Controller
     {
         Meta::prependTitle("Live Videos");
 
-        $liveVideos=LiveVideo::orderBy("id", "desc")->paginate(10);
+        $liveVideos=LiveVideo::search(request("search"))
+                    ->orderBy("id", "desc")
+                    ->paginate(10)
+                    ->withQueryString();
 
         return view("admin.dashboard.live-videos.index", compact("liveVideos"));
     }

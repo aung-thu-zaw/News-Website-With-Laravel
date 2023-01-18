@@ -2,11 +2,14 @@
     @section("title", "Video News Posts")
     <div class="row">
         <div class="col-12 px-5 pt-5 pb-3">
-            <div class="mb-3 d-flex align-items-center justify-content-end">
+
+
+            <x-form.admin-search-form>
                 <a href="{{ route('admin.video-news-posts.create') }}"
                     class="btn btn-primary text-decoration-none">Create
                     <i class="fa-solid fa-plus"></i></a>
-            </div>
+            </x-form.admin-search-form>
+
             <table class="table table-bordered">
                 <thead>
                     <tr>

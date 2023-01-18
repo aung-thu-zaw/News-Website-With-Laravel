@@ -18,7 +18,7 @@ class SubCategoryController extends Controller
         $newsPosts=NewsPost::with("subCategory", "author")
                     ->where("sub_category_id", $subCategory->id)
                     ->orderBy("id", "desc")
-                    ->paginate(12);
+                    ->paginate(15);
 
         return view('categories.sub-category.show', compact("category", "subCategory", "newsPosts"));
     }

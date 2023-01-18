@@ -2,6 +2,9 @@
     @section("title", "Normal User Lists")
     <div class="row">
         <div class="col-12 px-5 pt-5 pb-3">
+
+            <x-form.admin-search-form />
+
             <table class="table table-bordered">
 
                 <thead>

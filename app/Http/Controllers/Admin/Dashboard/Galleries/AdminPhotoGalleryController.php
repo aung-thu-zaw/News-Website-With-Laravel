@@ -14,7 +14,10 @@ class AdminPhotoGalleryController extends Controller
     {
         Meta::prependTitle("Photo Gallery");
 
-        $photos=PhotoGallery::orderBy("id", "desc")->paginate(10);
+        $photos=PhotoGallery::search(request("search"))
+                ->orderBy("id", "desc")
+                ->paginate(10)
+                ->withQueryString();
 
         return view("admin.dashboard.galleries.photo-gallery.index", compact("photos"));
     }

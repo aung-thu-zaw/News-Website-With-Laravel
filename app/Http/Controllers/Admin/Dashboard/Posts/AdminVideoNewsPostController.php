@@ -16,7 +16,13 @@ class AdminVideoNewsPostController extends Controller
     {
         Meta::prependTitle("Video News Posts");
 
-        $videoNewsPosts=VideoNewsPost::with("author")->where("user_id", 1)->orderBy("id", "desc")->paginate(10);
+        $videoNewsPosts=VideoNewsPost::search(request("search"))
+                        ->where("user_id", 1)
+                        ->orderBy("id", "desc")
+                        ->paginate(10)
+                        ->withQueryString();
+
+        $videoNewsPosts->load("author");
 
         return view("admin.dashboard.posts.video-news-posts.index", compact("videoNewsPosts"));
     }

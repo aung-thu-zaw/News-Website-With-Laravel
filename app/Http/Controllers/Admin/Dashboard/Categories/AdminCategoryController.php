@@ -13,7 +13,10 @@ class AdminCategoryController extends Controller
     {
         Meta::prependTitle("Category");
 
-        $categories=Category::orderBy("id", "desc")->paginate(10);
+        $categories=Category::search(request("search"))
+                    ->orderBy("id", "desc")
+                    ->paginate(10)
+                    ->withQueryString();
 
         return view("admin.dashboard.categories.category.index", compact("categories"));
     }

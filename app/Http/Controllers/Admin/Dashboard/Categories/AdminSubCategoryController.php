@@ -14,7 +14,12 @@ class AdminSubCategoryController extends Controller
     {
         Meta::prependTitle("SubCategory");
 
-        $subCategories=SubCategory::with("category")->orderBy("id", "desc")->paginate(5);
+        $subCategories=SubCategory::search(request("search"))
+                       ->orderBy("id", "desc")
+                       ->paginate(10)
+                       ->withQueryString();
+
+        $subCategories->load("category");
 
         return view("admin.dashboard.categories.sub-category.index", compact("subCategories"));
     }

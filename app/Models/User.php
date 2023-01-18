@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Laravel\Scout\Searchable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -14,6 +15,7 @@ class User extends Authenticatable implements MustVerifyEmail
     use HasApiTokens;
     use HasFactory;
     use Notifiable;
+    use Searchable;
 
     /**
      * The attributes that are mass assignable.
@@ -88,4 +90,11 @@ class User extends Authenticatable implements MustVerifyEmail
         }
     }
 
+    public function toSearchableArray()
+    {
+        return [
+            "name" => $this->name,
+            "email" => $this->email,
+        ];
+    }
 }

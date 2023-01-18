@@ -13,7 +13,10 @@ class AdminTrendingVideosController extends Controller
     {
         Meta::prependTitle("Trending Videos");
 
-        $trendingVideos=TrendingVideo::orderBy("id", "desc")->paginate(10);
+        $trendingVideos=TrendingVideo::search(request("search"))
+                        ->orderBy("id", "desc")
+                        ->paginate(10)
+                        ->withQueryString();
 
         return view("admin.dashboard.posts.trending-videos.index", compact("trendingVideos"));
     }

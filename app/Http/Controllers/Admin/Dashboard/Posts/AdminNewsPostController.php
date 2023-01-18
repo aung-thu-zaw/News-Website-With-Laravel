@@ -16,7 +16,13 @@ class AdminNewsPostController extends Controller
     {
         Meta::prependTitle("News Post");
 
-        $newsPosts=NewsPost::with("subCategory.category", "author")->where("user_id", 1)->orderBy("id", "desc")->paginate(10);
+        $newsPosts=NewsPost::search(request("search"))
+                   ->where("user_id", 1)
+                   ->orderBy("id", "desc")
+                   ->paginate(10)
+                   ->withQueryString();
+
+        $newsPosts->load("subCategory.category", "author");
 
         return view("admin.dashboard.posts.news-posts.index", compact("newsPosts"));
     }
