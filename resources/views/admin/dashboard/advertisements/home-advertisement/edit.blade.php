@@ -19,7 +19,7 @@
                                     style="height:150px; width:100%; object-fit:cover" id="previewPhoto1">
                             </x-form.input-wrapper>
 
-                            <x-form.input type="file" name="top_advertisement_photo" id="file1" required="required">
+                            <x-form.input type="file" name="top_advertisement_photo" id="file1">
                                 <x-form.label name="Choose Ad Photo *" />
                             </x-form.input>
 
@@ -45,7 +45,7 @@
                                     style="height:150px; width:100%; object-fit:cover" id="previewPhoto2">
                             </x-form.input-wrapper>
 
-                            <x-form.input type="file" name="middle_advertisement_photo" id="file2" required="required">
+                            <x-form.input type="file" name="middle_advertisement_photo" id="file2">
                                 <x-form.label name="Choose Ad Photo *" />
                             </x-form.input>
 
@@ -72,7 +72,7 @@
                                     style="height:150px; width:100%; object-fit:cover" id="previewPhoto3">
                             </x-form.input-wrapper>
 
-                            <x-form.input type="file" name="bottom_advertisement_photo" id="file3" required="required">
+                            <x-form.input type="file" name="bottom_advertisement_photo" id="file3">
                                 <x-form.label name="Choose Ad Photo *" />
                             </x-form.input>
 

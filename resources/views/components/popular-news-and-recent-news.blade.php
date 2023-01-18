@@ -23,13 +23,13 @@
                     <div class="col-10 col-lg-8">
                         <div class="card-body">
                             <h6 class="card-title">
-                                <a href="{{ route('news.show',$popularPost->slug) }}"
-                                    class="text-dark text-decoration-none">
+                                <a href="{{ route('news.show',$popularPost->slug) }}" class="text-dark">
                                     {{ $popularPost->title }}
                                 </a>
                             </h6>
-                            <a href="/news/{{ $popularPost->subCategory->category->slug }}/{{ $popularPost->subCategory->slug }}"
-                                class="news-tag-sm text-white my-1">{{ $popularPost->subCategory->name }}</a>
+                            <a href="/{{ $popularPost->subCategory->category->slug }}/{{ $popularPost->subCategory->slug }}/news"
+                                class="news-tag-sm text-white my-1 text-decoration-none">{{
+                                $popularPost->subCategory->name }}</a>
                             <div class="icon-box-sm">
                                 <span>
                                     <i class="fa-solid fa-user me-1"></i>
@@ -37,9 +37,10 @@
                                 </span>
                                 <span>
                                     <i class="fa-solid fa-calendar-days me-1"></i>
-                                    <a href="/news/{{ DateTimeHelper::formatYear($popularPost,'created_at') }}/{{
+                                    <a href="/{{ DateTimeHelper::formatYear($popularPost,'created_at') }}/{{
                                         DateTimeHelper::formatMonth($popularPost,'created_at') }}/{{
-                                        DateTimeHelper::formatDay($popularPost,'created_at') }}" class="text-dark">
+                                        DateTimeHelper::formatDay($popularPost,'created_at') }}/news"
+                                        class="text-dark">
                                         {{ DateTimeHelper::formatDate($popularPost,"created_at") }}
                                     </a>
                                 </span>
@@ -50,7 +51,7 @@
             </div>
             @endforeach
             <div class="d-grid">
-                <a href="{{ route('popular-news.index') }}" class="btn btn-primary btn-sm">
+                <a href="{{ route('popular-news.index') }}" class="btn btn-primary btn-sm text-decoration-none">
                     See All
                 </a>
             </div>
@@ -70,14 +71,14 @@
                     <div class="col-10 col-lg-8">
                         <div class="card-body">
                             <h6 class="card-title">
-                                <a href="{{ route('news.show',$recentPost->slug) }}"
-                                    class="text-dark text-decoration-none">
+                                <a href="{{ route('news.show',$recentPost->slug) }}" class="text-dark">
                                     {{ $recentPost->title }}
                                 </a>
                             </h6>
 
-                            <a href="/news/{{ $recentPost->subCategory->category->slug }}/{{ $recentPost->subCategory->slug }}"
-                                class="news-tag-sm text-white my-1">{{ $recentPost->subCategory->name }}</a>
+                            <a href="/{{ $recentPost->subCategory->category->slug }}/{{ $recentPost->subCategory->slug }}/news"
+                                class="news-tag-sm text-white my-1  text-decoration-none">{{
+                                $recentPost->subCategory->name }}</a>
                             <div class="icon-box-sm">
                                 <span>
                                     <i class="fa-solid fa-user me-1"></i>
@@ -85,9 +86,9 @@
                                 </span>
                                 <span>
                                     <i class="fa-solid fa-calendar-days me-1"></i>
-                                    <a href="/news/{{ DateTimeHelper::formatYear($recentPost,'created_at') }}/{{
+                                    <a href="/{{ DateTimeHelper::formatYear($recentPost,'created_at') }}/{{
                                         DateTimeHelper::formatMonth($recentPost,'created_at') }}/{{
-                                        DateTimeHelper::formatDay($recentPost,'created_at') }}" class="text-dark">
+                                        DateTimeHelper::formatDay($recentPost,'created_at') }}/news" class="text-dark">
                                         {{ DateTimeHelper::formatDate($recentPost,"created_at") }}
                                     </a>
                                 </span>
@@ -98,7 +99,7 @@
             </div>
             @endforeach
             <div class="d-grid">
-                <a href="{{ route('recent-news.index') }}" class="btn btn-primary btn-sm">
+                <a href="{{ route('recent-news.index') }}" class="btn btn-primary btn-sm text-decoration-none">
                     See All
                 </a>
             </div>

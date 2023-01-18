@@ -23,9 +23,10 @@
                         <p class="card-text">
                             {!! StringHelper::description($post->body) !!}
                         </p>
-                        <a href="/news/{{ $post->subCategory->category->slug }}/{{ $post->subCategory->slug }}"
-                            class="header-news-tag text-white my-1 text-decoration-none">{{ $post->subCategory->name
-                            }}</a>
+                        <a href="/{{ $post->subCategory->category->slug }}/{{ $post->subCategory->slug }}/news"
+                            class="header-news-tag text-white my-1 text-decoration-none">
+                            {{ $post->subCategory->name}}
+                        </a>
                         <div class="d-flex align-items-center justify-content-between">
                             <div class="icon-box">
                                 <span>
@@ -34,15 +35,16 @@
                                 </span>
                                 <span>
                                     <i class="fa-solid fa-calendar-days me-1"></i>
-                                    <a href="/news/{{ DateTimeHelper::formatYear($post,'created_at') }}/{{
+                                    <a href="/{{ DateTimeHelper::formatYear($post,'created_at') }}/{{
                                         DateTimeHelper::formatMonth($post,'created_at') }}/{{
-                                        DateTimeHelper::formatDay($post,'created_at') }}" class="text-white">
+                                        DateTimeHelper::formatDay($post,'created_at') }}/news" class="text-white">
                                         {{ DateTimeHelper::formatDate($post,"created_at") }}
                                     </a>
                                 </span>
                             </div>
                             <div>
                                 <span class="update-text">
+                                    <i class="fa-solid fa-upload me-1"></i>
                                     {{ $post->created_at->diffForHumans() }}
                                 </span>
                             </div>
@@ -75,25 +77,33 @@
                                 <p class="card-text description d-lg-none d-xl-block">
                                     {!! StringHelper::description($post->body,100) !!}
                                 </p>
-                                <a href="/news/{{ $post->subCategory->category->slug }}/{{ $post->subCategory->slug }}"
+                                <a href="/{{ $post->subCategory->category->slug }}/{{ $post->subCategory->slug }}/news"
                                     class="header-news-tag-sm text-white my-1 text-decoration-none">{{
                                     $post->subCategory->name
                                     }}</a>
-                                <div class="icon-box-sm">
-                                    <span>
-                                        <i class="fa-solid fa-user me-1"></i>
-                                        <a href="#" class="text-white">
-                                            {{ $post->author->name }}
-                                        </a>
-                                    </span>
-                                    <span>
-                                        <i class="fa-solid fa-calendar-days me-1"></i>
-                                        <a href="/news/{{ DateTimeHelper::formatYear($post,'created_at') }}/{{
-                                            DateTimeHelper::formatMonth($post,'created_at') }}/{{
-                                            DateTimeHelper::formatDay($post,'created_at') }}" class="text-white">
-                                            {{ DateTimeHelper::formatDate($post,"created_at") }}
-                                        </a>
-                                    </span>
+
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <div class="icon-box-sm">
+                                        <span>
+                                            <i class="fa-solid fa-user me-1"></i>
+                                            <a href="#" class="text-white">{{ $post->author->name }}</a>
+                                        </span>
+                                        <span class="">
+                                            <i class="fa-solid fa-calendar-days me-1"></i>
+                                            <a href="/{{ DateTimeHelper::formatYear($post,'created_at') }}/{{
+                                                DateTimeHelper::formatMonth($post,'created_at') }}/{{
+                                                DateTimeHelper::formatDay($post,'created_at') }}/news"
+                                                class="text-white">
+                                                {{ DateTimeHelper::formatDate($post,"created_at") }}
+                                            </a>
+                                        </span>
+                                    </div>
+                                    <div class="icon-box-sm">
+                                        <span>
+                                            <i class="fa-solid fa-upload me-1"></i>
+                                            <span class="text-white">{{ $post->created_at->diffForHumans() }}</span>
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -118,25 +128,32 @@
                                 <p class="card-text description d-lg-none d-xl-block">
                                     {{ StringHelper::description($post->body,100) }}
                                 </p>
-                                <a href="/news/{{ $post->subCategory->category->slug }}/{{ $post->subCategory->slug }}"
+                                <a href="/{{ $post->subCategory->category->slug }}/{{ $post->subCategory->slug }}/news"
                                     class="header-news-tag-sm text-white my-1 text-decoration-none">{{
                                     $post->subCategory->name
                                     }}</a>
-                                <div class="icon-box-sm">
-                                    <span>
-                                        <i class="fa-solid fa-user me-1"></i>
-                                        <a href="#" class="text-white">
-                                            {{ $post->author->name }}
-                                        </a>
-                                    </span>
-                                    <span>
-                                        <i class="fa-solid fa-calendar-days me-1"></i>
-                                        <a href="/news/{{ DateTimeHelper::formatYear($post,'created_at') }}/{{
-                                            DateTimeHelper::formatMonth($post,'created_at') }}/{{
-                                            DateTimeHelper::formatDay($post,'created_at') }}" class="text-white">
-                                            {{ DateTimeHelper::formatDate($post,"created_at") }}
-                                        </a>
-                                    </span>
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <div class="icon-box-sm">
+                                        <span>
+                                            <i class="fa-solid fa-user me-1"></i>
+                                            <a href="#" class="text-white">{{ $post->author->name }}</a>
+                                        </span>
+                                        <span class="">
+                                            <i class="fa-solid fa-calendar-days me-1"></i>
+                                            <a href="/{{ DateTimeHelper::formatYear($post,'created_at') }}/{{
+                                                DateTimeHelper::formatMonth($post,'created_at') }}/{{
+                                                DateTimeHelper::formatDay($post,'created_at') }}/news"
+                                                class="text-white">
+                                                {{ DateTimeHelper::formatDate($post,"created_at") }}
+                                            </a>
+                                        </span>
+                                    </div>
+                                    <div class="icon-box-sm">
+                                        <span>
+                                            <i class="fa-solid fa-upload me-1"></i>
+                                            <span class="text-white">{{ $post->created_at->diffForHumans() }}</span>
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -144,7 +161,6 @@
                 @endforeach
             </div>
         </div>
-
     </div>
     </div>
 </header>

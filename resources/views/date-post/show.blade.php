@@ -5,6 +5,37 @@
 
                 <x-breadcrumbs :date="$newsPosts[0]" />
 
+                <div class="row">
+                    <div class="col-lg-7">
+                        <form action="" class="mb-3">
+                            <div class="row g-2">
+                                <div class="col-lg-10 my-2">
+                                    <input type="text" class="form-control" placeholder="Search...."
+                                        aria-label="Last name">
+                                </div>
+                                <div class="col-lg-2 my-2 d-grid">
+                                    <button class="btn btn-secondary">Search</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-lg-3">
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected disabled>Filter By SubCategory</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-2">
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected disabled>Sort By</option>
+                            <option value="1">Newest</option>
+                            <option value="2">Oldest</option>
+                        </select>
+                    </div>
+                </div>
+
                 <div class="row g-3">
                     @foreach ($newsPosts as $post)
                     <div class="col-lg-4 col-md-6">
@@ -27,19 +58,27 @@
                                     class="header-news-tag-sm text-white my-1 text-decoration-none">{{
                                     $post->subCategory->name
                                     }}</a>
-                                <div class="icon-box-sm">
-                                    <span>
-                                        <i class="fa-solid fa-user me-1"></i>
-                                        <a href="#" class="text-white">{{ $post->author->name }}</a>
-                                    </span>
-                                    <span>
-                                        <i class="fa-solid fa-calendar-days me-1"></i>
-                                        <a href="#" class="text-white">
-                                            {{ DateTimeHelper::formatDate($post,"created_at") }}
-                                        </a>
-                                    </span>
-                                </div>
 
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <div class="icon-box-sm">
+                                        <span>
+                                            <i class="fa-solid fa-user me-1"></i>
+                                            <a href="#" class="text-white">{{ $post->author->name }}</a>
+                                        </span>
+                                        <span class="">
+                                            <i class="fa-solid fa-calendar-days me-1"></i>
+                                            <a href="#" class="text-white">
+                                                {{ DateTimeHelper::formatDate($post,"created_at") }}
+                                            </a>
+                                        </span>
+                                    </div>
+                                    <div class="icon-box-sm">
+                                        <span>
+                                            <i class="fa-solid fa-upload me-1"></i>
+                                            <span class="text-white">{{ $post->created_at->diffForHumans() }}</span>
+                                        </span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

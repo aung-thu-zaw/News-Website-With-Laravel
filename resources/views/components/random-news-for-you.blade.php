@@ -13,12 +13,13 @@
                 <div class="col-10 col-lg-8">
                     <div class="card-body">
                         <h6 class="card-title">
-                            <a href="{{ route('news.show',$randomPost->slug) }}" class="text-dark text-decoration-none">
+                            <a href="{{ route('news.show',$randomPost->slug) }}" class="text-dark">
                                 {{ $randomPost->title }}
                             </a>
                         </h6>
-                        <a href="/news/{{ $randomPost->subCategory->category->slug }}/{{ $randomPost->subCategory->slug }}"
-                            class="news-tag-sm text-white my-1">{{ $randomPost->subCategory->name }}</a>
+                        <a href="/{{ $randomPost->subCategory->category->slug }}/{{ $randomPost->subCategory->slug }}/news"
+                            class="news-tag-sm text-white my-1 text-decoration-none">{{ $randomPost->subCategory->name
+                            }}</a>
                         <div class="icon-box-sm">
                             <span>
                                 <i class="fa-solid fa-user me-1"></i>
@@ -26,9 +27,9 @@
                             </span>
                             <span>
                                 <i class="fa-solid fa-calendar-days me-1"></i>
-                                <a href="/news/{{ DateTimeHelper::formatYear($randomPost,'created_at') }}/{{
+                                <a href="/{{ DateTimeHelper::formatYear($randomPost,'created_at') }}/{{
                                     DateTimeHelper::formatMonth($randomPost,'created_at') }}/{{
-                                    DateTimeHelper::formatDay($randomPost,'created_at') }}" class="text-dark">
+                                    DateTimeHelper::formatDay($randomPost,'created_at') }}/news" class="text-dark">
                                     {{ DateTimeHelper::formatDate($randomPost,"created_at") }}
                                 </a>
                             </span>

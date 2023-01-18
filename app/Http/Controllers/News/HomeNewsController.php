@@ -33,8 +33,10 @@ class HomeNewsController extends Controller
                         ->take(12)
                         ->get();
 
-        if (request("search")) {
-            $newsPosts=NewsPost::search(request("search"))->paginate(10);
+
+
+        if (request("q")) {
+            $newsPosts=NewsPost::search(request("q"))->paginate(18)->withQueryString();
 
             $newsPosts->load("subCategory.category", "author");
 

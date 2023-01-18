@@ -5,8 +5,6 @@ use App\Http\Controllers\Admin\Dashboard\AdminDashboardController;
 use App\Http\Controllers\Admin\Dashboard\AdminLiveVideoController;
 use App\Http\Controllers\Admin\Dashboard\Advertisements\AdminHomeAdvertisementController;
 use App\Http\Controllers\Admin\Dashboard\Advertisements\AdminSidebarAdvertisementController;
-use App\Http\Controllers\Admin\Dashboard\Users\AdminAuthorListController;
-use App\Http\Controllers\Admin\Dashboard\Users\AdminAuthorPostController;
 use App\Http\Controllers\Auth\SocialiteFacebookAuthController;
 use App\Http\Controllers\Auth\SocialiteGitHubAuthController;
 use App\Http\Controllers\Auth\SocialiteGoogleAuthController;
@@ -43,9 +41,7 @@ use App\Http\Controllers\Pages\DisclaimerController;
 use App\Http\Controllers\Pages\FaqController;
 use App\Http\Controllers\Pages\PrivacyAndPolicyController;
 use App\Http\Controllers\Pages\TermsAndConditionsController;
-use App\Http\Controllers\Tags\NewsPostController;
 use App\Http\Controllers\Tags\TagNewsPostController;
-use App\Http\Controllers\Tags\TagPostController;
 use App\Http\Controllers\Tags\TagVideoNewsPostController;
 use Illuminate\Support\Facades\Route;
 
@@ -83,36 +79,38 @@ Route::controller(ProfileController::class)
         });
 
 
-
-
-
-
-
-
-
-
-# ============== News Page ==============
+# ============== Main News ==============
 
 // News
 Route::get('/', [HomeNewsController::class,"index"])->middleware(["twofactor"])->name("news.index");
 Route::get('/news/{news_post:slug}', [HomeNewsController::class,"show"])->name("news.show");
 
+Route::get("/{year}/{month}/{day}/news", [DateNewsController::class,"show"])->name("date-news.show");
+
+Route::get("/{category:slug}/news", [CategoryController::class,"show"])->name("category.news.show");
+
+Route::get("/{category:slug}/{sub_category:slug}/news", [SubCategoryController::class,"show"])->name("sub-category.news.show");
+
+// Video News
 Route::get('/video-news', [VideoNewsController::class,"index"])->name("video-news.index");
+
 Route::get('/video-news/{video_news_post:slug}', [VideoNewsController::class,"show"])->name("video-news.show");
 
-Route::get("/news/{year}/{month}/{day}", [DateNewsController::class,"show"])->name("date-news.show");
+// Popular News And Recent News
+Route::get("/popular-news", [PopularNewsController::class,"index"])->name("popular-news.index");
 
-Route::get("/{category:slug}", [CategoryController::class,"show"])->name("category.show");
+Route::get("/recent-news", [RecentNewsController::class,"index"])->name("recent-news.index");
 
-Route::get("/news/{category:slug}/{sub_category:slug}", [SubCategoryController::class,"show"])->name("sub-category.show");
+// Gallery
+Route::get("/gallery/photos", [PhotoGalleryController::class,"index"])->name("photo-gallery.index");
 
+Route::get("/gallery/videos", [VideoGalleryController::class,"index"])->name("video-gallery.index");
 
 
 Route::get("/tags/{tag:slug}/news-posts", [TagNewsPostController::class,"show"])->name("tags.news-posts.show");
 // Route::get("/tag/{tag:slug}/video-news-posts", [TagVideoNewsPostController::class,"show"])->name("tags.video-posts.show");
 
-
-
+// Pages
 Route::get("/about-us", [AboutUsController::class,"index"])->name("about-us.index");
 
 Route::get("/faq", [FaqController::class,"index"])->name("faq.index");
@@ -125,15 +123,6 @@ Route::get("/privacy-and-policy", [PrivacyAndPolicyController::class,"index"])->
 
 Route::get("/disclaimer", [DisclaimerController::class,"index"])->name("disclaimer.index");
 
-// Popular News And Recent News
-Route::get("/popular-news", [PopularNewsController::class,"index"])->name("popular-news.index");
-Route::get("/recent-news", [RecentNewsController::class,"index"])->name("recent-news.index");
-
-// Gallery
-Route::get("/gallery/photos", [PhotoGalleryController::class,"index"])->name("photo-gallery.index");
-Route::get("/gallery/videos", [VideoGalleryController::class,"index"])->name("video-gallery.index");
-
-
 
 # ============== Admin Dashboard ==============
 Route::middleware(["auth","verified","can:admin"])
@@ -142,13 +131,37 @@ Route::middleware(["auth","verified","can:admin"])
         ->group(function () {
             Route::get('/dashboard', [AdminDashboardController::class,"index"])->name('dashboard');
 
+            // Home Advertisement
             Route::get("/home-advertisement", [AdminHomeAdvertisementController::class,"edit"])->name("home-advertisement.edit");
 
             Route::patch("/home-advertisement/update", [AdminHomeAdvertisementController::class,"update"])->name("home-advertisement.update");
+
             // Sidebar Advertisement
             Route::get("/sidebar-advertisement", [AdminSidebarAdvertisementController::class,"edit"])->name("sidebar-advertisement.edit");
 
             Route::patch("/sidebar-advertisement/update", [AdminSidebarAdvertisementController::class,"update"])->name("sidebar-advertisement.update");
+
+            // Category
+            Route::resource('/categories', AdminCategoryController::class);
+
+            // SubCategory
+            Route::resource('/sub-categories', AdminSubCategoryController::class);
+
+            // News Post
+            Route::resource('/news-posts', AdminNewsPostController::class);
+
+            // Video News Post
+            Route::resource('/video-news-posts', AdminVideoNewsPostController::class);
+
+            // Trending Video
+            Route::resource('/trending-videos', AdminTrendingVideosController::class);
+
+            // Photo Gallery
+            Route::resource('/photo-gallery', AdminPhotoGalleryController::class);
+
+            // Video Gallery
+            Route::resource('/video-gallery', AdminVideoGalleryController::class);
+
             // Pages
             Route::get("about-us", [AdminAboutUsController::class,"edit"])->name("about-us.edit");
 
@@ -164,6 +177,8 @@ Route::middleware(["auth","verified","can:admin"])
 
             Route::get("faq", [AdminFaqController::class,"edit"])->name("faq.edit");
 
+            Route::resource('/faq-accordion', AdminFaqAccordionController::class);
+
             Route::patch("/faq/update", [AdminFaqController::class,"update"])->name("faq.update");
 
             Route::get("privacy-and-policy", [AdminPrivacyAndPolicyController::class,"edit"])->name("privacy-and-policy.edit");
@@ -174,36 +189,22 @@ Route::middleware(["auth","verified","can:admin"])
 
             Route::patch("/terms-and-conditions/update", [AdminTermsAndConditionsController::class,"update"])->name("terms-and-conditions.update");
 
+            // Normal User List
+            Route::get("normal-users", [AdminNormalUserListController::class,"index"])->name("noraml-user-lists.index");
+
+            // Permission User Lists
+            Route::resource('/permission-users', AdminPermissionUserListController::class);
+
+            // Live Video
+            Route::resource('/live-videos', AdminLiveVideoController::class);
+
             // Setting
             Route::get('/setting', [AdminSettingController::class,"edit"])->name('setting.edit');
 
             Route::patch('/setting/update', [AdminSettingController::class,"update"])->name('setting.update');
-            // Category
-            Route::resource('/categories', AdminCategoryController::class);
-            // SubCategory
-            Route::resource('/sub-categories', AdminSubCategoryController::class);
-            // News Post
-            Route::resource('/news-posts', AdminNewsPostController::class);
-            // Video News Post
-            Route::resource('/video-news-posts', AdminVideoNewsPostController::class);
-            // Trending Video
-            Route::resource('/trending-videos', AdminTrendingVideosController::class);
-            // Video Gallery
-            Route::resource('/video-gallery', AdminVideoGalleryController::class);
-            // Photo Gallery
-            Route::resource('/photo-gallery', AdminPhotoGalleryController::class);
-            // FAQ Accordion
-            Route::resource('/faq-accordion', AdminFaqAccordionController::class);
-            // Live Video
-            Route::resource('/live-videos', AdminLiveVideoController::class);
 
-            Route::get("normal-users", [AdminNormalUserListController::class,"index"])->name("noraml-user-lists.index");
+            // Tag Handler
+            Route::post('/news-post/{news_post:slug}/{tag:slug}', [TagNewsPostController::class,"newsPostTagHandler"])->name("news-post-tag-handle");
 
-            // Author Lists
-            Route::resource('/permission-users', AdminPermissionUserListController::class);
+            Route::post('/video-news-post/{video_news_post:slug}/{tag:slug}', [TagVideoNewsPostController::class,"videonewsPostTagHandler"])->name("video-news-post-tag-handle");
         });
-
-Route::post('/admin/news-post/{news_post:slug}/{tag:slug}', [TagNewsPostController::class,"newsPostTagHandler"])->name("admin.news-post-tag-handle");
-
-
-Route::post('/admin/video-news-post/{video_news_post:slug}/{tag:slug}', [TagVideoNewsPostController::class,"videonewsPostTagHandler"])->name("admin.video-news-post-tag-handle");

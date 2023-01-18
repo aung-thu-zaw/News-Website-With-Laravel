@@ -10,8 +10,9 @@
                     data-bs-title="Home">Home</a>
             </li>
             <li class="breadcrumb-item active" aria-current="page">
-                <a class="text-decoration-none" href="{{ route('category.show',$post->subCategory->category->slug) }}"
-                    data-bs-toggle="tooltip" data-bs-title="Category">
+                <a class="text-decoration-none"
+                    href="{{ route('category.news.show',$post->subCategory->category->slug) }}" data-bs-toggle="tooltip"
+                    data-bs-title="Category">
                     {{ $post->subCategory->category->name}}
                 </a>
             </li>
@@ -42,7 +43,7 @@
                     data-bs-title="Home">Home</a>
             </li>
             <li class="breadcrumb-item active" aria-current="page">
-                <a class="text-decoration-none" href="{{ route('category.show',$category->slug) }}"
+                <a class="text-decoration-none" href="{{ route('category.news.show',$category->slug) }}"
                     data-bs-toggle="tooltip" data-bs-title="Category">
                     {{ $category->name}}
                 </a>
@@ -52,7 +53,7 @@
             </li>
             <li class="breadcrumb-item active" aria-current="page">
                 <span data-bs-toggle="tooltip" data-bs-title="Posts">
-                    All Post
+                    All
                 </span>
             </li>
         </ol>
@@ -167,13 +168,13 @@
                     data-bs-title="Home">Home</a>
             </li>
             <li class="breadcrumb-item active" aria-current="page">
-                <span data-bs-toggle="tooltip" data-bs-title="Post">
+                <span data-bs-toggle="tooltip" data-bs-title="Popular News">
                     {{ $popular }}
                 </span>
             </li>
             <li class="breadcrumb-item active" aria-current="page">
-                <span data-bs-toggle="tooltip" data-bs-title="Post">
-                    All Posts
+                <span data-bs-toggle="tooltip" data-bs-title="Posts">
+                    All
                 </span>
             </li>
         </ol>
@@ -190,13 +191,13 @@
                     data-bs-title="Home">Home</a>
             </li>
             <li class="breadcrumb-item active" aria-current="page">
-                <span data-bs-toggle="tooltip" data-bs-title="Post">
+                <span data-bs-toggle="tooltip" data-bs-title="Recent News">
                     {{ $recent }}
                 </span>
             </li>
             <li class="breadcrumb-item active" aria-current="page">
-                <span data-bs-toggle="tooltip" data-bs-title="Post">
-                    All Posts
+                <span data-bs-toggle="tooltip" data-bs-title="Posts">
+                    All
                 </span>
             </li>
         </ol>

@@ -19,19 +19,29 @@ const typewriter = new Typewriter(app, {
 });
 
 typewriter
-    .typeString(`<a href="${latestNewsOneLink}">${latestNewsOne}</a>`)
+    .typeString(
+        `<a href="${latestNewsOneLink}" class="text-decoration-none">${latestNewsOne}</a>`
+    )
     .pauseFor(2000)
     .deleteAll()
-    .typeString(`<a href="${latestNewsTwoLink}">${latestNewsTwo}</a>`)
+    .typeString(
+        `<a href="${latestNewsTwoLink}" class="text-decoration-none">${latestNewsTwo}</a>`
+    )
     .pauseFor(2000)
     .deleteAll()
-    .typeString(`<a href="${latestNewsThreeLink}">${latestNewsThree}</a>`)
+    .typeString(
+        `<a href="${latestNewsThreeLink}" class="text-decoration-none">${latestNewsThree}</a>`
+    )
     .pauseFor(2000)
     .deleteAll()
-    .typeString(`<a href="${latestNewsFourLink}">${latestNewsFour}</a>`)
+    .typeString(
+        `<a href="${latestNewsFourLink}" class="text-decoration-none">${latestNewsFour}</a>`
+    )
     .pauseFor(2000)
     .deleteAll()
-    .typeString(`<a href="${latestNewsFiveLink}">${latestNewsFive}</a>`)
+    .typeString(
+        `<a href="${latestNewsFiveLink}" class="text-decoration-none">${latestNewsFive}</a>`
+    )
     .pauseFor(2000)
     .deleteAll()
     .start();
