@@ -75,8 +75,8 @@
                 </span>
             </li>
             <li class="breadcrumb-item active" aria-current="page">
-                <span data-bs-toggle="tooltip" data-bs-title="SubCategory">
-                    All SubCategory
+                <span data-bs-toggle="tooltip" data-bs-title="Posts">
+                    All
                 </span>
             </li>
         </ol>

@@ -7,7 +7,6 @@
                 @if ($subcategory->status_on_home==="show")
                 <div class="col-12">
                     <div class="row g-2">
-
                         <div class="d-flex align-items-center justify-content-between">
                             <div>
                                 <h5>
@@ -32,18 +31,20 @@
                                 <img src="{{ asset('storage/thumbnails/'.$post->thumbnail) }}" alt="..."
                                     class="img-fluid">
                                 <div class="card-body">
-                                    <h5 class="card-title">
-                                        <a href="{{ route('news.show',$post->slug) }}" class="text-dark">
-                                            {{ $post->title}}
+                                    <div class="d-flex flex-column align-items-start">
+                                        <h5 class="card-title">
+                                            <a href="{{ route('news.show',$post->slug) }}" class="text-dark">
+                                                {{ $post->title}}
+                                            </a>
+                                        </h5>
+                                        <small class="card-text">
+                                            {!! StringHelper::description($post->body) !!}
+                                        </small>
+                                        <a href="/{{ $subcategory->category->slug }}/{{ $subcategory->slug }}/news"
+                                            class="header-news-tag-sm text-white my-1 text-decoration-none">
+                                            {{ $post->subCategory->name }}
                                         </a>
-                                    </h5>
-                                    <small class="card-text">
-                                        {!! StringHelper::description($post->body) !!}
-                                    </small>
-                                    <a href="/{{ $subcategory->category->slug }}/{{ $subcategory->slug }}/news"
-                                        class="header-news-tag-sm text-white my-1 text-decoration-none">
-                                        {{ $post->subCategory->name }}
-                                    </a>
+                                    </div>
                                     <div class="d-flex align-items-center justify-content-between">
                                         <div class="icon-box-sm">
                                             <span>
@@ -92,20 +93,17 @@
                                     </div>
                                     <div class="col-10 col-lg-8">
                                         <div class="card-body">
-                                            <h6 class="card-title">
-
-                                                <a href="{{ route('news.show',$post->slug) }}" class="text-dark">
-                                                    {{ StringHelper::title($post->title) }}
-                                                </a>
-
-                                            </h6>
-                                            <a href="/{{ $subcategory->category->slug }}/{{ $subcategory->slug }}/news"
-                                                class="news-tag-sm text-white my-1 text-decoration-none">{{
-                                                $post->subCategory->name
-                                                }}</a>
-
-
-
+                                            <div class="d-flex flex-column align-items-start">
+                                                <h6 class="card-title">
+                                                    <a href="{{ route('news.show',$post->slug) }}" class="text-dark">
+                                                        {{ StringHelper::title($post->title) }}
+                                                    </a>
+                                                </h6>
+                                                <a href="/{{ $subcategory->category->slug }}/{{ $subcategory->slug }}/news"
+                                                    class="news-tag-sm text-white my-1 text-decoration-none">{{
+                                                    $post->subCategory->name
+                                                    }}</a>
+                                            </div>
                                             <div class="icon-box-sm">
                                                 <span>
                                                     <i class="fa-solid fa-user me-1"></i>

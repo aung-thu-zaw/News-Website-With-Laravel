@@ -22,14 +22,16 @@
                     </div>
                     <div class="col-10 col-lg-8">
                         <div class="card-body">
-                            <h6 class="card-title">
-                                <a href="{{ route('news.show',$popularPost->slug) }}" class="text-dark">
-                                    {{ $popularPost->title }}
-                                </a>
-                            </h6>
-                            <a href="/{{ $popularPost->subCategory->category->slug }}/{{ $popularPost->subCategory->slug }}/news"
-                                class="news-tag-sm text-white my-1 text-decoration-none">{{
-                                $popularPost->subCategory->name }}</a>
+                            <div class="d-flex flex-column align-items-start">
+                                <h6 class="card-title">
+                                    <a href="{{ route('news.show',$popularPost->slug) }}" class="text-dark">
+                                        {{ $popularPost->title }}
+                                    </a>
+                                </h6>
+                                <a href="/{{ $popularPost->subCategory->category->slug }}/{{ $popularPost->subCategory->slug }}/news"
+                                    class="news-tag-sm text-white my-1 text-decoration-none">{{
+                                    $popularPost->subCategory->name }}</a>
+                            </div>
                             <div class="icon-box-sm">
                                 <span>
                                     <i class="fa-solid fa-user me-1"></i>
@@ -70,15 +72,17 @@
                     </div>
                     <div class="col-10 col-lg-8">
                         <div class="card-body">
-                            <h6 class="card-title">
-                                <a href="{{ route('news.show',$recentPost->slug) }}" class="text-dark">
-                                    {{ $recentPost->title }}
-                                </a>
-                            </h6>
+                            <div class="d-flex flex-column align-items-start">
+                                <h6 class="card-title">
+                                    <a href="{{ route('news.show',$recentPost->slug) }}" class="text-dark">
+                                        {{ $recentPost->title }}
+                                    </a>
+                                </h6>
 
-                            <a href="/{{ $recentPost->subCategory->category->slug }}/{{ $recentPost->subCategory->slug }}/news"
-                                class="news-tag-sm text-white my-1  text-decoration-none">{{
-                                $recentPost->subCategory->name }}</a>
+                                <a href="/{{ $recentPost->subCategory->category->slug }}/{{ $recentPost->subCategory->slug }}/news"
+                                    class="news-tag-sm text-white my-1  text-decoration-none">{{
+                                    $recentPost->subCategory->name }}</a>
+                            </div>
                             <div class="icon-box-sm">
                                 <span>
                                     <i class="fa-solid fa-user me-1"></i>

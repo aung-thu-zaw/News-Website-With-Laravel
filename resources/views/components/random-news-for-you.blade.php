@@ -12,14 +12,17 @@
                 </div>
                 <div class="col-10 col-lg-8">
                     <div class="card-body">
-                        <h6 class="card-title">
-                            <a href="{{ route('news.show',$randomPost->slug) }}" class="text-dark">
-                                {{ $randomPost->title }}
-                            </a>
-                        </h6>
-                        <a href="/{{ $randomPost->subCategory->category->slug }}/{{ $randomPost->subCategory->slug }}/news"
-                            class="news-tag-sm text-white my-1 text-decoration-none">{{ $randomPost->subCategory->name
-                            }}</a>
+                        <div class="d-flex flex-column align-items-start">
+                            <h6 class="card-title">
+                                <a href="{{ route('news.show',$randomPost->slug) }}" class="text-dark">
+                                    {{ $randomPost->title }}
+                                </a>
+                            </h6>
+                            <a href="/{{ $randomPost->subCategory->category->slug }}/{{ $randomPost->subCategory->slug }}/news"
+                                class="news-tag-sm text-white my-1 text-decoration-none">{{
+                                $randomPost->subCategory->name
+                                }}</a>
+                        </div>
                         <div class="icon-box-sm">
                             <span>
                                 <i class="fa-solid fa-user me-1"></i>

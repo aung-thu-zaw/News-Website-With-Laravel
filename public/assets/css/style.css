@@ -134,9 +134,9 @@ a:hover {
     font-weight: 600;
     background-color: rgba(178, 169, 0, 0.748);
     border-radius: 3px;
-    width: 80px;
     padding: 3px 5px;
     display: flex;
+    padding: 3px 8px;
     align-items: center;
     justify-content: center;
 }
@@ -146,8 +146,7 @@ a:hover {
     font-weight: 500;
     background-color: rgba(178, 169, 0, 0.748);
     border-radius: 3px;
-    width: 80px;
-    padding: 2px 3px;
+    padding: 3px 5px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -155,9 +154,9 @@ a:hover {
 .news-tag-sm {
     font-size: 0.6rem;
     font-weight: 500;
+    padding: 3px 5px;
     background-color: rgba(178, 169, 0, 0.748);
     border-radius: 3px;
-    width: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -341,35 +340,34 @@ span{
 
 /* Carosel  */
 @media (max-width: 767px) {
-    .carousel-inner .carousel-item>div {
-        display: none
+    .carousel-inner .carousel-item > div {
+        display: none;
     }
 
-    .carousel-inner .carousel-item>div:first-child {
-        display: block
+    .carousel-inner .carousel-item > div:first-child {
+        display: block;
     }
 }
 
 .carousel-inner .carousel-item.active,
 .carousel-inner .carousel-item-next,
 .carousel-inner .carousel-item-prev {
-    display: flex
+    display: flex;
 }
 
 @media (min-width: 768px) {
-
     .carousel-inner .carousel-item-end.active,
     .carousel-inner .carousel-item-next {
-        transform: translateX(25%)
+        transform: translateX(25%);
     }
 
     .carousel-inner .carousel-item-start.active,
     .carousel-inner .carousel-item-prev {
-        transform: translateX(-25%)
+        transform: translateX(-25%);
     }
 }
 
 .carousel-inner .carousel-item-end,
 .carousel-inner .carousel-item-start {
-    transform: translateX(0)
+    transform: translateX(0);
 }

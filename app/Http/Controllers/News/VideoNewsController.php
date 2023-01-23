@@ -35,6 +35,11 @@ class VideoNewsController extends Controller
 
         $videoNewsPost->update();
 
-        return view("video-news-post.show", compact("videoNewsPost", "socialShare"));
+        $topVideoNews=VideoNewsPost::with("author")
+        ->orderBy("visitors", "desc")
+        ->take(10)
+        ->get();
+
+        return view("video-news-post.show", compact("videoNewsPost", "socialShare", "topVideoNews"));
     }
 }

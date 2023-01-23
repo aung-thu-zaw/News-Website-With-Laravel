@@ -14,7 +14,7 @@
 
             <div class="col-lg-4 col-md-6">
                 <div>
-                    <x-related-news-box />
+                    <x-related-news-box :relatednews="$relatedNewsPosts"/>
 
                     <x-tags />
 

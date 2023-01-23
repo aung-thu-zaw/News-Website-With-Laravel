@@ -6,7 +6,6 @@
 
                 <x-single-news-details :post="$videoNewsPost" :socialshare="$socialShare" />
 
-                {{-- <x-related-tags :tags="$tags" /> --}}
                 <x-related-tags :post="$videoNewsPost" />
 
 
@@ -14,7 +13,8 @@
 
             <div class="col-lg-4 col-md-6">
                 <div>
-                    <x-related-news-box />
+
+                    <x-top-viewed-videos :topvideos="$topVideoNews" />
 
                     <x-tags />
 

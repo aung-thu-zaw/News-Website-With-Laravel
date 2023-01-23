@@ -41,9 +41,6 @@
                     </div>
                 </div>
 
-
-
-
                 <div class="row g-3">
                     @foreach ($recentNewsPosts as $post)
                     <div class="col-lg-4 col-md-6">
@@ -51,20 +48,21 @@
                             <img src="{{ asset('storage/thumbnails/'.$post->thumbnail) }}" alt="" class="img-fluid"
                                 style="width: 100%; height: 100%; object-fit: cover">
                             <div class="card-img-overlay d-flex flex-column justify-content-end">
+                                <div class="d-flex flex-column align-items-start">
+                                    <h5 class="card-title">
+                                        <a href="{{ route('news.show',$post->slug) }}"
+                                            class="text-white text-decoration-none">
+                                            {{ $post->title }}
+                                        </a>
+                                    </h5>
 
-                                <h5 class="card-title">
-                                    <a href="{{ route('news.show',$post->slug) }}"
-                                        class="text-white text-decoration-none">
-                                        {{ $post->title }}
-                                    </a>
-                                </h5>
+                                    <p class="card-text description d-lg-none d-xl-block">
+                                        {{ StringHelper::description($post->body,100) }}
+                                    </p>
 
-                                <p class="card-text description d-lg-none d-xl-block">
-                                    {{ StringHelper::description($post->body,100) }}
-                                </p>
-
-                                <a href="#" class="header-news-tag-sm text-white my-1">{{ $post->subCategory->name
-                                    }}</a>
+                                    <a href="#" class="header-news-tag-sm text-white my-1">{{ $post->subCategory->name
+                                        }}</a>
+                                </div>
                                 <div class="icon-box-sm">
                                     <span>
                                         <i class="fa-solid fa-user me-1"></i>

@@ -29,7 +29,7 @@ class HomeNewsController extends Controller
                        ->get();
 
         $newsVideoPosts=VideoNewsPost::with("author")
-                        ->orderBy("visitors", "desc")
+                        ->orderBy("id", "desc")
                         ->take(12)
                         ->get();
 
@@ -61,6 +61,11 @@ class HomeNewsController extends Controller
 
         $newsPost->update();
 
-        return view("news.show", compact("newsPost", "socialShare"));
+        $relatedNewsPosts=NewsPost::where("sub_category_id", $newsPost->sub_category_id)
+                          ->where("slug", "!=", $newsPost->slug)
+                          ->take(15)
+                          ->get();
+
+        return view("news.show", compact("newsPost", "socialShare", "relatedNewsPosts"));
     }
 }
