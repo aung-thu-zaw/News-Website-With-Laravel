@@ -4,14 +4,20 @@
     <div>
         <h2 class="text-center my-3">{{ $post->title }}</h2>
     </div>
-    <div>
-        <div class="text-secondary" style="font-size: .8rem;">
-            By {{ $post->author->name }}, World News
+    <div class="d-flex align-items-center">
+        <div class="me-2">
+            <img src="{{ asset('storage/avatars/'.$post->author->avatar) }}" class="rounded-circle" alt=""
+                style="width:30px; height:30px; object-fit:cover; object-position: center">
         </div>
-        <div class="text-secondary" style="font-size: .8rem;">
-            Updated {{ DateTimeHelper::formatDateTime($post,"updated_at") }}
+        <div>
+            <div class="text-secondary" style="font-size: .8rem;">
+                By <a href="#" data-bs-toggle="tooltip" data-bs-title="{{ $post->author->role }}">{{ $post->author->name
+                    }}</a>, World News
+            </div>
+            <div class="text-secondary" style="font-size: .8rem;">
+                Updated {{ DateTimeHelper::formatDateTime($post,"updated_at") }}
+            </div>
         </div>
-
     </div>
 
     <div class="my-3 w-100">
@@ -48,7 +54,8 @@
         <div>
             <span class="text-secondary">
                 <i class="fa-solid fa-user me-1"></i>
-                <a href="#" class="text-dark" data-bs-toggle="tooltip" data-bs-title="Author">{{ $post->author->name
+                <a href="#" class="text-dark" data-bs-toggle="tooltip" data-bs-title="{{ $post->author->role }}">{{
+                    $post->author->name
                     }}</a>
             </span>
         </div>

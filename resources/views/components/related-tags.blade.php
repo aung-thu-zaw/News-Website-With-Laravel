@@ -8,7 +8,7 @@
             @foreach ($post->tags as $tag)
 
             <span>
-                <a href="{{ $tag->slug }}" class="header-news-tag-sm text-white me-1">{{ $tag->name }}</a>
+                <a href="{{ $tag->slug }}" class="tag text-white me-1 text-decoration-none">{{ $tag->name }}</a>
             </span>
 
             @endforeach

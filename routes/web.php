@@ -117,6 +117,8 @@ Route::get("/faq", [FaqController::class,"index"])->name("faq.index");
 
 Route::get("/contact-us", [ContactUsController::class,"index"])->name("contact-us.index");
 
+Route::post("/contact-us/send-email", [ContactUsController::class,"sendEmail"])->name("contact-us.send-email");
+
 Route::get("/terms-and-conditions", [TermsAndConditionsController::class,"index"])->name("terms-and-conditions.index");
 
 Route::get("/privacy-and-policy", [PrivacyAndPolicyController::class,"index"])->name("privacy-and-policy.index");

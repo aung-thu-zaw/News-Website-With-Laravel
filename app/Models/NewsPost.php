@@ -19,7 +19,7 @@ class NewsPost extends Model
 
     public function subCategory()
     {
-        return $this->belongsTo(SubCategory::class)->with("category:id,slug");
+        return $this->belongsTo(SubCategory::class)->with("category:id,name,slug");
     }
 
     public function author()

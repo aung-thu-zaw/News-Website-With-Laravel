@@ -129,7 +129,8 @@ a:hover {
     margin-right: 0.5rem;
 }
 
-.header-news-tag {
+.header-news-tag,
+.tag {
     font-size: 0.8rem;
     font-weight: 600;
     background-color: rgba(178, 169, 0, 0.748);
@@ -139,6 +140,9 @@ a:hover {
     padding: 3px 8px;
     align-items: center;
     justify-content: center;
+}
+.tag {
+    background-color: #2a61ad;
 }
 
 .header-news-tag-sm {

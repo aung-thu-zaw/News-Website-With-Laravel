@@ -22,29 +22,48 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="card p-3 shadow-sm">
-                            <form class="row g-3">
+                            <form action="{{ route('contact-us.send-email') }}" method="POST" class="row g-3">
+                                @csrf
                                 <div class="col-md-12">
                                     <label for="inputName" class="form-label">Name</label>
-                                    <input type="name" class="form-control" id="inputName" placeholder="your fullname">
+                                    <input type="name" name="name" class="form-control" value="{{ old('name') }}"
+                                        id="inputName" placeholder="your fullname">
+                                    @error("name")
+                                    <p class="text-center text-danger">{{ $message }}</p>
+                                    @enderror
                                 </div>
+
                                 <div class="col-md-6">
                                     <label for="inputEmail4" class="form-label">Email</label>
-                                    <input type="email" class="form-control" id="inputEmail4"
-                                        placeholder="abcd@example.com">
+                                    <input type="email" name="email" class="form-control" value="{{ old('email') }}"
+                                        id="inputEmail4" placeholder="abcd@example.com">
+                                    @error("email")
+                                    <p class="text-center text-danger">{{ $message }}</p>
+                                    @enderror
                                 </div>
                                 <div class="col-md-6">
                                     <label for="inputPhone" class="form-label">Phone</label>
-                                    <input type="number" class="form-control" id="inputPhone" placeholder="09245768454">
+                                    <input type="number" name="phone" class="form-control" value="{{ old('phone') }}"
+                                        id="inputPhone" minlength="8" maxlength="13" placeholder="09245768454">
+                                    @error("phone")
+                                    <p class="text-center text-danger">{{ $message }}</p>
+                                    @enderror
                                 </div>
                                 <div class="col-12">
                                     <label for="inputAddress" class="form-label">Address</label>
-                                    <input type="text" class="form-control" id="inputAddress"
-                                        placeholder="parami2, Khatta Road, Myeik">
+                                    <input type="text" name="address" class="form-control" value="{{ old('address') }}"
+                                        id="inputAddress" placeholder="parami2, Khatta Road, Myeik">
+                                    @error("address")
+                                    <p class="text-center text-danger">{{ $message }}</p>
+                                    @enderror
                                 </div>
                                 <div class="col-12">
                                     <label for="inputMessage" class="form-label">Message</label>
-                                    <textarea class="form-control" name="" id="inputMessage" cols="30" rows="10"
-                                        placeholder="message..."></textarea>
+                                    <textarea class="form-control" name="content" value="{{ old('message') }}"
+                                        id="inputMessage" cols="30" rows="10" placeholder="message..."></textarea>
+                                    @error("content")
+                                    <p class="text-center text-danger">{{ $message }}</p>
+                                    @enderror
                                 </div>
                                 <div class="col-12">
                                     <button type="submit" class="btn btn-primary">Submit</button>

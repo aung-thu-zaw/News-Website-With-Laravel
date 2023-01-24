@@ -8,8 +8,8 @@
         <div class="row">
 
             <div class="col-lg-7 my-2">
-                <input type="text" class="form-control" name="q" placeholder="Search...." value="{{ request('q') }}"
-                    aria-label="Last name">
+                <input type="text" class="form-control" name="q" placeholder="Search...."
+                    value="{{ request('search') }}" aria-label="Last name">
             </div>
 
             {{-- <input type="hidden" name="type" value="article"> --}}
