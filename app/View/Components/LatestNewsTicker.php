@@ -24,8 +24,11 @@ class LatestNewsTicker extends Component
      */
     public function render()
     {
-        return view('components.latest-news-ticker', [
-            "latestNewsPosts" => NewsPost::orderBy("id", "desc")->take(8)->get()
-        ]);
+        $latestNewsPosts=NewsPost::select("title", "slug")
+                         ->orderBy("id", "desc")
+                         ->take(8)
+                         ->get();
+
+        return view('components.latest-news-ticker', compact("latestNewsPosts"));
     }
 }

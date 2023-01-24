@@ -13,7 +13,7 @@ return new class () extends Migration {
     public function up()
     {
         Schema::table('news_posts', function (Blueprint $table) {
-            $table->foreignId("sub_category_id")->constrained();
+            $table->foreignId("sub_category_id")->after("user_id")->constrained();
         });
     }
 

@@ -38,8 +38,7 @@
                 <div class="row g-3">
                     @foreach ($newsVideoPosts as $post)
                     <div class="col-lg-3 col-md-4">
-                        <div class="card" style="width: 18rem;">
-
+                        <div class="card">
                             <div class="card text-bg-dark" style="width: 100%; height: 200px" class="card-img-top">
                                 <img src="http://img.youtube.com/vi/{{ $post->video_id }}/mqdefault.jpg"
                                     class="card-img img-fluid" alt="..."

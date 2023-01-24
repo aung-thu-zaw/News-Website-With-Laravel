@@ -24,10 +24,10 @@ class CategoryNavbar extends Component
      */
     public function render()
     {
-        return view('components.category-navbar', [
-            "categories"=>Category::with("subCategories")
-            ->where("status", "show")
-            ->get()
-        ]);
+        $categories=Category::with("subCategories")
+        ->where("status", "show")
+        ->get();
+
+        return view('components.category-navbar', compact("categories"));
     }
 }

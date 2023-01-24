@@ -15,7 +15,7 @@ class SubCategoryController extends Controller
     {
         Meta::setTitle($subCategory->name);
 
-        $newsPosts=NewsPost::with("subCategory", "author")
+        $newsPosts=NewsPost::with("subCategory:id,category_id,name,slug", "author:id,name")
                     ->where("sub_category_id", $subCategory->id)
                     ->orderBy("id", "desc")
                     ->paginate(15);

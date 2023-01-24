@@ -16,34 +16,37 @@ class HomeNewsController extends Controller
     {
         Meta::prependTitle('Home');
 
-        $latestNewsPosts=NewsPost::with("subCategory.category", "author")
+        $latestNewsPosts=NewsPost::with("subCategory.category:id,slug", "author:id,name")
                         ->orderBy("id", "desc")
                         ->take(5)
                         ->get();
 
-        $trendingVideos=TrendingVideo::orderBy("id", "desc")->get();
+        $trendingVideos=TrendingVideo::orderBy("id", "desc")
+                        ->get();
 
 
-        $subCategories=SubCategory::with("newsPosts.subCategory", "newsPosts.author", "category.subCategories")
+        $subCategories=SubCategory::select("id", "category_id", "name", "slug", "status_on_home")
+                       ->with("newsPosts.subCategory:id,name,slug", "newsPosts.author:id,name", "category.subCategories:id,name,slug")
                        ->orderBy("id", "desc")
                        ->get();
 
-        $newsVideoPosts=VideoNewsPost::with("author")
+        $newsVideoPosts=VideoNewsPost::select("user_id", "video_id", "title", "slug", "created_at")
+                        ->with("author:id,name")
                         ->orderBy("id", "desc")
                         ->take(12)
                         ->get();
 
 
 
-        if (request("q")) {
-            $newsPosts=NewsPost::search(request("q"))->paginate(18)->withQueryString();
+        // if (request("q")) {
+        //     $newsPosts=NewsPost::search(request("q"))->paginate(18)->withQueryString();
 
-            $newsPosts->load("subCategory.category", "author");
+        //     $newsPosts->load("subCategory.category", "author");
 
-            return view("search-news.index", compact("newsPosts"));
-        } else {
-            return view('news.index', compact("latestNewsPosts", "trendingVideos", "subCategories", "newsVideoPosts"));
-        }
+        //     return view("search-news.index", compact("newsPosts"));
+        // } else {
+        return view('news.index', compact("latestNewsPosts", "trendingVideos", "subCategories", "newsVideoPosts"));
+        // }
     }
 
     public function show(NewsPost $newsPost)
@@ -61,7 +64,8 @@ class HomeNewsController extends Controller
 
         $newsPost->update();
 
-        $relatedNewsPosts=NewsPost::where("sub_category_id", $newsPost->sub_category_id)
+        $relatedNewsPosts=NewsPost::select("title", "slug")
+                          ->where("sub_category_id", $newsPost->sub_category_id)
                           ->where("slug", "!=", $newsPost->slug)
                           ->take(15)
                           ->get();

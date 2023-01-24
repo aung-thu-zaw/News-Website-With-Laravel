@@ -12,6 +12,8 @@ class TagNewsPostController extends Controller
 {
     public function show(Tag $tag)
     {
+
+        
         return view("tags.news-posts.show", [
             "tag"=>Tag::with("newsPosts.subCategory")->where("slug", $tag->slug)->first()
         ]);

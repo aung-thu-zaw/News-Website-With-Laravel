@@ -12,7 +12,7 @@
                     aria-label="Last name">
             </div>
 
-            <input type="hidden" name="type" value="article">
+            {{-- <input type="hidden" name="type" value="article"> --}}
 
             <div class="col-lg-2 my-2 d-grid">
                 <button class="btn btn-secondary">Search</button>

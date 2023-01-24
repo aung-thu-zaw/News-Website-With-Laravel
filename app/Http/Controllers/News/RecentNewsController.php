@@ -14,9 +14,9 @@ class RecentNewsController extends Controller
         Meta::setTitle("Recent News");
 
 
-        $recentNewsPosts=NewsPost::with("subCategory", "author")
+        $recentNewsPosts=NewsPost::with("subCategory.category:id,name,slug", "author:id,name")
                          ->orderBy("id", "desc")
-                         ->take(10)
+                         ->take(18)
                          ->get();
 
         return view("popular-news-and-recent-news.recent-news.index", compact("recentNewsPosts"));

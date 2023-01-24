@@ -13,12 +13,12 @@ class DateNewsController extends Controller
     {
         Meta::setTitle("$year-$month-$day");
 
-        $newsPosts=NewsPost::with("subCategory.category", "author")
+        $newsPosts=NewsPost::with("subCategory.category:id,slug", "author:id,name")
                    ->whereYear("created_at", $year)
                    ->whereMonth("created_at", $month)
                    ->whereDay("created_at", $day)
                    ->orderBy("id", "desc")
-                   ->paginate(12);
+                   ->paginate(15);
 
         return view("date-post.show", compact("newsPosts"));
     }

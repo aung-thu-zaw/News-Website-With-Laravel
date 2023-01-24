@@ -16,7 +16,7 @@
                     <input type="hidden" name="page" value="{{$page}}">
 
                     <x-form.input type="text" name="video_id" value="{{ $videoNewsPost->video_id }}">
-                        <x-form.label name="Video Id *" />
+                        <x-form.label name="Youtube Video Id *" />
                     </x-form.input>
 
                     <x-form.input type="text" name="title" value="{{ $videoNewsPost->title }}">

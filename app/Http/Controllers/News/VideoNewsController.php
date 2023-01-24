@@ -13,7 +13,7 @@ class VideoNewsController extends Controller
     {
         Meta::setTitle("Video News");
 
-        $newsVideoPosts=VideoNewsPost::with("author")
+        $newsVideoPosts=VideoNewsPost::with("author:id,name")
                         ->orderBy("id", "desc")
                         ->paginate(12);
 
@@ -35,10 +35,11 @@ class VideoNewsController extends Controller
 
         $videoNewsPost->update();
 
-        $topVideoNews=VideoNewsPost::with("author")
-        ->orderBy("visitors", "desc")
-        ->take(10)
-        ->get();
+        $topVideoNews=VideoNewsPost::select("title", "slug")
+                     ->with("author:id,name")
+                     ->orderBy("visitors", "desc")
+                     ->take(10)
+                     ->get();
 
         return view("video-news-post.show", compact("videoNewsPost", "socialShare", "topVideoNews"));
     }

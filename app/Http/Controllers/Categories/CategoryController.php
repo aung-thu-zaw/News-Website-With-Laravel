@@ -16,16 +16,17 @@ class CategoryController extends Controller
 
         $category=$category->load("subCategories.category");
 
-        // $subCategories=SubCategory::where("category_id", $category->id)->get();
+        $subCategoryIDs=[];
+
+        foreach ($category->subCategories as $subCategory) {
+            $subCategoryIDs[]=$subCategory->id;
+        }
+
+        $newsPosts=NewsPost::whereHas("subCategory", function ($query) use ($subCategoryIDs) {
+            $query->whereIn("sub_category_id", $subCategoryIDs);
+        })->with("subCategory.category", "author")->paginate(18);
 
 
-        // // $newsPosts=NewsPost::where("sub_category_id", $subCategories->pluck("id"))->get();
-        // dd($newsPosts);
-
-
-
-
-
-        return view('categories.category.show', compact("category"));
+        return view('categories.category.show', compact("category", "newsPosts"));
     }
 }
