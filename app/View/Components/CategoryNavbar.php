@@ -25,8 +25,8 @@ class CategoryNavbar extends Component
     public function render()
     {
         $categories=Category::with("subCategories")
-        ->where("status", "show")
-        ->get();
+                    ->where("status", "show")
+                    ->get();
 
         return view('components.category-navbar', compact("categories"));
     }

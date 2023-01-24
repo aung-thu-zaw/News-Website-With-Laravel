@@ -24,7 +24,7 @@ class RandomNewsForYou extends Component
      */
     public function render()
     {
-        $randomNews=NewsPost::with("subCategory.category:id,slug", "author:id,name")
+        $randomNews=NewsPost::with("subCategory:id,category_id,name,slug", "author:id,name")
                     ->inRandomOrder()
                     ->orderBy("id", "desc")
                     ->take(10)

@@ -16,17 +16,18 @@ class HomeNewsController extends Controller
     {
         Meta::prependTitle('Home');
 
-        $latestNewsPosts=NewsPost::with("subCategory.category:id,slug", "author:id,name")
+        $latestNewsPosts=NewsPost::with("subCategory:id,category_id,name,slug", "author:id,name")
                         ->orderBy("id", "desc")
                         ->take(5)
                         ->get();
+
 
         $trendingVideos=TrendingVideo::orderBy("id", "desc")
                         ->get();
 
 
         $subCategories=SubCategory::select("id", "category_id", "name", "slug", "status_on_home")
-                       ->with("newsPosts.subCategory:id,name,slug", "newsPosts.author:id,name", "category.subCategories:id,name,slug")
+                       ->with("newsPosts", "category.subCategories:id,name,slug")
                        ->orderBy("id", "desc")
                        ->get();
 

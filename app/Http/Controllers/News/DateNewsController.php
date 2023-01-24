@@ -13,7 +13,7 @@ class DateNewsController extends Controller
     {
         Meta::setTitle("$year-$month-$day");
 
-        $newsPosts=NewsPost::with("subCategory.category:id,slug", "author:id,name")
+        $newsPosts=NewsPost::with("subCategory:id,category_id,name,slug", "author:id,name")
                    ->whereYear("created_at", $year)
                    ->whereMonth("created_at", $month)
                    ->whereDay("created_at", $day)

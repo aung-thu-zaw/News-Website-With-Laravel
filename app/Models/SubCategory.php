@@ -23,7 +23,8 @@ class SubCategory extends Model
 
     public function newsPosts()
     {
-        return $this->hasMany(NewsPost::class);
+        return $this->hasMany(NewsPost::class)->with("subCategory:id,name,slug", "author:id,name");
+        // return $this->hasMany(NewsPost::class);
     }
 
     public function toSearchableArray()
