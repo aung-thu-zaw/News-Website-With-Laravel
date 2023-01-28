@@ -5,38 +5,10 @@
 
                 <x-breadcrumbs videonews="Video News" />
 
-
-
-                {{-- <div class="row">
-                    <div class="col-lg-9">
-                        <form action="" class="mt-3">
-                            <div class="row g-2">
-                                <div class="col-lg-10 my-2">
-                                    <input type="text" class="form-control" placeholder="Search News...."
-                                        aria-label="Last name">
-                                </div>
-                                <div class="col-lg-2 my-2 d-grid">
-                                    <button class="btn btn-secondary">Search</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-
-                    <div class="col-lg-3 d-flex align-items-center justify-content-center">
-                        <select class="form-select" name="">
-                            <option selected disabled>Sort By</option>
-                            <option value="">Oldest</option>
-                            <option value="">Newest</option>
-                            <option value="">Title</option>
-                        </select>
-                    </div>
-                </div> --}}
-
-
-
+                <x-single-search-form />
 
                 <div class="row g-3">
-                    @foreach ($newsVideoPosts as $post)
+                    @forelse ($newsVideoPosts as $post)
                     <div class="col-lg-3 col-md-4">
                         <div class="card">
                             <div class="card text-bg-dark" style="width: 100%; height: 200px" class="card-img-top">
@@ -75,7 +47,9 @@
                             </div>
                         </div>
                     </div>
-                    @endforeach
+                    @empty
+                    <p class="text-center text-danger">No Post Found</p>
+                    @endforelse
 
                     <div class="d-flex align-items-center justify-content-center">
                         {{ $newsVideoPosts->links() }}

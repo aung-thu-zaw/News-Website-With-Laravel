@@ -47,4 +47,20 @@ class NewsPost extends Model
             unlink(public_path("storage/thumbnails/$newsPost->thumbnail"));
         }
     }
+
+    public function scopeFilterRequest($query, $filterKeyword)
+    {
+        $query->when($filterKeyword["query"]??null, function ($query, $keyword) {
+            $query->where(function ($query) use ($keyword) {
+                $query->where("title", "LIKE", "%".$keyword."%")
+                ->orWhere("body", "LIKE", "%".$keyword."%");
+            });
+        });
+
+        $query->when($filterKeyword["subcategory"]??null, function ($query, $keyword) {
+            $query->whereHas("subCategory", function ($query) use ($keyword) {
+                $query->where("slug", "LIKE", "%".$keyword."%");
+            });
+        });
+    }
 }

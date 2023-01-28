@@ -3,38 +3,11 @@
         <div class="row g-3">
             <div class="col-12">
                 <x-breadcrumbs :category="$category" />
-                <div class="row">
-                    <div class="col-lg-7">
-                        <form action="" class="mb-3">
-                            <div class="row g-2">
-                                <div class="col-lg-10 my-2">
-                                    <input type="text" class="form-control" placeholder="Search...."
-                                        aria-label="Last name">
-                                </div>
-                                <div class="col-lg-2 my-2 d-grid">
-                                    <button class="btn btn-secondary">Search</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="col-lg-3">
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected disabled>Filter By SubCategory</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                        </select>
-                    </div>
-                    <div class="col-lg-2">
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected disabled>Sort By</option>
-                            <option value="1">Newest</option>
-                            <option value="2">Oldest</option>
-                        </select>
-                    </div>
-                </div>
+
+                <x-filter-search-form />
+
                 <div class="row g-3">
-                    @foreach ($newsPosts as $post)
+                    @forelse ($newsPosts as $post)
                     <div class="col-lg-4 col-md-6">
                         <div class="card bg-dark overflow-hidden text-white border" style="height: 300px">
                             <img src="{{ asset('storage/thumbnails/'.$post->thumbnail) }}" alt="" class="img-fluid"
@@ -83,7 +56,9 @@
                             </div>
                         </div>
                     </div>
-                    @endforeach
+                    @empty
+                    <p class="text-center text-danger">No Post Found</p>
+                    @endforelse
                     <div class="d-flex align-items-center justify-content-center">
                         {{ $newsPosts->links() }}
                     </div>

@@ -17,7 +17,7 @@
                         @if ($subcategory->status_on_navbar==="show")
                         <li>
                             <a class="dropdown-item text-decoration-none"
-                                href="{{ $category->slug }}/{{ $subcategory->slug }}/news">
+                                href="/{{ $category->slug }}/{{ $subcategory->slug }}/news">
                                 {{$subcategory->name }}
                             </a>
                         </li>

@@ -16,7 +16,9 @@ class PopularNewsController extends Controller
 
         $popularNewsPosts=NewsPost::with("subCategory:id,category_id,name,slug", "author:id,name")
                           ->orderBy("visitors", "desc")
-                          ->paginate(15);
+                          ->filterRequest(request(["query","subcategory"]))
+                          ->paginate(18);
+
 
         return view("popular-news-and-recent-news.popular-news.index", compact("popularNewsPosts"));
     }

@@ -35,4 +35,14 @@ class VideoNewsPost extends Model
             "body" => $this->body,
         ];
     }
+
+    public function scopeFilterRequest($query, $filterKeyword)
+    {
+        $query->when($filterKeyword["query"]??null, function ($query, $keyword) {
+            $query->where(function ($query) use ($keyword) {
+                $query->where("title", "LIKE", "%".$keyword."%")
+                ->orWhere("body", "LIKE", "%".$keyword."%");
+            });
+        });
+    }
 }

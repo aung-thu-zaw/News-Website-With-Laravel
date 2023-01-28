@@ -16,9 +16,10 @@ class SubCategoryController extends Controller
         Meta::setTitle($subCategory->name);
 
         $newsPosts=NewsPost::with("subCategory:id,category_id,name,slug", "author:id,name")
-                    ->where("sub_category_id", $subCategory->id)
-                    ->orderBy("id", "desc")
-                    ->paginate(15);
+                   ->where("sub_category_id", $subCategory->id)
+                   ->orderBy("id", "desc")
+                   ->filterRequest(request(["query"]))
+                   ->paginate(15);
 
         return view('categories.sub-category.show', compact("category", "subCategory", "newsPosts"));
     }

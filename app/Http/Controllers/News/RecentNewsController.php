@@ -16,8 +16,12 @@ class RecentNewsController extends Controller
 
         $recentNewsPosts=NewsPost::with("subCategory:id,category_id,name,slug", "author:id,name")
                          ->orderBy("id", "desc")
-                         ->take(18)
+                         ->take(20)
+                         ->filterRequest(request(["query","subcategory"]))
                          ->get();
+
+
+
 
         return view("popular-news-and-recent-news.recent-news.index", compact("recentNewsPosts"));
     }

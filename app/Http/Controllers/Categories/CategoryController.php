@@ -24,8 +24,9 @@ class CategoryController extends Controller
 
         $newsPosts=NewsPost::whereHas("subCategory", function ($query) use ($subCategoryIDs) {
             $query->whereIn("sub_category_id", $subCategoryIDs);
-        })->with("subCategory.category", "author")->paginate(18);
-
+        })->with("subCategory", "author")
+          ->filterRequest(request(["query","subcategory"]))
+          ->paginate(18);
 
         return view('categories.category.show', compact("category", "newsPosts"));
     }

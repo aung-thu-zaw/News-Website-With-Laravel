@@ -18,7 +18,8 @@ class DateNewsController extends Controller
                    ->whereMonth("created_at", $month)
                    ->whereDay("created_at", $day)
                    ->orderBy("id", "desc")
-                   ->paginate(15);
+                   ->filterRequest(request(["query","subcategory"]))
+                   ->paginate(18);
 
         return view("date-post.show", compact("newsPosts"));
     }

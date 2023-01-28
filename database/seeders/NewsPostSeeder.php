@@ -16,7 +16,6 @@ class NewsPostSeeder extends Seeder
      */
     public function run()
     {
-        // NewsPost::factory(3000)->create();
         // $newsPosts=NewsPost::factory(3000)->make();
 
         // $newsPosts->chunk(500)->each(function ($chunk) {

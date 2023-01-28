@@ -38,11 +38,10 @@ class HomeNewsController extends Controller
                         ->get();
 
 
+        if (request("query")) {
+            $newsPosts=NewsPost::orderBy("id", "desc")->filterRequest(request(["query","subcategory"]))->paginate(18)->withQueryString();
 
-        if (request("q")) {
-            $newsPosts=NewsPost::search(request("search"))->paginate(18)->withQueryString();
-
-            $newsPosts->load("subCategory.category", "author");
+            $newsPosts->load("subCategory", "author");
 
             return view("search-news.index", compact("newsPosts"));
         } else {

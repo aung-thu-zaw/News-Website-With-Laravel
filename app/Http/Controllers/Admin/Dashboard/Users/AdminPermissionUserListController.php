@@ -16,7 +16,7 @@ class AdminPermissionUserListController extends Controller
         Meta::prependTitle("Permission User List");
 
         $permissionUsers=User::search(request("search"))
-                        ->where("role", "!=", null)
+                        ->where("role", null)
                         ->orderBy("id", "desc")
                         ->paginate(10)
                         ->withQueryString();

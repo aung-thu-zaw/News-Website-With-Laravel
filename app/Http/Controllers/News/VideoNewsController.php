@@ -14,8 +14,9 @@ class VideoNewsController extends Controller
         Meta::setTitle("Video News");
 
         $newsVideoPosts=VideoNewsPost::with("author:id,name")
+                        ->filterRequest(request(["query"]))
                         ->orderBy("id", "desc")
-                        ->paginate(12);
+                        ->paginate(20);
 
         return view("video-news-post.index", compact("newsVideoPosts"));
     }
