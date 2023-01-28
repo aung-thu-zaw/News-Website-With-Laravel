@@ -9,6 +9,17 @@ use Butschster\Head\Facades\Meta;
 
 class DateNewsController extends Controller
 {
+    public function handleDateFormat(Request $request)
+    {
+        $dateArray=explode("-", $request->date);
+
+        $year=$dateArray[0];
+        $month=$dateArray[1];
+        $day=$dateArray[2];
+
+        return to_route("date-news.show", [$year, $month, $day]);
+    }
+
     public function show($year, $month, $day)
     {
         Meta::setTitle("$year-$month-$day");
@@ -20,7 +31,6 @@ class DateNewsController extends Controller
                    ->orderBy("id", "desc")
                    ->filterRequest(request(["query","subcategory"]))
                    ->paginate(18);
-
         return view("date-post.show", compact("newsPosts"));
     }
 }

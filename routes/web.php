@@ -85,6 +85,9 @@ Route::controller(ProfileController::class)
 Route::get('/', [HomeNewsController::class,"index"])->middleware(["twofactor"])->name("news.index");
 Route::get('/news/{news_post:slug}', [HomeNewsController::class,"show"])->name("news.show");
 
+
+Route::post("/handle-date-format", [DateNewsController::class,"handleDateFormat"])->name("date-news.handle-date-format");
+
 Route::get("/{year}/{month}/{day}/news", [DateNewsController::class,"show"])->name("date-news.show");
 
 Route::get("/{category:slug}/news", [CategoryController::class,"show"])->name("category.news.show");
