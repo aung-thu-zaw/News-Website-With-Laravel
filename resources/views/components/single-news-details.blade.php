@@ -11,7 +11,7 @@
         </div>
         <div>
             <div class="text-secondary" style="font-size: .8rem;">
-                By <a href="#" data-bs-toggle="tooltip" data-bs-title="{{ $post->author->role }}">{{ $post->author->name
+                By <a href="#" data-bs-toggle="tooltip" data-bs-title="Author">{{ $post->author->name
                     }}</a>, World News
             </div>
             <div class="text-secondary" style="font-size: .8rem;">
@@ -54,7 +54,7 @@
         <div>
             <span class="text-secondary">
                 <i class="fa-solid fa-user me-1"></i>
-                <a href="#" class="text-dark" data-bs-toggle="tooltip" data-bs-title="{{ $post->author->role }}">{{
+                <a href="#" class="text-dark" data-bs-toggle="tooltip" data-bs-title="Author">{{
                     $post->author->name
                     }}</a>
             </span>

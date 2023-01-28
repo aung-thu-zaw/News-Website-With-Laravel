@@ -8,17 +8,24 @@
 
                 <x-related-tags :post="$newsPost" />
 
-
+                <x-related-top-news-videos :posts="$relatedTopNewsVideos" />
 
             </div>
 
             <div class="col-lg-4 col-md-6">
                 <div>
-                    <x-related-news-box :relatednews="$relatedNewsPosts"/>
+
+                    <x-related-news-box :relatednews="$relatedNewsPosts" />
+
+                    <x-sidebar-top-advertisement />
+
+                    <x-online-poll />
+
+                    <x-datepicker />
 
                     <x-tags />
 
-                    <x-sidebar-top-advertisement />
+                    <x-sidebar-bottom-advertisement />
 
                 </div>
             </div>

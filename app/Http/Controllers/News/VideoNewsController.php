@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\News;
 
 use App\Http\Controllers\Controller;
+use App\Models\NewsPost;
 use App\Models\VideoNewsPost;
 use Share;
 use Butschster\Head\Facades\Meta;
@@ -13,10 +14,10 @@ class VideoNewsController extends Controller
     {
         Meta::setTitle("Video News");
 
-        $newsVideoPosts=VideoNewsPost::with("author:id,name")
-                        ->filterRequest(request(["query"]))
+        $newsVideoPosts=VideoNewsPost::with("subCategory", "author:id,name")
+                        ->filterRequest(request(["query","subcategory"]))
                         ->orderBy("id", "desc")
-                        ->paginate(20);
+                        ->paginate(21);
 
         return view("video-news-post.index", compact("newsVideoPosts"));
     }
@@ -36,12 +37,19 @@ class VideoNewsController extends Controller
 
         $videoNewsPost->update();
 
-        $topVideoNews=VideoNewsPost::select("title", "slug")
-                     ->with("author:id,name")
-                     ->orderBy("visitors", "desc")
-                     ->take(10)
-                     ->get();
+        $relatedNewsPosts=NewsPost::select("title", "slug")
+                          ->where("sub_category_id", $videoNewsPost->sub_category_id)
+                          ->take(15)
+                          ->get();
 
-        return view("video-news-post.show", compact("videoNewsPost", "socialShare", "topVideoNews"));
+
+        $relatedTopNewsVideos=VideoNewsPost::with("subCategory", "author:id,name")
+                              ->where("sub_category_id", $videoNewsPost->sub_category_id)
+                              ->where("slug", "!=", $videoNewsPost->slug)
+                              ->orderBy("visitors", "desc")
+                              ->take(10)
+                              ->get();
+
+        return view("video-news-post.show", compact("videoNewsPost", "socialShare", "relatedNewsPosts", "relatedTopNewsVideos"));
     }
 }

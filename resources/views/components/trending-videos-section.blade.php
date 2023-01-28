@@ -84,9 +84,9 @@
                 </div>
                 @endforeach
 
-            </div> <a class="carousel-control-prev bg-transparent w-aut" href="#recipeCarousel" role="button"
-                data-bs-slide="prev"> <span class="carousel-control-prev-icon" aria-hidden="true"></span> </a> <a
-                class="carousel-control-next bg-transparent w-aut" href="#recipeCarousel" role="button"
+            </div> <a class="carousel-control-prev bg-transparent w-auto" href="#recipeCarousel" role="button"
+                data-bs-slide="prev"> <span class="carousel-control-prev-icon" aria-hidden="true"></span> </a>
+            <a class="carousel-control-next bg-transparent w-auto" href="#recipeCarousel" role="button"
                 data-bs-slide="next"> <span class="carousel-control-next-icon" aria-hidden="true"></span> </a>
         </div>
     </div>

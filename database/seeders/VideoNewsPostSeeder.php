@@ -15,6 +15,11 @@ class VideoNewsPostSeeder extends Seeder
      */
     public function run()
     {
-        VideoNewsPost::factory(20)->create(["user_id"=>1]);
+        VideoNewsPost::factory(20)->create(["sub_category_id"=>1]);
+        VideoNewsPost::factory(20)->create(["sub_category_id"=>3]);
+        VideoNewsPost::factory(20)->create(["sub_category_id"=>10]);
+        VideoNewsPost::factory(20)->create(["sub_category_id"=>19]);
+        VideoNewsPost::factory(20)->create(["sub_category_id"=>13]);
+        VideoNewsPost::factory(20)->create(["sub_category_id"=>44]);
     }
 }

@@ -17,12 +17,10 @@ class AdminNewsPostController extends Controller
         Meta::prependTitle("News Post");
 
         $newsPosts=NewsPost::search(request("search"))
-                   ->where("user_id", 1)
-                   ->orderBy("id", "desc")
                    ->paginate(10)
                    ->withQueryString();
 
-        $newsPosts->load("subCategory.category", "author");
+        $newsPosts->load("subCategory", "author");
 
         return view("admin.dashboard.posts.news-posts.index", compact("newsPosts"));
     }
@@ -64,7 +62,7 @@ class AdminNewsPostController extends Controller
 
         $newsPost->update($request->validated()+["thumbnail"=>$thumbnail]);
 
-        $tagService->updateTag($request, $newsPost);
+        $tagService->updateNewsPostTag($request, $newsPost);
 
         return to_route("admin.news-posts.index", "page=".request("page"))->with("success", "Post is updated successfully");
     }

@@ -17,6 +17,11 @@ class VideoNewsPost extends Model
         return 'slug';
     }
 
+    public function subCategory()
+    {
+        return $this->belongsTo(SubCategory::class)->with("category:id,name,slug");
+    }
+
     public function author()
     {
         return $this->belongsTo(User::class, "user_id");
@@ -44,5 +49,13 @@ class VideoNewsPost extends Model
                 ->orWhere("body", "LIKE", "%".$keyword."%");
             });
         });
+
+        $query->when($filterKeyword["subcategory"]??null, function ($query, $keyword) {
+            $query->whereHas("subCategory", function ($query) use ($keyword) {
+                $query->where("slug", "LIKE", "%".$keyword."%");
+            });
+        });
     }
+
+    
 }

@@ -4,11 +4,10 @@ namespace App\Http\Controllers\Admin\Dashboard\Posts;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\VideoNewsPostRequest;
-use Illuminate\Http\Request;
-use App\Models\Tag;
+use App\Models\SubCategory;
 use Butschster\Head\Facades\Meta;
-use Illuminate\Validation\Rule;
 use App\Models\VideoNewsPost;
+use App\Services\TagService;
 
 class AdminVideoNewsPostController extends Controller
 {
@@ -17,12 +16,10 @@ class AdminVideoNewsPostController extends Controller
         Meta::prependTitle("Video News Posts");
 
         $videoNewsPosts=VideoNewsPost::search(request("search"))
-                        ->where("user_id", 1)
-                        ->orderBy("id", "desc")
                         ->paginate(10)
                         ->withQueryString();
 
-        $videoNewsPosts->load("author");
+        $videoNewsPosts->load("subCategory", "author");
 
         return view("admin.dashboard.posts.video-news-posts.index", compact("videoNewsPosts"));
     }
@@ -31,127 +28,36 @@ class AdminVideoNewsPostController extends Controller
     {
         Meta::prependTitle("Video News Post Create");
 
-        return view("admin.dashboard.posts.video-news-posts.create");
+        $subCategories=SubCategory::with("category")->get();
+
+        return view("admin.dashboard.posts.video-news-posts.create", compact("subCategories"));
     }
 
-    public function store(Request $request)
+    public function store(VideoNewsPostRequest $request, TagService $tagService)
     {
-        $postFormData=$request->validate([
-            "video_id"=>["required"],
-            "title"=>["required",Rule::unique("video_news_posts", "title")],
-            "slug"=>["required",Rule::unique("video_news_posts", "slug")],
-            "body"=>["required"],
-        ]);
+        $post= VideoNewsPost::create($request->validated()+["user_id"=>auth()->user()->id]);
 
-        $postFormData["user_id"]=auth()->user()->id;
-
-        $post= VideoNewsPost::create($postFormData);
-
-        if ($request->input("tags")) {
-            $request->validate([
-                "tags"=>["required"],
-            ]);
-
-            $tagsNewArray=[];
-            $tagsArray=explode(",", $request->tags);
-
-            foreach ($tagsArray as $tag) {
-                $tagsNewArray[]=trim($tag);
-            }
-
-            $tagsNewArray=array_values(array_unique($tagsNewArray));
-
-            foreach ($tagsNewArray as $tag) {
-                $countExisitngTags=Tag::where("name", $tag)->count();
-
-                $exisitngTags=Tag::where("name", $tag)->get();
-
-                if (!$countExisitngTags) {
-                    $tagModel=new Tag();
-                    $tagModel->name=$tag;
-                    $tagModel->slug=strtolower(str_replace(" ", "-", $tag));
-                    $tagModel->save();
-                    $post->tags()->attach($tagModel);
-                }
-
-                if ($countExisitngTags) {
-                    $post->tags()->attach($exisitngTags);
-                }
-            }
-        }
+        $tagService->createTag($request, $post);
 
         return to_route("admin.video-news-posts.index")->with("success", "Video Post is created successfully");
     }
-
 
     public function edit(VideoNewsPost $videoNewsPost)
     {
         Meta::prependTitle("Video News Post Edit");
 
+        $subCategories=SubCategory::with("category")->get();
+
         $page=request('page');
 
-        return view("admin.dashboard.posts.video-news-posts.edit", compact("videoNewsPost", "page"));
+        return view("admin.dashboard.posts.video-news-posts.edit", compact("subCategories", "videoNewsPost", "page"));
     }
 
-    public function update(Request $request, VideoNewsPost $videoNewsPost)
+    public function update(VideoNewsPostRequest $request, VideoNewsPost $videoNewsPost, TagService $tagService)
     {
-        $postFormData=$request->validate([
-            "video_id"=>["required"],
-            "title"=>["required",Rule::unique("video_news_posts", "title")->ignore($videoNewsPost->id)],
-            "slug"=>["required",Rule::unique("video_news_posts", "slug")->ignore($videoNewsPost->id)],
-            "body"=>["required"],
-        ]);
+        $videoNewsPost->update($request->validated());
 
-        $postFormData["user_id"]=auth()->user()->id;
-
-        $videoNewsPost->update($postFormData);
-
-        if ($request->input("tags")) {
-            $request->validate([
-                "tags"=>["required"],
-            ]);
-
-            $tagsNewArray=[];
-            $tagsArray=explode(",", $request->tags);
-
-            foreach ($tagsArray as $tag) {
-                $tagsNewArray[]=trim($tag);
-            }
-
-            $tagsNewArray=array_values(array_unique($tagsNewArray));
-
-            foreach ($tagsNewArray as $tag) {
-                $countExisitngTags=Tag::where("name", $tag)->count();
-
-                $exisitngTags=Tag::where("name", $tag)->get();
-
-
-
-                if (!$countExisitngTags) {
-                    $tagModel=new Tag();
-                    $tagModel->name=$tag;
-                    $tagModel->slug=strtolower(str_replace(" ", "-", $tag));
-                    $tagModel->save();
-                    $videoNewsPost->tags()->attach($tagModel);
-                }
-
-                foreach ($videoNewsPost->tags as $videoExistTag) {
-                    if ($videoExistTag) {
-                        // $videoExistTag->tags()->attach($tag);
-                        $videoNewsPost->tags()->detach($exisitngTags);
-                        // echo "hit";
-                        // echo "<pre/>";
-                        // echo $videoExistTag;
-                    }
-                }
-
-                // die();
-
-                if ($countExisitngTags) {
-                    $videoNewsPost->tags()->attach($exisitngTags);
-                }
-            }
-        }
+        $tagService->updateVideoNewsTag($request, $videoNewsPost);
 
         return to_route("admin.video-news-posts.index", "page=".request("page"))->with("success", "Video Post is updated successfully");
     }

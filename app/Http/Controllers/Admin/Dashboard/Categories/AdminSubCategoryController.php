@@ -15,7 +15,6 @@ class AdminSubCategoryController extends Controller
         Meta::prependTitle("SubCategory");
 
         $subCategories=SubCategory::search(request("search"))
-                       ->orderBy("id", "desc")
                        ->paginate(10)
                        ->withQueryString();
 

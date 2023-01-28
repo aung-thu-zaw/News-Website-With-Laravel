@@ -15,6 +15,7 @@ return new class () extends Migration {
         Schema::create('video_news_posts', function (Blueprint $table) {
             $table->id();
             $table->foreignId("user_id")->constrained();
+            $table->foreignId("sub_category_id")->constrained();
             $table->string("video_id");
             $table->string("title")->unique();
             $table->string("slug")->unique();

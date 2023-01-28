@@ -14,7 +14,6 @@ class AdminVideoGalleryController extends Controller
         Meta::prependTitle("Video Gallery");
 
         $videos=VideoGallery::search(request("search"))
-                ->orderBy("id", "desc")
                 ->paginate(10)
                 ->withQueryString();
 

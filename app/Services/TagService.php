@@ -44,9 +44,7 @@ class TagService
         }
     }
 
-
-
-    public function updateTag(Request $request,$newsPost)
+    public function updateNewsPostTag(Request $request, $newsPost)
     {
         if ($request->input("tags")) {
             $request->validate([
@@ -62,19 +60,6 @@ class TagService
 
             $tagsNewArray=array_values(array_unique($tagsNewArray));
 
-
-            // foreach ($tagsNewArray as $tag) {
-            //     $countExisitngTags=Tag::where("name", $tag)->count();
-
-
-            //     if (!$countExisitngTags) {
-            //         $tagModel=new Tag();
-            //         $tagModel->name=$tag;
-            //         $tagModel->slug=strtolower(str_replace(" ", "-", $tag));
-            //         $tagModel->save();
-            //         $newsPost->tags()->attach($tagModel);
-            //     }
-            // }
             foreach ($tagsNewArray as $tag) {
                 $countExisitngTags=Tag::where("name", $tag)->count();
 
@@ -92,18 +77,55 @@ class TagService
 
                 foreach ($newsPost->tags as $videoExistTag) {
                     if ($videoExistTag) {
-                        // $videoExistTag->tags()->attach($tag);
                         $newsPost->tags()->detach($exisitngTags);
-                        // echo "hit";
-                        // echo "<pre/>";
-                        // echo $videoExistTag;
                     }
                 }
 
-                // die();
 
                 if ($countExisitngTags) {
                     $newsPost->tags()->attach($exisitngTags);
+                }
+            }
+        }
+    }
+
+    public function updateVideoNewsTag(Request $request, $videoNewsPost)
+    {
+        if ($request->input("tags")) {
+            $request->validate([
+                "tags"=>["required"],
+            ]);
+
+            $tagsNewArray=[];
+            $tagsArray=explode(",", $request->tags);
+
+            foreach ($tagsArray as $tag) {
+                $tagsNewArray[]=trim($tag);
+            }
+
+            $tagsNewArray=array_values(array_unique($tagsNewArray));
+
+            foreach ($tagsNewArray as $tag) {
+                $countExisitngTags=Tag::where("name", $tag)->count();
+
+                $exisitngTags=Tag::where("name", $tag)->get();
+
+                if (!$countExisitngTags) {
+                    $tagModel=new Tag();
+                    $tagModel->name=$tag;
+                    $tagModel->slug=strtolower(str_replace(" ", "-", $tag));
+                    $tagModel->save();
+                    $videoNewsPost->tags()->attach($tagModel);
+                }
+
+                foreach ($videoNewsPost->tags as $videoExistTag) {
+                    if ($videoExistTag) {
+                        $videoNewsPost->tags()->detach($exisitngTags);
+                    }
+                }
+
+                if ($countExisitngTags) {
+                    $videoNewsPost->tags()->attach($exisitngTags);
                 }
             }
         }

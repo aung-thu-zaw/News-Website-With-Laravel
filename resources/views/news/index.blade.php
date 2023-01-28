@@ -14,7 +14,8 @@
 
     <x-home-middle-advertisement />
 
-    <x-video-news-section :posts="$newsVideoPosts" />
+    <x-video-news-section :posts="$videoNewsPosts" />
+
 
     <x-home-bottom-advertisement />
 

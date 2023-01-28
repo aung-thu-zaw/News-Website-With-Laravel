@@ -15,7 +15,6 @@ class AdminPhotoGalleryController extends Controller
         Meta::prependTitle("Photo Gallery");
 
         $photos=PhotoGallery::search(request("search"))
-                ->orderBy("id", "desc")
                 ->paginate(10)
                 ->withQueryString();
 

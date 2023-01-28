@@ -17,7 +17,8 @@ class VideoNewsPostFactory extends Factory
     public function definition()
     {
         return [
-            "user_id"=>$this->faker->numberBetween(1, 10),
+            "user_id"=>$this->faker->numberBetween(1, 5),
+            "sub_category_id"=>$this->faker->numberBetween(1, 47),
             "title"=>$this->faker->sentence(),
             "slug"=>$this->faker->slug(),
             "body"=>$this->faker->paragraph(50),

@@ -24,8 +24,14 @@ class SubCategory extends Model
     public function newsPosts()
     {
         return $this->hasMany(NewsPost::class)->with("subCategory:id,name,slug", "author:id,name");
-        // return $this->hasMany(NewsPost::class);
     }
+
+
+    public function videoNewsPosts()
+    {
+        return $this->hasMany(VideoNewsPost::class)->with("subCategory:id,name,slug", "author:id,name");
+    }
+
 
     public function toSearchableArray()
     {

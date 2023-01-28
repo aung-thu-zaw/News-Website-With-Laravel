@@ -31,6 +31,11 @@
                         <x-form.label name="Detail *" />
                     </x-form.textarea>
 
+                    <x-form.select name="sub_category_id" :subcategories="$subCategories"
+                        :id="$videoNewsPost->sub_category_id" required="required">
+                        <x-form.label name="SubCategory *" />
+                    </x-form.select>
+
                     <x-form.input-wrapper>
                         <x-form.label name="Tags" />
                         <input type="text" name="tags" class="form-control" placeholder="tags" />

@@ -14,7 +14,6 @@ class AdminTrendingVideosController extends Controller
         Meta::prependTitle("Trending Videos");
 
         $trendingVideos=TrendingVideo::search(request("search"))
-                        ->orderBy("id", "desc")
                         ->paginate(10)
                         ->withQueryString();
 

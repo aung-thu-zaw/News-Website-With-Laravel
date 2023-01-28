@@ -1,4 +1,6 @@
 @props(["relatednews"])
+
+@if ($relatednews->count())
 <div class="border border-2 mb-5">
     <div class="my-3">
         <h3 class="text-center border-bottom border-3 p-1">
@@ -17,3 +19,4 @@
         </ul>
     </div>
 </div>
+@endif

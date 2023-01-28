@@ -31,8 +31,7 @@ class HomeNewsController extends Controller
                        ->orderBy("id", "desc")
                        ->get();
 
-        $newsVideoPosts=VideoNewsPost::select("user_id", "video_id", "title", "slug", "created_at")
-                        ->with("author:id,name")
+        $videoNewsPosts=VideoNewsPost::with("subCategory", "author:id,name")
                         ->orderBy("id", "desc")
                         ->take(12)
                         ->get();
@@ -45,7 +44,7 @@ class HomeNewsController extends Controller
 
             return view("search-news.index", compact("newsPosts"));
         } else {
-            return view('news.index', compact("latestNewsPosts", "trendingVideos", "subCategories", "newsVideoPosts"));
+            return view('news.index', compact("latestNewsPosts", "trendingVideos", "subCategories", "videoNewsPosts"));
         }
     }
 
@@ -70,6 +69,12 @@ class HomeNewsController extends Controller
                           ->take(15)
                           ->get();
 
-        return view("news.show", compact("newsPost", "socialShare", "relatedNewsPosts"));
+        $relatedTopNewsVideos=VideoNewsPost::with("subCategory", "author:id,name")
+                              ->where("sub_category_id", $newsPost->sub_category_id)
+                              ->orderBy("visitors", "desc")
+                              ->take(10)
+                              ->get();
+
+        return view("news.show", compact("newsPost", "socialShare", "relatedNewsPosts", "relatedTopNewsVideos"));
     }
 }
