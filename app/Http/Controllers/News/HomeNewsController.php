@@ -38,11 +38,25 @@ class HomeNewsController extends Controller
 
 
         if (request("query")) {
-            $newsPosts=NewsPost::orderBy("id", "desc")->filterRequest(request(["query","subcategory"]))->paginate(18)->withQueryString();
+            if (request("type")=="articles") {
+                $newsPosts=NewsPost::orderBy("id", "desc")
+                           ->filterRequest(request(["query","subcategory"]))
+                           ->paginate(18)
+                           ->withQueryString();
 
-            $newsPosts->load("subCategory", "author");
+                $newsPosts->load("subCategory", "author");
 
-            return view("search-news.index", compact("newsPosts"));
+                return view("search-news.index", compact("newsPosts"));
+            } elseif (request("type")=="videos") {
+                $videoNewsPosts=VideoNewsPost::orderBy("id", "desc")
+                                ->filterRequest(request(["query","subcategory"]))
+                                ->paginate(18)
+                                ->withQueryString();
+
+                $videoNewsPosts->load("subCategory", "author");
+
+                return view("search-news.index", compact("videoNewsPosts"));
+            }
         } else {
             return view('news.index', compact("latestNewsPosts", "trendingVideos", "subCategories", "videoNewsPosts"));
         }

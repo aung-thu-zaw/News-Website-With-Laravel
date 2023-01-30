@@ -16,8 +16,8 @@
                         @foreach ($category->subCategories as $subcategory)
                         @if ($subcategory->status_on_navbar==="show")
                         <li>
-                            <a class="dropdown-item text-decoration-none"
-                                href="/{{ $category->slug }}/{{ $subcategory->slug }}/news">
+                            <a class="dropdown-item text-decoration-none" href="/{{ $category->slug }}/{{ $subcategory->slug }}/news{{ request('type') && request('query') ? '&type='
+                                .request('type') : '/?type=articles' }}">
                                 {{$subcategory->name }}
                             </a>
                         </li>

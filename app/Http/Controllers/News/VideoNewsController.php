@@ -17,7 +17,7 @@ class VideoNewsController extends Controller
         $newsVideoPosts=VideoNewsPost::with("subCategory", "author:id,name")
                         ->filterRequest(request(["query","subcategory"]))
                         ->orderBy("id", "desc")
-                        ->paginate(21);
+                        ->paginate(18);
 
         return view("video-news-post.index", compact("newsVideoPosts"));
     }

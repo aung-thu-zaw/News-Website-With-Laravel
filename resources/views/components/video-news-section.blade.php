@@ -50,7 +50,8 @@
                                         {!! StringHelper::description($post->body,100) !!}
                                     </small>
 
-                                    <a href="/{{ $post->subCategory->category->slug }}/{{ $post->subCategory->slug }}/news"
+                                    <a href="/{{ $post->subCategory->category->slug }}/{{ $post->subCategory->slug }}/news{{ request('type') && request('query') ? '&type='
+                                        .request('type') : '/?type=articles' }}"
                                         class="header-news-tag-sm text-white my-1 text-decoration-none">{{
                                         $post->subCategory->name
                                         }}</a>
@@ -67,7 +68,8 @@
                                             <i class="fa-solid fa-calendar-days me-1"></i>
                                             <a href="/{{ DateTimeHelper::formatYear($post,'created_at') }}/{{
                                                 DateTimeHelper::formatMonth($post,'created_at') }}/{{
-                                                DateTimeHelper::formatDay($post,'created_at') }}/news"
+                                                DateTimeHelper::formatDay($post,'created_at') }}/news{{ request('type') && request('query') ? '&type='
+                                .request('type') : '/?type=articles' }}"
                                                 class="text-dark">
                                                 {{ DateTimeHelper::formatDate($post,"created_at") }}
                                             </a>

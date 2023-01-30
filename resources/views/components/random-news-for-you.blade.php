@@ -18,7 +18,8 @@
                                     {{ $randomPost->title }}
                                 </a>
                             </h6>
-                            <a href="/{{ $randomPost->subCategory->category->slug }}/{{ $randomPost->subCategory->slug }}/news"
+                            <a href="/{{ $randomPost->subCategory->category->slug }}/{{ $randomPost->subCategory->slug }}/news{{ request('type') && request('query') ? '&type='
+                                .request('type') : '/?type=articles' }}"
                                 class="news-tag-sm text-white my-1 text-decoration-none">{{
                                 $randomPost->subCategory->name
                                 }}</a>
@@ -32,7 +33,8 @@
                                 <i class="fa-solid fa-calendar-days me-1"></i>
                                 <a href="/{{ DateTimeHelper::formatYear($randomPost,'created_at') }}/{{
                                     DateTimeHelper::formatMonth($randomPost,'created_at') }}/{{
-                                    DateTimeHelper::formatDay($randomPost,'created_at') }}/news" class="text-dark">
+                                    DateTimeHelper::formatDay($randomPost,'created_at') }}/news{{ request('type') && request('query') ? '&type='
+                                .request('type') : '/?type=articles' }}" class="text-dark">
                                     {{ DateTimeHelper::formatDate($randomPost,"created_at") }}
                                 </a>
                             </span>

@@ -28,7 +28,8 @@
                                         {{ $popularPost->title }}
                                     </a>
                                 </h6>
-                                <a href="/{{ $popularPost->subCategory->category->slug }}/{{ $popularPost->subCategory->slug }}/news"
+                                <a href="/{{ $popularPost->subCategory->category->slug }}/{{ $popularPost->subCategory->slug }}/news{{ request('type') && request('query') ? '&type='
+                                    .request('type') : '/?type=articles' }}"
                                     class="news-tag-sm text-white my-1 text-decoration-none">{{
                                     $popularPost->subCategory->name }}</a>
                             </div>
@@ -41,8 +42,8 @@
                                     <i class="fa-solid fa-calendar-days me-1"></i>
                                     <a href="/{{ DateTimeHelper::formatYear($popularPost,'created_at') }}/{{
                                         DateTimeHelper::formatMonth($popularPost,'created_at') }}/{{
-                                        DateTimeHelper::formatDay($popularPost,'created_at') }}/news"
-                                        class="text-dark">
+                                        DateTimeHelper::formatDay($popularPost,'created_at') }}/news{{ request('type') && request('query') ? '&type='
+                                .request('type') : '/?type=articles' }}" class="text-dark">
                                         {{ DateTimeHelper::formatDate($popularPost,"created_at") }}
                                     </a>
                                 </span>
@@ -52,11 +53,14 @@
                 </div>
             </div>
             @endforeach
-            <div class="d-grid">
-                <a href="{{ route('popular-news.index') }}" class="btn btn-primary btn-sm text-decoration-none">
-                    See All
-                </a>
-            </div>
+            <form action="{{ route('popular-news.index') }}" method="GET">
+                <input type="hidden" name="type" value="articles">
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary btn-sm text-decoration-none">
+                        See All
+                    </button>
+                </div>
+            </form>
 
 
         </div>
@@ -79,7 +83,8 @@
                                     </a>
                                 </h6>
 
-                                <a href="/{{ $recentPost->subCategory->category->slug }}/{{ $recentPost->subCategory->slug }}/news"
+                                <a href="/{{ $recentPost->subCategory->category->slug }}/{{ $recentPost->subCategory->slug }}/news{{ request('type') && request('query') ? '&type='
+                                    .request('type') : '/?type=articles' }}"
                                     class="news-tag-sm text-white my-1  text-decoration-none">{{
                                     $recentPost->subCategory->name }}</a>
                             </div>
@@ -92,7 +97,8 @@
                                     <i class="fa-solid fa-calendar-days me-1"></i>
                                     <a href="/{{ DateTimeHelper::formatYear($recentPost,'created_at') }}/{{
                                         DateTimeHelper::formatMonth($recentPost,'created_at') }}/{{
-                                        DateTimeHelper::formatDay($recentPost,'created_at') }}/news" class="text-dark">
+                                        DateTimeHelper::formatDay($recentPost,'created_at') }}/news{{ request('type') && request('query') ? '&type='
+                                .request('type') : '/?type=articles' }}" class="text-dark">
                                         {{ DateTimeHelper::formatDate($recentPost,"created_at") }}
                                     </a>
                                 </span>
@@ -102,11 +108,14 @@
                 </div>
             </div>
             @endforeach
-            <div class="d-grid">
-                <a href="{{ route('recent-news.index') }}" class="btn btn-primary btn-sm text-decoration-none">
-                    See All
-                </a>
-            </div>
+            <form action="{{ route('popular-news.index') }}" method="GET">
+                <input type="hidden" name="type" value="articles">
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary btn-sm text-decoration-none">
+                        See All
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
 </div>

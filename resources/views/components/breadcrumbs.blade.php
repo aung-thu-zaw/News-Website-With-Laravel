@@ -11,15 +11,14 @@
             </li>
             <li class="breadcrumb-item active" aria-current="page">
                 <a class="text-decoration-none"
-                    href="{{ route('category.news.show',$post->subCategory->category->slug) }}" data-bs-toggle="tooltip"
-                    data-bs-title="Category">
+                    href="{{ route('category.news.show',['category'=>$post->subCategory->category->slug,'type'=>'articles']) }}"
+                    data-bs-toggle="tooltip" data-bs-title="Category">
                     {{ $post->subCategory->category->name}}
                 </a>
             </li>
             <li class="breadcrumb-item active" aria-current="page">
-                <a class="text-decoration-none"
-                    href="/news/{{ $post->subCategory->category->slug }}/{{ $post->subCategory->slug }} "
-                    data-bs-toggle="tooltip" data-bs-title="SubCategory">
+                <a class="text-decoration-none" href="/{{ $post->subCategory->category->slug }}/{{ $post->subCategory->slug }}/news{{ request('type') && request('query') ? '&type='
+                    .request('type') : '/?type=articles' }}" data-bs-toggle="tooltip" data-bs-title="SubCategory">
                     {{$post->subCategory->name }}
                 </a>
             </li>
@@ -43,7 +42,8 @@
                     data-bs-title="Home">Home</a>
             </li>
             <li class="breadcrumb-item active" aria-current="page">
-                <a class="text-decoration-none" href="{{ route('category.news.show',$category->slug) }}"
+                <a class="text-decoration-none"
+                    href="{{ route('category.news.show',['category'=>$category->slug,'type'=>'articles']) }}"
                     data-bs-toggle="tooltip" data-bs-title="Category">
                     {{ $category->name}}
                 </a>

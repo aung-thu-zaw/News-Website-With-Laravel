@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\NewsPost;
 use App\Models\SubCategory;
+use App\Models\VideoNewsPost;
 use Butschster\Head\Facades\Meta;
 
 class CategoryController extends Controller
@@ -22,12 +23,22 @@ class CategoryController extends Controller
             $subCategoryIDs[]=$subCategory->id;
         }
 
-        $newsPosts=NewsPost::whereHas("subCategory", function ($query) use ($subCategoryIDs) {
-            $query->whereIn("sub_category_id", $subCategoryIDs);
-        })->with("subCategory", "author")
-          ->filterRequest(request(["query","subcategory"]))
-          ->paginate(18);
+        if (request("type")=="articles") {
+            $newsPosts=NewsPost::whereHas("subCategory", function ($query) use ($subCategoryIDs) {
+                $query->whereIn("sub_category_id", $subCategoryIDs);
+            })->with("subCategory", "author")
+              ->filterRequest(request(["query","subcategory"]))
+              ->paginate(18);
 
-        return view('categories.category.show', compact("category", "newsPosts"));
+            return view('categories.category.show', compact("category", "newsPosts"));
+        } elseif (request("type")=="videos") {
+            $videoNewsPosts=VideoNewsPost::whereHas("subCategory", function ($query) use ($subCategoryIDs) {
+                $query->whereIn("sub_category_id", $subCategoryIDs);
+            })->with("subCategory", "author")
+              ->filterRequest(request(["query","subcategory"]))
+              ->paginate(18);
+
+            return view('categories.category.show', compact("category", "videoNewsPosts"));
+        }
     }
 }

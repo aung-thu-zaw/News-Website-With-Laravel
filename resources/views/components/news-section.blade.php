@@ -40,7 +40,8 @@
                                         <small class="card-text">
                                             {!! StringHelper::description($post->body) !!}
                                         </small>
-                                        <a href="/{{ $subcategory->category->slug }}/{{ $subcategory->slug }}/news"
+                                        <a href="/{{ $subcategory->category->slug }}/{{ $subcategory->slug }}/news{{ request('type') && request('query') ? '&type='
+                                            .request('type') : '/?type=articles' }}"
                                             class="header-news-tag-sm text-white my-1 text-decoration-none">
                                             {{ $post->subCategory->name }}
                                         </a>
@@ -55,8 +56,8 @@
                                                 <i class="fa-solid fa-calendar-days me-1"></i>
                                                 <a href="/{{ DateTimeHelper::formatYear($post,'created_at') }}/{{
                                                     DateTimeHelper::formatMonth($post,'created_at') }}/{{
-                                                    DateTimeHelper::formatDay($post,'created_at') }}/news"
-                                                    class="text-dark">
+                                                    DateTimeHelper::formatDay($post,'created_at') }}/news{{ request('type') && request('query') ? '&type='
+                                .request('type') : '/?type=articles' }}" class="text-dark">
                                                     {{ DateTimeHelper::formatDate($post,"created_at") }}
                                                 </a>
                                             </span>
@@ -99,7 +100,8 @@
                                                         {{ StringHelper::title($post->title) }}
                                                     </a>
                                                 </h6>
-                                                <a href="/{{ $subcategory->category->slug }}/{{ $subcategory->slug }}/news"
+                                                <a href="/{{ $subcategory->category->slug }}/{{ $subcategory->slug }}/news{{ request('type') && request('query') ? '&type='
+                                                    .request('type') : '/?type=articles' }}"
                                                     class="news-tag-sm text-white my-1 text-decoration-none">{{
                                                     $post->subCategory->name
                                                     }}</a>
@@ -113,8 +115,8 @@
                                                     <i class="fa-solid fa-calendar-days me-1"></i>
                                                     <a href="/{{ DateTimeHelper::formatYear($post,'created_at') }}/{{
                                                         DateTimeHelper::formatMonth($post,'created_at') }}/{{
-                                                        DateTimeHelper::formatDay($post,'created_at') }}/news"
-                                                        class="text-dark">
+                                                        DateTimeHelper::formatDay($post,'created_at') }}/news{{ request('type') && request('query') ? '&type='
+                                .request('type') : '/?type=articles' }}" class="text-dark">
                                                         {{ DateTimeHelper::formatDate($post,"created_at") }}
                                                     </a>
                                                 </span>
