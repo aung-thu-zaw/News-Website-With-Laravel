@@ -16,7 +16,8 @@
                             <span class="border d-none d-lg-block w-75">
                             </span>
                             <div>
-                                <a href="/{{ $subcategory->category->slug }}/{{ $subcategory->slug }}/news"
+                                <a href="/{{ $subcategory->category->slug }}/{{ $subcategory->slug }}/news{{ request('type') && request('query') ? '&type='
+                                    .request('type') : '/?type=articles' }}"
                                     class="btn btn-outline-primary text-decoration-none">See all</a>
                             </div>
                         </div>

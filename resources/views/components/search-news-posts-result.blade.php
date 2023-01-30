@@ -14,7 +14,7 @@
                     </h5>
 
                     <p class="card-text description d-lg-none d-xl-block">
-                        {{ StringHelper::description($post->body,100) }}
+                        {!! StringHelper::description($post->body,100) !!}
                     </p>
 
                     <a href="/{{ $post->subCategory->category->slug }}/{{ $post->subCategory->slug }}/news{{ request('type') && request('query') ? '&type='

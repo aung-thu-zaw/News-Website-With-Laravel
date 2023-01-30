@@ -16,6 +16,6 @@ class Tag extends Model
 
     public function videoNewsPosts()
     {
-        return $this->morphedByMany(VideoNewsPost::class, "tagable");
+        return $this->morphedByMany(VideoNewsPost::class, "tagable")->with("subCategory", "author");
     }
 }

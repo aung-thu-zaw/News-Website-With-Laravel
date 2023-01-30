@@ -41,8 +41,7 @@ use App\Http\Controllers\Pages\DisclaimerController;
 use App\Http\Controllers\Pages\FaqController;
 use App\Http\Controllers\Pages\PrivacyAndPolicyController;
 use App\Http\Controllers\Pages\TermsAndConditionsController;
-use App\Http\Controllers\Tags\TagNewsPostController;
-use App\Http\Controllers\Tags\TagVideoNewsPostController;
+use App\Http\Controllers\Tags\TagPostController;
 use Illuminate\Support\Facades\Route;
 
 # ============== User Authentication ==============
@@ -110,8 +109,7 @@ Route::get("/gallery/photos", [PhotoGalleryController::class,"index"])->name("ph
 Route::get("/gallery/videos", [VideoGalleryController::class,"index"])->name("video-gallery.index");
 
 
-Route::get("/tags/{tag:slug}/news-posts", [TagNewsPostController::class,"show"])->name("tags.news-posts.show");
-// Route::get("/tag/{tag:slug}/video-news-posts", [TagVideoNewsPostController::class,"show"])->name("tags.video-posts.show");
+Route::get("/tags/{tag:slug}", [TagPostController::class,"show"])->name("tags.news-posts.show");
 
 // Pages
 Route::get("/about-us", [AboutUsController::class,"index"])->name("about-us.index");
@@ -209,7 +207,7 @@ Route::middleware(["auth","verified","can:admin"])
             Route::patch('/setting/update', [AdminSettingController::class,"update"])->name('setting.update');
 
             // Tag Handler
-            Route::post('/news-post/{news_post:slug}/{tag:slug}', [TagNewsPostController::class,"newsPostTagHandler"])->name("news-post-tag-handle");
+            Route::post('/news-post/{news_post:slug}/{tag:slug}', [TagPostController::class,"newsPostTagHandler"])->name("news-post-tag-handle");
 
-            Route::post('/video-news-post/{video_news_post:slug}/{tag:slug}', [TagVideoNewsPostController::class,"videonewsPostTagHandler"])->name("video-news-post-tag-handle");
+            Route::post('/video-news-post/{video_news_post:slug}/{tag:slug}', [TagPostController::class,"videonewsPostTagHandler"])->name("video-news-post-tag-handle");
         });
