@@ -18,7 +18,7 @@ class DateNewsController extends Controller
         $month=$dateArray[1];
         $day=$dateArray[2];
 
-        return to_route("date-news.show", [$year, $month, $day]);
+        return to_route("date-news.show", [$year, $month, $day,'type'=>'articles']);
     }
 
     public function show($year, $month, $day)
