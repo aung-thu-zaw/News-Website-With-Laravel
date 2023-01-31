@@ -9,8 +9,6 @@
     </div>
     <div class="mb-2">
         <ul class="list-group list-group-flush">
-            {{-- Loop This --}}
-
             @foreach ($relatednews as $post)
             <li class="list-group-item">
                 <a href="{{ route('news.show',$post->slug) }}">{{ $post->title }}</a>

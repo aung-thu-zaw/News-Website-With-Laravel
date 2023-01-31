@@ -80,7 +80,12 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function newsPosts()
     {
-        return $this->hasMany(NewsPost::class);
+        return $this->hasMany(NewsPost::class)->with("subCategory");
+    }
+
+    public function videoNewsPosts()
+    {
+        return $this->hasMany(VideoNewsPost::class)->with("subCategory");
     }
 
     public static function deleteUserPhoto($user)

@@ -11,9 +11,11 @@
         </div>
         <div>
             <div class="text-secondary" style="font-size: .8rem;">
-                By <a href="#" data-bs-toggle="tooltip" data-bs-title="Author">{{ $post->author->name
+                By <a href="{{ route('author.details',['author'=>$post->author->id,'type'=>'articles']) }}"
+                    data-bs-toggle="tooltip" data-bs-title="Author">{{ $post->author->name
                     }}</a>, World News
             </div>
+
             <div class="text-secondary" style="font-size: .8rem;">
                 Updated {{ DateTimeHelper::formatDateTime($post,"updated_at") }}
             </div>
@@ -54,9 +56,11 @@
         <div>
             <span class="text-secondary">
                 <i class="fa-solid fa-user me-1"></i>
-                <a href="#" class="text-dark" data-bs-toggle="tooltip" data-bs-title="Author">{{
+                <a href="{{ route('author.details',['author'=>$post->author->id,'type'=>'articles']) }}"
+                    class="text-dark" data-bs-toggle="tooltip" data-bs-title="Author">{{
                     $post->author->name
                     }}</a>
+
             </span>
         </div>
         <div class="w-25 d-flex align-items-center justify-content-around">

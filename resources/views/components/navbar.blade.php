@@ -112,12 +112,6 @@
                                 </a>
                             </li>
                             <li>
-                                <a class="dropdown-item text-decoration-none" href="#">
-                                    Bookmark
-                                    <i class="fa-sharp fa-solid fa-bookmark ms-3"></i>
-                                </a>
-                            </li>
-                            <li>
                                 <hr class="dropdown-divider" />
                             </li>
                             <li style="cursor: pointer;">

@@ -27,6 +27,7 @@ use App\Http\Controllers\Admin\Dashboard\Posts\AdminTrendingVideosController;
 use App\Http\Controllers\Admin\Dashboard\Posts\AdminVideoNewsPostController;
 use App\Http\Controllers\Admin\Dashboard\Users\AdminNormalUserListController;
 use App\Http\Controllers\Admin\Dashboard\Users\AdminPermissionUserListController;
+use App\Http\Controllers\AuthorDetailController;
 use App\Http\Controllers\Categories\CategoryController;
 use App\Http\Controllers\Categories\SubCategoryController;
 use App\Http\Controllers\News\DateNewsController;
@@ -108,8 +109,11 @@ Route::get("/gallery/photos", [PhotoGalleryController::class,"index"])->name("ph
 
 Route::get("/gallery/videos", [VideoGalleryController::class,"index"])->name("video-gallery.index");
 
-
+// Tags
 Route::get("/tags/{tag:slug}", [TagPostController::class,"show"])->name("tags.news-posts.show");
+
+// Authors
+Route::get("/authors/{author}/details", [AuthorDetailController::class, "show"])->name("author.details");
 
 // Pages
 Route::get("/about-us", [AboutUsController::class,"index"])->name("about-us.index");

@@ -1,4 +1,4 @@
-@props(["posts"])
+@props(["posts","author"=>""])
 <div class="row g-3">
     @forelse ($posts as $post)
     <div class="col-lg-4 col-md-6">
@@ -27,7 +27,13 @@
                     <div class="icon-box-sm">
                         <span>
                             <i class="fa-solid fa-user me-1"></i>
-                            <a href="#" class="text-white">{{ $post->author->name }}</a>
+                            @if ($author)
+                            <a href="{{ route('author.details',['author'=>$author->id,'type'=>'articles']) }}"
+                                class="text-white">{{ $author->name }}</a>
+                            @else
+                            <a href="{{ route('author.details',['author'=>$post->author->id,'type'=>'articles']) }}"
+                                class="text-white">{{ $post->author->name }}</a>
+                            @endif
                         </span>
                         <span class="">
                             <i class="fa-solid fa-calendar-days me-1"></i>

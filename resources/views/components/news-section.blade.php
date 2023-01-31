@@ -51,7 +51,10 @@
                                         <div class="icon-box-sm">
                                             <span>
                                                 <i class="fa-solid fa-user me-1"></i>
-                                                <a href="#" class="text-dark">{{ $post->author->name }}</a>
+                                                <a href="{{ route('author.details',['author'=>$post->author->id,'type'=>'articles']) }}"
+                                                    class="text-dark">{{
+                                                    $post->author->name
+                                                    }}</a>
                                             </span>
                                             <span>
                                                 <i class="fa-solid fa-calendar-days me-1"></i>
@@ -110,7 +113,10 @@
                                             <div class="icon-box-sm">
                                                 <span>
                                                     <i class="fa-solid fa-user me-1"></i>
-                                                    <a href="#" class="text-dark">{{ $post->author->name }}</a>
+                                                    <a href="{{ route('author.details',['author'=>$post->author->id,'type'=>'articles']) }}"
+                                                        class="text-dark">{{
+                                                        $post->author->name
+                                                        }}</a>
                                                 </span>
                                                 <span>
                                                     <i class="fa-solid fa-calendar-days me-1"></i>

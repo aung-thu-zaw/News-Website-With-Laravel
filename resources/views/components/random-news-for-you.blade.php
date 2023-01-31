@@ -27,7 +27,10 @@
                         <div class="icon-box-sm">
                             <span>
                                 <i class="fa-solid fa-user me-1"></i>
-                                <a href="#" class="text-dark">{{ $randomPost->author->name }}</a>
+                                <a href="{{ route('author.details',['author'=>$randomPost->author->id,'type'=>'articles']) }}"
+                                    class="text-dark">{{
+                                    $randomPost->author->name
+                                    }}</a>
                             </span>
                             <span>
                                 <i class="fa-solid fa-calendar-days me-1"></i>
