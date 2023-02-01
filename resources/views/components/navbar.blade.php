@@ -105,6 +105,15 @@
                             </li>
                             @endcan
 
+                            @can("editor")
+                            <li>
+                                <a class="dropdown-item text-decoration-none" href="{{ route('editor.dashboard') }}">
+                                    Dashboard
+                                    <i class="fa-solid fa-gauge-high ms-3"></i>
+                                </a>
+                            </li>
+                            @endcan
+
                             @can("writer")
                             <li>
                                 <a class="dropdown-item text-decoration-none" href="{{ route('writer.dashboard') }}">

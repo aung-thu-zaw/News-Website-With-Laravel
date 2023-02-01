@@ -1,16 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\Writer\Dashboard\Posts;
+namespace App\Http\Controllers\Editor\Dashboard\Posts;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Http\Requests\VideoNewsPostRequest;
 use App\Models\SubCategory;
 use Butschster\Head\Facades\Meta;
 use App\Models\VideoNewsPost;
 use App\Services\TagService;
 
-class WriterVideoNewsPostController extends Controller
+class EditorVideoNewsPostController extends Controller
 {
     public function index()
     {
@@ -26,7 +25,7 @@ class WriterVideoNewsPostController extends Controller
 
         $videoNewsPosts->load("subCategory", "author");
 
-        return view("writer.dashboard.posts.video-news-posts.index", compact("videoNewsPosts"));
+        return view("editor.dashboard.posts.video-news-posts.index", compact("videoNewsPosts"));
     }
 
     public function create()
@@ -35,7 +34,7 @@ class WriterVideoNewsPostController extends Controller
 
         $subCategories=SubCategory::with("category")->get();
 
-        return view("writer.dashboard.posts.video-news-posts.create", compact("subCategories"));
+        return view("editor.dashboard.posts.video-news-posts.create", compact("subCategories"));
     }
 
     public function store(VideoNewsPostRequest $request, TagService $tagService)
@@ -44,7 +43,7 @@ class WriterVideoNewsPostController extends Controller
 
         $tagService->createTag($request, $post);
 
-        return to_route("writer.video-news-posts.index")->with("success", "Video Post is created successfully");
+        return to_route("editor.video-news-posts.index")->with("success", "Video Post is created successfully");
     }
 
     public function edit(VideoNewsPost $videoNewsPost)
@@ -55,7 +54,7 @@ class WriterVideoNewsPostController extends Controller
 
         $page=request('page');
 
-        return view("writer.dashboard.posts.video-news-posts.edit", compact("subCategories", "videoNewsPost", "page"));
+        return view("editor.dashboard.posts.video-news-posts.edit", compact("subCategories", "videoNewsPost", "page"));
     }
 
     public function update(VideoNewsPostRequest $request, VideoNewsPost $videoNewsPost, TagService $tagService)
@@ -64,13 +63,13 @@ class WriterVideoNewsPostController extends Controller
 
         $tagService->updateVideoNewsTag($request, $videoNewsPost);
 
-        return to_route("writer.video-news-posts.index", "page=".request("page"))->with("success", "Video Post is updated successfully");
+        return to_route("editor.video-news-posts.index", "page=".request("page"))->with("success", "Video Post is updated successfully");
     }
 
     public function destroy(VideoNewsPost $videoNewsPost)
     {
         $videoNewsPost->delete();
 
-        return to_route("writer.video-news-posts.index", "page=".request("page"))->with("success", "Video Post is deleted successfully");
+        return to_route("editor.video-news-posts.index", "page=".request("page"))->with("success", "Video Post is deleted successfully");
     }
 }

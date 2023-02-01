@@ -15,7 +15,7 @@ class CategoryRequest extends FormRequest
      */
     public function authorize()
     {
-        return Gate::allows("admin");
+        return true;
     }
 
     /**

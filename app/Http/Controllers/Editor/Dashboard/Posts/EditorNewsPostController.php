@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Writer\Dashboard\Posts;
+namespace App\Http\Controllers\Editor\Dashboard\Posts;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\NewsPostRequest;
@@ -8,10 +8,9 @@ use App\Models\NewsPost;
 use App\Models\SubCategory;
 use App\Services\NewsPostService;
 use App\Services\TagService;
-use Illuminate\Http\Request;
 use Butschster\Head\Facades\Meta;
 
-class WriterNewsPostController extends Controller
+class EditorNewsPostController extends Controller
 {
     public function index()
     {
@@ -27,7 +26,7 @@ class WriterNewsPostController extends Controller
 
         $newsPosts->load("subCategory", "author");
 
-        return view("writer.dashboard.posts.news-posts.index", compact("newsPosts"));
+        return view("editor.dashboard.posts.news-posts.index", compact("newsPosts"));
     }
 
     public function create()
@@ -36,7 +35,7 @@ class WriterNewsPostController extends Controller
 
         $subCategories=SubCategory::with("category")->get();
 
-        return view("writer.dashboard.posts.news-posts.create", compact("subCategories"));
+        return view("editor.dashboard.posts.news-posts.create", compact("subCategories"));
     }
 
     public function store(NewsPostRequest $request, NewsPostService $newsPostService, TagService $tagService)
@@ -47,7 +46,7 @@ class WriterNewsPostController extends Controller
 
         $tagService->createTag($request, $post);
 
-        return to_route("writer.news-posts.index")->with("success", "Post is created successfully");
+        return to_route("editor.news-posts.index")->with("success", "Post is created successfully");
     }
 
     public function edit(NewsPost $newsPost)
@@ -58,7 +57,7 @@ class WriterNewsPostController extends Controller
 
         $page=request('page');
 
-        return view("writer.dashboard.posts.news-posts.edit", compact("newsPost", "subCategories", "page"));
+        return view("editor.dashboard.posts.news-posts.edit", compact("newsPost", "subCategories", "page"));
     }
 
     public function update(NewsPostRequest $request, NewsPost $newsPost, NewsPostService $newsPostService, TagService $tagService)
@@ -69,7 +68,7 @@ class WriterNewsPostController extends Controller
 
         $tagService->updateNewsPostTag($request, $newsPost);
 
-        return to_route("writer.news-posts.index", "page=".request("page"))->with("success", "Post is updated successfully");
+        return to_route("editor.news-posts.index", "page=".request("page"))->with("success", "Post is updated successfully");
     }
 
     public function destroy(NewsPost $newsPost)
@@ -78,6 +77,6 @@ class WriterNewsPostController extends Controller
 
         $newsPost->delete();
 
-        return to_route("writer.news-posts.index", "page=".request("page"))->with("success", "Post is deleted successfully");
+        return to_route("editor.news-posts.index", "page=".request("page"))->with("success", "Post is deleted successfully");
     }
 }
