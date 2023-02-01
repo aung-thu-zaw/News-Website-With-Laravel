@@ -33,9 +33,6 @@ class UserSeeder extends Seeder
             "password"=>"Password!",
             "role"=>"admin",
             "twitter_link"=>"http://example.com",
-            "facebook_link"=>"http://example.com",
-            "linked_in_link"=>"http://example.com",
-            "whats_app_link"=>"http://example.com",
         ]);
 
         User::factory()->create([
@@ -56,7 +53,6 @@ class UserSeeder extends Seeder
             "password"=>"Password!",
             "role"=>"writer",
             "twitter_link"=>"http://example.com",
-            "whats_app_link"=>"http://example.com",
         ]);
 
         User::factory()->create([
@@ -77,9 +73,6 @@ class UserSeeder extends Seeder
             "password"=>"Password!",
             "role"=>"editor",
             "twitter_link"=>"http://example.com",
-            "facebook_link"=>"http://example.com",
-            "linked_in_link"=>"http://example.com",
-            "whats_app_link"=>"http://example.com",
         ]);
 
         User::factory()->create([
@@ -100,7 +93,6 @@ class UserSeeder extends Seeder
             "password"=>"Password!",
             "role"=>"writer",
             "twitter_link"=>"http://example.com",
-            "facebook_link"=>"http://example.com",
         ]);
 
         User::factory()->create([
@@ -140,7 +132,7 @@ class UserSeeder extends Seeder
             "email"=>"jaden@gmail.com",
             "password"=>"Password!",
             "role"=>"editor",
-            "whats_app_link"=>"http://example.com",
+            "twitter_link"=>"http://example.com",
         ]);
 
         User::factory(200)->create();

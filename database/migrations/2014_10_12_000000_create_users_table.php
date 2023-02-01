@@ -23,8 +23,8 @@ return new class () extends Migration {
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->nullable();
             $table->string('role')->nullable();
-            $table->text('about');
-            $table->string("twitter_link");
+            $table->text('about')->nullable();
+            $table->string("twitter_link")->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

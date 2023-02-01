@@ -14,8 +14,8 @@
                             class="img-thumbnail" style="width: 300px">
                     </div>
 
-                    <x-form.input type="file" name="favicon" id="file1" required="required">
-                        <x-form.label name="Choose favicon *" />
+                    <x-form.input type="file" name="favicon" id="file1">
+                        <x-form.label name=" Choose favicon *" />
                     </x-form.input>
 
                     <div class="mb-3">
@@ -23,8 +23,8 @@
                             class="img-thumbnail" style="width: 300px">
                     </div>
 
-                    <x-form.input type="file" name="logo" id="file2" required="required">
-                        <x-form.label name="Choose logo *" />
+                    <x-form.input type="file" name="logo" id="file2">
+                        <x-form.label name=" Choose logo *" />
                     </x-form.input>
 
                     <x-form.input-button name="Save" />

@@ -45,6 +45,9 @@ use App\Http\Controllers\Pages\FaqController;
 use App\Http\Controllers\Pages\PrivacyAndPolicyController;
 use App\Http\Controllers\Pages\TermsAndConditionsController;
 use App\Http\Controllers\Tags\TagPostController;
+use App\Http\Controllers\Writer\Dashboard\Posts\WriterNewsPostController;
+use App\Http\Controllers\Writer\Dashboard\Posts\WriterVideoNewsPostController;
+use App\Http\Controllers\Writer\Dashboard\WriterDashboardController;
 use Illuminate\Support\Facades\Route;
 
 # ============== User Authentication ==============
@@ -204,7 +207,7 @@ Route::middleware(["auth","verified","can:admin"])
             // Permission User Lists
             Route::resource('/permission-users', AdminPermissionUserListController::class);
 
-
+            // Author Section
             Route::get("/author-news-posts", [AdminAuthorNewsPostController::class,"index"])->name("author-news-posts.index");
 
             Route::delete("/author-news-posts/{id}", [AdminAuthorNewsPostController::class,"destroy"])->name("author-news-posts.destroy");
@@ -220,6 +223,26 @@ Route::middleware(["auth","verified","can:admin"])
             Route::get('/setting', [AdminSettingController::class,"edit"])->name('setting.edit');
 
             Route::patch('/setting/update', [AdminSettingController::class,"update"])->name('setting.update');
+
+            // Tag Handler
+            Route::post('/news-post/{news_post:slug}/{tag:slug}', [TagPostController::class,"newsPostTagHandler"])->name("news-post-tag-handle");
+
+            Route::post('/video-news-post/{video_news_post:slug}/{tag:slug}', [TagPostController::class,"videonewsPostTagHandler"])->name("video-news-post-tag-handle");
+        });
+
+
+# ============== Writer Dashboard ==============
+Route::middleware(["auth","verified","can:writer"])
+        ->prefix("writer")
+        ->name("writer.")
+        ->group(function () {
+            Route::get('/dashboard', [WriterDashboardController::class,"index"])->name('dashboard');
+
+            // News Post
+            Route::resource('/news-posts', WriterNewsPostController::class);
+
+            // Video News Post
+            Route::resource('/video-news-posts', WriterVideoNewsPostController::class);
 
             // Tag Handler
             Route::post('/news-post/{news_post:slug}/{tag:slug}', [TagPostController::class,"newsPostTagHandler"])->name("news-post-tag-handle");

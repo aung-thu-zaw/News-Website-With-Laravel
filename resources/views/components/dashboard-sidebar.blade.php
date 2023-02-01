@@ -1,9 +1,10 @@
 <div id="mySidenav" class="sidenav d-flex flex-column justify-content-between">
     <div class="border-3 border-bottom py-3 px-3">
         <h5 class="text-center text-white">
-            News Website
+            Global News
             </h4>
     </div>
+    @can("admin")
     <div class="h-100">
         <div class="my-2">
             <a href="{{ route('admin.dashboard') }}">
@@ -202,8 +203,6 @@
             </div>
         </div>
 
-
-
         <div class="my-2">
             <a href="{{ route('admin.live-videos.index') }}">
                 <i class="fa-solid fa-video me-2"></i>
@@ -223,17 +222,59 @@
         </div>
 
     </div>
+    @endcan
+
+
+
+    @can("writer")
+    <div class="h-100">
+        <div class="my-2">
+            <a href="{{ route('writer.dashboard') }}">
+                <i class="fa-solid fa-gauge-high me-2"></i>
+                <span class="dashboard-nav-item">
+                    Dashboard
+                </span>
+            </a>
+        </div>
+
+
+        <div class="my-2">
+            <div class="">
+                <a data-bs-toggle="collapse" data-bs-target=".collapseThree" href="#collapseExample" role="button"
+                    aria-expanded="false" aria-controls="collapseExample" onclick="toggleDownArrowThree()"
+                    class="d-flex align-items-center justify-content-between">
+                    <div>
+                        <i class="fa-solid fa-newspaper me-2"></i>
+                        <span class="me-5 dashboard-nav-item">Posts</span>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-caret-down left-icon-3" id="down-icon-3"></i>
+                    </div>
+                </a>
+            </div>
+            <div class="collapse collapseThree" id="collapseExample" style="background: rgb(32, 33, 33)">
+                <a href="{{ route('writer.news-posts.index') }}" class="">
+                    <span class="ms-5 dashboard-nav-item">News Posts</span>
+                </a>
+                <a href="{{ route('writer.video-news-posts.index') }}" class="">
+                    <span class="ms-5 dashboard-nav-item">Video News Posts</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    @endcan
 
     <div class="border-3 border-top py-2 px-3 d-flex align-items-center justify-content-center">
         <div class="me-3">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/640px-Image_created_with_a_mobile_phone.png"
-                alt="" class="border rounded-circle" style="width: 50px; height: 50px;">
+            <img src="{{ asset('storage/avatars/'.auth()->user()->avatar) }}" alt="" class="border rounded-circle"
+                style="width: 50px; height: 50px; object-fit: cover">
         </div>
 
         <div class="btn-group dropup">
             <div type="button" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                 <span class="text-white">
-                    Aung Thu Zaw
+                    {{ auth()->user()->name }}
                 </span>
             </div>
             <ul class="dropdown-menu bg-dark text-white-50">

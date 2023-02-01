@@ -3,7 +3,7 @@
         <div class="col-1">
             <a class="navbar-brand" href="{{ route('news.index') }}">
                 <img src="{{ asset('storage/website/'.$setting->logo) }}" alt="" class="img-fluid"
-                    style="width: 100%; height:50px; object-fit: cover;">
+                    style="width: 100%; object-fit: cover;">
             </a>
 
         </div>
@@ -99,6 +99,15 @@
                             @can("admin")
                             <li>
                                 <a class="dropdown-item text-decoration-none" href="{{ route('admin.dashboard') }}">
+                                    Dashboard
+                                    <i class="fa-solid fa-gauge-high ms-3"></i>
+                                </a>
+                            </li>
+                            @endcan
+
+                            @can("writer")
+                            <li>
+                                <a class="dropdown-item text-decoration-none" href="{{ route('writer.dashboard') }}">
                                     Dashboard
                                     <i class="fa-solid fa-gauge-high ms-3"></i>
                                 </a>
