@@ -19,7 +19,7 @@ class NewsPostFactory extends Factory
     {
         return [
             "sub_category_id"=>$this->faker->numberBetween(1, 47),
-            "user_id"=>$this->faker->numberBetween(1, 5),
+            "user_id"=>$this->faker->numberBetween(1, 6),
             "title"=>$this->faker->sentence(),
             "slug"=>$this->faker->slug(),
             "body"=>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque porttitor, velit eu maximus sagittis, eros neque euismod quam, non ultrices velit nisi non dolor. Quisque nec felis congue, imperdiet nunc nec, ultricies nisi. Mauris pretium ut urna sit amet sollicitudin. Duis semper maximus mollis. Nulla massa sapien, fringilla ut bibendum eu, porttitor ut turpis. Proin a rutrum est. Nullam blandit suscipit viverra. Suspendisse sed tincidunt justo. Etiam hendrerit lacus diam, quis pulvinar dolor condimentum ornare. Nunc convallis nibh ut fringilla sollicitudin. Donec quis tellus id nulla vulputate volutpat. Ut lacinia in enim hendrerit vulputate. Duis condimentum molestie eros, ut venenatis est euismod a. Morbi eget tristique quam, nec tempor eros.
