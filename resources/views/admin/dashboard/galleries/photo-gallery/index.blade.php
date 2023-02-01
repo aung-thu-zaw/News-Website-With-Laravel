@@ -12,10 +12,11 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th scope="col">No</th>
+                        <th scope="col">ID</th>
                         <th scope="col">Photo</th>
                         <th scope="col">Owner</th>
                         <th scope="col">Caption</th>
+                        <th scope="col">Create Date</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
@@ -33,6 +34,9 @@
                         </td>
                         <td>
                             {!! $photo->caption !!}
+                        </td>
+                        <td>
+                            {{ $photo->created_at->format("Y-m-d / H:i A") }}
                         </td>
                         <td>
                             <div class="d-flex align-items-center">

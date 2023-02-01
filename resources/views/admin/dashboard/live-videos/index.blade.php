@@ -16,6 +16,7 @@
                     <th scope="col">ID</th>
                     <th scope="col">Video</th>
                     <th scope="col">Title</th>
+                    <th scope="col">Create Date</th>
                     <th scope="col">Action</th>
                 </thead>
 
@@ -39,6 +40,7 @@
                             </div>
                         </td>
                         <td>{{ $video->title }}</td>
+                        <td>{{ $video->created_at->format("Y-m-d / H:i A") }}</td>
                         <td>
                             <div class=" d-flex align-items-center">
                                 <form action="{{ route('admin.live-videos.edit',$video->id) }}" method="GET">

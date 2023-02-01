@@ -37,7 +37,7 @@
                         <td>{{ $permissionUser->name }}</td>
                         <td>{{ $permissionUser->email }}</td>
                         <td>{{ $permissionUser->role }}</td>
-                        <td>{{ $permissionUser->created_at->format("Y-m-d") }}</td>
+                        <td>{{ $permissionUser->created_at->format("Y-m-d / H:i A") }}</td>
                         <td>
                             <div class=" d-flex align-items-center">
 

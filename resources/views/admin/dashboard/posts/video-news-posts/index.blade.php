@@ -13,15 +13,15 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th scope="col">No</th>
+                        <th scope="col">ID</th>
                         <th scope="col">Video</th>
                         <th scope="col">Title</th>
-                        <th scope="col">slug</th>
                         <th scope="col">Category</th>
                         <th scope="col">SubCategory</th>
                         <th scope="col">Visitors</th>
                         <th scope="col">Author</th>
                         <th scope="col">Role</th>
+                        <th scope="col">Create Date</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
@@ -48,9 +48,7 @@
                         <td>
                             {{ $post->title }}
                         </td>
-                        <td>
-                            {{ $post->slug }}
-                        </td>
+
                         <td>
                             {{ $post->subCategory->category->name }}
                         </td>
@@ -65,6 +63,9 @@
                         </td>
                         <td>
                             {{ $post->author->role }}
+                        </td>
+                        <td>
+                            {{ $post->created_at->format("Y-m-d / H:i A") }}
                         </td>
                         <td>
                             <div class=" d-flex align-items-center">

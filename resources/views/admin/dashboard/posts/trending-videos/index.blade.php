@@ -12,10 +12,11 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th scope="col">No</th>
+                        <th scope="col">ID</th>
                         <th scope="col">Video</th>
                         <th scope="col">Owner</th>
                         <th scope="col">Caption</th>
+                        <th scope="col">Create Date</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
@@ -24,8 +25,6 @@
 
                     @foreach ($trendingVideos as $video)
                     <tr>
-
-
                         <th scope="row">{{ $video->id }}</th>
                         <th scope="row">
 
@@ -48,6 +47,9 @@
                         </td>
                         <td>
                             {!! $video->caption !!}
+                        </td>
+                        <td>
+                            {{ $video->created_at->format("Y-m-d / H:i A") }}
                         </td>
 
 

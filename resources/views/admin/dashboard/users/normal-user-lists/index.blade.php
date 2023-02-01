@@ -34,7 +34,7 @@
                         <td> {{ $normalUser->name }}</td>
                         <td> {{ $normalUser->email }}</td>
                         <td> {{ $normalUser->role ? $normalUser->role : "Normal User"}}</td>
-                        <td> {{ $normalUser->created_at->format("Y-m-d") }}</td>
+                        <td> {{ $normalUser->created_at->format("Y-m-d / H:i A") }}</td>
                     </tr>
                     @endforeach
                 </tbody>

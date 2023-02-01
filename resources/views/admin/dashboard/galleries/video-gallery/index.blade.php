@@ -9,7 +9,7 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th scope="col">No</th>
+                        <th scope="col">ID</th>
                         <th scope="col">Video</th>
                         <th scope="col">Owner</th>
                         <th scope="col">Caption</th>
@@ -41,6 +41,9 @@
                         </td>
                         <td>
                             {!! $video->caption !!}
+                        </td>
+                        <td>
+                            {{ $video->created_at->format("Y-m-d / H:i A") }}
                         </td>
                         <td>
                             <div class="d-flex align-items-center">
