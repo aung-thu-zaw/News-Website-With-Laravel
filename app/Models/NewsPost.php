@@ -50,6 +50,12 @@ class NewsPost extends Model
 
     public function scopeFilterRequest($query, $filterKeyword)
     {
+        $query->when($filterKeyword["search"]??null, function ($query, $keyword) {
+            $query->where(function ($query) use ($keyword) {
+                $query->where("title", "LIKE", "%".$keyword."%")
+                ->orWhere("body", "LIKE", "%".$keyword."%");
+            });
+        });
         $query->when($filterKeyword["query"]??null, function ($query, $keyword) {
             $query->where(function ($query) use ($keyword) {
                 $query->where("title", "LIKE", "%".$keyword."%")

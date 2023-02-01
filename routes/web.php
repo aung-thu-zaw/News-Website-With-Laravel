@@ -5,6 +5,8 @@ use App\Http\Controllers\Admin\Dashboard\AdminDashboardController;
 use App\Http\Controllers\Admin\Dashboard\AdminLiveVideoController;
 use App\Http\Controllers\Admin\Dashboard\Advertisements\AdminHomeAdvertisementController;
 use App\Http\Controllers\Admin\Dashboard\Advertisements\AdminSidebarAdvertisementController;
+use App\Http\Controllers\Admin\Dashboard\AuthorPosts\AdminAuthorNewsPostController;
+use App\Http\Controllers\Admin\Dashboard\AuthorPosts\AdminAuthorVideoNewsPostController;
 use App\Http\Controllers\Auth\SocialiteFacebookAuthController;
 use App\Http\Controllers\Auth\SocialiteGitHubAuthController;
 use App\Http\Controllers\Auth\SocialiteGoogleAuthController;
@@ -201,6 +203,15 @@ Route::middleware(["auth","verified","can:admin"])
 
             // Permission User Lists
             Route::resource('/permission-users', AdminPermissionUserListController::class);
+
+
+            Route::get("/author-news-posts", [AdminAuthorNewsPostController::class,"index"])->name("author-news-posts.index");
+
+            Route::delete("/author-news-posts/{id}", [AdminAuthorNewsPostController::class,"destroy"])->name("author-news-posts.destroy");
+
+            Route::get("/author-video-news-posts", [AdminAuthorVideoNewsPostController::class,"index"])->name("author-video-news-posts.index");
+
+            Route::delete("/author-video-news-posts/{id}", [AdminAuthorVideoNewsPostController::class,"destroy"])->name("author-video-news-posts.destroy");
 
             // Live Video
             Route::resource('/live-videos', AdminLiveVideoController::class);

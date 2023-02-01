@@ -178,6 +178,30 @@
             </div>
         </div>
 
+        <div class="my-2">
+            <div class="">
+                <a data-bs-toggle="collapse" data-bs-target=".collapseSeven" href="#collapseExample" role="button"
+                    aria-expanded="false" aria-controls="collapseExample" onclick="toggleDownArrowSeven()"
+                    class="d-flex align-items-center justify-content-between">
+                    <div>
+                        <i class="fa-solid fa-pen me-2"></i>
+                        <span class="me-5 dashboard-nav-item">Author Posts</span>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-caret-down left-icon-7" id="down-icon-7"></i>
+                    </div>
+                </a>
+            </div>
+            <div class="collapse collapseSeven" id="collapseExample" style="background: rgb(32, 33, 33)">
+                <a href="{{ route('admin.author-news-posts.index') }}" class="">
+                    <span class="ms-5 dashboard-nav-item">News Posts</span>
+                </a>
+                <a href="{{ route('admin.author-video-news-posts.index') }}" class="">
+                    <span class="ms-5 dashboard-nav-item">Video News Posts</span>
+                </a>
+            </div>
+        </div>
+
 
 
         <div class="my-2">

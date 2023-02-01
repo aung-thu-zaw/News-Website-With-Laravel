@@ -16,7 +16,9 @@ class AdminNewsPostController extends Controller
     {
         Meta::prependTitle("News Post");
 
-        $newsPosts=NewsPost::search(request("search"))
+        $newsPosts=NewsPost::where("user_id", 1)
+                   ->filterRequest(request(["search"]))
+                   ->orderBy("id", "desc")
                    ->paginate(10)
                    ->withQueryString();
 

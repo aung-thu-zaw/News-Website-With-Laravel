@@ -54,9 +54,6 @@
                         <x-form.label name="Role *" />
                         <select class="form-select" name="role" id="" required="required">
                             <option value="" selected disabled>Select role</option>
-                            <option value="admin" {{ $user->role==="admin"? "selected":"" }}>
-                                Admin
-                            </option>
                             <option value="editor" {{ $user->role==="editor"? "selected":"" }}>
                                 Editor
                             </option>

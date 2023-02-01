@@ -52,7 +52,7 @@
 
                                     <a href="/{{ $post->subCategory->category->slug }}/{{ $post->subCategory->slug }}/news{{ request('type') && request('query') ? '&type='
                                         .request('type') : '/?type=articles' }}"
-                                        class="header-news-tag-sm text-white my-1 text-decoration-none">{{
+                                        class="header-news-tag-sm text-dark my-1 text-decoration-none">{{
                                         $post->subCategory->name
                                         }}</a>
 
@@ -64,7 +64,7 @@
                                             <i class="fa-solid fa-user me-1"></i>
 
                                             <a href="{{ route('author.details',['author'=>$post->author->id,'type'=>'articles']) }}"
-                                                class="text-white">{{
+                                                class="text-dark">{{
                                                 $post->author->name
                                                 }}</a>
                                         </span>

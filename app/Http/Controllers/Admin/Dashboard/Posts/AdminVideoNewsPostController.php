@@ -15,7 +15,9 @@ class AdminVideoNewsPostController extends Controller
     {
         Meta::prependTitle("Video News Posts");
 
-        $videoNewsPosts=VideoNewsPost::search(request("search"))
+        $videoNewsPosts=VideoNewsPost::where("user_id", 1)
+                        ->filterRequest(request(["search"]))
+                        ->orderBy("id", "desc")
                         ->paginate(10)
                         ->withQueryString();
 
