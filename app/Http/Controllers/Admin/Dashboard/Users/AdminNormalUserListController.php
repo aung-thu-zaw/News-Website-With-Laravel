@@ -12,8 +12,8 @@ class AdminNormalUserListController extends Controller
     {
         Meta::prependTitle("Normal User Lists");
 
-        $normalUsers=User::search(request("search"))
-                     ->where("role", null)
+        $normalUsers=User::whereNull("role")
+                     ->filterRequest(request(["search"]))
                      ->orderBy("id", "desc")
                      ->paginate(10)
                      ->withQueryString();

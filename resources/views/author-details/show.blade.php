@@ -13,25 +13,9 @@
                 <small class="text-secondary">
                     <i class="fa-solid fa-pen-nib me-2"></i>
                     Role - {{ Str::ucfirst($author->role) }}
+                    <a href="{{ $author->twitter_link }}" class="ms-3" data-bs-toggle="tooltip"
+                        data-bs-title="Go To Twitter"><i class="fa-brands fa-twitter"></i></a>
                 </small>
-
-                <div class="d-flex alignt-items-center justify-content-center my-3">
-                    @if ($author->facebook_link)
-                    <a href="{{ $author->facebook_link }}" class="me-3"><i class="fa-brands fa-facebook"></i></a>
-                    @endif
-
-                    @if ($author->twitter_link)
-                    <a href="{{ $author->twitter_link }}" class="me-3"><i class="fa-brands fa-twitter"></i></a>
-                    @endif
-
-                    @if ($author->whats_app_link)
-                    <a href="{{ $author->whats_app_link }}" class="me-3"><i class="fa-brands fa-whatsapp"></i></a>
-                    @endif
-
-                    @if ($author->linked_in_link)
-                    <a href="{{ $author->linked_in_link }}" class="me-3"><i class="fa-brands fa-linkedin"></i></a>
-                    @endif
-                </div>
             </div>
         </div>
 

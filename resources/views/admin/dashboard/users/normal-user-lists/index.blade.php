@@ -12,6 +12,7 @@
                     <th>Avatar</th>
                     <th>Name</th>
                     <th>Email</th>
+                    <th>Role</th>
                     <th>Create Date</th>
                 </thead>
 
@@ -32,6 +33,7 @@
 
                         <td> {{ $normalUser->name }}</td>
                         <td> {{ $normalUser->email }}</td>
+                        <td> {{ $normalUser->role ? $normalUser->role : "Normal User"}}</td>
                         <td> {{ $normalUser->created_at->format("Y-m-d") }}</td>
                     </tr>
                     @endforeach

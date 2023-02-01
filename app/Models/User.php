@@ -102,4 +102,14 @@ class User extends Authenticatable implements MustVerifyEmail
             "email" => $this->email,
         ];
     }
+
+    public function scopeFilterRequest($query, $filterKeyword)
+    {
+        $query->when($filterKeyword["search"]??null, function ($query, $keyword) {
+            $query->where(function ($query) use ($keyword) {
+                $query->where("name", "LIKE", "%".$keyword."%")
+                ->orWhere("email", "LIKE", "%".$keyword."%");
+            });
+        });
+    }
 }

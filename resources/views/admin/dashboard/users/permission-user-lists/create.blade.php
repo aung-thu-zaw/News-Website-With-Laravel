@@ -44,15 +44,23 @@
                         <option value="admin">
                             Admin
                         </option>
+                        <option value="writer">
+                            Writer
+                        </option>
                         <option value="editor">
                             Editor
-                        </option>
-                        <option value="author">
-                            Author
                         </option>
                     </select>
                     <x-form.error name="role" />
                 </x-form.input-wrapper>
+
+                <x-form.textarea name="about" required="required">
+                    <x-form.label name="About *" />
+                </x-form.textarea>
+
+                <x-form.input type="text" name="twitter_link" required="required">
+                    <x-form.label name="Twitter Link *" />
+                </x-form.input>
 
                 <x-form.input-button name="Create" />
             </form>

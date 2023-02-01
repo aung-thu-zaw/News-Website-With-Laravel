@@ -27,8 +27,10 @@ class UpdatePermissionUserRequest extends FormRequest
     {
         $rules= [
             "name"=>["required","string","max:255","min:4"],
+            "about"=>["required","string"],
             "email"=>["required","email"],
-            "role"=>["required","string"]
+            "role"=>["required","string"],
+            "twitter_link"=>["required","string"]
         ];
 
         if (in_array($this->method(), ['PUT', 'PATCH'])) {

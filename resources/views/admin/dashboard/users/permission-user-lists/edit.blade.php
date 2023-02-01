@@ -69,6 +69,15 @@
                     </x-form.input-wrapper>
 
 
+                    <x-form.textarea name="about" value="{{ $user->about }}" required="required">
+                        <x-form.label name="About *" />
+                    </x-form.textarea>
+
+                    <x-form.input type="text" name="twitter_link" value="{{ $user->twitter_link }}" required="required">
+                        <x-form.label name="Twitter Link *" />
+                    </x-form.input>
+
+
                     <x-form.input-button name="Update" />
                 </form>
             </div>

@@ -32,11 +32,13 @@ class PermissionUserService
     {
         return User::create([
             "name" => $userData["name"],
+            "about"=>$userData["about"],
             "email" => $userData["email"],
             "password" => $userData["password"],
             "role"=>$userData["role"],
             "avatar" => $userData["avatar"],
-            "email_verified_at"=>$userData["email_verified_at"]
+            "email_verified_at"=>$userData["email_verified_at"],
+            "twitter_link"=>$userData["twitter_link"]
         ]);
     }
 

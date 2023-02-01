@@ -30,7 +30,10 @@ class StorePermissionUserRequest extends FormRequest
             "name"=>["required","string","max:255","min:4"],
             "email"=>["required","email",Rule::unique("users", "email")],
             "password"=>["required","confirmed","min:8","max:20"],
-            "role"=>["required","string"]
+            "role"=>["required","string"],
+            "about"=>["required","string"],
+            "twitter_link"=>["required","string"]
+
         ];
     }
 }
