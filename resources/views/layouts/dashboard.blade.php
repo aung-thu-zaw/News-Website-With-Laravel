@@ -62,6 +62,10 @@
 
     <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    @stack('scripts')
+
     <script>
         ClassicEditor.create(document.querySelector(".editor"), {
         licenseKey: "",

@@ -16,14 +16,13 @@ class NewsPostSeeder extends Seeder
      */
     public function run()
     {
-        // $newsPosts=NewsPost::factory(3000)->make();
+        // $newsPosts=NewsPost::factory(1000)->make();
 
         // $newsPosts->chunk(500)->each(function ($chunk) {
         //     NewsPost::insert($chunk->toArray());
         // });
 
         // DB::statement("update news_posts set created_at=now(),updated_at=now()");
-
 
         NewsPost::factory()->create(["sub_category_id"=>1,"thumbnail"=>"africa-1.jpg","visitors"=>20]);
         NewsPost::factory()->create(["sub_category_id"=>10,"thumbnail"=>"revolution-9.jpg"]);

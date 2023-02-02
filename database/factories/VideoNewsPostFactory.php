@@ -34,6 +34,7 @@ class VideoNewsPostFactory extends Factory
 
             ]),
             "visitors"=>0,
+            'created_at' => $this->faker->dateTimeBetween('-30 days', now()),
         ];
     }
 }

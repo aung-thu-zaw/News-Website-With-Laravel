@@ -14,11 +14,11 @@ class AuthorDetailController extends Controller
         Meta::setTitle("$author->name - Author Profile");
 
         if (request("type")=="articles") {
-            $newsPosts=$author->newsPosts()->filterRequest(request(["query","subcategory"]))->paginate(12);
+            $newsPosts=$author->newsPosts()->filterRequest(request(["query","subcategory"]))->orderBy("id", "desc")->paginate(12)->withQueryString();
 
             return view("author-details.show", compact("author", "newsPosts"));
         } elseif (request("type")=="videos") {
-            $videoNewsPosts=$author->videoNewsPosts()->filterRequest(request(["query","subcategory"]))->paginate(12);
+            $videoNewsPosts=$author->videoNewsPosts()->filterRequest(request(["query","subcategory"]))->orderBy("id", "desc")->paginate(12)->withQueryString();
 
             return view("author-details.show", compact("author", "videoNewsPosts"));
         }

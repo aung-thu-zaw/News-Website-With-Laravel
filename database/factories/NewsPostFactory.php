@@ -112,6 +112,7 @@ class NewsPostFactory extends Factory
                 "tech-10.jpg",
             ]),
             "visitors"=>0,
+            'created_at' => $this->faker->dateTimeBetween("-30days", now()),
         ];
     }
 }

@@ -135,6 +135,6 @@ class UserSeeder extends Seeder
             "twitter_link"=>"http://example.com",
         ]);
 
-        User::factory(200)->create();
+        User::factory(100)->create();
     }
 }
