@@ -9,12 +9,15 @@ use App\Models\TrendingVideo;
 use App\Models\VideoNewsPost;
 use Share;
 use Butschster\Head\Facades\Meta;
+use LanguageHelper;
 
 class HomeNewsController extends Controller
 {
     public function index()
     {
         Meta::prependTitle('Home');
+
+        LanguageHelper::readJson();
 
         $latestNewsPosts=NewsPost::with("subCategory:id,category_id,name,slug", "author:id,name")
                         ->orderBy("id", "desc")

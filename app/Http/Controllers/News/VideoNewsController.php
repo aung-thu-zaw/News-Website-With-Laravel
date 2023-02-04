@@ -7,12 +7,15 @@ use App\Models\NewsPost;
 use App\Models\VideoNewsPost;
 use Share;
 use Butschster\Head\Facades\Meta;
+use LanguageHelper;
 
 class VideoNewsController extends Controller
 {
     public function index()
     {
         Meta::setTitle("Video News");
+
+        LanguageHelper::readJson();
 
         $newsVideoPosts=VideoNewsPost::with("subCategory", "author:id,name")
                         ->filterRequest(request(["query","subcategory"]))

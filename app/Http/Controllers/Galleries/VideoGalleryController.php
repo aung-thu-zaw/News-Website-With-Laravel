@@ -7,12 +7,15 @@ use App\Models\Video;
 use App\Models\VideoGallery;
 use Illuminate\Http\Request;
 use Butschster\Head\Facades\Meta;
+use LanguageHelper;
 
 class VideoGalleryController extends Controller
 {
     public function index()
     {
         Meta::prependTitle("Videos");
+
+        LanguageHelper::readJson();
 
         $videos= VideoGallery::orderBy("id", "desc")->get();
 

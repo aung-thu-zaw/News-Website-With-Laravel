@@ -18,7 +18,7 @@
                             <div>
                                 <a href="/{{ $subcategory->category->slug }}/{{ $subcategory->slug }}/news{{ request('type') && request('query') ? '&type='
                                     .request('type') : '/?type=articles' }}"
-                                    class="btn btn-outline-primary text-decoration-none">See all</a>
+                                    class="btn btn-outline-primary text-decoration-none">{{ SHOW_ALL }}</a>
                             </div>
                         </div>
 
@@ -78,7 +78,7 @@
                         </div>
 
                         @empty
-                        <p class="text-center text-danger">No post found for this topic section.</p>
+                        <p class="text-center text-danger">{{ NO_POST_FOUND_FOR_THIS_TOPIC_SECTION }}</p>
                         @endforelse
 
 

@@ -1,7 +1,7 @@
 @props(["trendingvideos"])
 <section class="container my-md-5">
     <div class="border-top border-5 border-bottom border-secondary py-2 mb-3">
-        <h1 class="text-center">Trending Videos</h1>
+        <h1 class="text-center">{{ TRENDING_VIDEOS }}</h1>
     </div>
 
 

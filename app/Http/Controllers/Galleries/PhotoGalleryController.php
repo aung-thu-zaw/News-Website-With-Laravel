@@ -7,12 +7,15 @@ use App\Models\Photo;
 use App\Models\PhotoGallery;
 use Illuminate\Http\Request;
 use Butschster\Head\Facades\Meta;
+use LanguageHelper;
 
 class PhotoGalleryController extends Controller
 {
     public function index()
     {
         Meta::prependTitle("Photos");
+
+        LanguageHelper::readJson();
 
         $photos=PhotoGallery::orderBy("id", "desc")->get();
 

@@ -30,17 +30,17 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-decoration-none" href="#" id="navbarDropdownMenuLink"
                         role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Gallery
+                        {{ GALLERY }}
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <li>
                             <a class="dropdown-item text-decoration-none" href="{{ route('photo-gallery.index') }}">
-                                Photos
+                                {{ PHOTO_GALLERY }}
                             </a>
                         </li>
                         <li>
                             <a class="dropdown-item text-decoration-none" href="{{ route('video-gallery.index') }}">
-                                Videos
+                                {{ VIDEO_GALLERY }}
                             </a>
                         </li>
                     </ul>

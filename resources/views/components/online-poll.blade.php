@@ -34,7 +34,7 @@
             aria-valuemax="100"></div>
     </div>
     <div class="mb-2">
-        <button class="btn btn-primary">Vote</button>
-        <button class="btn btn-outline-secondary">Old Result</button>
+        <button class="btn btn-primary">{{ VOTE }}</button>
+        <button class="btn btn-outline-secondary">{{ OLD_RESULT }}</button>
     </div>
 </div>

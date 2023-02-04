@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\Dashboard\AdminSettingController;
 use App\Http\Controllers\Admin\Dashboard\AdminDashboardController;
+use App\Http\Controllers\Admin\Dashboard\AdminLanguageController;
 use App\Http\Controllers\Admin\Dashboard\AdminLiveVideoController;
 use App\Http\Controllers\Admin\Dashboard\Advertisements\AdminHomeAdvertisementController;
 use App\Http\Controllers\Admin\Dashboard\Advertisements\AdminSidebarAdvertisementController;
@@ -43,6 +44,7 @@ use App\Http\Controllers\Editor\Dashboard\Posts\EditorVideoNewsPostController;
 use App\Http\Controllers\News\DateNewsController;
 use App\Http\Controllers\Galleries\PhotoGalleryController;
 use App\Http\Controllers\Galleries\VideoGalleryController;
+use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\News\PopularNewsController;
 use App\Http\Controllers\News\RecentNewsController;
 use App\Http\Controllers\News\VideoNewsController;
@@ -143,6 +145,12 @@ Route::get("/privacy-and-policy", [PrivacyAndPolicyController::class,"index"])->
 
 Route::get("/disclaimer", [DisclaimerController::class,"index"])->name("disclaimer.index");
 
+// Language
+Route::post("/language/switch", [LanguageController::class,"handleLanguage"])->name("language.handle");
+
+
+
+
 
 # ============== Admin Dashboard ==============
 Route::middleware(["auth","verified","can:admin"])
@@ -231,6 +239,14 @@ Route::middleware(["auth","verified","can:admin"])
             Route::get('/setting', [AdminSettingController::class,"edit"])->name('setting.edit');
 
             Route::patch('/setting/update', [AdminSettingController::class,"update"])->name('setting.update');
+
+            // Languages
+            Route::resource('/languages', AdminLanguageController::class);
+
+            Route::get("/language/update-detail/{language}", [AdminLanguageController::class,"handleUpdateDetail"])->name("update-detail.handle");
+
+            Route::post("/language/update-detail/{language}/update", [AdminLanguageController::class,"updateDetailUpdate"])->name("update-detail.update");
+
 
             // Tag Handler
             Route::post('/news-post/{news_post:slug}/{tag:slug}', [TagPostController::class,"newsPostTagHandler"])->name("news-post-tag-handle");

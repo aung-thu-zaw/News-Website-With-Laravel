@@ -1,6 +1,7 @@
 <div>
     <div class="px-3 mb-3 d-flex align-items-center border-bottom border-3">
-        <h6><i class="fa-solid fa-video fs-6 text-danger me-3 live-icon"></i>Live Video - {{$liveVideo->title}}</h6>
+        <h6><i class="fa-solid fa-video fs-6 text-danger me-3 live-icon"></i>{{ LIVE_VIDEO }} - {{$liveVideo->title}}
+        </h6>
     </div>
 
     <div class="live-channel mb-4">

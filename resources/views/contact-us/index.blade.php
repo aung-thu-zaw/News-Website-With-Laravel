@@ -9,7 +9,7 @@
                     <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);"
                         aria-label="breadcrumb" class="mt-3">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('news.index') }}" class="text-decoration-none">Home</a></li>
                             <li class="breadcrumb-item active" aria-current="page">{{ $contact->title }}</li>
                         </ol>
                     </nav>
@@ -25,16 +25,16 @@
                             <form action="{{ route('contact-us.send-email') }}" method="POST" class="row g-3">
                                 @csrf
                                 <div class="col-md-12">
-                                    <label for="inputName" class="form-label">Name</label>
+                                    <label for="inputName" class="form-label">{{ NAME }}</label>
                                     <input type="name" name="name" class="form-control" value="{{ old('name') }}"
-                                        id="inputName" placeholder="your fullname">
+                                        id="inputName" placeholder="{{ YOUR_FULL_NAME }}">
                                     @error("name")
                                     <p class="text-center text-danger">{{ $message }}</p>
                                     @enderror
                                 </div>
 
                                 <div class="col-md-6">
-                                    <label for="inputEmail4" class="form-label">Email</label>
+                                    <label for="inputEmail4" class="form-label">{{ EMAIL_ADDRESS }}</label>
                                     <input type="email" name="email" class="form-control" value="{{ old('email') }}"
                                         id="inputEmail4" placeholder="abcd@example.com">
                                     @error("email")
@@ -42,7 +42,7 @@
                                     @enderror
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="inputPhone" class="form-label">Phone</label>
+                                    <label for="inputPhone" class="form-label">{{ PHONE }}</label>
                                     <input type="number" name="phone" class="form-control" value="{{ old('phone') }}"
                                         id="inputPhone" minlength="8" maxlength="13" placeholder="09245768454">
                                     @error("phone")
@@ -50,7 +50,7 @@
                                     @enderror
                                 </div>
                                 <div class="col-12">
-                                    <label for="inputAddress" class="form-label">Address</label>
+                                    <label for="inputAddress" class="form-label">{{ ADDRESS }}</label>
                                     <input type="text" name="address" class="form-control" value="{{ old('address') }}"
                                         id="inputAddress" placeholder="parami2, Khatta Road, Myeik">
                                     @error("address")
@@ -58,15 +58,15 @@
                                     @enderror
                                 </div>
                                 <div class="col-12">
-                                    <label for="inputMessage" class="form-label">Message</label>
+                                    <label for="inputMessage" class="form-label">{{ MESSAGE }}</label>
                                     <textarea class="form-control" name="content" value="{{ old('message') }}"
-                                        id="inputMessage" cols="30" rows="10" placeholder="message..."></textarea>
+                                        id="inputMessage" cols="30" rows="10" placeholder="{{ MESSAGE }}..."></textarea>
                                     @error("content")
                                     <p class="text-center text-danger">{{ $message }}</p>
                                     @enderror
                                 </div>
                                 <div class="col-12">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="submit" class="btn btn-primary">{{ SUBMIT }}</button>
                                 </div>
                             </form>
                         </div>

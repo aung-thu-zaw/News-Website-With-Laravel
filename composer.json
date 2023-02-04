@@ -39,7 +39,8 @@
         },
         "files": [
             "app/Helpers/DateTimeHelper.php",
-            "app/Helpers/StringHelper.php"
+            "app/Helpers/StringHelper.php",
+            "app/Helpers/LanguageHelper.php"
         ]
     },
     "autoload-dev": {

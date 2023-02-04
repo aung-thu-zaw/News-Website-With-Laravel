@@ -1,3 +1,14 @@
+@if(!session("language"))
+@php
+$currentLanguage=$defaultLanguage;
+@endphp
+@else
+@php
+$currentLanguage=session("language");
+@endphp
+@endif
+
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-3">
     <div class="row container-fluid">
         <div class="col-1">
@@ -48,17 +59,15 @@
 
                 <div class="d-flex align-items-center justify-content-between w-auto">
 
-                    <div class="dropdown me-5">
-                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Languages
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                            <li><a class="dropdown-item text-decoration-none" href="#">English</a></li>
-                            <li><a class="dropdown-item text-decoration-none" href="#">Myanmar</a></li>
-
-                        </ul>
-                    </div>
+                    <form action="{{ route('language.handle') }}" method="POST" class="me-5">
+                        @csrf
+                        <select class="form-select" name="language" onchange="this.form.submit()">
+                            @foreach ($languages as $language)
+                            <option value="{{ $language->short_name }}" {{ $language->short_name == $currentLanguage ?
+                                "selected" : "" }}>{{ $language->name }}</option>
+                            @endforeach
+                        </select>
+                    </form>
 
                     @auth
                     <div class="dropdown ms-auto me-4">
@@ -149,12 +158,12 @@
                             class="navbar-nav mb-2 w-auto mb-lg-0 d-flex mx-auto align-items-center justify-content-evenly">
                             <li class="nav-item mx-3">
                                 <a class="nav-link text-decoration-underline text-primary" aria-current="page"
-                                    href="{{ route('register') }}">Register</a>
+                                    href="{{ route('register') }}">{{ REGISTER }}</a>
                             </li>
                             |
                             <li class="nav-item mx-3">
                                 <a class="nav-link text-decoration-underline text-primary" aria-current="page"
-                                    href="{{ route('login') }}">Login</a>
+                                    href="{{ route('login') }}">{{ LOGIN }}</a>
                             </li>
                         </ul>
                     </div>

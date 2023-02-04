@@ -1,5 +1,5 @@
 <div class="mb-4">
-    <h5 class="text-center">Random News For You</h5>
+    <h5 class="text-center">{{ RANDOM_NEWS_FOR_YOU }}</h5>
 
     <div class="border shadow-sm p-3 mb-4">
 

@@ -2,12 +2,11 @@
     <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
             <button class="nav-link active" id="popular-tab" data-bs-toggle="tab" data-bs-target="#popular"
-                type="button" role="tab" aria-controls="popular" aria-selected="true">Popular News</button>
+                type="button" role="tab" aria-controls="popular" aria-selected="true">{{ POPULAR_NEWS }}</button>
         </li>
         <li class="nav-item" role="presentation">
             <button class="nav-link" id="latest-tab" data-bs-toggle="tab" data-bs-target="#latest" type="button"
-                role="tab" aria-controls="latest" aria-selected="false">Recent
-                News</button>
+                role="tab" aria-controls="latest" aria-selected="false">{{RECENT_NEWS}}</button>
         </li>
     </ul>
     <div class="tab-content" id="myTabContent">
@@ -60,7 +59,7 @@
                 <input type="hidden" name="type" value="articles">
                 <div class="d-grid">
                     <button type="submit" class="btn btn-primary btn-sm text-decoration-none">
-                        See All
+                        {{ SHOW_ALL }}
                     </button>
                 </div>
             </form>
@@ -118,7 +117,7 @@
                 <input type="hidden" name="type" value="articles">
                 <div class="d-grid">
                     <button type="submit" class="btn btn-primary btn-sm text-decoration-none">
-                        See All
+                        {{ SHOW_ALL }}
                     </button>
                 </div>
             </form>

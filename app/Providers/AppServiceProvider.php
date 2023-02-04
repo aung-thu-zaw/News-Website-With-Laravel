@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Models\Category;
 use App\Models\Faq;
 use App\Models\HomeAdvertisement;
+use App\Models\Language;
 use App\Models\LiveVideo;
 use App\Models\Page;
 use App\Models\Setting;
@@ -51,5 +52,7 @@ class AppServiceProvider extends ServiceProvider
         View::share("disclaimer", Page::where("id", 6)->first());
         View::share("liveVideo", LiveVideo::orderBy("id", "desc")->first());
         View::share("subCategories", SubCategory::with("category")->where("status_on_navbar", "show")->orderBy("id", "desc")->get());
+        View::share("languages", Language::all());
+        View::share("defaultLanguage", Language::where("is_default", "yes")->first());
     }
 }

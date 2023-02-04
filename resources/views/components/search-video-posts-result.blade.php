@@ -71,7 +71,7 @@
         </div>
     </div>
     @empty
-    <p class="text-center text-danger">No Post Found</p>
+    <p class="text-center text-danger">{{ NO_POST_FOUND }}!</p>
     @endforelse
 
     <div class="d-flex align-items-center justify-content-center">

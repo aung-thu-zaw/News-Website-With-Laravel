@@ -221,6 +221,15 @@
             </a>
         </div>
 
+        <div class="my-2">
+            <a href="{{ route('admin.languages.index') }}">
+                <i class="fa-solid fa-language me-2"></i>
+                <span class="dashboard-nav-item">
+                    Languages
+                </span>
+            </a>
+        </div>
+
     </div>
     @endcan
 

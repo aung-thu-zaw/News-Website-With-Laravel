@@ -8,12 +8,15 @@ use App\Models\NewsPost;
 use App\Models\SubCategory;
 use App\Models\VideoNewsPost;
 use Butschster\Head\Facades\Meta;
+use LanguageHelper;
 
 class CategoryController extends Controller
 {
     public function show(Category $category)
     {
         Meta::setTitle($category->name);
+
+        LanguageHelper::readJson();
 
         $category=$category->load("subCategories.category");
 

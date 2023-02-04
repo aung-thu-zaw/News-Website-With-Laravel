@@ -7,12 +7,15 @@ use App\Http\Requests\ContactRequest;
 use App\Mail\ContactMail;
 use Butschster\Head\Facades\Meta;
 use Illuminate\Support\Facades\Mail;
+use LanguageHelper;
 
 class ContactUsController extends Controller
 {
     public function index()
     {
         Meta::prependTitle("Contact Us");
+
+        LanguageHelper::readJson();
 
         return view("contact-us.index");
     }

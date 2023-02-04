@@ -20,7 +20,6 @@
 
     <x-sidebar-bottom-advertisement />
 
-
 </div>
 
 @push('scripts')

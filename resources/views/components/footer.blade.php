@@ -2,36 +2,36 @@
     <div class="container py-3">
         <div class="row">
             <div class="col-lg-4">
-                <h4 class="heading">About</h4>
+                <h4 class="heading">{{ ABOUT }}</h4>
                 <p style="font-size: .8rem;" class="mb-0">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-                    been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-                    galley of type and scrambled it to make a type specimen book.
+                    {{FOOTER_ABOUT}}
                 </p>
             </div>
 
             <div class="col-lg-4">
-                <h4 class="heading">Useful Links</h4>
+                <h4 class="heading">{{ USEFUL_LINKS }}</h4>
                 <ul class="">
-                    <li><a href="{{ route('news.index') }}" class="text-white">Home</a></li>
+                    <li><a href="{{ route('news.index') }}" class="text-white">{{ HOME }}</a></li>
 
                     @if ($termsAndConditions->status==="show")
-                    <li><a href="{{ route('terms-and-conditions.index') }}" class="text-white">Terms And Conditions</a>
+                    <li><a href="{{ route('terms-and-conditions.index') }}" class="text-white">{{ TERMS_AND_CONDITIONS
+                            }}</a>
                     </li>
                     @endif
 
                     @if ($privacyAndPolicy->status==="show")
-                    <li><a href="{{ route('privacy-and-policy.index') }}" class="text-white">Privacy And Policy</a></li>
+                    <li><a href="{{ route('privacy-and-policy.index') }}" class="text-white">{{ PRIVACY_AND_POLICY
+                            }}</a></li>
                     @endif
 
                     @if ($disclaimer->status==="show")
-                    <li><a href="{{ route('disclaimer.index') }}" class="text-white">Disclaimer</a></li>
+                    <li><a href="{{ route('disclaimer.index') }}" class="text-white">{{ DISCLAIMER }}</a></li>
                     @endif
                 </ul>
             </div>
 
             <div class="col-lg-4">
-                <h4 class="heading">Contact</h4>
+                <h4 class="heading">{{ CONTACT }}</h4>
 
                 <div class="d-flex align-items-center">
                     <div>

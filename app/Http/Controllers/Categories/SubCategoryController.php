@@ -9,12 +9,15 @@ use App\Models\SubCategory;
 use App\Models\VideoNewsPost;
 use Illuminate\Http\Request;
 use Butschster\Head\Facades\Meta;
+use LanguageHelper;
 
 class SubCategoryController extends Controller
 {
     public function show(Category $category, SubCategory $subCategory)
     {
         Meta::setTitle($subCategory->name);
+
+        LanguageHelper::readJson();
 
         if (request("type")=="articles") {
             $newsPosts=NewsPost::with("subCategory:id,category_id,name,slug", "author:id,name")

@@ -1,7 +1,7 @@
 @props(["posts"])
 <section class="container my-2 py-3">
     <div class="border-top border-5 border-bottom border-secondary py-2">
-        <h1 class="text-center">Video News Section</h1>
+        <h1 class="text-center">{{ VIDEO_NEWS_SECTION }}</h1>
     </div>
 
     <div class="row g-3 mt-3">
@@ -9,12 +9,12 @@
             <div class="border border-secondary shadow-sm p-3 rounded-1">
                 <div class="d-flex align-items-center justify-content-between mb-3">
                     <div>
-                        <h3>Latest News Video</h3>
+                        <h3>{{ LATEST_NEWS_VIDEOS }}</h3>
                     </div>
                     <div class="border d-md-none d-lg-block" style="width: 60%;"></div>
                     <div>
                         <a href="{{ route('video-news.index') }}"
-                            class="btn btn-outline-primary text-decoration-none">Show All</a>
+                            class="btn btn-outline-primary text-decoration-none">{{ SHOW_ALL }}</a>
                     </div>
                 </div>
 
