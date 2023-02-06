@@ -21,6 +21,10 @@ class Category extends Model
         return $this->hasMany(SubCategory::class);
     }
 
+    public function language()
+    {
+        return $this->belongsTo(Language::class);
+    }
 
     public function toSearchableArray()
     {

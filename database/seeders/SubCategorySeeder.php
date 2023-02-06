@@ -15,9 +15,11 @@ class SubCategorySeeder extends Seeder
      */
     public function run()
     {
+        // ===English===
         // World
         SubCategory::create([
             "category_id"=>1,
+            "language_id"=>1,
             "name"=>"Africa",
             "slug"=>"africa",
             "status_on_navbar"=>"show",
@@ -25,6 +27,7 @@ class SubCategorySeeder extends Seeder
         ]);
         SubCategory::create([
             "category_id"=>1,
+            "language_id"=>1,
             "name"=>"America",
             "slug"=>"america",
             "status_on_navbar"=>"show",
@@ -32,6 +35,7 @@ class SubCategorySeeder extends Seeder
         ]);
         SubCategory::create([
             "category_id"=>1,
+            "language_id"=>1,
             "name"=>"Asia",
             "slug"=>"asia",
             "status_on_navbar"=>"show",
@@ -39,6 +43,7 @@ class SubCategorySeeder extends Seeder
         ]);
         SubCategory::create([
             "category_id"=>1,
+            "language_id"=>1,
             "name"=>"Australia",
             "slug"=>"australia",
             "status_on_navbar"=>"show",
@@ -46,6 +51,7 @@ class SubCategorySeeder extends Seeder
         ]);
         SubCategory::create([
             "category_id"=>1,
+            "language_id"=>1,
             "name"=>"China",
             "slug"=>"china",
             "status_on_navbar"=>"show",
@@ -53,6 +59,7 @@ class SubCategorySeeder extends Seeder
         ]);
         SubCategory::create([
             "category_id"=>1,
+            "language_id"=>1,
             "name"=>"Europe",
             "slug"=>"europe",
             "status_on_navbar"=>"show",
@@ -60,6 +67,7 @@ class SubCategorySeeder extends Seeder
         ]);
         SubCategory::create([
             "category_id"=>1,
+            "language_id"=>1,
             "name"=>"India",
             "slug"=>"india",
             "status_on_navbar"=>"show",
@@ -67,6 +75,7 @@ class SubCategorySeeder extends Seeder
         ]);
         SubCategory::create([
             "category_id"=>1,
+            "language_id"=>1,
             "name"=>"Middle East",
             "slug"=>"middle-east",
             "status_on_navbar"=>"show",
@@ -74,6 +83,7 @@ class SubCategorySeeder extends Seeder
         ]);
         SubCategory::create([
             "category_id"=>1,
+            "language_id"=>1,
             "name"=>"United Kingdom",
             "slug"=>"united-kingdom",
             "status_on_navbar"=>"show",
@@ -85,6 +95,7 @@ class SubCategorySeeder extends Seeder
         // Politics
         SubCategory::create([
             "category_id"=>2,
+            "language_id"=>1,
             "name"=>"Revolution",
             "slug"=>"revolution",
             "status_on_navbar"=>"show",
@@ -92,6 +103,7 @@ class SubCategorySeeder extends Seeder
         ]);
         SubCategory::create([
             "category_id"=>2,
+            "language_id"=>1,
             "name"=>"Military Coup",
             "slug"=>"military-coup",
             "status_on_navbar"=>"show",
@@ -99,6 +111,7 @@ class SubCategorySeeder extends Seeder
         ]);
         SubCategory::create([
             "category_id"=>2,
+            "language_id"=>1,
             "name"=>"What happening",
             "slug"=>"what-happening",
             "status_on_navbar"=>"show",
@@ -106,6 +119,7 @@ class SubCategorySeeder extends Seeder
         ]);
         SubCategory::create([
             "category_id"=>2,
+            "language_id"=>1,
             "name"=>"Civil Wars",
             "slug"=>"civil-wars",
             "status_on_navbar"=>"show",
@@ -115,6 +129,7 @@ class SubCategorySeeder extends Seeder
         // Business
         SubCategory::create([
             "category_id"=>3,
+            "language_id"=>1,
             "name"=>"Markets",
             "slug"=>"markets",
             "status_on_navbar"=>"show",
@@ -122,6 +137,7 @@ class SubCategorySeeder extends Seeder
         ]);
         SubCategory::create([
             "category_id"=>3,
+            "language_id"=>1,
             "name"=>"Tech",
             "slug"=>"tech",
             "status_on_navbar"=>"show",
@@ -129,6 +145,7 @@ class SubCategorySeeder extends Seeder
         ]);
         SubCategory::create([
             "category_id"=>3,
+            "language_id"=>1,
             "name"=>"Media",
             "slug"=>"media",
             "status_on_navbar"=>"show",
@@ -136,6 +153,7 @@ class SubCategorySeeder extends Seeder
         ]);
         SubCategory::create([
             "category_id"=>3,
+            "language_id"=>1,
             "name"=>"Success",
             "slug"=>"success",
             "status_on_navbar"=>"show",
@@ -143,6 +161,7 @@ class SubCategorySeeder extends Seeder
         ]);
         SubCategory::create([
             "category_id"=>3,
+            "language_id"=>1,
             "name"=>"Perspectives",
             "slug"=>"perspectives",
             "status_on_navbar"=>"show",
@@ -152,6 +171,7 @@ class SubCategorySeeder extends Seeder
         // Health
         SubCategory::create([
             "category_id"=>4,
+            "language_id"=>1,
             "name"=>"Life",
             "slug"=>"life",
             "status_on_navbar"=>"show",
@@ -159,6 +179,7 @@ class SubCategorySeeder extends Seeder
         ]);
         SubCategory::create([
             "category_id"=>4,
+            "language_id"=>1,
             "name"=>"Fitness",
             "slug"=>"fitness",
             "status_on_navbar"=>"show",
@@ -166,6 +187,7 @@ class SubCategorySeeder extends Seeder
         ]);
         SubCategory::create([
             "category_id"=>4,
+            "language_id"=>1,
             "name"=>"Food",
             "slug"=>"food",
             "status_on_navbar"=>"show",
@@ -173,6 +195,7 @@ class SubCategorySeeder extends Seeder
         ]);
         SubCategory::create([
             "category_id"=>4,
+            "language_id"=>1,
             "name"=>"Sleep",
             "slug"=>"sleep",
             "status_on_navbar"=>"show",
@@ -180,6 +203,7 @@ class SubCategorySeeder extends Seeder
         ]);
         SubCategory::create([
             "category_id"=>4,
+            "language_id"=>1,
             "name"=>"Mediation",
             "slug"=>"mediation",
             "status_on_navbar"=>"show",
@@ -189,6 +213,7 @@ class SubCategorySeeder extends Seeder
         // Entertainment
         SubCategory::create([
             "category_id"=>5,
+            "language_id"=>1,
             "name"=>"Celebrity",
             "slug"=>"celebrity",
             "status_on_navbar"=>"show",
@@ -196,6 +221,7 @@ class SubCategorySeeder extends Seeder
         ]);
         SubCategory::create([
             "category_id"=>5,
+            "language_id"=>1,
             "name"=>"Movies",
             "slug"=>"movies",
             "status_on_navbar"=>"show",
@@ -203,6 +229,7 @@ class SubCategorySeeder extends Seeder
         ]);
         SubCategory::create([
             "category_id"=>5,
+            "language_id"=>1,
             "name"=>"Television",
             "slug"=>"television",
             "status_on_navbar"=>"show",
@@ -212,6 +239,7 @@ class SubCategorySeeder extends Seeder
         // Technology
         SubCategory::create([
             "category_id"=>6,
+            "language_id"=>1,
             "name"=>"Computer",
             "slug"=>"computer",
             "status_on_navbar"=>"show",
@@ -219,6 +247,7 @@ class SubCategorySeeder extends Seeder
         ]);
         SubCategory::create([
             "category_id"=>6,
+            "language_id"=>1,
             "name"=>"Block Chain And Cryptocurrency",
             "slug"=>"block-chain-and-cryptocurrency",
             "status_on_navbar"=>"show",
@@ -226,6 +255,7 @@ class SubCategorySeeder extends Seeder
         ]);
         SubCategory::create([
             "category_id"=>6,
+            "language_id"=>1,
             "name"=>"Networking",
             "slug"=>"networking",
             "status_on_navbar"=>"show",
@@ -233,6 +263,7 @@ class SubCategorySeeder extends Seeder
         ]);
         SubCategory::create([
             "category_id"=>6,
+            "language_id"=>1,
             "name"=>"Developement",
             "slug"=>"developement",
             "status_on_navbar"=>"show",
@@ -242,6 +273,7 @@ class SubCategorySeeder extends Seeder
         // Life Style
         SubCategory::create([
             "category_id"=>7,
+            "language_id"=>1,
             "name"=>"Arts",
             "slug"=>"arts",
             "status_on_navbar"=>"show",
@@ -249,6 +281,7 @@ class SubCategorySeeder extends Seeder
         ]);
         SubCategory::create([
             "category_id"=>7,
+            "language_id"=>1,
             "name"=>"Design",
             "slug"=>"design",
             "status_on_navbar"=>"show",
@@ -256,6 +289,7 @@ class SubCategorySeeder extends Seeder
         ]);
         SubCategory::create([
             "category_id"=>7,
+            "language_id"=>1,
             "name"=>"Fashion",
             "slug"=>"fashion",
             "status_on_navbar"=>"show",
@@ -263,6 +297,7 @@ class SubCategorySeeder extends Seeder
         ]);
         SubCategory::create([
             "category_id"=>7,
+            "language_id"=>1,
             "name"=>"Architecture",
             "slug"=>"architecture",
             "status_on_navbar"=>"show",
@@ -270,6 +305,7 @@ class SubCategorySeeder extends Seeder
         ]);
         SubCategory::create([
             "category_id"=>7,
+            "language_id"=>1,
             "name"=>"Luxury",
             "slug"=>"luxury",
             "status_on_navbar"=>"show",
@@ -277,6 +313,7 @@ class SubCategorySeeder extends Seeder
         ]);
         SubCategory::create([
             "category_id"=>7,
+            "language_id"=>1,
             "name"=>"Beauty",
             "slug"=>"beauty",
             "status_on_navbar"=>"show",
@@ -286,6 +323,7 @@ class SubCategorySeeder extends Seeder
         // Travel
         SubCategory::create([
             "category_id"=>8,
+            "language_id"=>1,
             "name"=>"Food and Drink",
             "slug"=>"food-and-drink",
             "status_on_navbar"=>"show",
@@ -293,6 +331,7 @@ class SubCategorySeeder extends Seeder
         ]);
         SubCategory::create([
             "category_id"=>8,
+            "language_id"=>1,
             "name"=>"Stay",
             "slug"=>"stay",
             "status_on_navbar"=>"show",
@@ -300,6 +339,7 @@ class SubCategorySeeder extends Seeder
         ]);
         SubCategory::create([
             "category_id"=>8,
+            "language_id"=>1,
             "name"=>"News",
             "slug"=>"news",
             "status_on_navbar"=>"show",
@@ -307,6 +347,7 @@ class SubCategorySeeder extends Seeder
         ]);
         SubCategory::create([
             "category_id"=>8,
+            "language_id"=>1,
             "name"=>"Destinations",
             "slug"=>"destinations",
             "status_on_navbar"=>"show",
@@ -316,6 +357,7 @@ class SubCategorySeeder extends Seeder
         // Sport
         SubCategory::create([
             "category_id"=>9,
+            "language_id"=>1,
             "name"=>"World Cup",
             "slug"=>"world-cup",
             "status_on_navbar"=>"show",
@@ -323,6 +365,7 @@ class SubCategorySeeder extends Seeder
         ]);
         SubCategory::create([
             "category_id"=>9,
+            "language_id"=>1,
             "name"=>"Tennis",
             "slug"=>"tennis",
             "status_on_navbar"=>"show",
@@ -330,6 +373,7 @@ class SubCategorySeeder extends Seeder
         ]);
         SubCategory::create([
             "category_id"=>9,
+            "language_id"=>1,
             "name"=>"Golf",
             "slug"=>"golf",
             "status_on_navbar"=>"show",
@@ -337,6 +381,7 @@ class SubCategorySeeder extends Seeder
         ]);
         SubCategory::create([
             "category_id"=>9,
+            "language_id"=>1,
             "name"=>"Football",
             "slug"=>"football",
             "status_on_navbar"=>"show",
@@ -344,6 +389,7 @@ class SubCategorySeeder extends Seeder
         ]);
         SubCategory::create([
             "category_id"=>9,
+            "language_id"=>1,
             "name"=>"Esports",
             "slug"=>"esports",
             "status_on_navbar"=>"show",
@@ -351,6 +397,7 @@ class SubCategorySeeder extends Seeder
         ]);
         SubCategory::create([
             "category_id"=>9,
+            "language_id"=>1,
             "name"=>"Climbing",
             "slug"=>"climbing",
             "status_on_navbar"=>"show",
@@ -358,8 +405,412 @@ class SubCategorySeeder extends Seeder
         ]);
         SubCategory::create([
             "category_id"=>9,
+            "language_id"=>1,
             "name"=>"Olympics",
             "slug"=>"olympics",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"hide"
+        ]);
+
+
+
+
+
+
+
+        // ===Myanmar===
+        // World
+        SubCategory::create([
+            "category_id"=>10,
+            "language_id"=>2,
+            "name"=>"အာဖရိက",
+            "slug"=>"အာဖရိက",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"show"
+        ]);
+        SubCategory::create([
+            "category_id"=>10,
+            "language_id"=>2,
+            "name"=>"အမေရိက",
+            "slug"=>"အမေရိက",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"hide"
+        ]);
+        SubCategory::create([
+            "category_id"=>10,
+            "language_id"=>2,
+            "name"=>"အာရှ",
+            "slug"=>"အာရှ",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"show"
+        ]);
+        SubCategory::create([
+            "category_id"=>10,
+            "language_id"=>2,
+            "name"=>"သြစတြေးလျ",
+            "slug"=>"သြစတြေးလျ",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"hide"
+        ]);
+        SubCategory::create([
+            "category_id"=>10,
+            "language_id"=>2,
+            "name"=>"တရုတ်",
+            "slug"=>"တရုတ်",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"hide"
+        ]);
+        SubCategory::create([
+            "category_id"=>10,
+            "language_id"=>2,
+            "name"=>"ဥရောပ",
+            "slug"=>"ဥရောပ",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"hide"
+        ]);
+        SubCategory::create([
+            "category_id"=>10,
+            "language_id"=>2,
+            "name"=>"အိန္ဒိယ",
+            "slug"=>"အိန္ဒိယ",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"hide"
+        ]);
+        SubCategory::create([
+            "category_id"=>10,
+            "language_id"=>2,
+            "name"=>"အရှေ့အလယ်ပိုင်းဒေသ",
+            "slug"=>"အရှေ့အလယ်ပိုင်းဒေသ",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"hide"
+        ]);
+        SubCategory::create([
+            "category_id"=>10,
+            "language_id"=>2,
+            "name"=>"ယူနိုက်တက်ကင်းဒမ်",
+            "slug"=>"ယူနိုက်တက်ကင်းဒမ်",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"hide"
+        ]);
+
+
+
+        // Politics
+        SubCategory::create([
+            "category_id"=>11,
+            "language_id"=>2,
+            "name"=>"တော်လှန်ရေး",
+            "slug"=>"တော်လှန်ရေး",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"show"
+        ]);
+        SubCategory::create([
+            "category_id"=>11,
+            "language_id"=>2,
+            "name"=>"စစ်တပ်က အာဏာသိမ်း",
+            "slug"=>"စစ်တပ်က အာဏာသိမ်း",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"hide"
+        ]);
+        SubCategory::create([
+            "category_id"=>11,
+            "language_id"=>2,
+            "name"=>"ဘာဖြစ်နေတာလဲ",
+            "slug"=>"ဘာဖြစ်နေတာလဲ",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"hide"
+        ]);
+        SubCategory::create([
+            "category_id"=>11,
+            "language_id"=>2,
+            "name"=>"ပြည်တွင်းစစ်",
+            "slug"=>"ပြည်တွင်းစစ်",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"show"
+        ]);
+
+        // Business
+        SubCategory::create([
+            "category_id"=>12,
+            "language_id"=>2,
+            "name"=>"စျေးကွက်များ",
+            "slug"=>"စျေးကွက်များ",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"hide"
+        ]);
+        SubCategory::create([
+            "category_id"=>12,
+            "language_id"=>2,
+            "name"=>"နည်းပညာ",
+            "slug"=>"နည်းပညာ",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"show"
+        ]);
+        SubCategory::create([
+            "category_id"=>12,
+            "language_id"=>2,
+            "name"=>"မီဒီယာ",
+            "slug"=>"မီဒီယာ",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"hide"
+        ]);
+        SubCategory::create([
+            "category_id"=>12,
+            "language_id"=>2,
+            "name"=>"အောင်မြင်မှု",
+            "slug"=>"အောင်မြင်မှု",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"hide"
+        ]);
+        SubCategory::create([
+            "category_id"=>12,
+            "language_id"=>2,
+            "name"=>"အမြင်များ",
+            "slug"=>"အမြင်များ",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"hide"
+        ]);
+
+        // Health
+        SubCategory::create([
+            "category_id"=>13,
+            "language_id"=>2,
+            "name"=>"ဘဝ",
+            "slug"=>"ဘဝ",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"show"
+        ]);
+        SubCategory::create([
+            "category_id"=>13,
+            "language_id"=>2,
+            "name"=>"ကြံ့ခိုင်ရေး",
+            "slug"=>"ကြံ့ခိုင်ရေး",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"hide"
+        ]);
+        SubCategory::create([
+            "category_id"=>13,
+            "language_id"=>2,
+            "name"=>"အစားအစာ",
+            "slug"=>"အစားအစာ",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"hide"
+        ]);
+        SubCategory::create([
+            "category_id"=>13,
+            "language_id"=>2,
+            "name"=>"အိပ်ပါ",
+            "slug"=>"အိပ်ပါ",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"hide"
+        ]);
+        SubCategory::create([
+            "category_id"=>13,
+            "language_id"=>2,
+            "name"=>"ဖျန်ဖြေပေးခြင်း",
+            "slug"=>"ဖျန်ဖြေပေးခြင်း",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"hide"
+        ]);
+
+        // Entertainment
+        SubCategory::create([
+            "category_id"=>14,
+            "language_id"=>2,
+            "name"=>"ကျော်ကြားသူ",
+            "slug"=>"ကျော်ကြားသူ",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"hide"
+        ]);
+        SubCategory::create([
+            "category_id"=>14,
+            "language_id"=>2,
+            "name"=>"ရုပ်ရှင်တွေ",
+            "slug"=>"ရုပ်ရှင်တွေ",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"hide"
+        ]);
+        SubCategory::create([
+            "category_id"=>14,
+            "language_id"=>2,
+            "name"=>"ရုပ်မြင်သံကြား",
+            "slug"=>"ရုပ်မြင်သံကြား",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"hide"
+        ]);
+
+        // Technology
+        SubCategory::create([
+            "category_id"=>15,
+            "language_id"=>2,
+            "name"=>"ကွန်ပျူတာ",
+            "slug"=>"ကွန်ပျူတာ",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"hide"
+        ]);
+        SubCategory::create([
+            "category_id"=>15,
+            "language_id"=>2,
+            "name"=>"block chain နှင့် cryptocurrency",
+            "slug"=>"block chain နှင့် cryptocurrency",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"hide"
+        ]);
+        SubCategory::create([
+            "category_id"=>15,
+            "language_id"=>2,
+            "name"=>"ကွန်ရက်ချိတ်ဆက်ခြင်း",
+            "slug"=>"ကွန်ရက်ချိတ်ဆက်ခြင်း",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"hide"
+        ]);
+        SubCategory::create([
+            "category_id"=>15,
+            "language_id"=>2,
+            "name"=>"ဖွံ့ဖြိုးတိုးတက်မှု",
+            "slug"=>"ဖွံ့ဖြိုးတိုးတက်မှု",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"hide"
+        ]);
+
+        // Life Style
+        SubCategory::create([
+            "category_id"=>16,
+            "language_id"=>2,
+            "name"=>"အနုပညာ",
+            "slug"=>"အနုပညာ",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"hide"
+        ]);
+        SubCategory::create([
+            "category_id"=>16,
+            "language_id"=>2,
+            "name"=>"ဒီဇိုင်း",
+            "slug"=>"ဒီဇိုင်း",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"hide"
+        ]);
+        SubCategory::create([
+            "category_id"=>16,
+            "language_id"=>2,
+            "name"=>"ဖက်ရှင်",
+            "slug"=>"ဖက်ရှင်",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"hide"
+        ]);
+        SubCategory::create([
+            "category_id"=>16,
+            "language_id"=>2,
+            "name"=>"ဗိသုကာပညာ",
+            "slug"=>"ဗိသုကာပညာ",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"hide"
+        ]);
+        SubCategory::create([
+            "category_id"=>16,
+            "language_id"=>2,
+            "name"=>"ဇိမ်ခံ",
+            "slug"=>"ဇိမ်ခံ",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"hide"
+        ]);
+        SubCategory::create([
+            "category_id"=>16,
+            "language_id"=>2,
+            "name"=>"အလှတရား",
+            "slug"=>"အလှတရား",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"hide"
+        ]);
+
+        // Travel
+        SubCategory::create([
+            "category_id"=>17,
+            "language_id"=>2,
+            "name"=>"အစားအသောက်",
+            "slug"=>"အစားအသောက်",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"hide"
+        ]);
+        SubCategory::create([
+            "category_id"=>17,
+            "language_id"=>2,
+            "name"=>"နေပါ",
+            "slug"=>"နေပါ",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"hide"
+        ]);
+        SubCategory::create([
+            "category_id"=>17,
+            "language_id"=>2,
+            "name"=>"သတင်း",
+            "slug"=>"သတင်း",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"hide"
+        ]);
+        SubCategory::create([
+            "category_id"=>17,
+            "language_id"=>2,
+            "name"=>"ဦးတည်ရာများ",
+            "slug"=>"ဦးတည်ရာများ",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"hide"
+        ]);
+
+        // Sport
+        SubCategory::create([
+            "category_id"=>18,
+            "language_id"=>2,
+            "name"=>"ကမ္ဘာ့ဖလား",
+            "slug"=>"ကမ္ဘာ့ဖလား",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"hide"
+        ]);
+        SubCategory::create([
+            "category_id"=>18,
+            "language_id"=>2,
+            "name"=>"တင်းနစ်",
+            "slug"=>"တင်းနစ်",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"hide"
+        ]);
+        SubCategory::create([
+            "category_id"=>18,
+            "language_id"=>2,
+            "name"=>"ဂေါ့ဖ်",
+            "slug"=>"ဂေါ့ဖ်",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"hide"
+        ]);
+        SubCategory::create([
+            "category_id"=>18,
+            "language_id"=>2,
+            "name"=>"ဘောလုံး",
+            "slug"=>"ဘောလုံး",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"show"
+        ]);
+        SubCategory::create([
+            "category_id"=>18,
+            "language_id"=>2,
+            "name"=>"Esports အားကစား",
+            "slug"=>"esports အားကစား",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"hide"
+        ]);
+        SubCategory::create([
+            "category_id"=>18,
+            "language_id"=>2,
+            "name"=>"တောင်တက်ခြင်း",
+            "slug"=>"တောင်တက်ခြင်း",
+            "status_on_navbar"=>"show",
+            "status_on_home"=>"hide"
+        ]);
+        SubCategory::create([
+            "category_id"=>18,
+            "language_id"=>2,
+            "name"=>"အိုလံပစ်",
+            "slug"=>"အိုလံပစ်",
             "status_on_navbar"=>"show",
             "status_on_home"=>"hide"
         ]);

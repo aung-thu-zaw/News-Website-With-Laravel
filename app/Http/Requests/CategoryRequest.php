@@ -26,6 +26,7 @@ class CategoryRequest extends FormRequest
     public function rules()
     {
         $rules= [
+            "language_id"=>["required",Rule::exists("languages", "id")],
             "name"=>["required","string",Rule::unique("categories", "name")],
             "slug"=>["required","string",Rule::unique("categories", "slug")],
             "status"=>["required","string"],

@@ -4,6 +4,7 @@ namespace App\View\Components;
 
 use App\Models\Category;
 use Illuminate\View\Component;
+use LanguageHelper;
 
 class CategoryNavbar extends Component
 {

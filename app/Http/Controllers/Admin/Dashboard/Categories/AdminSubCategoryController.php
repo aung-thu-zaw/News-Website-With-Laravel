@@ -18,7 +18,8 @@ class AdminSubCategoryController extends Controller
                        ->paginate(10)
                        ->withQueryString();
 
-        $subCategories->load("category");
+
+        $subCategories->load("category", "language");
 
         return view("admin.dashboard.categories.sub-category.index", compact("subCategories"));
     }

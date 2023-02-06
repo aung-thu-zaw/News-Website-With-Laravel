@@ -26,7 +26,8 @@ class SubCategoryRequest extends FormRequest
     public function rules()
     {
         $rules= [
-            "category_id"=>["required"],
+            "category_id"=>["required",Rule::exists("categories", "id")],
+            "language_id"=>["required",Rule::exists("languages")],
             "name"=>["required","string",Rule::unique("sub_categories", "name")],
             "slug"=>["required","string",Rule::unique("sub_categories", "slug")],
             "status_on_navbar"=>["required","string"],

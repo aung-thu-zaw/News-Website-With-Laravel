@@ -15,6 +15,7 @@
                         <th scope="col">Name</th>
                         <th scope="col">Slug</th>
                         <th scope="col">Status (Show on Navbar)</th>
+                        <th scope="col">Language</th>
                         <th scope="col">Create Date</th>
                         <th scope="col">Action</th>
                     </tr>
@@ -32,6 +33,9 @@
                         </td>
                         <td>
                             {{ $category->status }}
+                        </td>
+                        <td>
+                            {{ $category->language->name}}
                         </td>
                         <td>
                             {{ $category->created_at->format("Y-m-d / H:i A") }}

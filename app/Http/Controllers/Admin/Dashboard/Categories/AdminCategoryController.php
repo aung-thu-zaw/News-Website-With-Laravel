@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Dashboard\Categories;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CategoryRequest;
 use App\Models\Category;
+use App\Models\Language;
 use Butschster\Head\Facades\Meta;
 
 class AdminCategoryController extends Controller
@@ -16,6 +17,8 @@ class AdminCategoryController extends Controller
         $categories=Category::search(request("search"))
                     ->paginate(10)
                     ->withQueryString();
+
+        $categories->load("language");
 
         return view("admin.dashboard.categories.category.index", compact("categories"));
     }

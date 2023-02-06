@@ -1,6 +1,6 @@
 @if(!session("language"))
 @php
-$currentLanguage=$defaultLanguage;
+$currentLanguage=$defaultLanguage->short_name;
 @endphp
 @else
 @php

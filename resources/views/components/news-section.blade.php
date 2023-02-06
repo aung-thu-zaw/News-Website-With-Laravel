@@ -78,7 +78,7 @@
                         </div>
 
                         @empty
-                        <p class="text-center text-danger">{{ NO_POST_FOUND_FOR_THIS_TOPIC_SECTION }}</p>
+                        <p class="text-center text-danger">{{ NO_POST_FOUND_FOR_THIS_T0PIC_SECTION }}</p>
                         @endforelse
 
 

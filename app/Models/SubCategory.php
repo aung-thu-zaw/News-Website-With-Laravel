@@ -32,6 +32,11 @@ class SubCategory extends Model
         return $this->hasMany(VideoNewsPost::class)->with("subCategory:id,name,slug", "author:id,name");
     }
 
+    public function language()
+    {
+        return $this->belongsTo(Language::class);
+    }
+
 
     public function toSearchableArray()
     {

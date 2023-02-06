@@ -17,6 +17,7 @@
                         <th scope="col">Slug</th>
                         <th scope="col">Status (Show on Navbar)</th>
                         <th scope="col">Status (Show on Home)</th>
+                        <th scope="col">Language</th>
                         <th scope="col">Create Date</th>
                         <th scope="col">Action</th>
                     </tr>
@@ -40,6 +41,9 @@
                         </td>
                         <td>
                             {{ $subCategory->status_on_home }}
+                        </td>
+                        <td>
+                            {{ $subCategory->language->name }}
                         </td>
                         <td>
                             {{ $subCategory->created_at->format("Y-m-d / H:i A") }}
