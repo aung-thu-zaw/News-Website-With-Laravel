@@ -17,6 +17,7 @@ class TrendingVideoFactory extends Factory
     public function definition()
     {
         return [
+            "language_id"=>1,
             "video_id"=>$this->faker->randomElement([
                 "LTJU9YWfmFU",
                 "ardtvdR28SQ",
@@ -28,7 +29,6 @@ class TrendingVideoFactory extends Factory
                 "Voiae2-E-7Y",
                 "5vaVfl_zmCY",
                 "TEEnKA3sVK8",
-
             ]),
             "owner"=>$this->faker->name(),
             "caption"=>$this->faker->sentence()

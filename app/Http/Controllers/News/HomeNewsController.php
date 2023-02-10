@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\News;
 
 use App\Http\Controllers\Controller;
+use App\Models\Language;
 use App\Models\NewsPost;
 use App\Models\SubCategory;
 use App\Models\TrendingVideo;
@@ -19,22 +20,35 @@ class HomeNewsController extends Controller
 
         LanguageHelper::readJson();
 
+
+        if (!session("language")) {
+            $currentLanguage=Language::where("is_default", "yes")->first()->short_name;
+        } else {
+            $currentLanguage=session("language");
+        }
+
+        $currentLanguageId=Language::where("short_name", $currentLanguage)->first()->id;
+
+
         $latestNewsPosts=NewsPost::with("subCategory:id,category_id,name,slug", "author:id,name")
+                        ->where("language_id", $currentLanguageId)
                         ->orderBy("id", "desc")
                         ->take(5)
                         ->get();
 
 
-        $trendingVideos=TrendingVideo::orderBy("id", "desc")
+        $trendingVideos=TrendingVideo::where("language_id", $currentLanguageId)
+                        ->orderBy("id", "desc")
                         ->get();
 
 
-        $subCategories=SubCategory::select("id", "category_id", "name", "slug", "status_on_home")
-                       ->with("newsPosts", "category.subCategories:id,name,slug")
+        $subCategories=SubCategory::with("newsPosts", "category.subCategories:id,name,slug")
+                       ->where("language_id", $currentLanguageId)
                        ->orderBy("id", "desc")
                        ->get();
 
         $videoNewsPosts=VideoNewsPost::with("subCategory", "author:id,name")
+                        ->where("language_id", $currentLanguageId)
                         ->orderBy("id", "desc")
                         ->take(12)
                         ->get();
@@ -42,23 +56,29 @@ class HomeNewsController extends Controller
 
         if (request("query")) {
             if (request("type")=="articles") {
-                $newsPosts=NewsPost::orderBy("id", "desc")
+                $newsPosts=NewsPost::where("language_id", $currentLanguageId)
+                           ->orderBy("id", "desc")
                            ->filterRequest(request(["query","subcategory"]))
                            ->paginate(18)
                            ->withQueryString();
 
                 $newsPosts->load("subCategory", "author");
 
-                return view("search-news.index", compact("newsPosts"));
+                $subCategories=SubCategory::with("category")->where("status_on_navbar", "show")->orderBy("id", "desc")->get();
+
+                return view("search-news.index", compact("newsPosts", "subCategories"));
             } elseif (request("type")=="videos") {
-                $videoNewsPosts=VideoNewsPost::orderBy("id", "desc")
+                $videoNewsPosts=VideoNewsPost::where("language_id", $currentLanguageId)
+                                ->orderBy("id", "desc")
                                 ->filterRequest(request(["query","subcategory"]))
                                 ->paginate(18)
                                 ->withQueryString();
 
                 $videoNewsPosts->load("subCategory", "author");
 
-                return view("search-news.index", compact("videoNewsPosts"));
+                $subCategories=SubCategory::with("category")->where("status_on_navbar", "show")->orderBy("id", "desc")->get();
+
+                return view("search-news.index", compact("videoNewsPosts", "subCategories"));
             }
         } else {
             return view('news.index', compact("latestNewsPosts", "trendingVideos", "subCategories", "videoNewsPosts"));
@@ -68,6 +88,8 @@ class HomeNewsController extends Controller
     public function show(NewsPost $newsPost)
     {
         Meta::setTitle("$newsPost->title");
+
+        LanguageHelper::readJson();
 
         $socialShare=Share::currentPage()
                     ->facebook()

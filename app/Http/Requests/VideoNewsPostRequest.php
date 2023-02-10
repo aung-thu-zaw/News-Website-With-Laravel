@@ -28,6 +28,7 @@ class VideoNewsPostRequest extends FormRequest
         $rules= [
             "video_id"=>["required","string"],
             "sub_category_id"=>["required",Rule::exists("sub_categories", "id")],
+            "language_id"=>["required",Rule::exists("languages", "id")],
             "title"=>["required","string",Rule::unique("video_news_posts", "title")],
             "slug"=>["required","string",Rule::unique("video_news_posts", "slug")],
             "body"=>["required","string"],

@@ -31,6 +31,7 @@ class PhotoGalleryService
     public function createPhoto(array $photoData): PhotoGallery
     {
         return PhotoGallery::create([
+            "language_id"=>$photoData["language_id"],
             "photo"=>$photoData["photo"],
             "owner"=>$photoData["owner"],
             "caption"=>$photoData["caption"],

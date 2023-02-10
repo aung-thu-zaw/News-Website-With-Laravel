@@ -5,7 +5,7 @@
 
                 <x-breadcrumbs popular="Popular News" />
 
-                <x-filter-search-form />
+                <x-filter-search-form :subcategories="$subCategories" />
 
                 @if (request("type")=="articles")
                 <x-search-news-posts-result :posts="$newsPosts" />

@@ -17,6 +17,8 @@ class AdminLiveVideoController extends Controller
                     ->paginate(10)
                     ->withQueryString();
 
+        $liveVideos->load("language");
+
         return view("admin.dashboard.live-videos.index", compact("liveVideos"));
     }
 

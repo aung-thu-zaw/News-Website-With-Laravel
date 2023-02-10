@@ -17,6 +17,7 @@ class LiveVideoFactory extends Factory
     public function definition()
     {
         return [
+            "language_id"=>1,
             "video_id"=>$this->faker->randomElement([
                 "w_Ma8oQLmSM",
                 "9Auq9mYxFEE",

@@ -16,5 +16,10 @@ class VideoGallerySeeder extends Seeder
     public function run()
     {
         VideoGallery::factory(50)->create();
+
+        VideoGallery::factory(50)->create([
+            "language_id"=>2,
+            "caption"=>"ဒါက ဗီဒီယိုပါ။"
+        ]);
     }
 }

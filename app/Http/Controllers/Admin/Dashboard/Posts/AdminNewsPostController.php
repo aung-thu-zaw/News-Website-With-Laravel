@@ -24,7 +24,7 @@ class AdminNewsPostController extends Controller
                    ->paginate(10)
                    ->withQueryString();
 
-        $newsPosts->load("subCategory", "author");
+        $newsPosts->load("subCategory", "author", "language");
 
         return view("admin.dashboard.posts.news-posts.index", compact("newsPosts"));
     }

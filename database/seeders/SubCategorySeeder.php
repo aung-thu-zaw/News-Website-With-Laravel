@@ -123,7 +123,7 @@ class SubCategorySeeder extends Seeder
             "name"=>"Civil Wars",
             "slug"=>"civil-wars",
             "status_on_navbar"=>"show",
-            "status_on_home"=>"show"
+            "status_on_home"=>"hide"
         ]);
 
         // Business
@@ -175,7 +175,7 @@ class SubCategorySeeder extends Seeder
             "name"=>"Life",
             "slug"=>"life",
             "status_on_navbar"=>"show",
-            "status_on_home"=>"show"
+            "status_on_home"=>"hide"
         ]);
         SubCategory::create([
             "category_id"=>4,
@@ -191,7 +191,7 @@ class SubCategorySeeder extends Seeder
             "name"=>"Food",
             "slug"=>"food",
             "status_on_navbar"=>"show",
-            "status_on_home"=>"hide"
+            "status_on_home"=>"show"
         ]);
         SubCategory::create([
             "category_id"=>4,
@@ -217,7 +217,7 @@ class SubCategorySeeder extends Seeder
             "name"=>"Celebrity",
             "slug"=>"celebrity",
             "status_on_navbar"=>"show",
-            "status_on_home"=>"hide"
+            "status_on_home"=>"show"
         ]);
         SubCategory::create([
             "category_id"=>5,
@@ -526,7 +526,7 @@ class SubCategorySeeder extends Seeder
             "name"=>"ပြည်တွင်းစစ်",
             "slug"=>"ပြည်တွင်းစစ်",
             "status_on_navbar"=>"show",
-            "status_on_home"=>"show"
+            "status_on_home"=>"hide"
         ]);
 
         // Business
@@ -578,7 +578,7 @@ class SubCategorySeeder extends Seeder
             "name"=>"ဘဝ",
             "slug"=>"ဘဝ",
             "status_on_navbar"=>"show",
-            "status_on_home"=>"show"
+            "status_on_home"=>"hide"
         ]);
         SubCategory::create([
             "category_id"=>13,
@@ -594,7 +594,7 @@ class SubCategorySeeder extends Seeder
             "name"=>"အစားအစာ",
             "slug"=>"အစားအစာ",
             "status_on_navbar"=>"show",
-            "status_on_home"=>"hide"
+            "status_on_home"=>"show"
         ]);
         SubCategory::create([
             "category_id"=>13,
@@ -620,7 +620,7 @@ class SubCategorySeeder extends Seeder
             "name"=>"ကျော်ကြားသူ",
             "slug"=>"ကျော်ကြားသူ",
             "status_on_navbar"=>"show",
-            "status_on_home"=>"hide"
+            "status_on_home"=>"show"
         ]);
         SubCategory::create([
             "category_id"=>14,

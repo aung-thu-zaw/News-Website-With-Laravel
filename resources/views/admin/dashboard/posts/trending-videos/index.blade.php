@@ -16,6 +16,7 @@
                         <th scope="col">Video</th>
                         <th scope="col">Owner</th>
                         <th scope="col">Caption</th>
+                        <th scope="col">Language</th>
                         <th scope="col">Create Date</th>
                         <th scope="col">Action</th>
                     </tr>
@@ -47,6 +48,9 @@
                         </td>
                         <td>
                             {!! $video->caption !!}
+                        </td>
+                        <td>
+                            {{ $video->language->name }}
                         </td>
                         <td>
                             {{ $video->created_at->format("Y-m-d / H:i A") }}

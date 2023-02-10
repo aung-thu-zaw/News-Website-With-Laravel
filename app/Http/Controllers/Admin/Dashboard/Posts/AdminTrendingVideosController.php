@@ -17,6 +17,8 @@ class AdminTrendingVideosController extends Controller
                         ->paginate(10)
                         ->withQueryString();
 
+        $trendingVideos->load("language");
+
         return view("admin.dashboard.posts.trending-videos.index", compact("trendingVideos"));
     }
 

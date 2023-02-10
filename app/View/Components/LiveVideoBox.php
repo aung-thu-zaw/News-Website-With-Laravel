@@ -2,12 +2,11 @@
 
 namespace App\View\Components;
 
-use App\Models\Category;
 use App\Models\Language;
+use App\Models\LiveVideo;
 use Illuminate\View\Component;
-use LanguageHelper;
 
-class CategoryNavbar extends Component
+class LiveVideoBox extends Component
 {
     /**
      * Create a new component instance.
@@ -34,13 +33,8 @@ class CategoryNavbar extends Component
 
         $currentLanguageId=Language::where("short_name", $currentLanguage)->first()->id;
 
-        $categories=Category::with("subCategories")
-                    ->where([
-                        ["status", "show"],
-                        ["language_id",$currentLanguageId]
-                    ])
-                    ->get();
+        $liveVideo=LiveVideo::where("language_id", $currentLanguageId)->orderBy("id", "desc")->first();
 
-        return view('components.category-navbar', compact("categories"));
+        return view('components.live-video-box', compact("liveVideo"));
     }
 }

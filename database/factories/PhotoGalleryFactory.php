@@ -17,6 +17,7 @@ class PhotoGalleryFactory extends Factory
     public function definition()
     {
         return [
+            "language_id"=>1,
             "photo"=>$this->faker->randomElement([
                 "photo-1.jpg",
                 "photo-2.jpg",
@@ -68,7 +69,7 @@ class PhotoGalleryFactory extends Factory
                 "photo-48.jpg",
             ]),
             "owner"=>$this->faker->name(),
-            "caption"=>$this->faker->sentence()
+            "caption"=>"This is Photo",
         ];
     }
 }

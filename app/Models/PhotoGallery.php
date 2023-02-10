@@ -18,6 +18,12 @@ class PhotoGallery extends Model
         }
     }
 
+    public function language()
+    {
+        return $this->belongsTo(Language::class);
+    }
+
+
     public function toSearchableArray()
     {
         return [

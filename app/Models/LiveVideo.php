@@ -17,4 +17,9 @@ class LiveVideo extends Model
             "title" => $this->title,
         ];
     }
+
+    public function language()
+    {
+        return $this->belongsTo(Language::class);
+    }
 }

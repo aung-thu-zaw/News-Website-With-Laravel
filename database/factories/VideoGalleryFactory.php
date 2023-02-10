@@ -17,6 +17,7 @@ class VideoGalleryFactory extends Factory
     public function definition()
     {
         return [
+            "language_id"=>1,
             "video_id"=>$this->faker->randomElement([
                 "euP0mBlAn2Q",
                 "dgg9M5nuLTA",
@@ -30,7 +31,7 @@ class VideoGalleryFactory extends Factory
                 "wrR6QlAxvPs",
             ]),
             "owner"=>$this->faker->name(),
-            "caption"=>$this->faker->sentence()
+            "caption"=>"This is video."
         ];
     }
 }

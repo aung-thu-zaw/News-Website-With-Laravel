@@ -27,6 +27,10 @@
                     <x-form.label name="Caption *" />
                 </x-form.textarea>
 
+                <x-form.select name="language_id" required="required">
+                    <x-form.label name="Language *" />
+                </x-form.select>
+
                 <x-form.input-button name="Create" />
 
             </form>

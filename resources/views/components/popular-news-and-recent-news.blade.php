@@ -113,7 +113,7 @@
                 </div>
             </div>
             @endforeach
-            <form action="{{ route('popular-news.index') }}" method="GET">
+            <form action="{{ route('recent-news.index') }}" method="GET">
                 <input type="hidden" name="type" value="articles">
                 <div class="d-grid">
                     <button type="submit" class="btn btn-primary btn-sm text-decoration-none">

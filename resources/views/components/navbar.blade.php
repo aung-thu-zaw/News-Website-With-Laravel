@@ -59,6 +59,8 @@ $currentLanguage=session("language");
 
                 <div class="d-flex align-items-center justify-content-between w-auto">
 
+
+                    @if (Request::is('/'))
                     <form action="{{ route('language.handle') }}" method="POST" class="me-5">
                         @csrf
                         <select class="form-select" name="language" onchange="this.form.submit()">
@@ -68,6 +70,7 @@ $currentLanguage=session("language");
                             @endforeach
                         </select>
                     </form>
+                    @endif
 
                     @auth
                     <div class="dropdown ms-auto me-4">

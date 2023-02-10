@@ -16,6 +16,7 @@
                         <th scope="col">Photo</th>
                         <th scope="col">Owner</th>
                         <th scope="col">Caption</th>
+                        <th scope="col">Language</th>
                         <th scope="col">Create Date</th>
                         <th scope="col">Action</th>
                     </tr>
@@ -34,6 +35,9 @@
                         </td>
                         <td>
                             {!! $photo->caption !!}
+                        </td>
+                        <td>
+                            {{ $photo->language->name }}
                         </td>
                         <td>
                             {{ $photo->created_at->format("Y-m-d / H:i A") }}

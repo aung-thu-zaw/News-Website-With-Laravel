@@ -18,6 +18,8 @@ class AdminPhotoGalleryController extends Controller
                 ->paginate(10)
                 ->withQueryString();
 
+        $photos->load("language");
+
         return view("admin.dashboard.galleries.photo-gallery.index", compact("photos"));
     }
 

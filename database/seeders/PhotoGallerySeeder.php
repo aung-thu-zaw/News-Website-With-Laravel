@@ -16,5 +16,41 @@ class PhotoGallerySeeder extends Seeder
     public function run()
     {
         PhotoGallery::factory(100)->create();
+
+        PhotoGallery::factory()->create([
+            "language_id"=>2,
+            "photo"=>"photo-1.jpg",
+            "caption"=>"ဒါက ဓာတ်ပုံပါ။",
+        ]);
+
+        PhotoGallery::factory()->create([
+            "language_id"=>2,
+            "photo"=>"photo-1.jpg",
+            "caption"=>"ဒါက ဓာတ်ပုံပါ။",
+        ]);
+
+        PhotoGallery::factory()->create([
+            "language_id"=>2,
+            "photo"=>"photo-2.jpg",
+            "caption"=>"ဒါက ဓာတ်ပုံပါ။",
+        ]);
+
+        PhotoGallery::factory()->create([
+            "language_id"=>2,
+            "photo"=>"photo-3.jpg",
+            "caption"=>"ဒါက ဓာတ်ပုံပါ။",
+        ]);
+
+        PhotoGallery::factory()->create([
+            "language_id"=>2,
+            "photo"=>"photo-4.jpg",
+            "caption"=>"ဒါက ဓာတ်ပုံပါ။",
+        ]);
+
+        PhotoGallery::factory()->create([
+            "language_id"=>2,
+            "photo"=>"photo-5.jpg",
+            "caption"=>"ဒါက ဓာတ်ပုံပါ။",
+        ]);
     }
 }

@@ -1,3 +1,4 @@
+@props(["subcategories"])
 <section class="container mt-3">
 
     <div class="border-top border-5 border-bottom border-secondary py-2">
@@ -15,7 +16,7 @@
             <div class="col-lg-3 my-2">
                 <select name="subcategory" id="" class="form-select">
                     <option value="" disabled selected>{{ FILTER_BY_SUBCATEGORY }}</option>
-                    @foreach ($subCategories as $subCategory)
+                    @foreach ($subcategories as $subCategory)
                     <option value="{{ $subCategory->slug }}" {{ $subCategory->slug==request('subcategory')? "selected"
                         :"" }}>
                         {{ $subCategory->name }} ({{ $subCategory->category->name}})

@@ -5,7 +5,7 @@
 
                 <x-breadcrumbs :date="request(" type")=='articles' ? $newsPosts[0] : $videoNewsPosts[0]" />
 
-                <x-filter-search-form />
+                <x-filter-search-form :subcategories="$subCategories" />
 
                 @if (request("type")=="articles")
                 <x-search-news-posts-result :posts="$newsPosts" />

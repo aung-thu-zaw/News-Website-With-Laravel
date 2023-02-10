@@ -17,6 +17,8 @@ class AdminVideoGalleryController extends Controller
                 ->paginate(10)
                 ->withQueryString();
 
+        $videos->load("language");
+
         return view("admin.dashboard.galleries.video-gallery.index", compact("videos"));
     }
 

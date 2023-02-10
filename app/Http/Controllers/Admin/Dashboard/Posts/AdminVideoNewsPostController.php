@@ -23,7 +23,7 @@ class AdminVideoNewsPostController extends Controller
                         ->paginate(10)
                         ->withQueryString();
 
-        $videoNewsPosts->load("subCategory", "author");
+        $videoNewsPosts->load("subCategory", "author", "language");
 
         return view("admin.dashboard.posts.video-news-posts.index", compact("videoNewsPosts"));
     }

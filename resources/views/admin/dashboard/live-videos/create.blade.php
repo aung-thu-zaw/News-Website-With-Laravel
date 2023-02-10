@@ -19,6 +19,10 @@
                     <x-form.label name="Title *" />
                 </x-form.input>
 
+                <x-form.select name="language_id" required="required">
+                    <x-form.label name="Language *" />
+                </x-form.select>
+
                 <x-form.input-button name="Create" />
 
             </form>

@@ -39,7 +39,6 @@ class AppServiceProvider extends ServiceProvider
         Model::unguard();
         Model::preventLazyLoading(! app()->isProduction());
 
-
         View::share("homeAdvertisement", HomeAdvertisement::where("id", 1)->first());
         View::share("sidebarAdvertisement", SidebarAdvertisement::where("id", 1)->first());
         View::share("setting", Setting::where("id", 1)->first());
@@ -50,8 +49,6 @@ class AppServiceProvider extends ServiceProvider
         View::share("termsAndConditions", Page::where("id", 4)->first());
         View::share("privacyAndPolicy", Page::where("id", 5)->first());
         View::share("disclaimer", Page::where("id", 6)->first());
-        View::share("liveVideo", LiveVideo::orderBy("id", "desc")->first());
-        View::share("subCategories", SubCategory::with("category")->where("status_on_navbar", "show")->orderBy("id", "desc")->get());
         View::share("languages", Language::all());
         View::share("defaultLanguage", Language::where("is_default", "yes")->first());
     }

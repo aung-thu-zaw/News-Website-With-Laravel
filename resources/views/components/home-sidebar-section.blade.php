@@ -4,7 +4,7 @@
 
 <div class="col-lg-4 py-2">
 
-    <x-live-video />
+    <x-live-video-box />
 
     <x-online-poll />
 

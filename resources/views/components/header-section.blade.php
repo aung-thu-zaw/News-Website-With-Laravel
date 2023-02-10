@@ -18,7 +18,8 @@
                         <div class="d-flex flex-column align-items-start">
                             <h3 class="card-title">
                                 <a href="{{ route('news.show',$post->slug) }}" class="text-white">
-                                    {{ $post->title }}
+
+                                    {{ StringHelper::title($post->title) }}
                                 </a>
                             </h3>
                             <p class="card-text">
@@ -79,7 +80,7 @@
                                 <div class="d-flex flex-column align-items-start">
                                     <h5 class="card-title">
                                         <a href="{{ route('news.show',$post->slug) }}" class="text-white">
-                                            {{ $post->title }}
+                                            {{ StringHelper::title($post->title) }}
                                         </a>
                                     </h5>
                                     <p class="card-text description d-lg-none d-xl-block">
@@ -135,7 +136,7 @@
                                 <div class="d-flex flex-column align-items-start">
                                     <h5 class="card-title">
                                         <a href="{{ route('news.show',$post->slug) }}" class="text-white">
-                                            {{ $post->title }}
+                                            {{ StringHelper::title($post->title) }}
                                         </a>
                                     </h5>
                                     <p class="card-text description d-lg-none d-xl-block">

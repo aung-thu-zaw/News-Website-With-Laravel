@@ -3,7 +3,7 @@
         <div class="row g-3">
             <div class="col-12">
 
-                <x-search-news-section />
+                <x-search-news-section :subcategories="$subCategories" />
 
                 @if (request("type")=="articles")
                 <x-search-news-posts-result :posts="$newsPosts" />

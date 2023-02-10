@@ -15,6 +15,15 @@ class LiveVideoSeeder extends Seeder
      */
     public function run()
     {
-        LiveVideo::factory(20)->create();
+        LiveVideo::factory()->create([
+            "video_id"=>"6lr9dtvK9D4",
+            "title"=>"Turkey Earthquake Live",
+        ]);
+
+        LiveVideo::factory()->create([
+            "language_id"=>"2",
+            "video_id"=>"6lr9dtvK9D4",
+            "title"=>"တူရကီမြေငလျင်တိုက်ရိုက်ထုတ်လွှင့်မှု",
+        ]);
     }
 }

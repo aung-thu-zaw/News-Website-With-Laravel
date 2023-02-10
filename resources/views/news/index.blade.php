@@ -6,7 +6,7 @@
     <x-home-top-advertisement />
 
 
-    <x-search-news-section />
+    <x-search-news-section :subcategories="$subCategories" />
 
 
     <x-news-section :subcategories="$subCategories" />

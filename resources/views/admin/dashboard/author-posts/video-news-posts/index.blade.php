@@ -18,6 +18,7 @@
                         <th scope="col">Visitors</th>
                         <th scope="col">Author</th>
                         <th scope="col">Role</th>
+                        <th scope="col">Language</th>
                         <th scope="col">Create Date</th>
                         <th scope="col">Action</th>
                     </tr>
@@ -60,6 +61,9 @@
                         </td>
                         <td>
                             {{ $post->author->role }}
+                        </td>
+                        <td>
+                            {{ $post->language->name }}
                         </td>
                         <td>
                             {{ $post->created_at->format("Y-m-d / H:i A") }}

@@ -1,9 +1,12 @@
 @props(["subcategories"])
+
 <section class="container mt-3 py-3">
     <div class="row g-4">
         <div class="col-lg-8">
             <div class="row">
                 @foreach ($subcategories as $subcategory)
+
+
                 @if ($subcategory->status_on_home==="show")
                 <div class="col-12">
                     <div class="row g-2">

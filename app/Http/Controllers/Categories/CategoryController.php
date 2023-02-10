@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Categories;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Language;
 use App\Models\NewsPost;
 use App\Models\SubCategory;
 use App\Models\VideoNewsPost;
@@ -33,7 +34,13 @@ class CategoryController extends Controller
               ->filterRequest(request(["query","subcategory"]))
               ->paginate(18);
 
-            return view('categories.category.show', compact("category", "newsPosts"));
+            $subCategories=SubCategory::with("category")
+                           ->where("category_id", $category->id)
+                           ->orderBy("id", "desc")
+                           ->get();
+
+
+            return view('categories.category.show', compact("category", "newsPosts", "subCategories"));
         } elseif (request("type")=="videos") {
             $videoNewsPosts=VideoNewsPost::whereHas("subCategory", function ($query) use ($subCategoryIDs) {
                 $query->whereIn("sub_category_id", $subCategoryIDs);
@@ -41,7 +48,12 @@ class CategoryController extends Controller
               ->filterRequest(request(["query","subcategory"]))
               ->paginate(18);
 
-            return view('categories.category.show', compact("category", "videoNewsPosts"));
+            $subCategories=SubCategory::with("category")
+                           ->where("category_id", $category->id)
+                           ->orderBy("id", "desc")
+                           ->get();
+
+            return view('categories.category.show', compact("category", "videoNewsPosts", "subCategories"));
         }
     }
 }

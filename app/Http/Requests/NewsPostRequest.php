@@ -26,7 +26,9 @@ class NewsPostRequest extends FormRequest
     public function rules()
     {
         $rules= [
+
             "sub_category_id"=>["required",Rule::exists("sub_categories", "id")],
+            "language_id"=>["required",Rule::exists("languages", "id")],
             "title"=>["required","string",Rule::unique("news_posts", "title")],
             "slug"=>["required","string",Rule::unique("news_posts", "slug")],
             "body"=>["required","string"],

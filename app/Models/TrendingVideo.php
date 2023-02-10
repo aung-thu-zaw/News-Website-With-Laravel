@@ -18,4 +18,9 @@ class TrendingVideo extends Model
             "caption" => $this->caption,
         ];
     }
+
+    public function language()
+    {
+        return $this->belongsTo(Language::class);
+    }
 }

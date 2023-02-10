@@ -7,7 +7,7 @@
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
                 <a class="text-decoration-none" href="{{ route('news.index') }}" data-bs-toggle="tooltip"
-                    data-bs-title="Home">Home</a>
+                    data-bs-title="{{HOME}}">Home</a>
             </li>
             <li class="breadcrumb-item active" aria-current="page">
                 <a class="text-decoration-none"
@@ -39,7 +39,7 @@
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
                 <a class="text-decoration-none" href="{{ route('news.index') }}" data-bs-toggle="tooltip"
-                    data-bs-title="Home">Home</a>
+                    data-bs-title="{{HOME}}">Home</a>
             </li>
             <li class="breadcrumb-item active" aria-current="page">
                 <a class="text-decoration-none"
@@ -53,7 +53,7 @@
             </li>
             <li class="breadcrumb-item active" aria-current="page">
                 <span data-bs-toggle="tooltip" data-bs-title="Posts">
-                    All
+                    {{ ALL }}
                 </span>
             </li>
         </ol>
@@ -67,7 +67,7 @@
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
                 <a class="text-decoration-none" href="{{ route('news.index') }}" data-bs-toggle="tooltip"
-                    data-bs-title="Home">Home</a>
+                    data-bs-title="{{HOME}}">Home</a>
             </li>
             <li class="breadcrumb-item active" aria-current="page">
                 <span data-bs-toggle="tooltip" data-bs-title="Category">
@@ -76,7 +76,7 @@
             </li>
             <li class="breadcrumb-item active" aria-current="page">
                 <span data-bs-toggle="tooltip" data-bs-title="Posts">
-                    All
+                    {{ ALL }}
                 </span>
             </li>
         </ol>
@@ -92,16 +92,16 @@
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
                 <a class="text-decoration-none" href="{{ route('news.index') }}" data-bs-toggle="tooltip"
-                    data-bs-title="Home">Home</a>
+                    data-bs-title="{{HOME}}">Home</a>
             </li>
             <li class="breadcrumb-item active" aria-current="page">
-                <span data-bs-toggle="tooltip" data-bs-title="Post">
-                    Gallery
+                <span data-bs-toggle="tooltip" data-bs-title="{{ GALLERY }}">
+                    {{ GALLERY }}
                 </span>
             </li>
             <li class="breadcrumb-item active" aria-current="page">
-                <span data-bs-toggle="tooltip" data-bs-title="Post">
-                    {{$photos}}
+                <span data-bs-toggle="tooltip" data-bs-title="{{ PHOTOS }}">
+                    {{ PHOTOS }}
                 </span>
             </li>
         </ol>
@@ -116,16 +116,16 @@
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
                 <a class="text-decoration-none" href="{{ route('news.index') }}" data-bs-toggle="tooltip"
-                    data-bs-title="Home">Home</a>
+                    data-bs-title="{{HOME}}">Home</a>
             </li>
             <li class="breadcrumb-item active" aria-current="page">
-                <span data-bs-toggle="tooltip" data-bs-title="Post">
-                    Gallery
+                <span data-bs-toggle="tooltip" data-bs-title="{{ GALLERY }}">
+                    {{ GALLERY }}
                 </span>
             </li>
             <li class="breadcrumb-item active" aria-current="page">
-                <span data-bs-toggle="tooltip" data-bs-title="Post">
-                    {{ $videos }}
+                <span data-bs-toggle="tooltip" data-bs-title="{{ VIDEOS }}">
+                    {{ VIDEOS }}
                 </span>
             </li>
         </ol>
@@ -140,7 +140,7 @@
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
                 <a class="text-decoration-none" href="{{ route('news.index') }}" data-bs-toggle="tooltip"
-                    data-bs-title="Home">Home</a>
+                    data-bs-title="{{HOME}}">Home</a>
             </li>
             <li class="breadcrumb-item active" aria-current="page">
                 <span data-bs-toggle="tooltip" data-bs-title="Date">
@@ -149,7 +149,7 @@
             </li>
             <li class="breadcrumb-item active" aria-current="page">
                 <span data-bs-toggle="tooltip" data-bs-title="Posts">
-                    All
+                    {{ ALL }}
                 </span>
             </li>
         </ol>
@@ -165,7 +165,7 @@
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
                 <a class="text-decoration-none" href="{{ route('news.index') }}" data-bs-toggle="tooltip"
-                    data-bs-title="Home">Home</a>
+                    data-bs-title="{{HOME}}">Home</a>
             </li>
             <li class="breadcrumb-item active" aria-current="page">
                 <span data-bs-toggle="tooltip" data-bs-title="Popular News">
@@ -174,7 +174,7 @@
             </li>
             <li class="breadcrumb-item active" aria-current="page">
                 <span data-bs-toggle="tooltip" data-bs-title="Posts">
-                    All
+                    {{ ALL }}
                 </span>
             </li>
         </ol>
@@ -188,7 +188,7 @@
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
                 <a class="text-decoration-none" href="{{ route('news.index') }}" data-bs-toggle="tooltip"
-                    data-bs-title="Home">Home</a>
+                    data-bs-title="{{HOME}}">Home</a>
             </li>
             <li class="breadcrumb-item active" aria-current="page">
                 <span data-bs-toggle="tooltip" data-bs-title="Recent News">
@@ -197,7 +197,7 @@
             </li>
             <li class="breadcrumb-item active" aria-current="page">
                 <span data-bs-toggle="tooltip" data-bs-title="Posts">
-                    All
+                    {{ ALL }}
                 </span>
             </li>
         </ol>
@@ -212,7 +212,7 @@
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
                 <a class="text-decoration-none" href="{{ route('news.index') }}" data-bs-toggle="tooltip"
-                    data-bs-title="Home">Home</a>
+                    data-bs-title="{{HOME}}">Home</a>
             </li>
             <li class="breadcrumb-item active" aria-current="page">
                 <span data-bs-toggle="tooltip" data-bs-title="Video News">
@@ -221,7 +221,7 @@
             </li>
             <li class="breadcrumb-item active" aria-current="page">
                 <span data-bs-toggle="tooltip" data-bs-title="Posts">
-                    All
+                    {{ ALL }}
                 </span>
             </li>
         </ol>
@@ -237,7 +237,7 @@
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
                 <a class="text-decoration-none" href="{{ route('news.index') }}" data-bs-toggle="tooltip"
-                    data-bs-title="Home">Home</a>
+                    data-bs-title="{{HOME}}">Home</a>
             </li>
             <li class="breadcrumb-item active" aria-current="page">
                 <span data-bs-toggle="tooltip" data-bs-title="Tag">
@@ -246,7 +246,7 @@
             </li>
             <li class="breadcrumb-item active" aria-current="page">
                 <span data-bs-toggle="tooltip" data-bs-title="Posts">
-                    All
+                    {{ ALL }}
                 </span>
             </li>
         </ol>

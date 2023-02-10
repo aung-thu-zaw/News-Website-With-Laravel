@@ -11,6 +11,13 @@ class VideoGallery extends Model
     use HasFactory;
     use Searchable;
 
+
+    public function language()
+    {
+        return $this->belongsTo(Language::class);
+    }
+
+
     public function toSearchableArray()
     {
         return [

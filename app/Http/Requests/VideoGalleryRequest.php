@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Validation\Rule;
 
 class VideoGalleryRequest extends FormRequest
 {
@@ -25,6 +26,7 @@ class VideoGalleryRequest extends FormRequest
     public function rules()
     {
         return [
+            "language_id"=>["required",Rule::exists("languages", "id")],
             "video_id"=>["required"],
             "owner"=>["required"],
             "caption"=>["required"]

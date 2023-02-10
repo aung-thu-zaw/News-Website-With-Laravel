@@ -4,7 +4,7 @@
             <div class="col-12">
                 <x-breadcrumbs :category="$category" />
 
-                <x-filter-search-form />
+                <x-filter-search-form :subcategories="$subCategories" />
 
                 @if (request("type")=="articles")
                 <x-search-news-posts-result :posts="$newsPosts" />

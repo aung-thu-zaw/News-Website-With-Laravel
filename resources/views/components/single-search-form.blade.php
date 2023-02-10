@@ -7,7 +7,7 @@
         </div>
 
         <div class="col-lg-2 my-2">
-            <select name="type" id="" class="form-select">
+            <select name="type" id="" class="form-select" onchange="this.form.submit()">
                 <option value="" disabled>{{ FILTER_BY_TYPE }}</option>
                 <option value="articles" {{ request("type")=="articles" ? "selected" : "" }} selected>{{ ARTICLES }}
                 </option>

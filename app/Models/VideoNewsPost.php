@@ -32,6 +32,12 @@ class VideoNewsPost extends Model
         return $this->morphToMany(Tag::class, "tagable");
     }
 
+    public function language()
+    {
+        return $this->belongsTo(Language::class);
+    }
+
+
     #[SearchUsingFullText(['body'])]
     public function toSearchableArray()
     {
