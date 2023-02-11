@@ -16,7 +16,7 @@ class AdminLanguageController extends Controller
     {
         Meta::prependTitle("Languages");
 
-        $languages=Language::paginate(10);
+        $languages=Language::search(request("search"))->paginate(10);
 
         return view("admin.dashboard.languages.index", compact("languages"));
     }
