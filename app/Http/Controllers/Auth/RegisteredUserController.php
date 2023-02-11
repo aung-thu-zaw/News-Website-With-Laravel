@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Laravolt\Avatar\Avatar;
+use Butschster\Head\Facades\Meta;
+use LanguageHelper;
 
 class RegisteredUserController extends Controller
 {
@@ -21,6 +23,10 @@ class RegisteredUserController extends Controller
      */
     public function create()
     {
+        Meta::setTitle("Register");
+
+        LanguageHelper::readJson();
+
         return view('auth.register');
     }
 

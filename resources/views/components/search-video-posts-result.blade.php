@@ -34,9 +34,7 @@
                         class="header-news-tag-sm text-white my-1 text-decoration-none">{{
                         $post->subCategory->name
                         }}</a>
-
                 </div>
-
 
                 <div class="d-flex align-items-center justify-content-between">
                     <div class="icon-box-sm">
@@ -44,10 +42,10 @@
                             <i class="fa-solid fa-user me-1"></i>
                             @if ($author)
                             <a href="{{ route('author.details',['author'=>$author->id,'type'=>'articles']) }}"
-                                class="text-white">{{ $author->name }}</a>
+                                class="text-dark">{{ $author->name }}</a>
                             @else
                             <a href="{{ route('author.details',['author'=>$post->author->id,'type'=>'articles']) }}"
-                                class="text-white">{{ $post->author->name }}</a>
+                                class="text-dark">{{ $post->author->name }}</a>
                             @endif
                         </span>
                         <span class="">

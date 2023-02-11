@@ -2,6 +2,7 @@
 
 namespace App\View\Components;
 
+use App\Models\Language;
 use App\Models\Tag;
 use Illuminate\View\Component;
 

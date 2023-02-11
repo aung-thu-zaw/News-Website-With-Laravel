@@ -23,6 +23,18 @@
                         $post->subCategory->name
                         }}</a>
                 </div>
+
+
+
+
+
+
+
+
+
+
+
+
                 <div class="d-flex align-items-center justify-content-between">
                     <div class="icon-box-sm">
                         <span>
@@ -52,6 +64,13 @@
                         </span>
                     </div>
                 </div>
+
+
+
+
+
+
+
             </div>
         </div>
     </div>

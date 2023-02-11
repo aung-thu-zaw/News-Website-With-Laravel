@@ -44,5 +44,16 @@
     "ADDRESS": "လိပ်စာ",
     "MESSAGE": "သတင်းစကား",
     "SUBMIT": "တင်ပြပါ",
-    "YOUR_FULL_NAME": "နာမည်အပြည့်အစုံ"
+    "YOUR_FULL_NAME": "နာမည်အပြည့်အစုံ",
+    "LOGIN_HERE": "ဤနေရာတွင် ဝင်ရောက်ပါ။",
+    "REGISTER_HERE": "ဤနေရာတွင် စာရင်းသွင်းပါ။",
+    "PASSWORD": "စကားဝှက်",
+    "CONFIRM_PASSWORD": "စကားဝှက်အတည်ပြုခြင်း",
+    "FORGOT_PASSWORD": "စကားဝှက်မေ့နေပါသလား",
+    "REMEMBER_ME": "ကျွန်တော့်ကိုမှတ်မိပါသလား",
+    "SIGN_UP_WITH": "ဖြင့် စာရင်းသွင်းပါ။",
+    "SIGN_UP": "ဆိုင်းအပ်",
+    "YOU_DONT_HAVE_AN_ACCOUNT_PLEASE": "သင့်တွင် အကောင့်တစ်ခု မရှိပါ။ ကျေးဇူးပြု",
+    "ALREADY_HAVE_AN_ACCOUNT_PLEASE": "အကောင့်ရှိပြီးသားလား! ကျေးဇူးပြု",
+    "USERNAME": "အသုံးပြုသူအမည်"
 }

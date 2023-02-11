@@ -44,5 +44,16 @@
     "ADDRESS": "Address",
     "MESSAGE": "Message",
     "SUBMIT": "Submit",
-    "YOUR_FULL_NAME": "Your Full Name"
+    "YOUR_FULL_NAME": "Your Full Name",
+    "LOGIN_HERE": "Login Here",
+    "REGISTER_HERE": "Register Here",
+    "PASSWORD": "Password",
+    "CONFIRM_PASSWORD": "Confirm Password",
+    "FORGOT_PASSWORD": "Forgot Password",
+    "REMEMBER_ME": "Remember me",
+    "SIGN_UP_WITH": "Sign Up With",
+    "SIGN_UP": "Sign Up",
+    "YOU_DONT_HAVE_AN_ACCOUNT_PLEASE": "You don't have an account Please",
+    "ALREADY_HAVE_AN_ACCOUNT_PLEASE": "Already have an account Please",
+    "USERNAME": "Username"
 }

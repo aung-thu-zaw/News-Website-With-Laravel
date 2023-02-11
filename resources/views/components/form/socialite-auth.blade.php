@@ -2,7 +2,7 @@
     <span class="text-secondary rounded-circle"> Or: </span>
 </div>
 <div class="text-center p-2 d-flex flex-column align-items-center">
-    <p class="">Sign up with</p>
+    <p class="">{{ SIGN_UP_WITH }}</p>
     <div class="w-50 d-flex align-items center justify-content-around">
         <div>
             <a href="{{ route('redirect.facebook') }}" class="icon facebook text-decoration-none">

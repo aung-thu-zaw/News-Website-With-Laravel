@@ -9,6 +9,8 @@ use App\Notifications\TwoFactorCode;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Butschster\Head\Facades\Meta;
+use LanguageHelper;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -19,6 +21,10 @@ class AuthenticatedSessionController extends Controller
      */
     public function create()
     {
+        Meta::setTitle("Login");
+
+        LanguageHelper::readJson();
+
         return view('auth.login');
     }
 
@@ -30,7 +36,6 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request)
     {
-
         // dd($request->all());
         $request->authenticate();
         if (auth()->user()->enable_two_factor==="enable") {

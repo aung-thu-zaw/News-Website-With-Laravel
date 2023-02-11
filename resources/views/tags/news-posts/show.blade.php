@@ -3,12 +3,10 @@
         <div class="row g-3">
             <div class="col-12">
 
-
-
                 <x-breadcrumbs :tag="$tag->name" />
 
 
-                <x-filter-search-form />
+                <x-filter-search-form :subcategories="$subCategories" />
 
                 @if (request("type")=="articles")
                 <x-search-news-posts-result :posts="$newsPosts" />
