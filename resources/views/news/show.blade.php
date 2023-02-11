@@ -19,8 +19,6 @@
 
                     <x-sidebar-top-advertisement />
 
-                    <x-online-poll />
-
                     <x-datepicker />
 
                     <x-tags />

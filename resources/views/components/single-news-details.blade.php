@@ -43,14 +43,14 @@
 
     <div class="border-top border-bottom border-3 d-flex align-items-center justify-content-between my-3">
         <div class="w-25 d-flex align-items-center justify-content-around text-secondary">
-            <span onclick="like()">
+            {{-- <span onclick="like()">
                 <i class="fa-solid fa-thumbs-up me-2 like-icon"></i></i>
                 20
             </span>
             <span onclick="dislike()">
                 <i class="fa-solid fa-thumbs-down me-2 dislike-icon"></i></i>
                 20
-            </span>
+            </span> --}}
             <span class="text-secondary"><i class="fa-solid fa-eye me-2"></i>{{ $post->visitors }}</span>
         </div>
         <div>

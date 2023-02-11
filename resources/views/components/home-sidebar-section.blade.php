@@ -6,8 +6,6 @@
 
     <x-live-video-box />
 
-    <x-online-poll />
-
     <x-datepicker />
 
     <x-tags />

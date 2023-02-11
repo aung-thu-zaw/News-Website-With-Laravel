@@ -29,6 +29,9 @@ class VideoNewsController extends Controller
     {
         Meta::setTitle($videoNewsPost->title);
 
+
+        LanguageHelper::readJson();
+
         $socialShare=Share::currentPage()
                     ->facebook()
                     ->twitter()
