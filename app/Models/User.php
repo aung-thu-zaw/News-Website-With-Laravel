@@ -52,15 +52,6 @@ class User extends Authenticatable implements MustVerifyEmail
     ];
 
 
-    protected function password(): Attribute
-    {
-        return Attribute::make(
-            set: fn ($value) => bcrypt($value),
-            // get: fn ($value) => decrypt($value),
-        );
-    }
-
-
     public function generateTwoFactorCode()
     {
         $this->timestamps=false;
