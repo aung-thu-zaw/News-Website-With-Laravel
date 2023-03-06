@@ -30,7 +30,7 @@ class UserSeeder extends Seeder
             ",
             "avatar"=>"avatar-1.jpg",
             "email"=>"aungthuzaw@gmail.com",
-            "password"=>"Password!",
+            "password"=>bcrypt("Password!"),
             "role"=>"admin",
             "twitter_link"=>"http://example.com",
         ]);
@@ -50,7 +50,7 @@ class UserSeeder extends Seeder
             ",
             "avatar"=>"avatar-2.jpg",
             "email"=>"kevin@gmail.com",
-            "password"=>"Password!",
+            "password"=>bcrypt("Password!"),
             "role"=>"writer",
             "twitter_link"=>"http://example.com",
         ]);
@@ -70,7 +70,7 @@ class UserSeeder extends Seeder
             ",
             "avatar"=>"avatar-3.jpg",
             "email"=>"xyder@gmail.com",
-            "password"=>"Password!",
+            "password"=>bcrypt("Password!"),
             "role"=>"editor",
             "twitter_link"=>"http://example.com",
         ]);
@@ -90,7 +90,7 @@ class UserSeeder extends Seeder
             ",
             "avatar"=>"avatar-4.jpg",
             "email"=>"john@gmail.com",
-            "password"=>"Password!",
+            "password"=>bcrypt("Password!"),
             "role"=>"writer",
             "twitter_link"=>"http://example.com",
         ]);
@@ -110,7 +110,7 @@ class UserSeeder extends Seeder
             ",
             "avatar"=>"avatar-5.jpg",
             "email"=>"sam@gmail.com",
-            "password"=>"Password!",
+            "password"=>bcrypt("Password!"),
             "role"=>"writer",
             "twitter_link"=>"http://example.com",
         ]);
@@ -130,7 +130,7 @@ class UserSeeder extends Seeder
             ",
             "avatar"=>"avatar-6.jpg",
             "email"=>"jaden@gmail.com",
-            "password"=>"Password!",
+            "password"=>bcrypt("Password!"),
             "role"=>"editor",
             "twitter_link"=>"http://example.com",
         ]);

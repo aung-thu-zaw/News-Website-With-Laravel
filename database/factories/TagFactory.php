@@ -17,6 +17,7 @@ class TagFactory extends Factory
     public function definition()
     {
         return [
+            "language_id"=>1,
             "name"=>$this->faker->name(),
             "slug"=>$this->faker->slug()
         ];
