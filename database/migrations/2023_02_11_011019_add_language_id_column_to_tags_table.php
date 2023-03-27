@@ -13,7 +13,7 @@ return new class () extends Migration {
     public function up()
     {
         Schema::table('tags', function (Blueprint $table) {
-            $table->foreignId("language_id")->after("id")->constrained();
+            $table->foreignId("language_id")->default(1)->after("id")->constrained();
         });
     }
 

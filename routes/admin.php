@@ -24,6 +24,7 @@ use App\Http\Controllers\Admin\Dashboard\Posts\AdminTrendingVideosController;
 use App\Http\Controllers\Admin\Dashboard\Posts\AdminVideoNewsPostController;
 use App\Http\Controllers\Admin\Dashboard\Users\AdminNormalUserListController;
 use App\Http\Controllers\Admin\Dashboard\Users\AdminPermissionUserListController;
+use App\Http\Controllers\Tags\TagPostController;
 use Illuminate\Support\Facades\Route;
 
 # ============== Admin Dashboard ==============

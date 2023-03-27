@@ -31,6 +31,7 @@ class TagService
 
                 if (!$countExisitngTags) {
                     $tagModel=new Tag();
+                    $tagModel->language_id=$post->language_id;
                     $tagModel->name=$tag;
                     $tagModel->slug=strtolower(str_replace(" ", "-", $tag));
                     $tagModel->save();
@@ -38,7 +39,9 @@ class TagService
                 }
 
                 if ($countExisitngTags) {
-                    $post->tags()->attach($exisitngTags);
+                    foreach ($exisitngTags as $exisitngTag) {
+                        $post->tags()->attach($exisitngTag);
+                    }
                 }
             }
         }
@@ -69,6 +72,7 @@ class TagService
 
                 if (!$countExisitngTags) {
                     $tagModel=new Tag();
+                    $tagModel->language_id=$newsPost->language_id;
                     $tagModel->name=$tag;
                     $tagModel->slug=strtolower(str_replace(" ", "-", $tag));
                     $tagModel->save();
@@ -83,7 +87,9 @@ class TagService
 
 
                 if ($countExisitngTags) {
-                    $newsPost->tags()->attach($exisitngTags);
+                    foreach ($exisitngTags as $exisitngTag) {
+                        $newsPost->tags()->attach($exisitngTag);
+                    }
                 }
             }
         }
@@ -112,6 +118,7 @@ class TagService
 
                 if (!$countExisitngTags) {
                     $tagModel=new Tag();
+                    $tagModel->language_id=$videoNewsPost->language_id;
                     $tagModel->name=$tag;
                     $tagModel->slug=strtolower(str_replace(" ", "-", $tag));
                     $tagModel->save();
@@ -125,7 +132,9 @@ class TagService
                 }
 
                 if ($countExisitngTags) {
-                    $videoNewsPost->tags()->attach($exisitngTags);
+                    foreach ($exisitngTags as $exisitngTag) {
+                        $videoNewsPost->tags()->attach($exisitngTag);
+                    }
                 }
             }
         }
